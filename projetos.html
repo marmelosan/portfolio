@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projetos - Portfólio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      background-color: #fefefe;
+      color: #222;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem 0;
+    }
+
+    header.main-header {
+      background: #111;
+      color: white;
+      padding: 1rem 0;
+    }
+
+    .main-header .logo {
+      font-size: 1.8rem;
+    }
+
+    .main-header a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .main-nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .main-nav li {
+      display: inline;
+    }
+
+    .projects {
+      padding: 3rem 1rem;
+    }
+
+    .projects h2 {
+      font-size: 2.3rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .project-item {
+      background: #f4f4f4;
+      border: 1px solid #ddd;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+    }
+
+    .project-item h3 {
+      color: #0056b3;
+      font-size: 1.6rem;
+    }
+
+    .project-item a {
+      color: #0056b3;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .project-item a:hover {
+      text-decoration: underline;
+      color: #003f8a;
+    }
+
+    footer.main-footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="container">
+      <h1 class="logo"><a href="index.html">[Teu Nome]</a></h1>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="about.html">Sobre Mim</a></li>
+          <li><a href="projects.html">Projetos</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="projects">
+    <div class="container">
+      <h2>Projetos Profissionais</h2>
+
+      <div class="project-item">
+        <h3><a href="https://www.newgreenfil.com" target="_blank">Newgreenfil</a></h3>
+        <p>Responsável por desenvolver uma estratégia de marketing digital centrada na sustentabilidade e nas aplicações industriais. Aumentei o tráfego orgânico e posicionei a marca em segmentos estratégicos do mercado B2B.</p>
+      </div>
+
+      <div class="project-item">
+        <h3><a href="https://www.beliani.pt" target="_blank">Beliani</a></h3>
+        <p>Colaborei na gestão de campanhas de paid media (Google Ads e Facebook), bem como na otimização do conteúdo de e-commerce e UX em páginas de produto.</p>
+      </div>
+
+      <div class="project-item">
+        <h3><a href="https://www.clubedospecados.pt" target="_blank">Clube dos Pecados</a></h3>
+        <p>Desenvolvi o rebranding e a estratégia de redes sociais de uma marca irreverente no setor de entretenimento adulto. Acompanhei também o lançamento de campanhas de email marketing com excelente taxa de conversão.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="main-footer">
+    <div class="container">
+      <p>&copy; 2025 [Teu Nome]. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

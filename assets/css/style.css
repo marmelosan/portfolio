@@ -1922,3 +1922,14 @@ textarea.form-input::-webkit-resizer { display: none; }
   object-fit: cover; /* ou `contain`, se preferires sem corte */
   display: block;
 }
+
+/* Garante que todo o texto no resume fica legível */
+.resume,
+.resume h2, 
+.resume h3, 
+.resume h4,
+.resume span,
+.resume p,
+.resume li {
+  color: var(--white-2);
+}

@@ -1989,5 +1989,17 @@ textarea.form-input::-webkit-resizer { display: none; }
   font-size: 40px;
   font-weight: bold;
   cursor: pointer;
+
+
+.video-wrapper + .project-item-icon-box {
+  display: none;
+}
+
+.project-img video + .project-item-icon-box {
+  display: none;
+}
+
+.project-img iframe + .project-item-icon-box {
+  display: none;
 }
 

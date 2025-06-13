@@ -1934,6 +1934,26 @@ textarea.form-input::-webkit-resizer { display: none; }
   color: var(--white-2);
 }
 
+/* LIMPA OVERLAYS E PERMITE VÍDEO FULLSCREEN E SOM */
+.clean-video {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  overflow: hidden;
+  background: black;
+  box-shadow: var(--shadow-2);
+}
+
+.clean-video video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* Remove ícone de overlay se ainda existir */
 .project-item-icon-box {
-  pointer-events: none;
+  display: none !important;
 }

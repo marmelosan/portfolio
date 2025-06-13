@@ -2003,3 +2003,31 @@ textarea.form-input::-webkit-resizer { display: none; }
   display: none;
 }
 
+.project-img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 16px;
+  background-color: #111; /* fallback */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-img img,
+.project-img video,
+.project-img iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border: none;
+  border-radius: 16px;
+}
+
+/* Esconde o olho nos vídeos/iframes */
+.project-img video + .project-item-icon-box,
+.project-img iframe + .project-item-icon-box {
+  display: none;
+}

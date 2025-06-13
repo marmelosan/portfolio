@@ -1953,7 +1953,13 @@ textarea.form-input::-webkit-resizer { display: none; }
   border-radius: 16px;
 }
 
-/* Remove ícone de overlay se ainda existir */
-.project-item-icon-box {
-  display: none !important;
+.project-img::before {
+  pointer-events: none !important;
 }
+
+.video-wrapper iframe {
+  z-index: 2;
+  position: relative;
+  pointer-events: auto;
+}
+

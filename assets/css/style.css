@@ -4,7 +4,7 @@
 
 
 /**
- * copyright 2022 @codewithsadee
+ * copyright 2025 @sandromarmelo
  */
 
 
@@ -1879,4 +1879,30 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .timeline-text { max-width: 700px; }
 
+}
+
+/*-----------------------------------*\
+  #VIDEO PLAYER (EMBED RESPONSIVO)
+\*-----------------------------------*/
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* Proporção 16:9 */
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: var(--shadow-3);
+  background: var(--eerie-black-1);
+  margin-bottom: 20px;
+}
+
+.video-wrapper iframe,
+.video-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
 }

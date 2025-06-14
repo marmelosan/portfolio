@@ -1984,7 +1984,6 @@ textarea.form-input::-webkit-resizer { display: none; }
   box-sizing: border-box;
   scroll-behavior: smooth; /* <-- AQUI no final está perfeito */
 }
-}
 
 .modal-content {
   position: relative;
@@ -2007,7 +2006,16 @@ textarea.form-input::-webkit-resizer { display: none; }
   background-color: #000;
 }
 
-.modal-content video,
+.modal-content video {
+  width: 100%;
+  max-height: 70vh;
+  min-height: 300px;
+  display: block;
+  margin: auto;
+  border-radius: 10px;
+  background-color: #000;
+}
+
 .modal-content img {
   width: 100%;
   max-height: 70vh;/* força altura visível */

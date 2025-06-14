@@ -176,6 +176,8 @@ document.querySelectorAll('.open-modal').forEach(el => {
       media.src = src;
       media.controls = true;
       media.autoplay = true;
+media.style.width = "100%";
+media.style.height = "70vh"; // <- altura mínima garantida
     } else if (type === 'image') {
       media = document.createElement('img');
       media.src = src;

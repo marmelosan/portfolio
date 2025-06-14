@@ -707,38 +707,365 @@
         - #PORTFOLIO
       -->
 
-<section id="portfolio">
-  <div class="filter-list">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="copywriting">Copywriting</button>
-    <button class="filter-btn" data-filter="branding">Branding</button>
-    <button class="filter-btn" data-filter="e-commerce">E‑commerce</button>
-  </div>
+      <article class="portfolio" data-page="portfolio">
 
-  <div class="projects-grid">
-    <!-- EXEMPLO ITEM -->
-    <div class="gallery-item" data-category="branding">
-      <div class="thumb-wrapper">
-        <img src="https://img.youtube.com/vi/xLzjcl9GP2M/hqdefault.jpg" alt="" class="gallery-thumb">
-        <div class="play-icon">▶️</div>
+        <header>
+          <h2 class="h2 article-title">Portfolio</h2>
+        </header>
+
+        <section class="projects">
+
+          <ul class="filter-list">
+
+            <li class="filter-item">
+              <button class="active" data-filter-btn>All</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Copywriting</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Branding</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>E-commerce</button>
+            </li>
+
+          </ul>
+
+          <div class="filter-select-box">
+
+            <button class="filter-select" data-select>
+
+              <div class="select-value" data-selecct-value>Select category</div>
+
+              <div class="select-icon">
+                <ion-icon name="chevron-down"></ion-icon>
+              </div>
+
+            </button>
+
+            <ul class="select-list">
+
+              <li class="select-item">
+                <button data-select-item>All</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Copywriting</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Branding</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>E-commerce</button>
+              </li>
+
+            </ul>
+
+          </div>
+
+          <ul class="project-list">
+
+            <li class="project-item active" data-filter-item data-category="web development">
+  <a href="#">
+
+    <!-- BLOCO VISUAL (VIDEO) -->
+    <figure class="project-img">
+      <div class="project-item-icon-box">
+        <ion-icon name="eye-outline"></ion-icon>
       </div>
-      <div class="gallery-info">
-        <h3>Beliani – Delivering Happiness</h3>
-        <p>Branding (Vídeo YouTube)</p>
+
+      <div class="video-wrapper">
+        <iframe 
+          src="https://www.youtube.com/embed/xLzjcl9GP2M?autoplay=1&mute=1&loop=1&playlist=xLzjcl9GP2M"
+          title="Beliani - Delivering Happiness"
+          allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen 
+          loading="lazy">
+        </iframe>
       </div>
-      <button class="lightbox-trigger" data-type="youtube" data-src="https://www.youtube.com/embed/xLzjcl9GP2M">Ver</button>
-    </div>
-    <!-- Adiciona outros itens seguindo este modelo -->
-  </div>
-</section>
+    </figure>
 
-<!-- LIGHTBOX -->
-<div class="lightbox">
-  <div class="lightbox-content"></div>
-  <span class="close">&times;</span>
-</div>
+    <!-- TÍTULO + CATEGORIA -->
+    <h3 class="project-title">Beliani - Delivering Happiness</h3>
+    <p class="project-category">Branding</p>
+
+  </a>
+</li>
+
+<li class="project-item active" data-filter-item data-category="branding">
+  <a href="#">
+
+    <figure class="project-img">
+      <div class="project-item-icon-box">
+        <ion-icon name="eye-outline"></ion-icon>
+      </div>
+
+      <div class="video-wrapper">
+        <video autoplay muted loop playsinline loading="lazy">
+          <source src="./assets/videos/beliani_campanha_junho2025.mp4" type="video/mp4">
+        </video>
+      </div>
+    </figure>
+
+    <h3 class="project-title">Beliani – Campanha Aniversário - Junho 2025</h3>
+    <p class="project-category">Copywriting</p>
+
+  </a>
+</li>
+
+<li class="project-item active" data-filter-item data-category="branding">
+  <a href="#">
+
+    <figure class="project-img">
+      <div class="project-item-icon-box">
+        <ion-icon name="eye-outline"></ion-icon>
+      </div>
+
+      <div class="video-wrapper">
+        <video autoplay muted loop playsinline loading="lazy">
+          <source src="./assets/videos/beliani_socialmedia_2024.mp4" type="video/mp4">
+        </video>
+      </div>
+    </figure>
+
+    <h3 class="project-title">Beliani – Social Media 2024</h3>
+    <p class="project-category">Translation/Social Media</p>
+
+  </a>
+</li>
 
 
+  
+<li class="project-item active" data-filter-item data-category="branding">
+  <a href="#">
+
+    <figure class="project-img">
+      <div class="project-item-icon-box">
+        <ion-icon name="eye-outline"></ion-icon>
+      </div>
+
+      <div class="video-wrapper">
+        <video autoplay muted loop playsinline loading="lazy">
+          <source src="./assets/videos/pt_campaign_2025.mp4" type="video/mp4">
+        </video>
+      </div>
+    </figure>
+
+    <h3 class="project-title">Beliani – Campaign 2025</h3>
+    <p class="project-category">Copywriting/Translation</p>
+
+  </a>
+</li>
+
+<li class="project-item active" data-filter-item data-category="branding">
+  <a href="#">
+
+    <figure class="project-img">
+      <div class="project-item-icon-box">
+        <ion-icon name="eye-outline"></ion-icon>
+      </div>
+
+      <div class="video-wrapper">
+        <iframe 
+          src="https://www.youtube.com/embed/DMoMl-zikTI?autoplay=1&mute=1&loop=1&playlist=DMoMl-zikTI"
+          title="VSNS Branding Course Clip"
+          allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen 
+          loading="lazy">
+        </iframe>
+      </div>
+    </figure>
+
+    <h3 class="project-title">Vans – Branding Course Clip</h3>
+    <p class="project-category">Branding</p>
+
+  </a>
+</li>
+
+
+            <li class="project-item  active" data-filter-item data-category="E-commerce">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/joiasonline1.png" alt="joias online hero" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">JóiasOnline – Homepage Hero</h3>
+
+                <p class="project-category">E-commerce</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="E-commerce">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/Joiasonline2.jpg" alt="joiasonline galery" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">JóiasOnline – Product Gallery</h3>
+
+                <p class="project-category">E-commerce</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="E-commerce">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/joiasonline3.png" alt="Product details Joias online" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">JóiasOnline – Product Detail Page</h3>
+
+                <p class="project-category">Content Writing</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Branding">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/Newgreenfil1.png" alt="dsm." loading="lazy">
+                </figure>
+
+                <h3 class="project-title">NewGreenfil – Hero Campaign</h3>
+
+                <p class="project-category">Branding</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="E-commerce">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/Newgreenfil2.png" alt="metaspark" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Lead Magnet Banner</h3>
+
+                <p class="project-category">E-commerce</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="E-commerce/Branding">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-7.png" alt="Footer" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">NewGreenfil – Footer & Legal UX</h3>
+
+                <p class="project-category">E-commerce/Branding</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Copywriting">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/beliani1.png" alt="Homepage + Newsletter banner for Beliani" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Homepage + Newsletter banner for Beliani Anniversary Campaign</h3>
+
+                <p class="project-category">Copywriting</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Copywriting">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/beliani3.png" alt="Product description" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Product listing for Beliani</h3>
+
+                <p class="project-category">E-commerce</p>
+
+              </a>
+            </li>
+            
+            <li class="project-item active" data-filter-item data-category="Branding">
+  <a href="#">
+
+    <figure class="project-img">
+      <div class="project-item-icon-box">
+        <ion-icon name="eye-outline"></ion-icon>
+      </div>
+
+      <img src="./assets/images/beliani6.png" alt="Halloween Campaign visual 1 – Beliani" loading="lazy">
+    </figure>
+
+    <h3 class="project-title">Beliani – Halloween Promo 1</h3>
+    <p class="project-category">Copywriting</p>
+
+  </a>
+</li>
+
+<li class="project-item active" data-filter-item data-category="Branding">
+  <a href="#">
+
+    <figure class="project-img">
+      <div class="project-item-icon-box">
+        <ion-icon name="eye-outline"></ion-icon>
+      </div>
+
+      <img src="./assets/images/beliani7.png" alt="Halloween Campaign visual 2 – Beliani" loading="lazy">
+    </figure>
+
+    <h3 class="project-title">Beliani – Halloween Promo 2</h3>
+    <p class="project-category">Copywriting</p>
+
+  </a>
+</li>
 
 
           </ul>

@@ -2002,3 +2002,22 @@ textarea.form-input::-webkit-resizer { display: none; }
   color: #fff;
   cursor: pointer;
 }
+
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-item.active {
+  display: initial;
+}
+
+.project-item > a:hover .project-img::before {
+  background: transparent;
+}
+
+.video-wrapper iframe,
+.video-wrapper video {
+  z-index: 2;
+  pointer-events: auto;

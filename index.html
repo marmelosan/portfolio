@@ -1,77 +1,1024 @@
-<!DOCTYPE html>
+</body>
+</html><!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>vCard - Personal Portfolio</title>
+
+  <!--
+    - favicon
+  -->
   <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
   <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
+
+  <!--
+    - #MAIN
+  -->
 
   <main>
 
+    <!--
+      - #SIDEBAR
+    -->
+
     <aside class="sidebar" data-sidebar>
-      <!-- Sidebar Info + Contacts -->
-      <!-- ... (o teu conteúdo existente) ... -->
-    </aside>
 
-    <div class="main-content">
-      <nav class="navbar">
-        <!-- links da navegação -->
-      </nav>
+      <div class="sidebar-info">
 
-      <article class="about active" data-page="about">
-        <!-- Conteúdo da Secção About -->
-      </article>
+        <figure class="avatar-box">
+          <img src="./assets/images/my-avatar.png" alt="Sandro Marmelo" width="80">
+        </figure>
 
-      <article class="resume" data-page="resume">
-        <!-- Conteúdo do Resume -->
-      </article>
+        <div class="info-content">
+          <h1 class="name" title="Sandro Marmelo">Sandro Marmelo</h1>
 
-      <section id="portfolio">
-        <!-- Portfólio -->
-      </section>
+          <p class="title">Digital Marketing & Commerce Expert</p>
+        </div>
 
-      <article class="blog" data-page="blog">
-        <!-- Blog -->
-      </article>
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
 
-      <article class="contact" data-page="contact">
-        <!-- Contacto + Form -->
-      </article>
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
 
-      <!-- TESTIMONIALS MODAL: agora sem 'active' por defeito -->
-      <div class="modal-container" data-modal-container>
-        <div class="overlay" data-overlay></div>
-        <section class="testimonials-modal">
-          <button class="modal-close-btn" data-modal-close-btn>
-            <ion-icon name="close-outline"></ion-icon>
-          </button>
-          <div class="modal-img-wrapper">
-            <figure class="modal-avatar-box">
-              <img src="./assets/images/avatar-1.png" alt="Testimonial Avatar" width="80" data-modal-img>
-            </figure>
-            <img src="./assets/images/icon-quote.svg" alt="quote icon">
-          </div>
-          <div class="modal-content">
-            <h4 class="h3 modal-title" data-modal-title></h4>
-            <time datetime="" data-modal-time></time>
-            <div data-modal-text></div>
-          </div>
-        </section>
       </div>
 
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+
+              <a href="smarmelo@gmail.com" class="contact-link">smarmelo@gmail.com</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+
+              <a href="tel:+351 918178576" class="contact-link">+351 918178576</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Birthday</p>
+
+              <time datetime="1982-06-23">February 20, 1986</time>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+
+              <address>Almeirim, Santarém, Portugal</address>
+            </div>
+
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </aside>
+
+
+
+
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <button class="navbar-link  active" data-nav-link>About</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Resume</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Portfolio</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Blog</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Contact</button>
+          </li>
+
+        </ul>
+
+      </nav>
+
+
+
+
+
+      <!--
+        - #ABOUT
+      -->
+
+      <article class="about  active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title">About me</h2>
+        </header>
+
+        <section class="about-text">
+
+          <p>
+        I’m a Digital Marketing & E-commerce Specialist with 5+ years of experience turning strategy into measurable results. My focus is SEO, Google Ads, email marketing, and multilingual copywriting — always driven by performance.</p>
+        At Beliani, I crafted and optimized over 5,000 product descriptions in four languages, grew the email list from 7K to 25K with a 30% open rate, and helped rank the Portuguese store among the company’s top 5 markets globally.</p>
+        I believe marketing should be clear, intentional, and conversion-focused. I build campaigns that not only reach — they resonate.</p>
+          </p>
+        </section>
+
+
+        <!--
+          - service
+        -->
+
+        <section class="service">
+
+          <h3 class="h3 service-title">What i'm doing</h3>
+
+          <ul class="service-list">
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/copywriting.png
+                " alt="copywriting icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Copywriting</h4>
+
+                <p class="service-item-text">
+                  ✍️ Compelling content crafted with soul, strategy, and best-in-class marketing practice.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/contentmkt.png" alt="content marketing icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Multilingual Content Creation</h4>
+
+                <p class="service-item-text">
+                  🌍 Fluent messaging across Portuguese, English and Spanish — tailored to culture, tone and context.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/emailmkt.png" alt="email marketing icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Email Marketing</h4>
+
+                <p class="service-item-text">
+                  📩 Engaging email flows that nurture, convert and retain — powered by segmentation and smart automation.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-photo.svg" alt="camera icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">E-commerce Management</h4>
+
+                <p class="service-item-text">
+                  🛒 Hands-on experience managing digital storefronts from A to Z, turning clicks into loyal customers.
+                </p>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+
+        <!--
+          - testimonials
+        -->
+
+        <section class="testimonials">
+
+          <h3 class="h3 testimonials-title">Testimonials</h3>
+
+          <ul class="testimonials-list has-scrollbar">
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/ivana.png" alt="Ivana V." width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Ivana V.</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Sandro Marmelo is one of the most hardworking individuals I have had the privilege of working with. His unwavering dedication to meeting deadlines, exceeding expectations, and delivering quality work has been remarkable. In particular, their meticulous attention to detail ensures that tasks are completed to the highest standard, making them reliable and trusted team members.
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/jasmina.png" alt="Jasmina U." width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Jasmina U.</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Sandro brought a rare blend of technical precision and strong writing skills to his work. He excelled at preparing clear, engaging, and high-quality training materials that empowered our team and helped them master high-cognitive load content. His ability to distill complex concepts into easily understandable content was invaluable, not only for training but also for ensuring alignment across diverse stakeholders.
+
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/armindo.png" alt="Armindo L." width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Armindo L.</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                  Sandro has a sharp sense of what works. He connects strategy with execution, especially when it comes to content and performance. Working with him always felt focused and purposeful.
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/ana.png" alt="Ana R." width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Ana R.</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    I want to thank Sandro for his support, collaboration, and the way he always showed up for his teammates. That’s where he truly stands out. On top of that, his critical thinking and curiosity make him someone genuinely interesting — and without a doubt, a top professional. Kudos!
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </section>
+
+
+        <!--
+          - testimonials modal
+        -->
+
+        <div class="modal-container" data-modal-container>
+
+          <div class="overlay" data-overlay></div>
+
+          <section class="testimonials-modal">
+
+            <button class="modal-close-btn" data-modal-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box">
+                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
+              </figure>
+
+              <img src="./assets/images/icon-quote.svg" alt="quote icon">
+            </div>
+
+            <div class="modal-content">
+
+              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
+
+              <time datetime="2021-06-14">14 June, 2021</time>
+
+              <div data-modal-text>
+                <p>
+                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                  lot of experience
+                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                  consectetur adipiscing
+                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                </p>
+              </div>
+
+            </div>
+
+          </section>
+
+        </div>
+
+
+        <!--
+          - clients
+        -->
+
+        <section class="clients">
+
+          <h3 class="h3 clients-title">Clients</h3>
+
+          <ul class="clients-list has-scrollbar">
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/beliani.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/greenfil.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-3-color.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/veeva.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/vdesk.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-6-color.png" alt="client logo">
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #RESUME
+      -->
+
+      <article class="resume" data-page="resume">
+
+        <header>
+          <h2 class="h2 article-title">Resume</h2>
+        </header>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Education</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Universidade Lusófona de Lisboa - Postgraduate Degree in E-commerce</h4>
+
+              <span>2024 — 2024</span>
+
+              <p class="timeline-text">
+               Intensive training in electronic commerce, covering online business strategy, customer journey optimization, digital payment systems, and operational logistics — all tailored for the modern digital economy.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Edit Digital Academy - Digital Marketing Specialization</h4>
+
+              <span>2019 — 2019</span>
+
+              <p class="timeline-text">
+                In-depth specialization focused on digital channels, SEO, SEM, Google Ads, and performance-driven strategies tailored for modern digital environments.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">University of Coimbra - Bachelor's and Master's Degree in International Relations</h4>
+
+              <span>2004 — 2009</span>
+
+              <p class="timeline-text">
+                Built strong foundations in strategic analysis, intercultural communication, and persuasive writing — skills that power my marketing work today.
+              </p>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Experience</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Copywriter and Translator at Beliani</h4>
+
+              <span>2022 — Present</span>
+
+              <p class="timeline-text">
+                <ul>
+  <li>Wrote and optimized over 5,000 product descriptions, increasing organic visibility.</li>
+  <li>Scaled the email list from 7,000 to 25,000 subscribers, achieving consistent 30% open rates.</li>
+  <li>Specialized in translating and adapting jingles, social media content, newsletters, and marketing campaigns.</li>
+  <li>Ensured brand voice consistency across markets while preserving local cultural resonance.</li>
+</ul>
+
+ </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Quality Assurance Checker at Veeva Systems</h4>
+
+              <span>2018 — 2024</span>
+
+              <p class="timeline-text">
+                <ul>
+  <li>Collected and curated open-source data for LATAM and Europe/EMEA health professionals, enriching Oncology Link and Multi-Therapeutic profiles.</li>
+  <li>Ensured accuracy of affiliations, roles, and contact details. </li>
+  <li>Progressed to senior quality role, overseeing a team of data checkers, validating input accuracy, and maintaining consistency across platform records.</li>
+</ul>
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Digital Marketing Technician at Newgreenfil</h4>
+
+              <span>2020 — 2020</span>
+
+              <p class="timeline-text">
+              <ul>
+  <li>Initiated the digital transformation of the company, leading the development of its first institutional website.</li>
+  <li>Launched the Joias Online sub-brand, overseeing the initial setup of its e-commerce platform and digital presence.</li>
+  <li>Catalogued, described, and photographed over 2,000 collection pieces, laying the foundation for their digital showcase.</li>
+  <li>Planned and executed content calendars for social media, increasing engagement by 70% across the website and Facebook.</li>
+</ul>
+
+
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Marketing Assistant at Vdesk</h4>
+
+              <span>2016 — 2018</span>
+
+              <p class="timeline-text">
+                <ul>
+  <li>Drove a 58% increase in web traffic by creating and optimizing Google Ads campaigns for the Portuguese market.</li>
+  <li>Elevated website performance through strategic keyword research and precise on-page SEO enhancements.</li>
+  <li>Safeguarded brand integrity by moderating user content and enforcing platform compliance policies.</li>
+</ul>
+
+              </p>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="skill">
+
+          <h3 class="h3 skills-title">My skills</h3>
+
+          <ul class="skills-list content-card">
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Copywriting & Content Writing</h5>
+                <data value="90">90%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 90%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">SEO (On-page & Keyword Strategy)</h5>
+                <data value="80">80%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 80%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Email Marketing (Newsletters & Automations)</h5>
+                <data value="75">75%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 75%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">E-commerce Product Management</h5>
+                <data value="75">75%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 75%;"></div>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #PORTFOLIO
+      -->
+
+<section id="portfolio">
+  <div class="filter-list">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="copywriting">Copywriting</button>
+    <button class="filter-btn" data-filter="branding">Branding</button>
+    <button class="filter-btn" data-filter="e-commerce">E‑commerce</button>
+  </div>
+
+  <div class="projects-grid">
+    <!-- EXEMPLO ITEM -->
+    <div class="gallery-item" data-category="branding">
+      <div class="thumb-wrapper">
+        <img src="https://img.youtube.com/vi/xLzjcl9GP2M/hqdefault.jpg" alt="" class="gallery-thumb">
+        <div class="play-icon">▶️</div>
+      </div>
+      <div class="gallery-info">
+        <h3>Beliani – Delivering Happiness</h3>
+        <p>Branding (Vídeo YouTube)</p>
+      </div>
+      <button class="lightbox-trigger" data-type="youtube" data-src="https://www.youtube.com/embed/xLzjcl9GP2M">Ver</button>
     </div>
+    <!-- Adiciona outros itens seguindo este modelo -->
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox">
+  <div class="lightbox-content"></div>
+  <span class="close">&times;</span>
+</div>
+
+
+
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #BLOG
+      -->
+
+      <article class="blog" data-page="blog">
+
+        <header>
+          <h2 class="h2 article-title">Blog</h2>
+        </header>
+
+        <section class="blog-posts">
+
+          <ul class="blog-posts-list">
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Design conferences in 2022</h3>
+
+                  <p class="blog-text">
+                    Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-2.jpg" alt="Best fonts every designer" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Best fonts every designer</h3>
+
+                  <p class="blog-text">
+                    Sed ut perspiciatis, nam libero tempore, cum soluta nobis est eligendi.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-3.jpg" alt="Design digest #80" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Design digest #80</h3>
+
+                  <p class="blog-text">
+                    Excepteur sint occaecat cupidatat no proident, quis nostrum exercitationem ullam corporis suscipit.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-4.jpg" alt="UI interactions of the week" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">UI interactions of the week</h3>
+
+                  <p class="blog-text">
+                    Enim ad minim veniam, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-5.jpg" alt="The forgotten art of spacing" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">The forgotten art of spacing</h3>
+
+                  <p class="blog-text">
+                    Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-6.jpg" alt="Design digest #79" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Design digest #79</h3>
+
+                  <p class="blog-text">
+                    Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #CONTACT
+      -->
+
+    <article class="contact" data-page="contact">
+
+  <header>
+    <h2 class="h2 article-title">Contact</h2>
+  </header>
+
+  <section class="mapbox" data-mapbox>
+    <figure>
+      <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28432.123456789012!2d-8.688396407814447!3d39.23333312345678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1946d5123456789%3A0xabcd1234567890ef!2sSantar%C3%A9m%2C%20Portugal!5e0!3m2!1sen!2spt!4v1234567890123"
+      width="100%" height="300" style="border:0;"
+      allowfullscreen="" loading="lazy">
+    </iframe>
+  </figure>
+</section>
+
+  <section class="contact-form">
+    <h3 class="h3 form-title">Contact Form</h3>
+
+    <form action="https://formsubmit.co/smarmelo@gmail.com" method="POST" class="form" autocomplete="off" style="display: flex; flex-direction: column; gap: 1rem; max-width: 600px; margin: auto;">
+
+      <!-- Nome -->
+      <input type="text" name="name" placeholder="Your Name" required style="padding: 10px; font-size: 1rem;">
+
+      <!-- Email -->
+      <input type="email" name="email" placeholder="Your Email" required style="padding: 10px; font-size: 1rem;">
+
+      <!-- Mensagem -->
+      <textarea name="message" placeholder="Your Message" required rows="6" style="padding: 10px; font-size: 1rem; resize: vertical;"></textarea>
+
+      <!-- Honeypot invisível (proteção contra bots) -->
+      <input type="text" name="_honey" style="display:none">
+
+      <!-- Desativa CAPTCHA do FormSubmit -->
+      <input type="hidden" name="_captcha" value="false">
+
+      <!-- Redireciona para página de sucesso após envio -->
+      <input type="hidden" name="_next" value="https://teusite.com/thankyou.html">
+
+      <!-- Botão -->
+      <button type="submit" style="padding: 12px; font-size: 1rem; background-color: #4CAF50; color: white; border: none; cursor: pointer;">
+        Send Message
+      </button>
+
+    </form>
+  </section>
+
+</article>
+
+
+      </article>
+
+    </div>
+
   </main>
 
+
+
+
+
+
+  <!--
+    - custom js link
+  -->
   <script src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </body>
+
 </html>

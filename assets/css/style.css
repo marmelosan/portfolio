@@ -1943,4 +1943,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   .column { flex: 100%; }
 }
 
+.project-item-icon-box {
+  pointer-events: none;  /* deixa os cliques passarem por cima */
+}
 

@@ -1982,7 +1982,6 @@ textarea.form-input::-webkit-resizer { display: none; }
   align-items: center;
   padding: 2rem;
   box-sizing: border-box;
-  display: flex; /* importante: usar flex para centralizar */
 }
 
 .modal-content {

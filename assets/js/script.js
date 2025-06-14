@@ -185,26 +185,59 @@ media.style.height = "70vh"; // <- altura mínima garantida
 
     container.appendChild(media);
     modal.style.display = "flex";
-// Verifica se o modal está fora da viewport e ajusta scroll
-setTimeout(() => {
-  const modalRect = modal.getBoundingClientRect();
-  if (modalRect.top < 0 || modalRect.bottom > window.innerHeight) {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-}, 50);
+modal.style.display = "flex";
+// Bloqueia o scroll da página de fundo
+document.body.style.overflow = "hidden";
   });
+
+// === Fechar modal ===
+document.querySelectorAll('.open-modal').forEach(el => {
+  el.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    const type = this.dataset.type;
+    const src = this.dataset.src;
+    const modal = document.getElementById("mediaModal");
+    const container = document.getElementById("modal-media-container");
+
+    container.innerHTML = '';
+
+    let media;
+    if (type === 'youtube') {
+      media = document.createElement('iframe');
+      media.src = src + '?autoplay=1';
+      media.allow = "autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      media.allowFullscreen = true;
+    } else if (type === 'video') {
+      media = document.createElement('video');
+      media.src = src;
+      media.controls = true;
+      media.autoplay = true;
+    } else if (type === 'image') {
+      media = document.createElement('img');
+      media.src = src;
+    }
+
+    container.appendChild(media);
+    modal.style.display = "flex";
+    document.body.style.overflow = "hidden"; // Bloqueia scroll da página
+  });
+});
 
 // === Fechar modal ===
 document.querySelector('.close').addEventListener('click', () => {
   const modal = document.getElementById("mediaModal");
   modal.style.display = "none";
   document.getElementById("modal-media-container").innerHTML = '';
+  document.body.style.overflow = "";
 });
 
+// Fecha se clicares fora do modal
 window.addEventListener('click', function (event) {
   const modal = document.getElementById("mediaModal");
   if (event.target === modal) {
     modal.style.display = "none";
     document.getElementById("modal-media-container").innerHTML = '';
+    document.body.style.overflow = "";
   }
 });

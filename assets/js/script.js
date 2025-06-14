@@ -219,22 +219,4 @@ document.querySelectorAll('.open-modal').forEach(el => {
     }
 
     modal.style.display = "flex";
-    document.body.style.overflow = "hidden"; // Bloqueia scroll da página
   });
-});
-
-// === Fechar modal no botão X ===
-document.querySelector('.close').addEventListener('click', () => {
-  const modal = document.getElementById("mediaModal");
-  modal.style.display = "none";
-  document.getElementById("modal-media-container").innerHTML = '';
-});
-
-// === Fechar se clicares fora do conteúdo ===
-window.addEventListener('click', function (event) {
-  const modal = document.getElementById("mediaModal");
-  if (event.target === modal) {
-    modal.style.display = "none";
-    document.getElementById("modal-media-container").innerHTML = '';
-  }
-});

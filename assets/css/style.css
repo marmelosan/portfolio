@@ -1880,3 +1880,15 @@ textarea.form-input::-webkit-resizer { display: none; }
   .timeline-text { max-width: 700px; }
 
 }
+
+/* Garante que todo o texto no resume fica legível */
+.resume,
+.resume h2, 
+.resume h3, 
+.resume h4,
+.resume span,
+.resume p,
+.resume li {
+  color: var(--white-2);
+}
+

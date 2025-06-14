@@ -1881,14 +1881,18 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 }
 
-/* Garante que todo o texto no resume fica legível */
 .resume,
 .resume h2, 
 .resume h3, 
 .resume h4,
-.resume span,
+.resume h5,
+.resume h6,
+.resume h7,
+.resume h8,
+.resume h9,
 .resume p,
-.resume li {
-  color: var(--white-2);
+.resume li,
+.resume span,
+.resume time {
+  color: var(--white-2) !important;
 }
-

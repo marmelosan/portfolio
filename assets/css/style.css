@@ -2003,21 +2003,39 @@ textarea.form-input::-webkit-resizer { display: none; }
   cursor: pointer;
 }
 
-.project-list {
+.filter-list { margin-bottom: 1rem; display: flex; gap: .5rem; }
+.filter-btn.active { font-weight: bold; }
+
+.projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1.5rem;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
 }
 
-.project-item.active {
-  display: initial;
+.thumb-wrapper { position: relative; }
+.gallery-thumb { width: 100%; display: block; object-fit: cover; }
+.play-icon {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem; color: rgba(255,255,255,0.8);
+  display: none;
+}
+.thumb-wrapper:hover .play-icon { display: block; }
+
+.lightbox {
+  display: none; justify-content: center; align-items: center;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.9);
+  z-index: 999;
+}
+.lightbox-content {
+  max-width: 90%; max-height: 90%;
+}
+.lightbox-content iframe, .lightbox-content video, .lightbox-content img {
+  width: 100%; height: auto;
+}
+.lightbox .close {
+  position: absolute; top: 2%; right: 2%;
+  font-size: 2rem; color: #fff; cursor: pointer;
 }
 
-.project-item > a:hover .project-img::before {
-  background: transparent;
-}
-
-.video-wrapper iframe,
-.video-wrapper video {
-  z-index: 2;
-  pointer-events: auto;

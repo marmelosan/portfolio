@@ -157,3 +157,36 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+document.querySelectorAll('.open-modal').forEach(el => {
+  el.addEventListener('click', function (e) {
+    e.preventDefault();
+    const type = this.dataset.type;
+    const src = this.dataset.src;
+
+    const modal = document.getElementById("mediaModal");
+    const container = document.getElementById("modal-media-container");
+    container.innerHTML = '';
+
+    let media;
+    if (type === "youtube") {
+      media = document.createElement("iframe");
+      media.src = src + '?autoplay=1';
+      media.allow = "autoplay; encrypted-media";
+      media.allowFullscreen = true;
+    } else {
+      media = document.createElement("img");
+      media.src = src;
+    }
+
+    container.appendChild(media);
+    modal.style.display = "flex";
+  });
+});
+
+document.querySelector('.close').addEventListener('click', () => {
+  const modal = document.getElementById("mediaModal");
+  modal.style.display = "none";
+  document.getElementById("modal-media-container").innerHTML = '';
+});
+

@@ -1977,7 +1977,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.85);
-  z-index: 9999;
+  z-index: 99999;
   justify-content: center;
   align-items: center;
   padding: 2rem;
@@ -2001,6 +2001,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   width: 100%;
   max-height: 70vh;/* força altura visível */
   border-radius: 10px;
+object-fit: contain;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
   border: none;
 }

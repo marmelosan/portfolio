@@ -158,42 +158,25 @@ for (let i = 0; i < navigationLinks.length; i++) {
   });
 }
 
-document.querySelectorAll('.lightbox-trigger').forEach(btn => {
-  btn.addEventListener('click', function () {
-    const type = this.dataset.type;
-    const src = this.dataset.src;
-    const container = document.querySelector('.lightbox-content');
-    const lightbox = document.querySelector('.lightbox');
+function filterSelection(c) {
+  const cols = document.getElementsByClassName("column");
+  if (c === "all") c = "";
+  for (let i = 0; i < cols.length; i++) {
+    const el = cols[i];
+    el.style.display = el.className.indexOf(c) > -1 ? "block" : "none";
+  }
+}
 
-    container.innerHTML = ''; // Limpa o anterior
-
-    if (type === 'image') {
-      const img = document.createElement('img');
-      img.src = src;
-      img.alt = 'preview';
-      container.appendChild(img);
-    } else if (type === 'video') {
-      const video = document.createElement('video');
-      video.src = src;
-      video.controls = true;
-      video.autoplay = true;
-      video.loop = true;
-      container.appendChild(video);
-    } else if (type === 'youtube') {
-      const iframe = document.createElement('iframe');
-      iframe.src = src + "?autoplay=1";
-      iframe.allow = "autoplay; encrypted-media";
-      iframe.allowFullscreen = true;
-      container.appendChild(iframe);
-    }
-
-    lightbox.classList.add('active');
+// Botões ativos
+const btnContainer = document.getElementById("myBtnContainer");
+const btns = btnContainer.getElementsByClassName("btn");
+for (let btn of btns) {
+  btn.addEventListener("click", function() {
+    btnContainer.querySelector(".active").classList.remove("active");
+    this.classList.add("active");
   });
-});
+}
 
-// Fechar lightbox
-document.querySelector('.lightbox .close').addEventListener('click', function () {
-  document.querySelector('.lightbox').classList.remove('active');
-  document.querySelector('.lightbox-content').innerHTML = '';
-});
+// Iniciar com mostrar tudo
+filterSelection("all");
 

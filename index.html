@@ -1,62 +1,230 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>vCard – Sandro Marmelo</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>vCard - Personal Portfolio</title>
+
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
 </head>
+
 <body>
   <main>
-    <aside class="sidebar" data-sidebar>…<!-- teu sidebar existente -->…</aside>
+    <aside class="sidebar" data-sidebar>
+      <div class="sidebar-info">
+        <figure class="avatar-box">
+          <img src="./assets/images/my-avatar.png" alt="Sandro Marmelo" width="80" loading="lazy" />
+        </figure>
+        <div class="info-content">
+          <h1 class="name" title="Sandro Marmelo">Sandro Marmelo</h1>
+          <p class="title">Digital Marketing &amp; Commerce Expert</p>
+        </div>
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+      </div>
+      <div class="sidebar-info_more">
+        <div class="separator"></div>
+        <ul class="contacts-list">
+          <li class="contact-item">
+            <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+              <a href="mailto:smarmelo@gmail.com" class="contact-link">smarmelo@gmail.com</a>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="icon-box"><ion-icon name="phone-portrait-outline"></ion-icon></div>
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+              <a href="tel:+351918178576" class="contact-link">+351 918 178 576</a>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="icon-box"><ion-icon name="calendar-outline"></ion-icon></div>
+            <div class="contact-info">
+              <p class="contact-title">Birthday</p>
+              <time datetime="1986-02-20">February 20, 1986</time>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="icon-box"><ion-icon name="location-outline"></ion-icon></div>
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+              <address>Almeirim, Santarém, Portugal</address>
+            </div>
+          </li>
+        </ul>
+        <div class="separator"></div>
+        <ul class="social-list">
+          <li class="social-item"><a href="#" class="social-link"><ion-icon name="logo-facebook"></ion-icon></a></li>
+          <li class="social-item"><a href="#" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a></li>
+          <li class="social-item"><a href="#" class="social-link"><ion-icon name="logo-instagram"></ion-icon></a></li>
+        </ul>
+      </div>
+    </aside>
 
     <div class="main-content">
-      <nav class="navbar">…<!-- teu navbar existente -->…</nav>
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li><button class="navbar-link active" data-nav-link>About</button></li>
+          <li><button class="navbar-link" data-nav-link>Resume</button></li>
+          <li><button class="navbar-link" data-nav-link>Portfolio</button></li>
+          <li><button class="navbar-link" data-nav-link>Blog</button></li>
+          <li><button class="navbar-link" data-nav-link>Contact</button></li>
+        </ul>
+      </nav>
 
-      <article class="about active" data-page="about">…</article>
-      <article class="resume" data-page="resume">…</article>
+      <!-- ABOUT -->
+      <article class="about active" data-page="about">
+        <header><h2 class="h2 article-title">About me</h2></header>
+        <section class="about-text">
+          <p>I’m a Digital Marketing &amp; E-commerce Specialist with 5+ years of experience turning strategy into measurable results. My focus is SEO, Google Ads, email marketing, and multilingual copywriting — always driven by performance.</p>
+          <p>At Beliani, I crafted and optimized over 5,000 product descriptions in four languages, grew the email list from 7K to 25K with a 30% open rate, and helped rank the Portuguese store among the company’s top 5 markets globally.</p>
+          <p>I believe marketing should be clear, intentional, and conversion-focused. I build campaigns that not only reach — they resonate.</p>
+        </section>
+        <section class="service">
+          <h3 class="h3 service-title">What I’m doing</h3>
+          <ul class="service-list">
+            <li class="service-item">
+              <div class="service-icon-box"><img src="./assets/images/copywriting.png" alt="Copywriting icon" width="40" loading="lazy" /></div>
+              <div class="service-content-box"><h4 class="h4 service-item-title">Copywriting</h4><p class="service-item-text">✍️ Compelling content crafted with soul, strategy, and best‑in‑class marketing practice.</p></div>
+            </li>
+            <li class="service-item">
+              <div class="service-icon-box"><img src="./assets/images/contentmkt.png" alt="Content marketing icon" width="40" loading="lazy" /></div>
+              <div class="service-content-box"><h4 class="h4 service-item-title">Multilingual Content Creation</h4><p class="service-item-text">🌍 Fluent messaging across Portuguese, English and Spanish — tailored to culture, tone and context.</p></div>
+            </li>
+            <li class="service-item">
+              <div class="service-icon-box"><img src="./assets/images/emailmkt.png" alt="Email marketing icon" width="40" loading="lazy" /></div>
+              <div class="service-content-box"><h4 class="h4 service-item-title">Email Marketing</h4><p class="service-item-text">📩 Engaging email flows that nurture, convert and retain — powered by segmentation and smart automation.</p></div>
+            </li>
+            <li class="service-item">
+              <div class="service-icon-box"><img src="./assets/images/icon-photo.svg" alt="E‑commerce icon" width="40" loading="lazy" /></div>
+              <div class="service-content-box"><h4 class="h4 service-item-title">E‑commerce Management</h4><p class="service-item-text">🛒 Hands‑on experience managing digital storefronts from A to Z, turning clicks into loyal customers.</p></div>
+            </li>
+          </ul>
+        </section>
+        <!-- Testimonials & Clients omitted for brevidade; seguem na mesma lógica -->
+      </article>
 
-      <!-- === Portfolio com tabs e galeria === -->
+      <!-- RESUME -->
+      <article class="resume" data-page="resume">
+        <header><h2 class="h2 article-title">Resume</h2></header>
+        <section class="timeline">
+          <div class="title-wrapper"><div class="icon-box"><ion-icon name="book-outline"></ion-icon></div><h3 class="h3">Education</h3></div>
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Universidade Lusófona de Lisboa – Postgraduate Degree in E‑commerce</h4><span>2024 — 2024</span>
+              <p class="timeline-text">Intensive training in electronic commerce, covering strategy, customer journey, payments and logistics.</p>
+            </li>
+            <!-- Restante educação -->
+          </ol>
+        </section>
+        <section class="timeline">
+          <div class="title-wrapper"><div class="icon-box"><ion-icon name="book-outline"></ion-icon></div><h3 class="h3">Experience</h3></div>
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Copywriter and Translator at Beliani</h4><span>2022 — Present</span>
+              <ul class="timeline-text">
+                <li>Wrote and optimized over 5,000 product descriptions, increasing organic visibility.</li>
+                <li>Scaled email list from 7K to 25K subscribers, achieving 30% open rates.</li>
+                <li>Translated jingles, social media content, newsletters and campaigns.</li>
+                <li>Ensured brand voice consistency across markets.</li>
+              </ul>
+            </li>
+            <!-- Restante experiência -->
+          </ol>
+        </section>
+        <section class="skill">
+          <h3 class="h3 skills-title">My skills</h3>
+          <ul class="skills-list content-card">
+            <li class="skills-item">
+              <div class="title-wrapper"><h5 class="h5">Copywriting & Content Writing</h5><data value="90">90%</data></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 90%;"></div></div>
+            </li>
+            <!-- Outras skills -->
+          </ul>
+        </section>
+      </article>
+
+      <!-- PORTFOLIO -->
       <article class="portfolio" data-page="portfolio">
         <header><h2 class="h2 article-title">Portfolio</h2></header>
-
-        <div class="filter-list">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="copywriting">Copywriting</button>
-          <button class="filter-btn" data-filter="branding">Branding</button>
-          <button class="filter-btn" data-filter="e-commerce">E‑commerce</button>
-        </div>
-
         <div class="projects-grid">
-          <!-- Exemplo para Branding -->
           <div class="gallery-item" data-category="branding">
             <div class="thumb-wrapper">
-              <img src="https://img.youtube.com/vi/xLzjcl9GP2M/hqdefault.jpg" alt="Beliani Video Thumbnail" class="gallery-thumb">
+              <img src="https://img.youtube.com/vi/xLzjcl9GP2M/hqdefault.jpg" alt="Beliani video cover" class="gallery-thumb" loading="lazy"/>
               <div class="play-icon">▶️</div>
             </div>
             <div class="gallery-info">
-              <h3>Beliani – Delivering Happiness</h3>
-              <p>Branding (Vídeo YouTube)</p>
+              <h3>Beliani – Delivering Happiness</h3><p>Branding (Vídeo YouTube)</p>
             </div>
-            <button class="lightbox-trigger" data-type="youtube" data-src="https://www.youtube.com/embed/xLzjcl9GP2M">
-              Ver no vídeo
-            </button>
+            <button class="lightbox-trigger" data-type="youtube" data-src="https://www.youtube.com/embed/xLzjcl9GP2M">Ver</button>
           </div>
-          <!-- podes adicionar mais gallery-item iguais para outras categorias -->
+          <!-- Demais items -->
         </div>
+
+        <div class="lightbox"><div class="lightbox-content"></div><span class="close">&times;</span></div>
       </article>
 
-      <article class="blog" data-page="blog">…</article>
-      <article class="contact" data-page="contact">…</article>
+      <!-- BLOG -->
+      <article class="blog" data-page="blog">
+        <header><h2 class="h2 article-title">Blog</h2></header>
+        <section class="blog-posts">
+          <ul class="blog-posts-list">
+            <li class="blog-post-item">
+              <a href="#">
+                <figure class="blog-banner-box"><img src="./assets/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy"/></figure>
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p><span class="dot"></span><time datetime="2022-02-23">Feb 23, 2022</time>
+                  </div>
+                  <h3 class="h3 blog-item-title">Design conferences in 2022</h3>
+                  <p class="blog-text">Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.</p>
+                </div>
+              </a>
+            </li>
+            <!-- Restantes posts -->
+          </ul>
+        </section>
+      </article>
+
+      <!-- CONTACT -->
+      <article class="contact" data-page="contact">
+        <header><h2 class="h2 article-title">Contact</h2></header>
+        <section class="mapbox" data-mapbox>
+          <figure>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28432.123456789012!2d-8.688396407814447!3d39.23333312345678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1946d5123456789%3A0xabcd1234567890ef!2sSantar%C3%A9m%2C%20Portugal!5e0!3m2!1sen!2spt!4v1234567890123"
+              aria-label="Mapa de Santarém, Portugal"
+              allowfullscreen="" loading="lazy"></iframe>
+          </figure>
+        </section>
+        <section class="contact-form">
+          <h3 class="h3 form-title">Contact Form</h3>
+          <form action="https://formsubmit.co/smarmelo@gmail.com" method="POST" class="form">
+            <input type="text" name="name" placeholder="Your Name" required class="form-input"/>
+            <input type="email" name="email" placeholder="Your Email" required class="form-input"/>
+            <textarea name="message" placeholder="Your Message" required rows="6" class="form-input"></textarea>
+            <input type="text" name="_honey" style="display:none"/>
+            <input type="hidden" name="_captcha" value="false"/>
+            <input type="hidden" name="_next" value="https://teusite.com/thankyou.html"/>
+            <button type="submit" class="form-btn">Send Message</button>
+          </form>
+        </section>
+      </article>
     </div>
   </main>
 
-  <!-- Lightbox genérico para vídeos/imagens -->
-  <div class="lightbox" data-lightbox>
-    <div class="lightbox-content"></div>
-    <span class="close">&times;</span>
-  </div>
-
-  <script src="assets/js/script.js"></script>
+  <script src="./assets/js/script.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

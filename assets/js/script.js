@@ -185,8 +185,14 @@ media.style.height = "70vh"; // <- altura mínima garantida
 
     container.appendChild(media);
     modal.style.display = "flex";
+// Verifica se o modal está fora da viewport e ajusta scroll
+setTimeout(() => {
+  const modalRect = modal.getBoundingClientRect();
+  if (modalRect.top < 0 || modalRect.bottom > window.innerHeight) {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+}, 50);
   });
-});
 
 // === Fechar modal ===
 document.querySelector('.close').addEventListener('click', () => {

@@ -1970,18 +1970,21 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 <style>
 .modal {
-  display: none; /* ou será alterado via JS para "flex" */
+ .modal {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.85);
-  z-index: 99999;
-  justify-content: center;
-  align-items: center;
+  z-index: 999999;
+  justify-content: center !important;
+  align-items: center !important;
   padding: 2rem;
   box-sizing: border-box;
+  scroll-behavior: smooth; /* <-- AQUI no final está perfeito */
+}
 }
 
 .modal-content {
@@ -1994,7 +1997,17 @@ textarea.form-input::-webkit-resizer { display: none; }
   align-items: center;
 }
 
-.modal-content iframe,
+.modal-content iframe {
+  max-height: 70vh;
+  min-height: 300px;
+  width: 100%;
+  margin: auto;
+  display: block;
+  border: none;
+  border-radius: 10px;
+  background-color: #000;
+}
+
 .modal-content video,
 .modal-content img {
   width: 100%;

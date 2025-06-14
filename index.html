@@ -703,79 +703,44 @@
 
 
 <article class="portfolio" data-page="portfolio">
+  <header><h2 class="h2 article-title">Portfolio</h2></header>
 
-  <header>
-    <h2 class="h2 article-title">Portfolio</h2>
-  </header>
+  <div id="myBtnContainer">
+    <button class="btn active" onclick="filterSelection('all')">Show all</button>
+    <button class="btn" onclick="filterSelection('copywriting')">Copywriting</button>
+    <button class="btn" onclick="filterSelection('branding')">Branding</button>
+    <button class="btn" onclick="filterSelection('e-commerce')">E-commerce</button>
+  </div>
 
-  <section class="projects">
-
-    <!-- Filtros -->
-    <ul class="filter-list">
-      <li><button class="active" data-filter-btn>All</button></li>
-      <li><button data-filter-btn>Copywriting</button></li>
-      <li><button data-filter-btn>Branding</button></li>
-      <li><button data-filter-btn>E-commerce</button></li>
-    </ul>
-
-    <!-- Grid da galeria -->
-    <div class="projects-grid">
-
-      <!-- Vídeo YouTube -->
-      <div class="gallery-item" data-category="branding">
-        <div class="thumb-wrapper">
-          <img src="https://img.youtube.com/vi/xLzjcl9GP2M/hqdefault.jpg" alt="Beliani – Delivering Happiness" class="gallery-thumb">
-          <div class="play-icon">▶️</div>
-        </div>
-        <div class="gallery-info">
-          <h3>Beliani – Delivering Happiness</h3>
-          <p>Branding</p>
-        </div>
-        <button class="lightbox-trigger" data-type="youtube" data-src="https://www.youtube.com/embed/xLzjcl9GP2M">Ver</button>
+  <div class="row">
+    <!-- Exemplo item -->
+    <div class="column copywriting">
+      <div class="content">
+        <img src="./assets/images/beliani1.png" alt="Banner Beliani" style="width:100%">
+        <h4>Beliani Anniversary Banner</h4>
+        <p>Copywriting / E‑commerce</p>
       </div>
-
-      <!-- Vídeo local -->
-      <div class="gallery-item" data-category="copywriting">
-        <div class="thumb-wrapper">
-          <video class="gallery-thumb" muted loop preload="metadata" poster="./assets/images/thumb1.jpg">
-            <source src="./assets/videos/beliani_campanha_junho2025.mp4" type="video/mp4">
-          </video>
-          <div class="play-icon">▶️</div>
-        </div>
-        <div class="gallery-info">
-          <h3>Beliani – Campanha Aniversário</h3>
-          <p>Copywriting</p>
-        </div>
-        <button class="lightbox-trigger" data-type="video" data-src="./assets/videos/beliani_campanha_junho2025.mp4">Ver</button>
-      </div>
-
-      <!-- Imagem -->
-      <div class="gallery-item" data-category="e-commerce">
-        <div class="thumb-wrapper">
-          <img src="./assets/images/joiasonline1.png" alt="JóiasOnline – Homepage Hero" class="gallery-thumb">
-        </div>
-        <div class="gallery-info">
-          <h3>JóiasOnline – Homepage Hero</h3>
-          <p>E-commerce</p>
-        </div>
-        <button class="lightbox-trigger" data-type="image" data-src="./assets/images/joiasonline1.png">Ver</button>
-      </div>
-
-      <!-- Continua os outros projetos seguindo este padrão -->
     </div>
-
-  </section>
-
+    <!-- Continua com os restantes itens... -->
+    <!-- item Branding -->
+    <div class="column branding">
+      <div class="content">
+        <img src="./assets/images/beliani6.png" alt="Halloween Promo" style="width:100%">
+        <h4>Beliani – Halloween Promo 1</h4>
+        <p>Branding</p>
+      </div>
+    </div>
+    <!-- item E‑commerce -->
+    <div class="column e-commerce">
+      <div class="content">
+        <img src="./assets/images/joiasonline1.png" alt="Joias Online Hero" style="width:100%">
+        <h4>JóiasOnline – Homepage Hero</h4>
+        <p>E‑commerce</p>
+      </div>
+    </div>
+    <!-- adiciona os restantes elementos -->
+  </div>
 </article>
-
-<!-- Modal Lightbox -->
-<div class="lightbox" style="display:none;">
-  <div class="lightbox-content"></div>
-  <span class="close">&times;</span>
-</div>
-
-
-
 
 
 

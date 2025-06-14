@@ -703,8 +703,8 @@
 
 
 
-     <!--
-  - #PORTFOLIO (MODERNO COM MODAL)
+ <!--
+  - #PORTFOLIO (galeria com filtros e lightbox)
 -->
 <article class="portfolio" data-page="portfolio">
 
@@ -714,18 +714,18 @@
 
   <section class="projects">
 
-    <!-- FILTROS -->
+    <!-- filtros -->
     <ul class="filter-list">
-      <li class="filter-item"><button class="active" data-filter-btn>All</button></li>
-      <li class="filter-item"><button data-filter-btn>Copywriting</button></li>
-      <li class="filter-item"><button data-filter-btn>Branding</button></li>
-      <li class="filter-item"><button data-filter-btn>E-commerce</button></li>
+      <li><button class="active" data-filter-btn>All</button></li>
+      <li><button data-filter-btn>Copywriting</button></li>
+      <li><button data-filter-btn>Branding</button></li>
+      <li><button data-filter-btn>E-commerce</button></li>
     </ul>
 
-    <!-- GRID DE PROJETOS -->
+    <!-- grid -->
     <div class="projects-grid">
 
-      <!-- Projeto com YouTube -->
+      <!-- item YouTube -->
       <div class="gallery-item" data-category="branding">
         <div class="thumb-wrapper">
           <img src="https://img.youtube.com/vi/xLzjcl9GP2M/hqdefault.jpg" alt="Beliani – Delivering Happiness" class="gallery-thumb">
@@ -738,7 +738,7 @@
         <button class="lightbox-trigger" data-type="youtube" data-src="https://www.youtube.com/embed/xLzjcl9GP2M">Ver</button>
       </div>
 
-      <!-- Projeto com vídeo local -->
+      <!-- item vídeo local -->
       <div class="gallery-item" data-category="branding">
         <div class="thumb-wrapper">
           <video class="gallery-thumb" muted loop preload="metadata" poster="./assets/images/thumb1.jpg">
@@ -753,7 +753,7 @@
         <button class="lightbox-trigger" data-type="video" data-src="./assets/videos/beliani_campanha_junho2025.mp4">Ver</button>
       </div>
 
-      <!-- Projeto com imagem -->
+      <!-- item imagem -->
       <div class="gallery-item" data-category="e-commerce">
         <div class="thumb-wrapper">
           <img src="./assets/images/joiasonline1.png" alt="JóiasOnline – Homepage Hero" class="gallery-thumb">
@@ -765,17 +765,19 @@
         <button class="lightbox-trigger" data-type="image" data-src="./assets/images/joiasonline1.png">Ver</button>
       </div>
 
-      <!-- Adicione aqui os outros itens usando o mesmo modelo -->
+      <!-- añade mais seguindo o mesmo padrão -->
 
     </div>
   </section>
+
 </article>
 
-<!-- MODAL LIGHTBOX -->
-<div class="lightbox" data-lightbox>
+<!-- modal lightbox -->
+<div class="lightbox">
   <div class="lightbox-content"></div>
-  <span class="close" data-lightbox-close>&times;</span>
+  <span class="close">&times;</span>
 </div>
+
 
 
 

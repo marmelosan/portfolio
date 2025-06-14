@@ -218,5 +218,4 @@ document.querySelectorAll('.open-modal').forEach(el => {
       media.src = src;
     }
 
-    modal.style.display = "flex";
-  });
+

@@ -1,5 +1,4 @@
-</body>
-</html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -703,9 +702,6 @@
 
 
 
- <!--
-  - #PORTFOLIO (galeria com filtros e lightbox)
--->
 <article class="portfolio" data-page="portfolio">
 
   <header>
@@ -714,7 +710,7 @@
 
   <section class="projects">
 
-    <!-- filtros -->
+    <!-- Filtros -->
     <ul class="filter-list">
       <li><button class="active" data-filter-btn>All</button></li>
       <li><button data-filter-btn>Copywriting</button></li>
@@ -722,10 +718,10 @@
       <li><button data-filter-btn>E-commerce</button></li>
     </ul>
 
-    <!-- grid -->
+    <!-- Grid da galeria -->
     <div class="projects-grid">
 
-      <!-- item YouTube -->
+      <!-- Vídeo YouTube -->
       <div class="gallery-item" data-category="branding">
         <div class="thumb-wrapper">
           <img src="https://img.youtube.com/vi/xLzjcl9GP2M/hqdefault.jpg" alt="Beliani – Delivering Happiness" class="gallery-thumb">
@@ -738,8 +734,8 @@
         <button class="lightbox-trigger" data-type="youtube" data-src="https://www.youtube.com/embed/xLzjcl9GP2M">Ver</button>
       </div>
 
-      <!-- item vídeo local -->
-      <div class="gallery-item" data-category="branding">
+      <!-- Vídeo local -->
+      <div class="gallery-item" data-category="copywriting">
         <div class="thumb-wrapper">
           <video class="gallery-thumb" muted loop preload="metadata" poster="./assets/images/thumb1.jpg">
             <source src="./assets/videos/beliani_campanha_junho2025.mp4" type="video/mp4">
@@ -753,7 +749,7 @@
         <button class="lightbox-trigger" data-type="video" data-src="./assets/videos/beliani_campanha_junho2025.mp4">Ver</button>
       </div>
 
-      <!-- item imagem -->
+      <!-- Imagem -->
       <div class="gallery-item" data-category="e-commerce">
         <div class="thumb-wrapper">
           <img src="./assets/images/joiasonline1.png" alt="JóiasOnline – Homepage Hero" class="gallery-thumb">
@@ -765,15 +761,15 @@
         <button class="lightbox-trigger" data-type="image" data-src="./assets/images/joiasonline1.png">Ver</button>
       </div>
 
-      <!-- añade mais seguindo o mesmo padrão -->
-
+      <!-- Continua os outros projetos seguindo este padrão -->
     </div>
+
   </section>
 
 </article>
 
-<!-- modal lightbox -->
-<div class="lightbox">
+<!-- Modal Lightbox -->
+<div class="lightbox" style="display:none;">
   <div class="lightbox-content"></div>
   <span class="close">&times;</span>
 </div>

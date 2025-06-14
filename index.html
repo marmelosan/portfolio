@@ -1,192 +1,135 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Galeria de Vídeos com Filtro</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>vCard - Personal Portfolio</title>
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 30px;
-      background: #f7f7f7;
-    }
-
-    h2 {
-      margin-bottom: 20px;
-    }
-
-    .filter-list {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 30px;
-    }
-
-    .filter-btn {
-      padding: 10px 20px;
-      border: none;
-      background: #ddd;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-
-    .filter-btn.active {
-      background: #333;
-      color: white;
-    }
-
-    .projects-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .gallery-item {
-      width: 300px;
-      background: white;
-      padding: 10px;
-      border-radius: 6px;
-      display: none;
-    }
-
-    .gallery-item.active {
-      display: block;
-    }
-
-    .thumb-wrapper {
-      position: relative;
-    }
-
-    .thumb-wrapper img {
-      width: 100%;
-      border-radius: 6px;
-    }
-
-    .play-icon {
-      position: absolute;
-      top: 40%;
-      left: 44%;
-      font-size: 2rem;
-      color: white;
-      text-shadow: 0 0 10px black;
-    }
-
-    .gallery-info {
-      margin-top: 10px;
-    }
-
-    .lightbox {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-    }
-
-    .lightbox-content {
-      background: #000;
-      padding: 20px;
-      max-width: 900px;
-      width: 90%;
-    }
-
-    .lightbox .close {
-      position: absolute;
-      top: 40px;
-      right: 50px;
-      font-size: 2rem;
-      color: white;
-      cursor: pointer;
-    }
+    /* ====== CSS Lightbox + Galeria ====== */
+    .filter-list { display:flex; gap:.5rem; margin-bottom:1rem; }
+    .filter-btn.active { background: var(--orange-yellow-crayola); color:black; font-weight:bold; }
+    .projects-grid { display: grid; gap:1rem; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); }
+    .gallery-item { display:none; background: var(--eerie-black-1); border-radius:12px; padding:1rem; box-shadow: var(--shadow-1); }
+    .gallery-item.active { display:block; }
+    .thumb-wrapper { position:relative; border-radius:8px; overflow:hidden; }
+    .gallery-thumb { width:100%; height:auto; object-fit:cover; }
+    .play-icon { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:2.5rem; color:rgba(255,255,255,0.8); pointer-events:none; }
+    .lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:9999; justify-content:center; align-items:center; }
+    .lightbox-content { max-width:90%; max-height:80%; width:800px; position:relative; }
+    .lightbox .close { position:absolute; top:1rem; right:1rem; font-size:2rem; color:#fff; cursor:pointer; }
   </style>
 </head>
 <body>
+  <main>
+    <aside class="sidebar" data-sidebar>
+      <!-- ... teu sidebar aqui (corners) ... -->
+    </aside>
 
-  <h2>Galeria com Vídeos e Filtro</h2>
+    <div class="main-content">
+      <nav class="navbar">
+        <!-- tua navbar -->
+      </nav>
 
-  <section class="filter-list">
-    <button class="filter-btn active" data-filter="all">Todos</button>
-    <button class="filter-btn" data-filter="branding">Branding</button>
-    <button class="filter-btn" data-filter="copywriting">Copywriting</button>
-  </section>
+      <article class="about active" data-page="about">
+        <!-- teu about -->
+      </article>
 
-  <section class="projects-grid">
-    <div class="gallery-item active" data-category="branding" data-filter-item>
-      <div class="thumb-wrapper">
-        <img src="https://img.youtube.com/vi/xLzjcl9GP2M/hqdefault.jpg" alt="Vídeo" class="gallery-thumb">
-        <div class="play-icon">▶️</div>
-      </div>
-      <div class="gallery-info">
-        <h3>Beliani – Vídeo Branding</h3>
-        <button class="lightbox-trigger" data-type="youtube" data-src="https://www.youtube.com/embed/xLzjcl9GP2M">Ver</button>
-      </div>
+      <article class="resume" data-page="resume">
+        <!-- teu resume -->
+      </article>
+
+      <!-- ======== PORTFOLIO ======== -->
+      <article class="portfolio" data-page="portfolio">
+        <header><h2 class="h2 article-title">Portfolio</h2></header>
+        <section class="filter-list">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="branding">Branding</button>
+          <button class="filter-btn" data-filter="copywriting">Copywriting</button>
+          <button class="filter-btn" data-filter="e-commerce">E‑commerce</button>
+        </section>
+
+        <section class="projects-grid">
+          <div class="gallery-item" data-category="branding">
+            <div class="thumb-wrapper">
+              <img src="https://img.youtube.com/vi/xLzjcl9GP2M/hqdefault.jpg" alt="Beliani Video" class="gallery-thumb"/>
+              <div class="play-icon">▶️</div>
+            </div>
+            <div class="gallery-info">
+              <h3>Beliani – Delivering Happiness</h3>
+              <p>Branding</p>
+              <button class="lightbox-trigger" data-type="youtube" data-src="https://www.youtube.com/embed/xLzjcl9GP2M">Ver</button>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="copywriting">
+            <div class="thumb-wrapper">
+              <img src="https://img.youtube.com/vi/GNLO06S5sLw/hqdefault.jpg" alt="Copywriting Video" class="gallery-thumb"/>
+              <div class="play-icon">▶️</div>
+            </div>
+            <div class="gallery-info">
+              <h3>Copywriting em Ação</h3>
+              <p>Copywriting</p>
+              <button class="lightbox-trigger" data-type="youtube" data-src="https://www.youtube.com/embed/GNLO06S5sLw">Ver</button>
+            </div>
+          </div>
+
+          <!-- podes adicionar quantos quiseres -->
+        </section>
+      </article>
+
+      <article class="blog" data-page="blog">
+        <!-- teu blog -->
+      </article>
+
+      <article class="contact" data-page="contact">
+        <!-- teu contact -->
+      </article>
     </div>
+  </main>
 
-    <div class="gallery-item active" data-category="copywriting" data-filter-item>
-      <div class="thumb-wrapper">
-        <img src="https://img.youtube.com/vi/ysz5S6PUM-U/hqdefault.jpg" alt="Vídeo" class="gallery-thumb">
-        <div class="play-icon">▶️</div>
-      </div>
-      <div class="gallery-info">
-        <h3>Copywriting em Ação</h3>
-        <button class="lightbox-trigger" data-type="youtube" data-src="https://www.youtube.com/embed/ysz5S6PUM-U">Ver</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Lightbox -->
+  <!-- ====== LIGHTBOX ====== -->
   <div class="lightbox">
     <div class="lightbox-content"></div>
     <div class="close">✕</div>
   </div>
 
+  <script src="./assets/js/script.js"></script>
   <script>
-    // Filtros
-    const filterBtns = document.querySelectorAll('.filter-btn');
+    // Lightbox & filtro portfólio
+    document.querySelectorAll('.lightbox-trigger').forEach(btn=>{
+      btn.addEventListener('click', e=>{
+        e.preventDefault();
+        const src = btn.dataset.src;
+        const lightbox = document.querySelector('.lightbox');
+        const content = document.querySelector('.lightbox-content');
+        content.innerHTML = `<iframe width="100%" height="100%" src="${src}?autoplay=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+        lightbox.style.display='flex';
+      });
+    });
+    document.querySelector('.lightbox .close').addEventListener('click',()=>{
+      document.querySelector('.lightbox').style.display='none';
+      document.querySelector('.lightbox-content').innerHTML='';
+    });
+
     const galleryItems = document.querySelectorAll('.gallery-item');
-
-    filterBtns.forEach(btn => {
+    document.querySelectorAll('.filter-btn').forEach(btn=>{
       btn.addEventListener('click', () => {
-        document.querySelector('.filter-btn.active').classList.remove('active');
+        document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
         btn.classList.add('active');
-        const filter = btn.dataset.filter;
-
-        galleryItems.forEach(item => {
-          const cat = item.dataset.category;
-          item.classList.toggle('active', filter === 'all' || cat === filter);
+        const cat = btn.dataset.filter;
+        galleryItems.forEach(it=>{
+          it.classList.toggle('active', cat==='all' || it.dataset.category===cat);
         });
       });
     });
-
-    // Lightbox
-    const lightbox = document.querySelector('.lightbox');
-    const content = document.querySelector('.lightbox-content');
-    const closeBtn = document.querySelector('.lightbox .close');
-
-    document.querySelectorAll('.lightbox-trigger').forEach(el => {
-      el.addEventListener('click', e => {
-        e.preventDefault();
-        const src = el.dataset.src;
-
-        content.innerHTML = `<iframe width="100%" height="500" src="${src}?autoplay=1&rel=0" frameborder="0" allowfullscreen></iframe>`;
-        lightbox.style.display = 'flex';
-      });
-    });
-
-    closeBtn.addEventListener('click', () => {
-      lightbox.style.display = 'none';
-      content.innerHTML = '';
-    });
-
-    lightbox.addEventListener('click', e => {
-      if (e.target === lightbox) {
-        lightbox.style.display = 'none';
-        content.innerHTML = '';
-      }
-    });
   </script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

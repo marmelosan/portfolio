@@ -775,69 +775,59 @@
   <a href="#">
 
     <!-- BLOCO VISUAL (VIDEO) -->
-  <section class="projects-grid">
+<div class="projects-grid">
 
-<a href="#" class="gallery-link" data-type="youtube" data-src="https://www.youtube.com/embed/xLzjcl9GP2M">
-  <div class="thumb-wrapper">
-    <img src="https://img.youtube.com/vi/xLzjcl9GP2M/hqdefault.jpg" alt="Beliani Delivering Happiness" class="gallery-thumb">
-    <div class="play-icon">▶️</div>
-  </div>
-</a>
-
-  <!-- Exemplo vídeo mp4 -->
+  <!-- Exemplo: Vídeo YouTube -->
   <div class="gallery-item" data-category="branding">
-  <a href="#" class="gallery-link" data-type="video" data-src="./videos/beliani_campanha_junho2025.mp4">
     <div class="thumb-wrapper">
-      <video class="gallery-thumb" muted playsinline preload="metadata">
-        <source src="./videos/beliani_campanha_junho2025.mp4" type="video/mp4">
-      </video>
+      <img src="https://img.youtube.com/vi/xLzjcl9GP2M/hqdefault.jpg"
+           alt="Beliani Delivering Happiness" class="gallery-thumb">
       <div class="play-icon">▶️</div>
     </div>
-  </a>
-  <div class="gallery-info">
-    <h3>Beliani – Campanha Junho 2025</h3>
-    <p>Branding (Vídeo mp4)</p>
-  </div>
-</div>
-
- <div class="gallery-item" data-category="branding">
-  <a href="#" class="gallery-link" data-type="video" data-src="./videos/beliani_socialmedia_2024.mp4">
-    <div class="thumb-wrapper">
-      <video class="gallery-thumb" muted playsinline preload="metadata">
-        <source src="./beliani_socialmedia_2024.mp4" type="video/mp4">
-      </video>
-      <div class="play-icon">▶️</div>
+    <div class="gallery-info">
+      <h3>Beliani – Delivering Happiness</h3>
+      <p>Branding (Vídeo YouTube)</p>
     </div>
-  </a>
-  <div class="gallery-info">
-    <h3>Beliani – Social media 2024</h3>
-    <p>Branding (Vídeo mp4)</p>
+    <button class="lightbox-trigger" data-type="youtube" data-src="https://www.youtube.com/embed/xLzjcl9GP2M">Ver</button>
   </div>
-</div>
 
-  <!-- Imagem exemplo -->
-  <div class="gallery-item" data-category="e-commerce">
-    <a href="./assets/images/joiasonline1.png" class="gallery-link" data-type="image">
-      <img src="./assets/images/joiasonline1.png" alt="JóiasOnline Hero" class="gallery-thumb">
-    </a>
+  <!-- Exemplo: Vídeo MP4 -->
+  <div class="gallery-item" data-category="branding">
+    <div class="thumb-wrapper">
+      <img src="./videos/beliani_campanha_junho2025.jpg"
+           alt="Campanha Junho 2025" class="gallery-thumb">
+      <div class="play-icon">🎬</div>
+    </div>
+    <div class="gallery-info">
+      <h3>Beliani – Campanha Junho 2025</h3>
+      <p>Branding (Vídeo MP4)</p>
+    </div>
+    <button class="lightbox-trigger" data-type="video" data-src="./videos/beliani_campanha_junho2025.mp4">Ver</button>
+  </div>
+
+  <!-- Exemplo: Imagem -->
+  <div class="gallery-item" data-category="E‑commerce">
+    <div class="thumb-wrapper">
+      <img src="./assets/images/joiasonline1.png"
+           alt="Jóias Online Homepage Hero" class="gallery-thumb">
+    </div>
     <div class="gallery-info">
       <h3>JóiasOnline – Homepage Hero</h3>
       <p>E‑commerce (Imagem)</p>
     </div>
+    <button class="lightbox-trigger" data-type="image" data-src="./assets/images/joiasonline1.png">Ver</button>
   </div>
 
-  <!-- ... adiciona os restantes itens aqui ... -->
+  <!-- Continue com outros itens... -->
 
-</section>
-
-<!-- Lightbox Modal -->
-<div id="lightbox-modal" class="lightbox">
-  <span class="close">&times;</span>
-  <div class="lightbox-content">
-    <img id="lightbox-image" />
-    <video id="lightbox-video" controls></video>
-  </div>
 </div>
+
+<!-- Lightbox modal -->
+<div class="lightbox">
+  <div class="lightbox-content"></div>
+  <span class="close">&times;</span>
+</div>
+
 
 
           </ul>

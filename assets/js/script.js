@@ -158,3 +158,32 @@ for (let i = 0; i < navigationLinks.length; i++) {
   });
 }
 
+document.querySelectorAll('.gallery-link').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const type = link.dataset.type;
+    const src = link.dataset.src || link.getAttribute('href');
+    const modal = document.getElementById('lightbox-modal');
+    const img = document.getElementById('lightbox-image');
+    const vid = document.getElementById('lightbox-video');
+    img.style.display = vid.style.display = 'none';
+    if (type === 'image') {
+      img.src = src;
+      img.style.display = 'block';
+    } else {
+      vid.src = src;
+      vid.style.display = 'block';
+      vid.play();
+    }
+    modal.style.display = 'flex';
+  });
+});
+
+document.querySelector('.lightbox .close').addEventListener('click', () => {
+  const modal = document.getElementById('lightbox-modal');
+  document.getElementById('lightbox-video').pause();
+  document.getElementById('lightbox-video').src = '';
+  modal.style.display = 'none';
+});
+
+

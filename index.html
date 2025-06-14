@@ -707,126 +707,37 @@
         - #PORTFOLIO
       -->
 
-      <article class="portfolio" data-page="portfolio">
-
-        <header>
-          <h2 class="h2 article-title">Portfolio</h2>
-        </header>
-
-        <section class="projects">
-
-          <ul class="filter-list">
-
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Copywriting</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Branding</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>E-commerce</button>
-            </li>
-
-          </ul>
-
-          <div class="filter-select-box">
-
-            <button class="filter-select" data-select>
-
-              <div class="select-value" data-selecct-value>Select category</div>
-
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-
-            </button>
-
-            <ul class="select-list">
-
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Copywriting</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Branding</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>E-commerce</button>
-              </li>
-
-            </ul>
-
-          </div>
-
-          <ul class="project-list">
-
-            <li class="project-item active" data-filter-item data-category="web development">
-  <a href="#">
-
-    <!-- BLOCO VISUAL (VIDEO) -->
-<div class="projects-grid">
-
-  <!-- Exemplo: Vídeo YouTube -->
-  <div class="gallery-item" data-category="branding">
-    <div class="thumb-wrapper">
-      <img src="https://img.youtube.com/vi/xLzjcl9GP2M/hqdefault.jpg"
-           alt="Beliani Delivering Happiness" class="gallery-thumb">
-      <div class="play-icon">▶️</div>
-    </div>
-    <div class="gallery-info">
-      <h3>Beliani – Delivering Happiness</h3>
-      <p>Branding (Vídeo YouTube)</p>
-    </div>
-    <button class="lightbox-trigger" data-type="youtube" data-src="https://www.youtube.com/embed/xLzjcl9GP2M">Ver</button>
+<section id="portfolio">
+  <div class="filter-list">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="copywriting">Copywriting</button>
+    <button class="filter-btn" data-filter="branding">Branding</button>
+    <button class="filter-btn" data-filter="e-commerce">E‑commerce</button>
   </div>
 
-  <!-- Exemplo: Vídeo MP4 -->
-  <div class="gallery-item" data-category="branding">
-    <div class="thumb-wrapper">
-      <img src="./videos/beliani_campanha_junho2025.jpg"
-           alt="Campanha Junho 2025" class="gallery-thumb">
-      <div class="play-icon">🎬</div>
+  <div class="projects-grid">
+    <!-- EXEMPLO ITEM -->
+    <div class="gallery-item" data-category="branding">
+      <div class="thumb-wrapper">
+        <img src="https://img.youtube.com/vi/xLzjcl9GP2M/hqdefault.jpg" alt="" class="gallery-thumb">
+        <div class="play-icon">▶️</div>
+      </div>
+      <div class="gallery-info">
+        <h3>Beliani – Delivering Happiness</h3>
+        <p>Branding (Vídeo YouTube)</p>
+      </div>
+      <button class="lightbox-trigger" data-type="youtube" data-src="https://www.youtube.com/embed/xLzjcl9GP2M">Ver</button>
     </div>
-    <div class="gallery-info">
-      <h3>Beliani – Campanha Junho 2025</h3>
-      <p>Branding (Vídeo MP4)</p>
-    </div>
-    <button class="lightbox-trigger" data-type="video" data-src="./videos/beliani_campanha_junho2025.mp4">Ver</button>
+    <!-- Adiciona outros itens seguindo este modelo -->
   </div>
+</section>
 
-  <!-- Exemplo: Imagem -->
-  <div class="gallery-item" data-category="E‑commerce">
-    <div class="thumb-wrapper">
-      <img src="./assets/images/joiasonline1.png"
-           alt="Jóias Online Homepage Hero" class="gallery-thumb">
-    </div>
-    <div class="gallery-info">
-      <h3>JóiasOnline – Homepage Hero</h3>
-      <p>E‑commerce (Imagem)</p>
-    </div>
-    <button class="lightbox-trigger" data-type="image" data-src="./assets/images/joiasonline1.png">Ver</button>
-  </div>
-
-  <!-- Continue com outros itens... -->
-
-</div>
-
-<!-- Lightbox modal -->
+<!-- LIGHTBOX -->
 <div class="lightbox">
   <div class="lightbox-content"></div>
   <span class="close">&times;</span>
 </div>
+
 
 
 

@@ -1968,7 +1968,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   padding: 0;
 }
 
-<style>
+
 .modal {
   display: none;
   position: fixed;
@@ -2043,5 +2043,4 @@ object-fit: contain;
   border: none;
 }
 
-</style>
 

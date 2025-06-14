@@ -1967,3 +1967,5 @@ textarea.form-input::-webkit-resizer { display: none; }
   box-shadow: none !important;
   padding: 0;
 }
+
+  border-radius: 12px;

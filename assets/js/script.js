@@ -182,7 +182,7 @@ document.querySelectorAll('.open-modal').forEach(el => {
     }
 
     container.appendChild(media);
-    modal.style.display = "block";
+    modal.style.display = "flex";
   });
 });
 

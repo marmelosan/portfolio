@@ -1999,10 +1999,16 @@ textarea.form-input::-webkit-resizer { display: none; }
 .modal-content video,
 .modal-content img {
   width: 100%;
-  max-height: 80vh;
+  max-height: 70vh;/* força altura visível */
   border-radius: 10px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
   border: none;
+}
+
+
+.modal iframe {
+  min-height: 400px;
+  max-height: 90vh;
 }
 
 .close {

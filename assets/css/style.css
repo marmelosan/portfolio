@@ -1943,17 +1943,12 @@ textarea.form-input::-webkit-resizer { display: none; }
   .column { flex: 100%; }
 }
 
-.project-item-icon-box {
-  pointer-events: none;  /* deixa os cliques passarem por cima */
-}
-
 .video-wrapper {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 ratio */
   height: 0;
   overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  border-radius: 10px;
 }
 
 .video-wrapper iframe {
@@ -1962,5 +1957,13 @@ textarea.form-input::-webkit-resizer { display: none; }
   left: 0;
   width: 100%;
   height: 100%;
-  border: 0;
+  border: none;
+  display: block;
+}
+
+/* Remove sombra ou background feio em vídeos */
+.content.no-shadow {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0;
 }

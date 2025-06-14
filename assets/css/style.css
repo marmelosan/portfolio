@@ -1,10 +1,9 @@
-/*-----------------------------------*\
-  #style.css
+ #style.css
 \*-----------------------------------*/
 
 
 /**
- * copyright 2022 @codewithsadee
+ * copyright 2025 @sandromarmelo
  */
 
 
@@ -1879,4 +1878,162 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .timeline-text { max-width: 700px; }
 
+}
+
+/*-----------------------------------*\
+  #VIDEO PLAYER (EMBED RESPONSIVO)
+\*-----------------------------------*/
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* Proporção 16:9 */
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: var(--shadow-3);
+  background: var(--eerie-black-1);
+  margin-bottom: 20px;
+}
+
+.video-wrapper iframe,
+.video-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Ou ajusta como preferires */
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ou contain, se preferires sem corte */
+  display: block;
+}
+
+/* Garante que todo o texto no resume fica legível */
+.resume,
+.resume h2, 
+.resume h3, 
+.resume h4,
+.resume span,
+.resume p,
+.resume li {
+  color: var(--white-2);
+}
+
+.projects-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.gallery-item { position: relative; }
+
+.thumb-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.gallery-thumb {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.play-icon {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: rgba(255,255,255,0.8);
+  pointer-events: none;
+}
+
+.gallery-info {
+  padding: 0.5rem 0;
+  color: #fff;
+}
+
+/* Lightbox styles */
+.lightbox {
+  display: none;
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  z-index:999;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  position: relative;
+}
+
+.lightbox-content img,
+.lightbox-content video {
+  width: 100%;
+  height: auto;
+  display: none;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.filter-list { margin-bottom: 1rem; display: flex; gap: .5rem; }
+.filter-btn.active { font-weight: bold; }
+
+.projects-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+}
+
+.thumb-wrapper { position: relative; }
+.gallery-thumb { width: 100%; display: block; object-fit: cover; }
+.play-icon {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem; color: rgba(255,255,255,0.8);
+  display: none;
+}
+.thumb-wrapper:hover .play-icon { display: block; }
+
+.lightbox {
+  display: none; justify-content: center; align-items: center;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.9);
+  z-index: 999;
+}
+.lightbox-content {
+  max-width: 90%; max-height: 90%;
+}
+.lightbox-content iframe, .lightbox-content video, .lightbox-content img {
+  width: 100%; height: auto;
+}
+.lightbox .close {
+  position: absolute; top: 2%; right: 2%;
+  font-size: 2rem; color: #fff; cursor: pointer;
 }

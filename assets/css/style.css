@@ -2192,3 +2192,12 @@ input::placeholder,
 textarea::placeholder {
   color: var(--light-gray-70); /* ou algo mais suave */
 }
+
+.modal-title {
+  font-size: var(--fs-2);
+  font-weight: var(--fw-600);
+  color: var(--white-2);
+  margin-bottom: 10px;
+  display: block;
+  text-transform: capitalize;
+}

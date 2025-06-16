@@ -2148,14 +2148,32 @@ object-fit: contain;
   border: none;
 }
 
+.project-img {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
 .project-play-overlay {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 50px;
+  font-size: 48px;
   color: white;
-  opacity: 0.8;
-  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  z-index: 2;
 }
+
+.project-img:hover .project-play-overlay {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
 

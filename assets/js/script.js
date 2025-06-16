@@ -147,4 +147,29 @@ function closeMediaModal() {
   modalContainerMedia.innerHTML = '';
 }
 
+document.querySelectorAll('.open-modal').forEach(link => {
+  if (link.dataset.type === 'video') {
+    const videoSrc = link.dataset.src;
+    const img = link.querySelector('.video-thumb');
+
+    const video = document.createElement('video');
+    video.src = videoSrc;
+    video.crossOrigin = 'anonymous';
+    video.muted = true;
+    video.preload = 'auto';
+
+    video.addEventListener('loadeddata', () => {
+      video.currentTime = 0.1;
+    });
+
+    video.addEventListener('seeked', () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      canvas.getContext('2d').drawImage(video, 0, 0);
+      const thumbnailURL = canvas.toDataURL('image/jpeg');
+      img.src = thumbnailURL;
+    });
+  }
+});
 

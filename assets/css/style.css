@@ -2148,10 +2148,6 @@ object-fit: contain;
   border: none;
 }
 
-.project-img {
-  position: relative;
-}
-
 .project-play-overlay {
   content: "▶";
   position: absolute;
@@ -2163,13 +2159,12 @@ object-fit: contain;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 10px 14px;
   border-radius: 50%;
-  opacity: 0;
-  pointer-events: none;
+  opacity: 0.6; /* visível por padrão */
   transition: opacity 0.3s ease;
   z-index: 2;
 }
 
 .project-img:hover .project-play-overlay {
-  opacity: 1;
+  opacity: 1; /* mais destaque no hover */
 }
 

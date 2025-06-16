@@ -2169,24 +2169,17 @@ object-fit: contain;
 }
 
 
-/* Só para imagens com overlay (dentro de .project-img) */
 .project-img .project-item-icon-box {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0.8);
+  transform: translate(-50%, -50%);
   font-size: 24px;
   background: rgba(0, 0, 0, 0.6);
   color: white;
   padding: 12px;
   border-radius: 50%;
-  opacity: 0;
+  opacity: 1; /* <-- Sempre visível */
   pointer-events: none;
-  transition: 0.3s ease;
-}
-
-.project-img:hover .project-item-icon-box {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
 }
 

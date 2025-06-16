@@ -2183,3 +2183,12 @@ object-fit: contain;
   pointer-events: none;
 }
 
+input,
+textarea {
+  color: var(--white-2); /* ou white direto: #fff */
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--light-gray-70); /* ou algo mais suave */
+}

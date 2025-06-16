@@ -2176,4 +2176,18 @@ object-fit: contain;
   transform: translate(-50%, -50%) scale(1.1);
 }
 
+.video-wrapper.placeholder-bg {
+  background: linear-gradient(135deg, #444, #222);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+}
+
+.project-play-overlay {
+  font-size: 48px;
+  color: white;
+  opacity: 0.85;
+  pointer-events: none;
+}
 

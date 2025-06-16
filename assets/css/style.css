@@ -2222,3 +2222,7 @@ textarea::placeholder {
 .modal-content p {
   margin-top: 5px;
 }
+
+.modal-content p {
+  margin-top: 10px; /* ou 8px para um visual mais justo */
+}

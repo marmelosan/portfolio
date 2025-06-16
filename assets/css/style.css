@@ -2201,3 +2201,24 @@ textarea::placeholder {
   display: block;
   text-transform: capitalize;
 }
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.modal-title {
+  font-size: var(--fs-2);
+  font-weight: var(--fw-600);
+  color: var(--white-2);
+  margin-bottom: 8px;
+  display: block;
+  z-index: 2;
+  position: relative;
+}
+
+.modal-content p {
+  margin-top: 5px;
+}

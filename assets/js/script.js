@@ -173,25 +173,5 @@ document.querySelectorAll('.open-modal').forEach(link => {
   }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const filterBtns = document.querySelectorAll("[data-filter-btn]");
-  const items = document.querySelectorAll("[data-filter-item]");
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();  // evita efeitos indesejados
-      const filter = btn.dataset.filter;
-
-      filterBtns.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      items.forEach(item => {
-        const cat = item.dataset.category;
-        item.style.display = (filter === "all" || cat === filter) ? "" : "none";
-      });
-    });
-  });
-});
-
 
 

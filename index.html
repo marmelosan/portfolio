@@ -693,22 +693,28 @@
         - #PORTFOLIO
       -->
 
-      <article class="portfolio" data-page="portfolio">
+     <article class="portfolio" data-page="portfolio">
+  <header><h2 class="h2 article-title">Portfolio</h2></header>
+  <section class="projects">
+    <ul class="filter-list">
+      <li class="filter-item"><button class="active" data-filter-btn data-filter="all">All</button></li>
+      <li class="filter-item"><button data-filter-btn data-filter="e-commerce">E‑commerce</button></li>
+      <li class="filter-item"><button data-filter-btn data-filter="translation-copywriting">Translation/Copywriting</button></li>
+      <li class="filter-item"><button data-filter-btn data-filter="data-operations">Data Operations</button></li>
+      <li class="filter-item"><button data-filter-btn data-filter="digital-strategy">Digital Strategy</button></li>
+      <li class="filter-item"><button data-filter-btn data-filter="ai-gpt">AI/GPT</button></li>
+    </ul>
 
-        <header>
-          <h2 class="h2 article-title">Portfolio</h2>
-        </header>
-
-        <section class="projects">
-
-   <ul class="filter-list">
-  <li class="filter-item"><button class="active" data-filter-btn data-filter="all">All</button></li>
-  <li class="filter-item"><button data-filter-btn data-filter="e-commerce">E‑commerce</button></li>
-  <li class="filter-item"><button data-filter-btn data-filter="translation-copywriting">Translation/Copywriting</button></li>
-  <li class="filter-item"><button data-filter-btn data-filter="data-operations">Data Operations</button></li>
-  <li class="filter-item"><button data-filter-btn data-filter="digital-strategy">Digital Strategy</button></li>
-  <li class="filter-item"><button data-filter-btn data-filter="ai-gpt">AI/GPT</button></li>
-</ul>
+    <ul class="project-list">
+      <!-- cada item aqui deve ter: data-filter-item e data-category="<mesma string do filter>" -->
+      <li class="project-item" data-filter-item data-category="E-commerce">…</li>
+      <li class="project-item" data-filter-item data-category="Translation/Copywriting">…</li>
+      <li class="project-item" data-filter-item data-category="Digital Strategy">…</li>
+      <li class="project-item" data-filter-item data-category="Data Operations">…</li>
+      <li class="project-item" data-filter-item data-category="AI/Chat GPT">…</li>
+    </ul>
+  </section>
+</article>
 
 <a href="#" class="open-modal"
    data-type="youtube"

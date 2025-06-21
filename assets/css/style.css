@@ -2240,3 +2240,7 @@ textarea::placeholder {
 .testimonials-modal {
   max-width: 90%;
 }
+
+.project-item.hide {
+  display: none !important;
+}

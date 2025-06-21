@@ -1,14 +1,16 @@
 'use strict';
 
-// element toggle function
-const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
+// Toggle
+const elementToggleFunc = function (elem) {
+  elem.classList.toggle("active");
+};
 
-// sidebar variables
+// Sidebar
 const sidebar = document.querySelector("[data-sidebar]");
 const sidebarBtn = document.querySelector("[data-sidebar-btn]");
-sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
+sidebarBtn.addEventListener("click", () => elementToggleFunc(sidebar));
 
-// testimonials modal
+// Testimonials Modal
 const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
 const modalContainer = document.querySelector("[data-modal-container]");
 const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
@@ -17,10 +19,10 @@ const modalImg = document.querySelector("[data-modal-img]");
 const modalTitle = document.querySelector("[data-modal-title]");
 const modalText = document.querySelector("[data-modal-text]");
 
-const testimonialsModalFunc = function () {
+const testimonialsModalFunc = () => {
   modalContainer.classList.toggle("active");
   overlay.classList.toggle("active");
-}
+};
 
 testimonialsItem.forEach(item => {
   item.addEventListener("click", function () {
@@ -35,57 +37,64 @@ testimonialsItem.forEach(item => {
 modalCloseBtn.addEventListener("click", testimonialsModalFunc);
 overlay.addEventListener("click", testimonialsModalFunc);
 
-// custom select
+// Custom Select + Filtering
 const select = document.querySelector("[data-select]");
 const selectItems = document.querySelectorAll("[data-select-item]");
 const selectValue = document.querySelector("[data-selecct-value]");
-const filterBtn = document.querySelectorAll("[data-filter-btn]");
-select.addEventListener("click", function () { elementToggleFunc(this); });
+const filterBtns = document.querySelectorAll("[data-filter-btn]");
+const filterItems = document.querySelectorAll("[data-filter-item]");
+
+const filterFunc = (selectedValue) => {
+  filterItems.forEach(item => {
+    const category = item.dataset.category.toLowerCase();
+    if (selectedValue === "all" || category === selectedValue) {
+      item.style.display = "block";
+    } else {
+      item.style.display = "none";
+    }
+  });
+};
+
+select.addEventListener("click", () => elementToggleFunc(select));
 
 selectItems.forEach(item => {
-  item.addEventListener("click", function () {
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
+  item.addEventListener("click", () => {
+    const selected = item.innerText.toLowerCase();
+    selectValue.innerText = item.innerText;
     elementToggleFunc(select);
-    filterFunc(selectedValue);
+    filterBtns.forEach(btn => btn.classList.remove("active"));
+    filterFunc(selected);
   });
 });
 
-const filterItems = document.querySelectorAll("[data-filter-item]");
-const filterFunc = function (selectedValue) {
-  filterItems.forEach(item => {
-    const match = selectedValue === "all" || item.dataset.category.toLowerCase() === selectedValue;
-    item.classList.toggle("active", match);
-  });
-}
-
-let lastClickedBtn = filterBtn[0];
-filterBtn.forEach(btn => {
-  btn.addEventListener("click", function () {
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    filterFunc(selectedValue);
-    lastClickedBtn.classList.remove("active");
-    this.classList.add("active");
-    lastClickedBtn = this;
+let lastActiveBtn = filterBtns[0];
+filterBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const selected = btn.innerText.toLowerCase();
+    selectValue.innerText = btn.innerText;
+    filterFunc(selected);
+    lastActiveBtn.classList.remove("active");
+    btn.classList.add("active");
+    lastActiveBtn = btn;
   });
 });
 
-// form validation
+// Form validation
 const form = document.querySelector("[data-form]");
 const formInputs = document.querySelectorAll("[data-form-input]");
 const formBtn = document.querySelector("[data-form-btn]");
+
 formInputs.forEach(input => {
-  input.addEventListener("input", function () {
+  input.addEventListener("input", () => {
     formBtn.disabled = !form.checkValidity();
   });
 });
 
-// page navigation
+// Page navigation
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
 navigationLinks.forEach((link, i) => {
-  link.addEventListener("click", function () {
+  link.addEventListener("click", () => {
     pages.forEach(page => page.classList.remove("active"));
     navigationLinks.forEach(nav => nav.classList.remove("active"));
     pages[i].classList.add("active");
@@ -94,7 +103,7 @@ navigationLinks.forEach((link, i) => {
   });
 });
 
-// MEDIA MODAL (YouTube / Vídeo / Imagem)
+// Media Modal
 const mediaModal = document.getElementById('mediaModal');
 const modalContainerMedia = document.getElementById('modal-media-container');
 const modalCloseMedia = mediaModal.querySelector('.close');
@@ -114,16 +123,14 @@ document.querySelectorAll('.open-modal').forEach(btn => {
       el.autoplay = true;
       el.style.maxWidth = '90vw';
       el.style.maxHeight = '80vh';
-    }
-    else if (type === 'youtube') {
+    } else if (type === 'youtube') {
       el = document.createElement('iframe');
       el.src = src + '?autoplay=1';
       el.setAttribute('allow', 'autoplay; encrypted-media');
       el.allowFullscreen = true;
       el.style.width = '90vw';
       el.style.height = '50vh';
-    }
-    else if (type === 'image') {
+    } else if (type === 'image') {
       el = document.createElement('img');
       el.src = src;
       el.style.maxWidth = '90vw';
@@ -147,6 +154,7 @@ function closeMediaModal() {
   modalContainerMedia.innerHTML = '';
 }
 
+// Generate video thumbnails
 document.querySelectorAll('.open-modal').forEach(link => {
   if (link.dataset.type === 'video') {
     const videoSrc = link.dataset.src;
@@ -167,11 +175,7 @@ document.querySelectorAll('.open-modal').forEach(link => {
       canvas.width = video.videoWidth;
       canvas.height = video.videoHeight;
       canvas.getContext('2d').drawImage(video, 0, 0);
-      const thumbnailURL = canvas.toDataURL('image/jpeg');
-      img.src = thumbnailURL;
+      img.src = canvas.toDataURL('image/jpeg');
     });
   }
 });
-
-
-

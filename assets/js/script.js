@@ -47,11 +47,11 @@ const filterItems = document.querySelectorAll("[data-filter-item]");
 const filterFunc = (selectedValue) => {
   filterItems.forEach(item => {
     const category = item.dataset.category.toLowerCase();
-    if (selectedValue === "all" || category === selectedValue) {
-      item.style.display = "block";
-    } else {
-      item.style.display = "none";
-    }
+  if (selectedValue === "all" || category === selectedValue) {
+  item.classList.remove("hide");
+} else {
+  item.classList.add("hide");
+}
   });
 };
 

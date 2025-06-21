@@ -693,66 +693,53 @@
         - #PORTFOLIO
       -->
 
-      <article class="portfolio" data-page="portfolio">
+     <article class="portfolio" data-page="portfolio">
+  <header>
+    <h2 class="h2 article-title">Portfolio</h2>
+  </header>
 
-        <header>
-          <h2 class="h2 article-title">Portfolio</h2>
-        </header>
+  <section class="projects">
 
-        <section class="projects">
+    <ul class="filter-list">
+      <li class="filter-item">
+        <button class="active" data-filter-btn data-filter="all">All</button>
+      </li>
+      <li class="filter-item">
+        <button data-filter-btn data-filter="copywriting">Copywriting</button>
+      </li>
+      <li class="filter-item">
+        <button data-filter-btn data-filter="branding">Branding</button>
+      </li>
+      <li class="filter-item">
+        <button data-filter-btn data-filter="e-commerce">E-commerce</button>
+      </li>
+    </ul>
 
-          <ul class="filter-list">
+    <div class="filter-select-box">
+      <button class="filter-select" data-select>
+        <div class="select-value" data-selecct-value>Select category</div>
+        <div class="select-icon">
+          <ion-icon name="chevron-down"></ion-icon>
+        </div>
+      </button>
 
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
+      <ul class="select-list">
+        <li class="select-item">
+          <button data-select-item>All</button>
+        </li>
+        <li class="select-item">
+          <button data-select-item>Copywriting</button>
+        </li>
+        <li class="select-item">
+          <button data-select-item>Branding</button>
+        </li>
+        <li class="select-item">
+          <button data-select-item>E-commerce</button>
+        </li>
+      </ul>
+    </div>
 
-            <li class="filter-item">
-              <button data-filter-btn>Copywriting</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Branding</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>E-commerce</button>
-            </li>
-
-          </ul>
-
-          <div class="filter-select-box">
-
-            <button class="filter-select" data-select>
-
-              <div class="select-value" data-selecct-value>Select category</div>
-
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-
-            </button>
-
-            <ul class="select-list">
-
-           <li class="filter-item">
-  <button class="active" data-filter-btn data-filter="all">All</button>
-</li>
-<li class="filter-item">
-  <button data-filter-btn data-filter="copywriting">Copywriting</button>
-</li>
-<li class="filter-item">
-  <button data-filter-btn data-filter="branding">Branding</button>
-</li>
-<li class="filter-item">
-  <button data-filter-btn data-filter="e-commerce">E-commerce</button>
-</li>
-
-            </ul>
-
-          </div>
-
-          <ul class="project-list">
+    <ul class="project-list">
 
 <li class="project-item" data-filter-item data-category="branding">
   <a href="#" class="open-modal"

@@ -1,116 +1,119 @@
 'use strict';
 
-// Helper para alternar classe
-const elementToggleFunc = (elem) => elem.classList.toggle('active');
-
-// SIDEBAR
-const sidebar = document.querySelector('[data-sidebar]');
-const sidebarBtn = document.querySelector('[data-sidebar-btn]');
-sidebarBtn.addEventListener('click', () => elementToggleFunc(sidebar));
-
-// TESTIMONIALS MODAL
-const testimonialsItems = document.querySelectorAll('[data-testimonials-item]');
-const modalContainer = document.querySelector('[data-modal-container]');
-const modalCloseBtn = document.querySelector('[data-modal-close-btn]');
-const overlay = document.querySelector('[data-overlay]');
-const modalImg = document.querySelector('[data-modal-img]');
-const modalTitle = document.querySelector('[data-modal-title]');
-const modalText = document.querySelector('[data-modal-text]');
-
-const toggleTestimonialsModal = () => {
-  modalContainer.classList.toggle('active');
-  overlay.classList.toggle('active');
+// Toggle
+const elementToggleFunc = function (elem) {
+  elem.classList.toggle("active");
 };
 
-testimonialsItems.forEach(item => {
-  item.addEventListener('click', () => {
-    const avatar = item.querySelector('[data-testimonials-avatar]');
-    const title = item.querySelector('[data-testimonials-title]');
-    const text = item.querySelector('[data-testimonials-text]');
+// Sidebar
+const sidebar = document.querySelector("[data-sidebar]");
+const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+sidebarBtn.addEventListener("click", () => elementToggleFunc(sidebar));
 
-    modalImg.src = avatar.src;
-    modalImg.alt = avatar.alt;
-    modalTitle.textContent = title.textContent;
-    modalText.textContent = text.textContent;
+// Testimonials Modal
+const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
+const modalContainer = document.querySelector("[data-modal-container]");
+const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
+const overlay = document.querySelector("[data-overlay]");
+const modalImg = document.querySelector("[data-modal-img]");
+const modalTitle = document.querySelector("[data-modal-title]");
+const modalText = document.querySelector("[data-modal-text]");
 
-    toggleTestimonialsModal();
+const testimonialsModalFunc = () => {
+  modalContainer.classList.toggle("active");
+  overlay.classList.toggle("active");
+};
+
+testimonialsItem.forEach(item => {
+  item.addEventListener("click", function () {
+    modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
+    modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
+    modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
+    modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
+    testimonialsModalFunc();
   });
 });
 
-modalCloseBtn.addEventListener('click', toggleTestimonialsModal);
-overlay.addEventListener('click', toggleTestimonialsModal);
+modalCloseBtn.addEventListener("click", testimonialsModalFunc);
+overlay.addEventListener("click", testimonialsModalFunc);
 
-// FILTROS (Portfolio)
-const select = document.querySelector('[data-select]');
-const selectItems = document.querySelectorAll('[data-select-item]');
-const selectValue = document.querySelector('[data-selecct-value]');
-const filterBtns = document.querySelectorAll('[data-filter-btn]');
-const filterItems = document.querySelectorAll('[data-filter-item]');
+// Custom Select + Filtering
+const select = document.querySelector("[data-select]");
+const selectItems = document.querySelectorAll("[data-select-item]");
+const selectValue = document.querySelector("[data-selecct-value]");
+const filterBtns = document.querySelectorAll("[data-filter-btn]");
+const filterItems = document.querySelectorAll("[data-filter-item]");
 
 const filterFunc = (selectedValue) => {
   filterItems.forEach(item => {
     const category = item.dataset.category.toLowerCase();
-    if (selectedValue === 'all' || category === selectedValue) {
-      item.classList.remove('hide');
-    } else {
-      item.classList.add('hide');
-    }
+  if (selectedValue === "all" || category === selectedValue) {
+  item.classList.remove("hide");
+} else {
+  item.classList.add("hide");
+}
   });
 };
 
-select.addEventListener('click', () => elementToggleFunc(select));
+select.addEventListener("click", () => elementToggleFunc(select));
 
 selectItems.forEach(item => {
-  item.addEventListener('click', () => {
-    const selected = item.textContent.toLowerCase();
-    selectValue.textContent = item.textContent;
+  item.addEventListener("click", () => {
+    const selected = item.innerText.toLowerCase();
+    selectValue.innerText = item.innerText;
     elementToggleFunc(select);
-    filterBtns.forEach(btn => btn.classList.remove('active'));
+    filterBtns.forEach(btn => btn.classList.remove("active"));
     filterFunc(selected);
   });
 });
 
 let lastActiveBtn = filterBtns[0];
 filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const selected = btn.textContent.toLowerCase();
-    selectValue.textContent = btn.textContent;
+  btn.addEventListener("click", () => {
+    const selected = btn.innerText.toLowerCase();
+    selectValue.innerText = btn.innerText;
     filterFunc(selected);
-    lastActiveBtn.classList.remove('active');
-    btn.classList.add('active');
+    lastActiveBtn.classList.remove("active");
+    btn.classList.add("active");
     lastActiveBtn = btn;
   });
 });
 
-// PAGE NAVIGATION (Abas)
-const navLinks = document.querySelectorAll('[data-nav-link]');
-const pages = document.querySelectorAll('[data-page]');
+// Form validation
+const form = document.querySelector("[data-form]");
+const formInputs = document.querySelectorAll("[data-form-input]");
+const formBtn = document.querySelector("[data-form-btn]");
 
-navLinks.forEach((link, i) => {
-  link.addEventListener('click', () => {
-    pages.forEach(page => page.classList.remove('active'));
-    navLinks.forEach(nav => nav.classList.remove('active'));
-    pages[i].classList.add('active');
-    navLinks[i].classList.add('active');
+formInputs.forEach(input => {
+  input.addEventListener("input", () => {
+    formBtn.disabled = !form.checkValidity();
+  });
+});
+
+// Page navigation
+const navigationLinks = document.querySelectorAll("[data-nav-link]");
+const pages = document.querySelectorAll("[data-page]");
+navigationLinks.forEach((link, i) => {
+  link.addEventListener("click", () => {
+    pages.forEach(page => page.classList.remove("active"));
+    navigationLinks.forEach(nav => nav.classList.remove("active"));
+    pages[i].classList.add("active");
+    navigationLinks[i].classList.add("active");
     window.scrollTo(0, 0);
   });
 });
 
-// MEDIA MODAL (imagens, vídeos, YouTube)
+// Media Modal
 const mediaModal = document.getElementById('mediaModal');
-const modalMediaContainer = document.getElementById('modal-media-container');
+const modalContainerMedia = document.getElementById('modal-media-container');
 const modalCloseMedia = mediaModal.querySelector('.close');
-
-const closeMediaModal = () => {
-  mediaModal.style.display = 'none';
-  modalMediaContainer.innerHTML = '';
-};
 
 document.querySelectorAll('.open-modal').forEach(btn => {
   btn.addEventListener('click', e => {
     e.preventDefault();
-    const { type, src } = btn.dataset;
-    modalMediaContainer.innerHTML = '';
+    const type = btn.dataset.type;
+    const src = btn.dataset.src;
+    modalContainerMedia.innerHTML = '';
 
     let el;
     if (type === 'video') {
@@ -118,31 +121,40 @@ document.querySelectorAll('.open-modal').forEach(btn => {
       el.src = src;
       el.controls = true;
       el.autoplay = true;
+      el.style.maxWidth = '90vw';
+      el.style.maxHeight = '80vh';
     } else if (type === 'youtube') {
       el = document.createElement('iframe');
-      el.src = `${src}?autoplay=1`;
+      el.src = src + '?autoplay=1';
       el.setAttribute('allow', 'autoplay; encrypted-media');
       el.allowFullscreen = true;
+      el.style.width = '90vw';
+      el.style.height = '50vh';
     } else if (type === 'image') {
       el = document.createElement('img');
       el.src = src;
+      el.style.maxWidth = '90vw';
+      el.style.maxHeight = '80vh';
     }
 
     if (el) {
-      el.style.maxWidth = '90vw';
-      el.style.maxHeight = '80vh';
-      modalMediaContainer.appendChild(el);
+      modalContainerMedia.appendChild(el);
       mediaModal.style.display = 'flex';
     }
   });
 });
 
-modalCloseMedia.addEventListener('click', closeMediaModal);
+modalCloseMedia.addEventListener('click', () => closeMediaModal());
 mediaModal.addEventListener('click', e => {
   if (e.target === mediaModal) closeMediaModal();
 });
 
-// THUMBNAIL PARA VÍDEOS MP4
+function closeMediaModal() {
+  mediaModal.style.display = 'none';
+  modalContainerMedia.innerHTML = '';
+}
+
+// Generate video thumbnails
 document.querySelectorAll('.open-modal').forEach(link => {
   if (link.dataset.type === 'video') {
     const videoSrc = link.dataset.src;
@@ -166,4 +178,35 @@ document.querySelectorAll('.open-modal').forEach(link => {
       img.src = canvas.toDataURL('image/jpeg');
     });
   }
+});
+
+
+document.querySelectorAll("[data-filter-btn]").forEach(button => {
+  button.addEventListener("click", () => {
+    const selectedCategory = button.getAttribute("data-filter");
+
+    // Remover classes ativas de todos os botões
+    document.querySelectorAll("[data-filter-btn]").forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
+
+    // Mostrar/esconder blurbs
+    document.querySelectorAll(".project-blurb").forEach(blurb => {
+      const blurbCategory = blurb.getAttribute("data-category-blurb");
+      if (selectedCategory === "all" || selectedCategory === blurbCategory.toLowerCase()) {
+        blurb.classList.add("active");
+      } else {
+        blurb.classList.remove("active");
+      }
+    });
+
+    // Mostrar/esconder projetos
+    document.querySelectorAll(".project-item").forEach(item => {
+      const itemCategory = item.getAttribute("data-category").toLowerCase();
+      if (selectedCategory === "all" || itemCategory === selectedCategory) {
+        item.style.display = "block";
+      } else {
+        item.style.display = "none";
+      }
+    });
+  });
 });

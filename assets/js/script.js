@@ -179,34 +179,3 @@ document.querySelectorAll('.open-modal').forEach(link => {
     });
   }
 });
-
-
-document.querySelectorAll("[data-filter-btn]").forEach(button => {
-  button.addEventListener("click", () => {
-    const selectedCategory = button.getAttribute("data-filter");
-
-    // Remover classes ativas de todos os botões
-    document.querySelectorAll("[data-filter-btn]").forEach(btn => btn.classList.remove("active"));
-    button.classList.add("active");
-
-    // Mostrar/esconder blurbs
-    document.querySelectorAll(".project-blurb").forEach(blurb => {
-      const blurbCategory = blurb.getAttribute("data-category-blurb");
-      if (selectedCategory === "all" || selectedCategory === blurbCategory.toLowerCase()) {
-        blurb.classList.add("active");
-      } else {
-        blurb.classList.remove("active");
-      }
-    });
-
-    // Mostrar/esconder projetos
-    document.querySelectorAll(".project-item").forEach(item => {
-      const itemCategory = item.getAttribute("data-category").toLowerCase();
-      if (selectedCategory === "all" || itemCategory === selectedCategory) {
-        item.style.display = "block";
-      } else {
-        item.style.display = "none";
-      }
-    });
-  });
-});

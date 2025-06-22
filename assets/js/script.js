@@ -1,16 +1,16 @@
 'use strict';
 
-// Toggle
+// Toggle function
 const elementToggleFunc = function (elem) {
   elem.classList.toggle("active");
 };
 
-// Sidebar
+// Sidebar toggle
 const sidebar = document.querySelector("[data-sidebar]");
 const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 sidebarBtn.addEventListener("click", () => elementToggleFunc(sidebar));
 
-// Testimonials Modal
+// Testimonials modal
 const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
 const modalContainer = document.querySelector("[data-modal-container]");
 const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
@@ -37,7 +37,7 @@ testimonialsItem.forEach(item => {
 modalCloseBtn.addEventListener("click", testimonialsModalFunc);
 overlay.addEventListener("click", testimonialsModalFunc);
 
-// Custom Select + Filtering
+// Custom select + filtering
 const select = document.querySelector("[data-select]");
 const selectItems = document.querySelectorAll("[data-select-item]");
 const selectValue = document.querySelector("[data-selecct-value]");
@@ -47,11 +47,12 @@ const filterItems = document.querySelectorAll("[data-filter-item]");
 const filterFunc = (selectedValue) => {
   filterItems.forEach(item => {
     const category = item.dataset.category.toLowerCase();
-  if (selectedValue === "all" || category === selectedValue) {
-  item.classList.remove("hide");
-} else {
-  item.classList.add("hide");
-}
+    item.classList.toggle("hide", selectedValue !== "all" && category !== selectedValue);
+  });
+
+  document.querySelectorAll(".project-blurb").forEach(blurb => {
+    const blurbCategory = blurb.getAttribute("data-category-blurb").toLowerCase();
+    blurb.classList.toggle("active", selectedValue === "all" || selectedValue === blurbCategory);
   });
 };
 
@@ -67,6 +68,7 @@ selectItems.forEach(item => {
   });
 });
 
+// Filter buttons
 let lastActiveBtn = filterBtns[0];
 filterBtns.forEach(btn => {
   btn.addEventListener("click", () => {
@@ -103,7 +105,7 @@ navigationLinks.forEach((link, i) => {
   });
 });
 
-// Media Modal
+// Media modal
 const mediaModal = document.getElementById('mediaModal');
 const modalContainerMedia = document.getElementById('modal-media-container');
 const modalCloseMedia = mediaModal.querySelector('.close');
@@ -154,7 +156,7 @@ function closeMediaModal() {
   modalContainerMedia.innerHTML = '';
 }
 
-// Generate video thumbnails
+// Video thumbnails (autogenerate)
 document.querySelectorAll('.open-modal').forEach(link => {
   if (link.dataset.type === 'video') {
     const videoSrc = link.dataset.src;
@@ -180,33 +182,12 @@ document.querySelectorAll('.open-modal').forEach(link => {
   }
 });
 
+// Show default blurb on load
+window.addEventListener("DOMContentLoaded", () => {
+  const defaultCategory = "all";
 
-document.querySelectorAll("[data-filter-btn]").forEach(button => {
-  button.addEventListener("click", () => {
-    const selectedCategory = button.getAttribute("data-filter");
-
-    // Remover classes ativas de todos os botões
-    document.querySelectorAll("[data-filter-btn]").forEach(btn => btn.classList.remove("active"));
-    button.classList.add("active");
-
-    // Mostrar/esconder blurbs
-    document.querySelectorAll(".project-blurb").forEach(blurb => {
-      const blurbCategory = blurb.getAttribute("data-category-blurb");
-      if (selectedCategory === "all" || selectedCategory === blurbCategory.toLowerCase()) {
-        blurb.classList.add("active");
-      } else {
-        blurb.classList.remove("active");
-      }
-    });
-
-    // Mostrar/esconder projetos
-    document.querySelectorAll(".project-item").forEach(item => {
-      const itemCategory = item.getAttribute("data-category").toLowerCase();
-      if (selectedCategory === "all" || itemCategory === selectedCategory) {
-        item.style.display = "block";
-      } else {
-        item.style.display = "none";
-      }
-    });
+  document.querySelectorAll(".project-blurb").forEach(blurb => {
+    const blurbCategory = blurb.getAttribute("data-category-blurb").toLowerCase();
+    blurb.classList.toggle("active", defaultCategory === "all" || defaultCategory === blurbCategory);
   });
 });

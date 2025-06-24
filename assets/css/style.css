@@ -2298,11 +2298,3 @@ textarea::placeholder {
 .project-list:not([data-active="ai tools"]) .project-blurb[data-category="ai tools"] {
   display: none;
 }
-
-.project-blurb {
-  /* herdando estilos se for necessário */
-  background-color: var(--background-dark);
-  padding: 1rem;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-}

@@ -2268,3 +2268,33 @@ textarea::placeholder {
   font-size: 1rem;
   line-height: 1.5;
 }
+
+.project-blurb {
+  order: -1; /* sobe ao topo */
+  width: 100%;
+}
+
+.project-blurb .blurb-content {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.project-blurb .blurb-text {
+  color: #aaa;
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Quando um filtro está ativo, escondemos blurbs que não pertencem à categoria */
+.project-list:not([data-active="all"]) .project-blurb[data-category="all"],
+.project-list:not([data-active="copywriting"]) .project-blurb[data-category="copywriting"],
+.project-list:not([data-active="branding"]) .project-blurb[data-category="branding"],
+.project-list:not([data-active="e-commerce"]) .project-blurb[data-category="e-commerce"],
+.project-list:not([data-active="data-operations"]) .project-blurb[data-category="data-operations"],
+.project-list:not([data-active="ai tools"]) .project-blurb[data-category="ai tools"] {
+  display: none;
+}

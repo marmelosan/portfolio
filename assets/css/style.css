@@ -2245,3 +2245,26 @@ textarea::placeholder {
 .project-item.hide {
   display: none !important;
 }
+
+.project-blurb {
+  width: 100%;
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  font-style: italic;
+  color: #eee;
+  text-align: center;
+}
+
+.project-blurb p {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.5;
+}

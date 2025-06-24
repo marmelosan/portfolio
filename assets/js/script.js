@@ -46,14 +46,14 @@ const filterItems = document.querySelectorAll("[data-filter-item]");
 
 const filterFunc = (selectedValue) => {
   filterItems.forEach(item => {
-document.querySelector('.project-list').setAttribute('data-active', selectedValue);
-    const category = item.dataset.category.toLowerCase();
+  const category = item.dataset.category.toLowerCase();
   if (selectedValue === "all" || category === selectedValue) {
   item.classList.remove("hide");
 } else {
   item.classList.add("hide");
 }
   });
+document.querySelector('.project-list').setAttribute('data-active', selectedValue);
 };
 
 select.addEventListener("click", () => elementToggleFunc(select));

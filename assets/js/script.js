@@ -49,10 +49,8 @@ const filterFunc = (selectedValue) => {
     const category = item.dataset.category.toLowerCase();
 
     if (selectedValue === "all") {
-      // Mostra apenas os itens com data-category="all"
       item.classList.toggle("hide", category !== "all");
     } else {
-      // Mostra apenas os itens da categoria selecionada
       item.classList.toggle("hide", category !== selectedValue);
     }
   });
@@ -60,6 +58,10 @@ const filterFunc = (selectedValue) => {
   document.querySelector('.project-list').setAttribute('data-active', selectedValue);
 };
 
+// ⬇️ Adiciona esta linha logo a seguir
+filterFunc("all"); // Garante que ao abrir a página, só mostra a blurb de "All"
+
+// Event listeners abaixo
 select.addEventListener("click", () => elementToggleFunc(select));
 
 selectItems.forEach(item => {
@@ -71,6 +73,7 @@ selectItems.forEach(item => {
     filterFunc(selected);
   });
 });
+
 
 let lastActiveBtn = filterBtns[0];
 filterBtns.forEach(btn => {

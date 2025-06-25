@@ -46,14 +46,18 @@ const filterItems = document.querySelectorAll("[data-filter-item]");
 
 const filterFunc = (selectedValue) => {
   filterItems.forEach(item => {
-  const category = item.dataset.category.toLowerCase();
-  if (selectedValue === "all" || category === selectedValue) {
-  item.classList.remove("hide");
-} else {
-  item.classList.add("hide");
-}
+    const category = item.dataset.category.toLowerCase();
+
+    if (selectedValue === "all") {
+      // Mostra apenas os itens com data-category="all"
+      item.classList.toggle("hide", category !== "all");
+    } else {
+      // Mostra apenas os itens da categoria selecionada
+      item.classList.toggle("hide", category !== selectedValue);
+    }
   });
-document.querySelector('.project-list').setAttribute('data-active', selectedValue);
+
+  document.querySelector('.project-list').setAttribute('data-active', selectedValue);
 };
 
 select.addEventListener("click", () => elementToggleFunc(select));

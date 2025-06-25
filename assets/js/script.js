@@ -82,6 +82,10 @@ function setupFiltering(savedFilter) {
       blurb.classList.toggle("hide", category !== selectedValue);
     });
 
+ const btn = Array.from(filterBtns).find(b => b.innerText.toLowerCase() === savedFilter);
+  if (btn) btn.click(); // Força execução correta
+}
+
     document.querySelector('.project-list')?.setAttribute('data-active', selectedValue);
   }
 

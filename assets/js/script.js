@@ -89,19 +89,6 @@ filterBtns.forEach(btn => {
   });
 });
 
-
-let lastActiveBtn = filterBtns[0];
-filterBtns.forEach(btn => {
-  btn.addEventListener("click", () => {
-    const selected = btn.innerText.toLowerCase();
-    selectValue.innerText = btn.innerText;
-    filterFunc(selected);
-    lastActiveBtn.classList.remove("active");
-    btn.classList.add("active");
-    lastActiveBtn = btn;
-  });
-});
-
 // Form validation
 const form = document.querySelector("[data-form]");
 const formInputs = document.querySelectorAll("[data-form-input]");

@@ -2351,3 +2351,14 @@ textarea::placeholder {
   border-radius: 8px;
   font-size: 1rem;
 }
+
+.project-blurb {
+  width: 100%;
+  grid-column: 1 / -1; /* ocupa a largura total */
+  z-index: 1;
+}
+
+.project-item {
+  z-index: 2;
+  position: relative;
+}

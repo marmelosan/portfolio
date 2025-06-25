@@ -40,68 +40,25 @@ overlay.addEventListener("click", testimonialsModalFunc);
 // Custom Select + Filtering
 const select = document.querySelector("[data-select]");
 const selectItems = document.querySelectorAll("[data-select-item]");
-const selectValue = document.querySelector("[data-selecct-value]");
+const selectValue = document.querySelector("[data-select-value]");
 const filterBtns = document.querySelectorAll("[data-filter-btn]");
 const filterItems = document.querySelectorAll("[data-filter-item]");
 
 const filterFunc = (selectedValue) => {
   filterItems.forEach(item => {
-    const category = item.dataset.category.toLowerCase();
-
-    if (selectedValue === "all") {
-      item.classList.toggle("hide", category !== "all");
+    const category = item.dataset.category?.toLowerCase() ?? '';
+    if (selectedValue === "all" || category === selectedValue) {
+      item.classList.remove("hide");
     } else {
-      item.classList.toggle("hide", category !== selectedValue);
+      item.classList.add("hide");
     }
   });
 
-  document.querySelector('.project-list').setAttribute('data-active', selectedValue);
+  document.querySelector('.project-list')?.setAttribute('data-active', selectedValue);
 };
 
-function attachModalEvents() {
-  document.querySelectorAll('.open-modal').forEach(btn => {
-    btn.addEventListener('click', e => {
-      e.preventDefault();
-      const type = btn.dataset.type;
-      const src = btn.dataset.src;
-      const modalContainerMedia = document.getElementById('modal-media-container');
-      const mediaModal = document.getElementById('mediaModal');
-      modalContainerMedia.innerHTML = '';
-
-      let el;
-      if (type === 'video') {
-        el = document.createElement('video');
-        el.src = src;
-        el.controls = true;
-        el.autoplay = true;
-        el.style.maxWidth = '90vw';
-        el.style.maxHeight = '80vh';
-      } else if (type === 'youtube') {
-        el = document.createElement('iframe');
-        el.src = src + '?autoplay=1';
-        el.setAttribute('allow', 'autoplay; encrypted-media');
-        el.allowFullscreen = true;
-        el.style.width = '90vw';
-        el.style.height = '50vh';
-      } else if (type === 'image') {
-        el = document.createElement('img');
-        el.src = src;
-        el.style.maxWidth = '90vw';
-        el.style.maxHeight = '80vh';
-      }
-
-      if (el) {
-        modalContainerMedia.appendChild(el);
-        mediaModal.style.display = 'flex';
-      }
-    });
-  });
-}
-
-// Dropdown toggle
 select.addEventListener("click", () => elementToggleFunc(select));
 
-// Dropdown item click
 selectItems.forEach(item => {
   item.addEventListener("click", () => {
     const selected = item.innerText.toLowerCase();
@@ -109,11 +66,9 @@ selectItems.forEach(item => {
     elementToggleFunc(select);
     filterBtns.forEach(btn => btn.classList.remove("active"));
     filterFunc(selected);
-    attachModalEvents();
   });
 });
 
-// Botões de filtro (em cima)
 let lastActiveBtn = filterBtns[0];
 filterBtns.forEach(btn => {
   btn.addEventListener("click", () => {
@@ -123,9 +78,7 @@ filterBtns.forEach(btn => {
     lastActiveBtn.classList.remove("active");
     btn.classList.add("active");
     lastActiveBtn = btn;
-    attachModalEvents();
   });
-});
 });
 
 // Form validation
@@ -228,3 +181,4 @@ document.querySelectorAll('.open-modal').forEach(link => {
     });
   }
 });
+

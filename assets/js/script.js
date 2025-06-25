@@ -58,13 +58,50 @@ const filterFunc = (selectedValue) => {
   document.querySelector('.project-list').setAttribute('data-active', selectedValue);
 };
 
-// Inicializa com a categoria "All"
-filterFunc("all"); // Mostra só a blurb inicial
-attachModalEvents(); // Garante que modais funcionam ao abrir a página
+function attachModalEvents() {
+  document.querySelectorAll('.open-modal').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      const type = btn.dataset.type;
+      const src = btn.dataset.src;
+      const modalContainerMedia = document.getElementById('modal-media-container');
+      const mediaModal = document.getElementById('mediaModal');
+      modalContainerMedia.innerHTML = '';
 
-// Event listeners
+      let el;
+      if (type === 'video') {
+        el = document.createElement('video');
+        el.src = src;
+        el.controls = true;
+        el.autoplay = true;
+        el.style.maxWidth = '90vw';
+        el.style.maxHeight = '80vh';
+      } else if (type === 'youtube') {
+        el = document.createElement('iframe');
+        el.src = src + '?autoplay=1';
+        el.setAttribute('allow', 'autoplay; encrypted-media');
+        el.allowFullscreen = true;
+        el.style.width = '90vw';
+        el.style.height = '50vh';
+      } else if (type === 'image') {
+        el = document.createElement('img');
+        el.src = src;
+        el.style.maxWidth = '90vw';
+        el.style.maxHeight = '80vh';
+      }
+
+      if (el) {
+        modalContainerMedia.appendChild(el);
+        mediaModal.style.display = 'flex';
+      }
+    });
+  });
+}
+
+// Dropdown toggle
 select.addEventListener("click", () => elementToggleFunc(select));
 
+// Dropdown item click
 selectItems.forEach(item => {
   item.addEventListener("click", () => {
     const selected = item.innerText.toLowerCase();
@@ -72,10 +109,11 @@ selectItems.forEach(item => {
     elementToggleFunc(select);
     filterBtns.forEach(btn => btn.classList.remove("active"));
     filterFunc(selected);
-    attachModalEvents(); // Reanexa eventos aos modals
+    attachModalEvents();
   });
 });
 
+// Botões de filtro (em cima)
 let lastActiveBtn = filterBtns[0];
 filterBtns.forEach(btn => {
   btn.addEventListener("click", () => {
@@ -85,8 +123,9 @@ filterBtns.forEach(btn => {
     lastActiveBtn.classList.remove("active");
     btn.classList.add("active");
     lastActiveBtn = btn;
-    attachModalEvents(); // Reanexa eventos aos modals
+    attachModalEvents();
   });
+});
 });
 
 // Form validation

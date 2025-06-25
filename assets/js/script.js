@@ -45,7 +45,7 @@ const filterBtns = document.querySelectorAll("[data-filter-btn]");
 const filterItems = document.querySelectorAll("[data-filter-item]");
 
 const filterFunc = (selectedValue) => {
-  // Filtrar projetos
+  // Mostrar projetos da categoria
   filterItems.forEach(item => {
     const category = item.dataset.category?.toLowerCase() ?? '';
     if (selectedValue === "all" || category === selectedValue) {
@@ -55,7 +55,7 @@ const filterFunc = (selectedValue) => {
     }
   });
 
-  // Mostrar só a blurb correspondente
+  // Mostrar só a blurb da categoria
   document.querySelectorAll("[data-blurb-item]").forEach(blurb => {
     const blurbCategory = blurb.dataset.category?.toLowerCase() ?? '';
     if (blurbCategory === selectedValue) {

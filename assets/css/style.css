@@ -2302,3 +2302,32 @@ textarea::placeholder {
 .hide {
   display: none !important;
 }
+
+/* === Portfolio Grid Responsivo + Transição === */
+.project-list {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  padding: 1rem 0;
+}
+
+.project-item,
+.project-blurb {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.project-item:not(.hide),
+.project-blurb:not(.hide) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-blurb {
+  padding: 1rem;
+  background: #1a1a1a;
+  border-left: 4px solid #4CAF50;
+  border-radius: 8px;
+  font-size: 1rem;
+}

@@ -2298,3 +2298,7 @@ textarea::placeholder {
 .project-list:not([data-active="ai tools"]) .project-blurb[data-category="ai tools"] {
   display: none;
 }
+
+.hide {
+  display: none !important;
+}

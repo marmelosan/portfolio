@@ -45,12 +45,23 @@ const filterBtns = document.querySelectorAll("[data-filter-btn]");
 const filterItems = document.querySelectorAll("[data-filter-item]");
 
 const filterFunc = (selectedValue) => {
+  // Filtrar projetos
   filterItems.forEach(item => {
     const category = item.dataset.category?.toLowerCase() ?? '';
     if (selectedValue === "all" || category === selectedValue) {
       item.classList.remove("hide");
     } else {
       item.classList.add("hide");
+    }
+  });
+
+  // Mostrar só a blurb correspondente
+  document.querySelectorAll("[data-blurb-item]").forEach(blurb => {
+    const blurbCategory = blurb.dataset.category?.toLowerCase() ?? '';
+    if (blurbCategory === selectedValue) {
+      blurb.classList.remove("hide");
+    } else {
+      blurb.classList.add("hide");
     }
   });
 

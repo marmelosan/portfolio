@@ -2344,8 +2344,6 @@ textarea::placeholder {
 body.light-mode .project-blurb {
   background-color: #f9f9f9 !important;
   color: #222 !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e0e0e0;
 }
 
 @keyframes fadeInUp {
@@ -2382,12 +2380,13 @@ body.light-mode .project-blurb {
 }
 
 /* === CARD TEXTS / CONTENTS === */
-.card-text,
-.card-title,
-.card-subtitle,
-.blurb-content {
-  transition: background-color 0.3s ease, color 0.3s ease;
+body.light-mode .card-title,
+body.light-mode .card-subtitle,
+body.light-mode .card-text,
+body.light-mode .blurb-content {
+  color: #222 !important;
 }
+*/
 
 body.light-mode .card-title {
   color: #1a1a1a !important;
@@ -2454,7 +2453,6 @@ body.light-mode .project-item,
 body.light-mode .blog-card {
   background-color: #ffffff !important;
   color: #222 !important;
-  border: 1px solid #e6e6e6;
 }
 
 body.light-mode .project-img {
@@ -2470,3 +2468,27 @@ body.light-mode .project-title,
 body.light-mode .project-category {
   color: #333 !important;
 }
+
+/* === PORTFOLIO FIXO EM TEMA ESCURO === */
+.project-blurb,
+.project-item,
+.card-title,
+.card-subtitle,
+.card-text,
+.blurb-content {
+  background-color: #1e1e1e !important;
+  color: #f0f0f0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.project-img {
+  background-color: #000 !important;
+}
+
+.project-img img,
+.project-img video,
+.project-img iframe {
+  filter: brightness(1) contrast(1);
+}
+

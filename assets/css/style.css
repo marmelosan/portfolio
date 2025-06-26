@@ -2537,3 +2537,28 @@ body.light-mode .project-blurb {
   border: 1px solid rgba(255, 255, 255, 0.05) !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
 }
+
+/* FORÇAR COR DOS TÍTULOS E SUBTÍTULOS DOS PROJECTOS */
+.project-item .card-title,
+.project-item .card-subtitle,
+.project-item .card-text {
+  color: #ffffff !important; /* branco para títulos */
+}
+
+/* Subtítulo mais suave */
+.project-item .card-subtitle,
+.project-item .card-text {
+  color: #cfcfcf !important; /* cinza claro para subtítulo/categoria */
+}
+
+/* MESMO EM MODO CLARO */
+body.light-mode .project-item .card-title,
+body.light-mode .project-item .card-subtitle,
+body.light-mode .project-item .card-text {
+  color: #ffffff !important;
+}
+
+body.light-mode .project-item .card-subtitle,
+body.light-mode .project-item .card-text {
+  color: #cfcfcf !important;
+}

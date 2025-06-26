@@ -2127,14 +2127,14 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 .modal-content iframe {
   width: 100%;
-  max-height: 85vh;
+  height: auto;
   min-height: 300px;
+  max-height: 85vh;
   margin: auto;
   display: block;
   border: none;
   border-radius: 10px;
   background-color: #000;
-    object-fit: contain; /* 
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
 }
 

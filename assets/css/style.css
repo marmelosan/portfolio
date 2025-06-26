@@ -1062,18 +1062,27 @@ main {
   border-radius: 16px;
 }
 
-/* Conteúdo visual ocupa toda a box */
-.project-img img,
-.project-img video,
-.project-img iframe,
-.project-img .video-wrapper {
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #000;
+  display: flex; /* usar flex centra o conteúdo */
+  justify-content: center;
+  align-items: center;
+}
+
+.video-wrapper iframe,
+.video-wrapper video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 16px;
+  object-fit: cover; /* cobre todo o espaço mantendo proporção */
+  border: none;
   display: block;
 }
 
@@ -2068,22 +2077,25 @@ textarea.form-input::-webkit-resizer { display: none; }
   .column { flex: 100%; }
 }
 
-.video-wrapper {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 ratio */
-  height: 0;
-  overflow: hidden;
+.modal-content iframe {
+  /* Para YouTube */
+  aspect-ratio: 16/9;
+  width: 100%;
+  height: auto;
+  max-height: 90vh;
+  border: none;
   border-radius: 10px;
 }
 
-.video-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
+.modal-content video {
+  /* Para ficheiros .mp4 locais */
   width: 100%;
-  height: 100%;
-  border: none;
+  height: auto;
+  max-height: 90vh;
   display: block;
+  object-fit: contain;
+  background-color: #000;
+  border-radius: 10px;
 }
 
 /* Remove sombra ou background feio em vídeos */
@@ -2094,6 +2106,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 }
 
 
+/* === MODAL ESTILIZAÇÃO COMPLETA === */
 .modal {
   display: none;
   position: fixed;
@@ -2110,126 +2123,45 @@ textarea.form-input::-webkit-resizer { display: none; }
   scroll-behavior: smooth;
 }
 
-  .modal-content {
-  width: 100vw; /* ou mesmo 100% se preferires */
+.modal-content {
+  position: relative;
+  width: 90vw;
   max-width: 100%;
   max-height: 90vh;
   background: transparent;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0; /* se quiseres colado às bordas */
+  gap: 10px;
 }
 
 .modal-content iframe,
 .modal-content video {
   width: 100%;
-  height: auto;
   max-height: 85vh;
   min-height: 300px;
-  margin: auto;
   display: block;
   border: none;
   border-radius: 10px;
   background-color: #000;
-}
-
-.modal-content video {
-  width: 100%;
-  max-height: 85vh;
-  min-height: 300px;
-  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
   margin: auto;
-  border-radius: 10px;
-  background-color: #000;
 }
 
 .modal-content img {
   width: 100%;
-  max-height: 70vh;/* força altura visível */
+  max-height: 70vh;
   border-radius: 10px;
-object-fit: contain;
+  object-fit: contain;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
   border: none;
 }
 
-
 .modal iframe {
   min-height: 400px;
   max-height: 90vh;
-}
-
-.close {
-  position: absolute;
-  top: -30px;
-  right: -10px;
-  color: white;
-  font-size: 32px;
-  font-weight: bold;
-  cursor: pointer;
-  background: none;
-  border: none;
-}
-
-.project-play-overlay {
-  content: "▶";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 40px;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 10px 14px;
-  border-radius: 50%;
-  opacity: 0.6; /* visível por padrão */
-  transition: opacity 0.3s ease;
-  z-index: 2;
-}
-
-.project-img:hover .project-play-overlay {
-  opacity: 1; /* mais destaque no hover */
-}
-
-
-.project-img .project-item-icon-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 24px;
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
-  padding: 12px;
-  border-radius: 50%;
-  opacity: 1; /* <-- Sempre visível */
-  pointer-events: none;
-}
-
-input,
-textarea {
-  color: var(--white-2); /* ou white direto: #fff */
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: var(--light-gray-70); /* ou algo mais suave */
-}
-
-.modal-title {
-  font-size: var(--fs-2);
-  font-weight: var(--fw-600);
-  color: var(--white-2);
-  margin-bottom: 10px;
-  display: block;
-  text-transform: capitalize;
-}
-
-.modal-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 10px;
 }
 
 .modal-title {
@@ -2240,26 +2172,69 @@ textarea::placeholder {
   display: block;
   z-index: 2;
   position: relative;
-}
-
-.modal-content p {
-  margin-top: 5px;
-}
-
-.modal-content p {
-  margin-top: 10px; /* ou 8px para um visual mais justo */
+  text-transform: capitalize;
 }
 
 .modal-content p {
   margin-top: 8px;
+  color: var(--light-gray-70);
 }
+
+/* Botão fechar */
+.close,
 .modal-close-btn {
+  position: absolute;
+  top: -30px;
+  right: -10px;
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer;
+  background: none;
+  border: none;
   filter: brightness(1.3);
   transition: filter 0.2s;
 }
 .modal-close-btn:hover {
   filter: brightness(1.6);
 }
+
+/* Ícone de play nos cards */
+.project-play-overlay,
+.project-img .project-item-icon-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 12px 14px;
+  border-radius: 50%;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+.project-img:hover .project-play-overlay {
+  opacity: 1;
+}
+.project-img .project-item-icon-box {
+  font-size: 24px;
+  opacity: 1;
+  pointer-events: none;
+}
+
+/* Input e placeholders */
+input,
+textarea {
+  color: var(--white-2);
+}
+input::placeholder,
+textarea::placeholder {
+  color: var(--light-gray-70);
+}
+
+/* Para modais de testemunhos ou outros */
 .testimonials-modal {
   max-width: 90%;
 }

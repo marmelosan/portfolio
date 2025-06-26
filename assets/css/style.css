@@ -2389,16 +2389,22 @@ body.light-mode .project-blurb {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-body.light-mode .card-text,
 body.light-mode .card-title {
+  color: #1a1a1a !important;
   font-weight: 700;
 }
+
 body.light-mode .card-subtitle {
-  color: #666;
+  color: #555 !important;
   font-weight: 500;
 }
+body.light-mode .card-text,
 body.light-mode .blurb-content {
   color: #2a2a2a !important;
+}
+
+body.light-mode .project-blurb * {
+  color: inherit !important;
 }
 
 /* === HIDE CLASS === */

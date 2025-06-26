@@ -2075,17 +2075,6 @@ textarea.form-input::-webkit-resizer { display: none; }
   border-radius: 10px;
 }
 
-/* Wrapper para iframes YouTube responsivos */
-.video-wrapper {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%; /* 16:9 ratio */
-  height: 0;
-  overflow: hidden;
-  border-radius: 10px;
-  background: #000;
-}
-
 .video-wrapper iframe {
   position: absolute;
   top: 0;
@@ -2093,9 +2082,8 @@ textarea.form-input::-webkit-resizer { display: none; }
   width: 100%;
   height: 100%;
   border: none;
-  border-radius: 10px;
+  display: block;
 }
-
 
 /* Remove sombra ou background feio em vídeos */
 .content.no-shadow {
@@ -2118,26 +2106,23 @@ textarea.form-input::-webkit-resizer { display: none; }
   align-items: center !important;
   padding: 2rem;
   box-sizing: border-box;
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* <-- AQUI no final está perfeito */
 }
 
-  .modal-content {
-  width: 100vw; /* ou mesmo 100% se preferires */
+.modal-content {
+  position: relative;
   max-width: 100%;
-  max-height: 90vh;
+  max-height: 100%;
   background: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0; /* se quiseres colado às bordas */
 }
 
-.modal-content iframe,
-.modal-content video {
-  width: 100%;
-  height: auto;
-  max-height: 85vh;
+.modal-content iframe {
+  max-height: 70vh;
   min-height: 300px;
+  width: 100%;
   margin: auto;
   display: block;
   border: none;
@@ -2147,7 +2132,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 .modal-content video {
   width: 100%;
-  max-height: 85vh;
+  max-height: 70vh;
   min-height: 300px;
   display: block;
   margin: auto;
@@ -2278,6 +2263,7 @@ textarea::placeholder {
 .project-item.hide {
   display: none !important;
 }
+
 
 .project-blurb {
   width: 100%;

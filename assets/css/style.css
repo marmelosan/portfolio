@@ -2342,10 +2342,10 @@ textarea::placeholder {
 }
 
 body.light-mode .project-blurb {
-  background-color: #ffffff !important;
-  color: #111111 !important;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  border: 1px solid #dddddd;
+  background-color: #f9f9f9 !important;
+  color: #222 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e0e0e0;
 }
 
 @keyframes fadeInUp {
@@ -2390,11 +2390,15 @@ body.light-mode .project-blurb {
 }
 
 body.light-mode .card-text,
-body.light-mode .card-title,
-body.light-mode .card-subtitle,
+body.light-mode .card-title {
+  font-weight: 700;
+}
+body.light-mode .card-subtitle {
+  color: #666;
+  font-weight: 500;
+}
 body.light-mode .blurb-content {
-  background-color: transparent !important;
-  color: #222222 !important;
+  color: #2a2a2a !important;
 }
 
 /* === HIDE CLASS === */
@@ -2436,14 +2440,15 @@ body {
 }
 
 body.light-mode {
-  background-color: #ffffff;
-  color: #111111;
+  background-color: #fefefe;
+  color: #222;
 }
 
 body.light-mode .project-item,
 body.light-mode .blog-card {
   background-color: #ffffff !important;
-  color: #111111 !important;
+  color: #222 !important;
+  border: 1px solid #e6e6e6;
 }
 
 body.light-mode .project-img {

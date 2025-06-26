@@ -2308,42 +2308,123 @@ textarea::placeholder {
   display: none !important;
 }
 
-/* === Portfolio Grid Responsivo + Transição === */
+/* === PROJECT LIST GRID === */
 .project-list {
   display: grid;
-  gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  padding: 1rem 0;
+  gap: 30px;
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px;
 }
 
+/* === PROJECT ITEMS === */
 .project-item,
 .project-blurb {
+  width: 100%;
+  display: block;
+}
+
+/* === BLURBS === */
+.project-blurb {
+  grid-column: 1 / -1;
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #333;
+  text-align: center;
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  animation: fadeInUp 0.6s forwards ease-out;
 }
 
-.project-item:not(.hide),
-.project-blurb:not(.hide) {
-  opacity: 1;
-  transform: translateY(0);
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.project-blurb {
-  padding: 1rem;
-  background: #1a1a1a;
-  border-left: 4px solid #4CAF50;
-  border-radius: 8px;
-  font-size: 1rem;
-}
-
-.project-blurb {
-  width: 100%;
-  grid-column: 1 / -1; /* ocupa a largura total */
-  z-index: 1;
-}
-
-.project-item {
-  z-index: 2;
+/* === PROJECT THUMBNAILS === */
+.project-img {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 10px;
   position: relative;
+  background-color: #000;
+}
+
+.project-img img,
+.project-img video,
+.project-img iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.project-img:hover img,
+.project-img:hover video {
+  transform: scale(1.03);
+}
+
+/* === HIDE CLASS === */
+.hide {
+  display: none !important;
+}
+
+/* === MEDIA QUERIES === */
+@media (max-width: 768px) {
+  .project-list {
+    grid-template-columns: 1fr;
+  }
+
+  .project-blurb {
+    font-size: 1rem;
+    padding: 16px;
+  }
+}
+
+/* === DARK/LIGHT MODE BUTTON === */
+.mode-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: #facc15;
+  color: #000;
+  border: none;
+  padding: 8px 12px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 999;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* === DARK MODE === */
+body.light-mode {
+  background-color: #ffffff;
+  color: #111111;
+}
+
+body.light-mode .project-blurb {
+  background-color: #f0f0f0;
+  color: #111111;
+}
+
+body.light-mode .project-item {
+  background-color: #fff;
+  color: #111;
+}
+
+body.light-mode .project-img {
+  background-color: #ddd;
+}
+
+html {
+  scroll-behavior: smooth;
 }

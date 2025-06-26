@@ -2154,11 +2154,6 @@ object-fit: contain;
 }
 
 
-.modal iframe {
-  min-height: 400px;
-  max-height: 100vh;
-}
-
 .close {
   position: absolute;
   top: -30px;

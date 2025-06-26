@@ -1064,35 +1064,20 @@ main {
 .video-wrapper {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 aspect ratio */
+  padding-top: 56.25%; /* mantém a proporção 16:9 */
   overflow: hidden;
   border-radius: 10px;
-  background-color: #000;
-  display: flex; /* usar flex centra o conteúdo */
-  justify-content: center;
-  align-items: center;
 }
 
-.video-wrapper iframe,
 .video-wrapper video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* cobre todo o espaço mantendo proporção */
-  border: none;
-  display: block;
+  object-fit: contain;
+  border-radius: 10px;
 }
-
-/* Video wrapper também obedece */
-.video-wrapper {
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  background-color: #000;
-}
-
 /* Ícone olho */
 .project-item-icon-box {
   position: absolute;

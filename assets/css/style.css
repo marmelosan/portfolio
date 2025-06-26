@@ -2323,6 +2323,7 @@ textarea::placeholder {
 .project-blurb {
   width: 100%;
   display: block;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* === BLURBS === */
@@ -2354,6 +2355,7 @@ textarea::placeholder {
   border-radius: 10px;
   position: relative;
   background-color: #000;
+  transition: background-color 0.3s ease;
 }
 
 .project-img img,
@@ -2417,12 +2419,23 @@ body.light-mode .project-blurb {
 }
 
 body.light-mode .project-item {
-  background-color: #fff;
-  color: #111;
+  background-color: #ffffff;
+  color: #111111;
 }
 
 body.light-mode .project-img {
-  background-color: #ddd;
+  background-color: #dddddd;
+}
+
+body.light-mode .blog-card {
+  background-color: #f8f8f8;
+  color: #111;
+}
+
+body.light-mode .blog-card .card-text,
+body.light-mode .blog-card .card-title,
+body.light-mode .blog-card .card-subtitle {
+  color: #111;
 }
 
 html {

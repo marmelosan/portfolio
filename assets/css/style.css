@@ -1064,20 +1064,35 @@ main {
 .video-wrapper {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* mantém a proporção 16:9 */
+  padding-top: 56.25%; /* 16:9 aspect ratio */
   overflow: hidden;
   border-radius: 10px;
+  background-color: #000;
+  display: flex; /* usar flex centra o conteúdo */
+  justify-content: center;
+  align-items: center;
 }
 
+.video-wrapper iframe,
 .video-wrapper video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  border-radius: 10px;
+  object-fit: cover; /* cobre todo o espaço mantendo proporção */
+  border: none;
+  display: block;
 }
+
+/* Video wrapper também obedece */
+.video-wrapper {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: #000;
+}
+
 /* Ícone olho */
 .project-item-icon-box {
   position: absolute;
@@ -2061,24 +2076,24 @@ textarea.form-input::-webkit-resizer { display: none; }
   .column { flex: 100%; }
 }
 
-.modal-content iframe {
-  /* Para YouTube */
-  aspect-ratio: 16/9;
+/* Wrapper para iframes YouTube responsivos */
+.video-wrapper {
+  position: relative;
   width: 100%;
-  height: auto;
-  max-height: 90vh;
-  border: none;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  height: 0;
+  overflow: hidden;
   border-radius: 10px;
+  background: #000;
 }
 
-.modal-content video {
-  /* Para ficheiros .mp4 locais */
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
-  max-height: 90vh;
-  display: block;
-  object-fit: contain;
-  background-color: #000;
+  height: 100%;
+  border: none;
   border-radius: 10px;
 }
 

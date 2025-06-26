@@ -2113,10 +2113,11 @@ textarea.form-input::-webkit-resizer { display: none; }
   scroll-behavior: smooth; /* <-- AQUI no final está perfeito */
 }
 
-.modal-content {
+  .modal-content {
   position: relative;
-  max-width: 100%;
-  max-height: 100%;
+  width: 100vw;
+  max-width: 1200px;
+  max-height: 90vh;
   background: transparent;
   display: flex;
   justify-content: center;
@@ -2124,33 +2125,42 @@ textarea.form-input::-webkit-resizer { display: none; }
 }
 
 .modal-content iframe {
+  width: 100%;
   max-height: 85vh;
   min-height: 300px;
-  width: 100%;
   margin: auto;
   display: block;
   border: none;
   border-radius: 10px;
   background-color: #000;
+  object-fit: contain;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
 }
 
 .modal-content video {
   width: 100%;
-  max-height: 70vh;
+  max-height: 85vh;
   min-height: 300px;
-  display: block;
   margin: auto;
+  display: block;
+  border: none;
   border-radius: 10px;
   background-color: #000;
+  object-fit: contain;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
 }
 
 .modal-content img {
-  width: 100%;
-  max-height: 70vh;/* força altura visível */
-  border-radius: 10px;
-object-fit: contain;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+   width: 100%;
+  max-height: 85vh;
+  min-height: 300px;
+  margin: auto;
+  display: block;
   border: none;
+  border-radius: 10px;
+  background-color: #000;
+  object-fit: contain;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
 }
 
 

@@ -2615,7 +2615,7 @@ body.light-mode .project-item span {
 .project-blurb {
   background-color: #1a1a1a;
   color: #f0f0f0;
-  border: 1px solid #c99c30; /* Dourado suave */
+  border: 1px solid #c99c30; /* Dourado subtil */
   border-radius: 14px;
   padding: 24px 28px;
   margin-bottom: 24px;
@@ -2627,7 +2627,7 @@ body.light-mode .project-item span {
 
 .project-blurb:hover {
   transform: translateY(-6px);
-  border-color: #e1b95c; /* Dourado mais claro no hover */
+  border-color: #e1b95c; /* Dourado mais claro ao passar o rato */
   box-shadow:
     0 0 0 1px rgba(201, 156, 48, 0.5),
     0 8px 28px rgba(0, 0, 0, 0.85);

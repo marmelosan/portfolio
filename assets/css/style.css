@@ -2408,13 +2408,17 @@ textarea::placeholder {
 }
 
 /* === DARK MODE === */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 body.light-mode {
   background-color: #ffffff;
   color: #111111;
 }
 
 body.light-mode .project-blurb {
-  background-color: #f0f0f0 !important;
+  background-color: #f8f8f8 !important;
   color: #111111 !important;
 }
 
@@ -2424,12 +2428,12 @@ body.light-mode .card-text,
 body.light-mode .card-title,
 body.light-mode .card-subtitle,
 body.light-mode .blurb-content {
-  background-color: #ffffff !important;
+  background-color: transparent !important;
   color: #111111 !important;
 }
 
 body.light-mode .project-img {
-  background-color: #dddddd;
+  background-color: #e5e5e5;
 }
 
 html {

@@ -2413,29 +2413,20 @@ body.light-mode {
   color: #111111;
 }
 
-body.light-mode .project-blurb {
-  background-color: #f0f0f0;
-  color: #111111;
-}
-
-body.light-mode .project-item {
-  background-color: #ffffff;
-  color: #111111;
+body.light-mode .project-blurb,
+body.light-mode .project-item,
+body.light-mode .project-img,
+body.light-mode .blog-card,
+body.light-mode .card-text,
+body.light-mode .card-title,
+body.light-mode .card-subtitle,
+body.light-mode .blurb-content {
+  background-color: #f8f8f8 !important;
+  color: #111111 !important;
 }
 
 body.light-mode .project-img {
   background-color: #dddddd;
-}
-
-body.light-mode .blog-card {
-  background-color: #f8f8f8;
-  color: #111;
-}
-
-body.light-mode .blog-card .card-text,
-body.light-mode .blog-card .card-title,
-body.light-mode .blog-card .card-subtitle {
-  color: #111;
 }
 
 html {

@@ -119,16 +119,43 @@
   #RESET
 \*-----------------------------------*/
 
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-a { text-decoration:none; }
-li { list-style:none; }
-img, button, a, time, span { display:block; }
-button { font:inherit; background:none; border:none; cursor:pointer; }
-input, textarea { display:block; width:100%; font:inherit; background:none; }
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a { text-decoration: none; }
+
+li { list-style: none; }
+
+img, ion-icon, a, button, time, span { display: block; }
+
+button {
+  font: inherit;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+input, textarea {
+  display: block;
+  width: 100%;
+  background: none;
+  font: inherit;
+}
+
+::selection {
+  background: var(--orange-yellow-crayola);
+  color: var(--smoky-black);
+}
+
 :focus { outline-color: var(--orange-yellow-crayola); }
-::selection { background: var(--orange-yellow-crayola); color: var(--smoky-black); }
+
 html { font-family: var(--ff-poppins); }
-body { background: var(--smoky-black); color: var(--white-1); transition: background-color .3s, color .3s; }
+
+body { background: var(--smoky-black); }
 
 
 
@@ -1025,7 +1052,46 @@ main {
   color: inherit;
 }
 
+/* Figura com proporção fixa (16:9) */
+.project-img {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 ratio */
+  overflow: hidden;
+  border-radius: 16px;
+}
 
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #000;
+  display: flex; /* usar flex centra o conteúdo */
+  justify-content: center;
+  align-items: center;
+}
+
+.video-wrapper iframe,
+.video-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* cobre todo o espaço mantendo proporção */
+  border: none;
+  display: block;
+}
+
+/* Video wrapper também obedece */
+.video-wrapper {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: #000;
+}
 
 /* Ícone olho */
 .project-item-icon-box {
@@ -2010,6 +2076,26 @@ textarea.form-input::-webkit-resizer { display: none; }
   .column { flex: 100%; }
 }
 
+/* Wrapper para iframes YouTube responsivos */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #000;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+}
 
 /* Remove sombra ou background feio em vídeos */
 .content.no-shadow {
@@ -2018,137 +2104,63 @@ textarea.form-input::-webkit-resizer { display: none; }
   padding: 0;
 }
 
-.video-wrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16/9;
-  background:#000;
-  border-radius:10px;
-  overflow:hidden;
-  box-shadow:0 0 30px rgba(0,0,0,0.9);
-}
-.video-wrapper iframe,
-.video-wrapper video {
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  border:none;
-  display:block;
-  border-radius:10px;
-}
 
-/* Modal para exibir mídia */
+/* === MODAL ESTILIZAÇÃO COMPLETA === */
 .modal {
-  display:none;
-  position:fixed; inset:0;
-  background:rgba(0,0,0,0.85);
-  z-index:9999;
-  display:flex; justify-content:center; align-items:center;
-  padding:2rem; box-sizing:border-box;
-  scroll-behavior:smooth;
-}
-.modal.show { display:flex; } /* usa .show via JS */
-
-.modal-content {
-  width:90vw;
-  max-width:1000px;
-  aspect-ratio:16/9;
-  background:transparent;
-  border-radius:10px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  position:relative;
-}
-.modal-content iframe,
-.modal-content video,
-.modal-content img {
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  border:none;
-  border-radius:10px;
-  background:#000;
-  box-shadow:0 0 30px rgba(0,0,0,0.9);
-}
-
-/* Botão de fechar no modal */
-.modal-close-btn {
-  position:absolute;
-  top:10px;
-  right:10px;
-  background: none;
-  border:none;
-  font-size:1.5rem;
-  color:#fff;
-  cursor:pointer;
-  z-index:1;
-  filter:brightness(1.3);
-  transition:filter .2s;
-}
-.modal-close-btn:hover { filter:brightness(1.6); }
-
-.project-play-overlay {
-  content: "▶";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 40px;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 10px 14px;
-  border-radius: 50%;
-  opacity: 0.6; /* visível por padrão */
-  transition: opacity 0.3s ease;
-  z-index: 2;
-}
-
-.project-img:hover .project-play-overlay {
-  opacity: 1; /* mais destaque no hover */
-}
-
-
-.project-img .project-item-icon-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 24px;
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
-  padding: 12px;
-  border-radius: 50%;
-  opacity: 1; /* <-- Sempre visível */
-  pointer-events: none;
-}
-
-input,
-textarea {
-  color: var(--white-2); /* ou white direto: #fff */
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: var(--light-gray-70); /* ou algo mais suave */
-}
-
-.modal-title {
-  font-size: var(--fs-2);
-  font-weight: var(--fw-600);
-  color: var(--white-2);
-  margin-bottom: 10px;
-  display: block;
-  text-transform: capitalize;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 999999;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 2rem;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 .modal-content {
+  position: relative;
+  width: 90vw;
+  max-width: 100%;
+  max-height: 90vh;
+  background: transparent;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
+}
+
+.modal-content iframe,
+.modal-content video {
+  width: 100%;
+  max-height: 85vh;
+  min-height: 300px;
+  display: block;
+  border: none;
+  border-radius: 10px;
+  background-color: #000;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  margin: auto;
+}
+
+.modal-content img {
+  width: 100%;
+  max-height: 70vh;
+  border-radius: 10px;
+  object-fit: contain;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+  border: none;
+}
+
+.modal iframe {
+  min-height: 400px;
+  max-height: 90vh;
 }
 
 .modal-title {
@@ -2159,26 +2171,69 @@ textarea::placeholder {
   display: block;
   z-index: 2;
   position: relative;
-}
-
-.modal-content p {
-  margin-top: 5px;
-}
-
-.modal-content p {
-  margin-top: 10px; /* ou 8px para um visual mais justo */
+  text-transform: capitalize;
 }
 
 .modal-content p {
   margin-top: 8px;
+  color: var(--light-gray-70);
 }
+
+/* Botão fechar */
+.close,
 .modal-close-btn {
+  position: absolute;
+  top: -30px;
+  right: -10px;
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer;
+  background: none;
+  border: none;
   filter: brightness(1.3);
   transition: filter 0.2s;
 }
 .modal-close-btn:hover {
   filter: brightness(1.6);
 }
+
+/* Ícone de play nos cards */
+.project-play-overlay,
+.project-img .project-item-icon-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 12px 14px;
+  border-radius: 50%;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+.project-img:hover .project-play-overlay {
+  opacity: 1;
+}
+.project-img .project-item-icon-box {
+  font-size: 24px;
+  opacity: 1;
+  pointer-events: none;
+}
+
+/* Input e placeholders */
+input,
+textarea {
+  color: var(--white-2);
+}
+input::placeholder,
+textarea::placeholder {
+  color: var(--light-gray-70);
+}
+
+/* Para modais de testemunhos ou outros */
 .testimonials-modal {
   max-width: 90%;
 }
@@ -2186,7 +2241,6 @@ textarea::placeholder {
 .project-item.hide {
   display: none !important;
 }
-
 
 .project-blurb {
   width: 100%;
@@ -2247,29 +2301,24 @@ textarea::placeholder {
 
 /* === PROJECT LIST GRID === */
 .project-list {
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
-  gap:30px;
-  width:100%; padding:10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px;
 }
 
+/* === PROJECT ITEMS === */
+.project-item,
+.project-blurb {
+  background-color: #121212; /* fundo escuro para destaque */
+  border: 2px solid #e1b95c; /* dourado elegante */
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 0 10px rgba(225, 185, 92, 0.2); /* sombra suave dourada */
+  transition: all 0.3s ease;
 }
-.project-item, .project-blurb {
-  background:#121212;
-  border:2px solid #e1b95c;
-  border-radius:12px;
-  padding:16px;
-  box-shadow:0 0 10px rgba(225,185,92,0.2);
-  transition:all .3s ease;
-  display:flex;
-  flex-direction:column;
-}
-.project-item:hover {
-  border-color:#ffd700;
-  box-shadow:0 0 18px rgba(255,215,0,0.4);
-  transform: translateY(-2px);
-}
-
 
 /* === BLURBS === */
 .project-blurb {
@@ -2294,45 +2343,30 @@ textarea::placeholder {
   }
 }
 
-/* Thumbnails com proporção */
+/* === PROJECT THUMBNAILS === */
 .project-img {
-  position:relative;
-  width:100%;
-  aspect-ratio:16/9;
-  overflow:hidden;
-  border-radius:10px;
-  background:#000;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
+  background-color: #000;
+  transition: background-color 0.3s ease;
 }
+
 .project-img img,
 .project-img video,
 .project-img iframe {
-  width:100%; height:100%;
-  object-fit:cover;
-  border-radius:10px;
-  transition:transform .3s ease-in-out;
-}
-.project-img:hover img,
-.project-img:hover video {
-  transform:scale(1.03);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Overlay ícone "play" */
-.project-play-overlay,
-.project-item-icon-box {
-  position:absolute;
-  top:50%; left:50%;
-  transform:translate(-50%,-50%) scale(0.8);
-  background:rgba(0,0,0,0.6);
-  color:#fff;
-  padding:12px;
-  border-radius:50%;
-  font-size:1.2rem;
-  opacity:1;
-  pointer-events:none;
-  transition:transform .3s ease,opacity .3s ease;
-}
-.project-img:hover .project-item-icon-box {
-  transform:translate(-50%,-50%) scale(1);
+.project-img:hover img,
+.project-img:hover video {
+  transform: scale(1.03);
 }
 
 /* === CARD TEXTS / CONTENTS === */

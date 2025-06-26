@@ -2068,8 +2068,8 @@ textarea.form-input::-webkit-resizer { display: none; }
 }
 
 .video-wrapper {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 ratio */
+  position: flex;
+  padding-bottom: 80%; /* 16:9 ratio */
   height: 0;
   overflow: hidden;
   border-radius: 10px;

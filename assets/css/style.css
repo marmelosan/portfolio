@@ -2592,6 +2592,17 @@ body.light-mode .project-item .card-title,
 body.light-mode .project-item .card-subtitle,
 body.light-mode .project-item .card-text {
   color: #ffffff !important;
+
+/* MAIS DESTAQUE NAS BLURBS EM MODO ESCURO */
+.project-blurb {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* sombra mais pronunciada */
+  border: 1px solid rgba(255, 255, 255, 0.05); /* borda subtil */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
 }
 
 body.light-mode .project-item .card-subtitle,

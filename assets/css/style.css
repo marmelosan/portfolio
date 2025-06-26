@@ -1061,18 +1061,27 @@ main {
   border-radius: 16px;
 }
 
-/* Conteúdo visual ocupa toda a box */
-.project-img img,
-.project-img video,
-.project-img iframe,
-.project-img .video-wrapper {
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #000;
+  display: flex; /* usar flex centra o conteúdo */
+  justify-content: center;
+  align-items: center;
+}
+
+.video-wrapper iframe,
+.video-wrapper video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 16px;
+  object-fit: cover; /* cobre todo o espaço mantendo proporção */
+  border: none;
   display: block;
 }
 

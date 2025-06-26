@@ -2106,7 +2106,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   align-items: center !important;
   padding: 2rem;
   box-sizing: border-box;
-  scroll-behavior: smooth; /* <-- AQUI no final está perfeito */
+  scroll-behavior: smooth;
 }
 
 .modal-content {
@@ -2120,7 +2120,8 @@ textarea.form-input::-webkit-resizer { display: none; }
   align-items: center;
 }
 
-.modal-content iframe {
+.modal-content iframe,
+.modal-content video {
   width: 100%;
   height: auto;
   max-height: 85vh;
@@ -2134,7 +2135,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 .modal-content video {
   width: 100%;
-  max-height: 70vh;
+  max-height: 85vh;
   min-height: 300px;
   display: block;
   margin: auto;

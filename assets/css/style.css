@@ -935,20 +935,16 @@ main {
 
 .project-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-  padding: 16px 0;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  margin-bottom: 10px;
 }
 
+.project-item { display: none; }
 
-.project-item {
-  background-color: #1e1e1e;
-  color: #f0f0f0;
-  padding: 14px;
-  border-radius: 12px;
-  border: 1px solid #b88b00;
-  box-shadow: 0 0 8px rgba(184, 139, 0, 0.25);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.project-item.active {
+  display: block;
+  animation: scaleUp 0.25s ease forwards;
 }
 
 @keyframes scaleUp {
@@ -958,10 +954,24 @@ main {
 
 .project-item > a { width: 100%; }
 
-.project-img img {
+.project-img {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.project-img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  background: transparent;
+  z-index: 1;
   transition: var(--transition-1);
 }
 
@@ -991,30 +1001,11 @@ main {
 
 .project-item-icon-box ion-icon { --ionicon-stroke-width: 50px; }
 
-.project-img {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  border-radius: 12px;
-  background: #111;
-}
-
-.project-img img,
-.project-img video,
-.project-img iframe {
+.project-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-  border-radius: 12px;
-  transition: transform 0.3s ease;
-}
-
-.project-img:hover img,
-.project-img:hover video,
-.project-img:hover iframe {
-  transform: scale(1.02);
+  transition: var(--transition-1);
 }
 
 .project-item > a:hover img { transform: scale(1.1); }
@@ -1062,25 +1053,27 @@ main {
   border-radius: 16px;
 }
 
-.video-wrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16/9;
-  background:#000;
-  border-radius:10px;
-  overflow:hidden;
-  box-shadow:0 0 30px rgba(0,0,0,0.9);
-
-.video-wrapper iframe,
-.video-wrapper video {
+/* Conteúdo visual ocupa toda a box */
+.project-img img,
+.project-img video,
+.project-img iframe,
+.project-img .video-wrapper {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* cobre todo o espaço mantendo proporção */
-  border: none;
+  object-fit: cover;
+  border-radius: 16px;
   display: block;
+}
+
+/* Video wrapper também obedece */
+.video-wrapper {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: #000;
 }
 
 /* Ícone olho */
@@ -1104,14 +1097,6 @@ main {
   transform: translate(-50%, -50%) scale(1);
 }
 
-.project-item:hover,
-.project-blurb:hover {
-  border-color: #ffd700; /* realce ao hover */
-  box-shadow: 0 0 18px rgba(255, 215, 0, 0.4);
-  transform: translateY(-2px);
-}
-
-
 /* Títulos e categorias bem alinhados */
 .project-title,
 .project-category {
@@ -1121,19 +1106,17 @@ main {
 }
 
 .project-title {
-font-size: var(--fs-5);
+  font-size: var(--fs-5);
   font-weight: var(--fw-400);
-  color: #ffffff; /* branco para contraste */
+  color: var(--white-2);
   text-transform: capitalize;
   line-height: 1.3;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); /* leve realce */
 }
 
 .project-category {
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
-  color: #cccccc; /* cinza claro */
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+  color: var(--light-gray-70);
 }
 
 /* Remove sombras de media que estejam com fundo transparente */
@@ -2066,25 +2049,22 @@ textarea.form-input::-webkit-resizer { display: none; }
   .column { flex: 100%; }
 }
 
-.modal-content iframe {
-  /* Para YouTube */
-  aspect-ratio: 16/9;
-  width: 100%;
-  height: auto;
-  max-height: 90vh;
-  border: none;
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  height: 0;
+  overflow: hidden;
   border-radius: 10px;
 }
 
-.modal-content video {
-  /* Para ficheiros .mp4 locais */
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
-  max-height: 90vh;
+  height: 100%;
+  border: none;
   display: block;
-  object-fit: contain;
-  background-color: #000;
-  border-radius: 10px;
 }
 
 /* Remove sombra ou background feio em vídeos */
@@ -2095,7 +2075,6 @@ textarea.form-input::-webkit-resizer { display: none; }
 }
 
 
-/* === MODAL ESTILIZAÇÃO COMPLETA === */
 .modal {
   display: none;
   position: fixed;
@@ -2109,48 +2088,126 @@ textarea.form-input::-webkit-resizer { display: none; }
   align-items: center !important;
   padding: 2rem;
   box-sizing: border-box;
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* <-- AQUI no final está perfeito */
 }
 
 .modal-content {
   position: relative;
-  width: 90vw;
   max-width: 100%;
-  max-height: 90vh;
+  max-height: 100%;
   background: transparent;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
 }
 
-.modal-content iframe,
-.modal-content video {
-  width: 100%;
-  max-height: 85vh;
+.modal-content iframe {
+  max-height: 70vh;
   min-height: 300px;
+  width: 100%;
+  margin: auto;
   display: block;
   border: none;
   border-radius: 10px;
   background-color: #000;
-  aspect-ratio: 16 / 9;
-  object-fit: contain;
+}
+
+.modal-content video {
+  width: 100%;
+  max-height: 70vh;
+  min-height: 300px;
+  display: block;
   margin: auto;
+  border-radius: 10px;
+  background-color: #000;
 }
 
 .modal-content img {
   width: 100%;
-  max-height: 70vh;
+  max-height: 70vh;/* força altura visível */
   border-radius: 10px;
-  object-fit: contain;
+object-fit: contain;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
   border: none;
 }
 
+
 .modal iframe {
   min-height: 400px;
   max-height: 90vh;
+}
+
+.close {
+  position: absolute;
+  top: -30px;
+  right: -10px;
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.project-play-overlay {
+  content: "▶";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 14px;
+  border-radius: 50%;
+  opacity: 0.6; /* visível por padrão */
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.project-img:hover .project-play-overlay {
+  opacity: 1; /* mais destaque no hover */
+}
+
+
+.project-img .project-item-icon-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 12px;
+  border-radius: 50%;
+  opacity: 1; /* <-- Sempre visível */
+  pointer-events: none;
+}
+
+input,
+textarea {
+  color: var(--white-2); /* ou white direto: #fff */
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--light-gray-70); /* ou algo mais suave */
+}
+
+.modal-title {
+  font-size: var(--fs-2);
+  font-weight: var(--fw-600);
+  color: var(--white-2);
+  margin-bottom: 10px;
+  display: block;
+  text-transform: capitalize;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
 }
 
 .modal-title {
@@ -2161,460 +2218,30 @@ textarea.form-input::-webkit-resizer { display: none; }
   display: block;
   z-index: 2;
   position: relative;
-  text-transform: capitalize;
+}
+
+.modal-content p {
+  margin-top: 5px;
+}
+
+.modal-content p {
+  margin-top: 10px; /* ou 8px para um visual mais justo */
 }
 
 .modal-content p {
   margin-top: 8px;
-  color: var(--light-gray-70);
 }
-
-/* Botão fechar */
-.close,
 .modal-close-btn {
-  position: absolute;
-  top: -30px;
-  right: -10px;
-  color: white;
-  font-size: 32px;
-  font-weight: bold;
-  cursor: pointer;
-  background: none;
-  border: none;
   filter: brightness(1.3);
   transition: filter 0.2s;
 }
 .modal-close-btn:hover {
   filter: brightness(1.6);
 }
-
-/* Ícone de play nos cards */
-.project-play-overlay,
-.project-img .project-item-icon-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 40px;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 12px 14px;
-  border-radius: 50%;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-  z-index: 2;
-}
-.project-img:hover .project-play-overlay {
-  opacity: 1;
-}
-.project-img .project-item-icon-box {
-  font-size: 24px;
-  opacity: 1;
-  pointer-events: none;
-}
-
-/* Input e placeholders */
-input,
-textarea {
-  color: var(--white-2);
-}
-input::placeholder,
-textarea::placeholder {
-  color: var(--light-gray-70);
-}
-
-/* Para modais de testemunhos ou outros */
 .testimonials-modal {
   max-width: 90%;
 }
 
 .project-item.hide {
   display: none !important;
-}
-
-.project-blurb {
-  width: 100%;
-  grid-column: 1 / -1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1.5rem;
-  margin-bottom: 1rem;
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  font-style: italic;
-  color: #eee;
-  text-align: center;
-}
-
-.project-blurb p {
-  max-width: 600px;
-  margin: 0 auto;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-.project-blurb {
-  order: -1; /* sobe ao topo */
-  width: 100%;
-}
-
-.project-blurb .blurb-content {
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-.project-blurb .blurb-text {
-  color: #aaa;
-  font-style: italic;
-  font-size: 0.95rem;
-  line-height: 1.4;
-}
-
-/* Quando um filtro está ativo, escondemos blurbs que não pertencem à categoria */
-.project-list:not([data-active="all"]) .project-blurb[data-category="all"],
-.project-list:not([data-active="copywriting"]) .project-blurb[data-category="copywriting"],
-.project-list:not([data-active="branding"]) .project-blurb[data-category="branding"],
-.project-list:not([data-active="e-commerce"]) .project-blurb[data-category="e-commerce"],
-.project-list:not([data-active="data-operations"]) .project-blurb[data-category="data-operations"],
-.project-list:not([data-active="ai tools"]) .project-blurb[data-category="ai tools"] {
-  display: none;
-}
-
-.hide {
-  display: none !important;
-}
-
-/* === PROJECT LIST GRID === */
-.project-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  margin-bottom: 10px;
-  width: 100%;
-  padding: 10px;
-}
-
-/* === PROJECT ITEMS === */
-.project-item,
-.project-blurb {
-  background-color: #121212; /* fundo escuro para destaque */
-  border: 2px solid #e1b95c; /* dourado elegante */
-  border-radius: 12px;
-  padding: 16px;
-  box-shadow: 0 0 10px rgba(225, 185, 92, 0.2); /* sombra suave dourada */
-  transition: all 0.3s ease;
-}
-
-/* === BLURBS === */
-.project-blurb {
-  grid-column: 1 / -1;
-  background-color: #1e1e1e;
-  padding: 20px;
-  border-radius: 12px;
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: #f0f0f0;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.6s forwards ease-out;
-}
-
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* === PROJECT THUMBNAILS === */
-.project-img {
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  border-radius: 10px;
-  position: relative;
-  background-color: #000;
-  transition: background-color 0.3s ease;
-}
-
-.project-img img,
-.project-img video,
-.project-img iframe {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  border-radius: 10px;
-  transition: transform 0.3s ease-in-out;
-}
-
-.project-img:hover img,
-.project-img:hover video {
-  transform: scale(1.03);
-}
-
-/* === CARD TEXTS / CONTENTS === */
-
-body.light-mode .card-title {
-  color: #1a1a1a !important;
-  font-weight: 700;
-}
-
-body.light-mode .card-subtitle {
-  color: #555 !important;
-  font-weight: 500;
-}
-body.light-mode .card-text,
-body.light-mode .blurb-content {
-  color: #2a2a2a !important;
-}
-
-body.light-mode .project-blurb * {
-  color: inherit !important;
-}
-
-/* === HIDE CLASS === */
-.hide {
-  display: none !important;
-}
-
-/* === MEDIA QUERIES === */
-@media (max-width: 768px) {
-  .project-list {
-    grid-template-columns: 1fr;
-  }
-
-  .project-blurb {
-    font-size: 1rem;
-    padding: 16px;
-  }
-}
-
-/* === DARK/LIGHT MODE BUTTON === */
-.mode-toggle {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  background-color: #facc15;
-  color: #000;
-  border: none;
-  padding: 8px 12px;
-  font-weight: bold;
-  border-radius: 6px;
-  cursor: pointer;
-  z-index: 999;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* === DARK MODE === */
-body {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-body.light-mode {
-  background-color: #fefefe;
-  color: #222;
-}
-
-
-body.light-mode .project-img {
-  background-color: #e5e5e5;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-/* Garantir subtítulos e categorias legíveis no modo claro */
-body.light-mode .project-title,
-body.light-mode .project-category {
-  color: #333 !important;
-}
-
-/* === PORTFOLIO FIXO EM TEMA ESCURO === */
-.project-blurb,
-.project-item,
-.card-title,
-.card-subtitle,
-.card-text,
-.blurb-content {
-  background-color: #1e1e1e !important;
-  color: #f0f0f0 !important;
-  border: none !important;
-  box-shadow: none !important;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6) !important;
-
-}
-
-.project-img {
-  background-color: #000 !important;
-}
-
-.project-img img,
-.project-img video,
-.project-img iframe {
-  filter: brightness(1) contrast(1);
-}
-
-body.light-mode .project-blurb,
-body.light-mode .project-item,
-body.light-mode .card-title,
-body.light-mode .card-subtitle,
-body.light-mode .card-text,
-body.light-mode .blurb-content {
-  background-color: #1e1e1e !important;
-  color: #f0f0f0 !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-
-/* === AJUSTES GERAIS NO MODO CLARO === */
-
-body.light-mode {
-  background-color: #f5f5f5; /* Fundo lateral mais suave */
-}
-
-/* Tabs de categoria (nav) */
-body.light-mode .filter-btn {
-  color: #b88b00 !important; /* Amarelo menos saturado */
-  opacity: 0.85;
-}
-
-/* Textos dos cards (subtítulos e categorias) */
-body.light-mode .card-text,
-body.light-mode .card-subtitle {
-  color: #333 !important;
-}
-
-/* Botão de modo claro/escuro no topo */
-body.light-mode .mode-toggle {
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e0e0e0;
-  background-color: #facc15;
-  color: #111;
-}
-
-/* === BLURBS COM CAIXA DE TEXTO VISUAL === */
-
-.project-blurb {
-  background-color: #1e1e1e;
-  color: #f0f0f0;
-  padding: 20px 24px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  font-size: 1.05rem;
-  line-height: 1.6;
-  text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* Mesmo no modo claro, manter visual escuro nas blurbs */
-body.light-mode .project-blurb {
-  background-color: #1e1e1e !important;
-  color: #f0f0f0 !important;
-  border: 1px solid rgba(255, 255, 255, 0.05) !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
-}
-
-/* FORÇAR COR DOS TÍTULOS E SUBTÍTULOS DOS PROJECTOS */
-.project-item .card-title,
-.project-item .card-subtitle,
-.project-item .card-text {
-  color: #ffffff !important; /* branco para títulos */
-}
-
-/* Subtítulo mais suave */
-.project-item .card-subtitle,
-.project-item .card-text {
-  color: #cfcfcf !important; /* cinza claro para subtítulo/categoria */
-}
-
-/* MESMO EM MODO CLARO */
-body.light-mode .project-item .card-title,
-body.light-mode .project-item .card-subtitle,
-body.light-mode .project-item .card-text {
-  color: #ffffff !important;
-}
-
-body.light-mode .project-item .card-subtitle,
-body.light-mode .project-item .card-text {
-  color: #cfcfcf !important;
-}
-
-/* === PROJECT CARDS TEXT COLORS - UNIFIED STYLE === */
-
-.project-item h3,
-.project-item h4,
-.project-item p,
-.project-item span,
-.project-item .card-title,
-.project-item .card-subtitle,
-.project-item .card-text {
-  color: #ffffff !important;
-}
-
-/* Subtítulos e descrições mais suaves */
-.project-item .card-subtitle,
-.project-item .card-text,
-.project-item p,
-.project-item span {
-  color: #cfcfcf !important;
-}
-
-/* Força os mesmos estilos mesmo com light-mode ativo */
-body.light-mode .project-item h3,
-body.light-mode .project-item h4,
-body.light-mode .project-item p,
-body.light-mode .project-item span,
-body.light-mode .project-item .card-title,
-body.light-mode .project-item .card-subtitle,
-body.light-mode .project-item .card-text {
-  color: #ffffff !important;
-
-/* MAIS DESTAQUE NAS BLURBS EM MODO ESCURO */
-.project-blurb {
-  background-color: #1e1e1e;
-  color: #f0f0f0;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* sombra mais pronunciada */
-  border: 1px solid rgba(255, 255, 255, 0.05); /* borda subtil */
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-}
-
-body.light-mode .project-item .card-subtitle,
-body.light-mode .project-item .card-text,
-body.light-mode .project-item p,
-body.light-mode .project-item span {
-  color: #cfcfcf !important;
-}
-
-.project-blurb {
-  background-color: #1a1a1a;
-  color: #f0f0f0;
-  border: 5px solid #c99c30; /* Dourado subtil */
-  border-radius: 14px;
-  padding: 24px 28px;
-  margin-bottom: 24px;
-  box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.4),
-    0 6px 24px rgba(0, 0, 0, 0.7);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-}
-
-.project-blurb:hover {
-  transform: translateY(-6px);
-  border-color: #e1b95c; /* Dourado mais claro ao passar o rato */
-  box-shadow:
-    0 0 0 1px rgba(201, 156, 48, 0.5),
-    0 8px 28px rgba(0, 0, 0, 0.85);
 }

@@ -2076,24 +2076,24 @@ textarea.form-input::-webkit-resizer { display: none; }
   .column { flex: 100%; }
 }
 
-/* Wrapper para iframes YouTube responsivos */
-.video-wrapper {
-  position: relative;
+.modal-content iframe {
+  /* Para YouTube */
+  aspect-ratio: 16/9;
   width: 100%;
-  padding-bottom: 56.25%; /* 16:9 ratio */
-  height: 0;
-  overflow: hidden;
+  height: auto;
+  max-height: 90vh;
+  border: none;
   border-radius: 10px;
-  background: #000;
 }
 
-.video-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
+.modal-content video {
+  /* Para ficheiros .mp4 locais */
   width: 100%;
-  height: 100%;
-  border: none;
+  height: auto;
+  max-height: 90vh;
+  display: block;
+  object-fit: contain;
+  background-color: #000;
   border-radius: 10px;
 }
 

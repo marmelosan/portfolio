@@ -1079,14 +1079,6 @@ main {
   display: block;
 }
 
-/* Video wrapper também obedece */
-.video-wrapper {
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  background-color: #000;
-}
-
 /* Ícone olho */
 .project-item-icon-box {
   position: absolute;

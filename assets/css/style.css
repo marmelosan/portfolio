@@ -2067,12 +2067,15 @@ textarea.form-input::-webkit-resizer { display: none; }
   .column { flex: 100%; }
 }
 
+/* Wrapper para iframes YouTube responsivos */
 .video-wrapper {
-  position: flex;
-  padding-bottom: 80%; /* 16:9 ratio */
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 ratio */
   height: 0;
   overflow: hidden;
   border-radius: 10px;
+  background: #000;
 }
 
 .video-wrapper iframe {
@@ -2082,8 +2085,9 @@ textarea.form-input::-webkit-resizer { display: none; }
   width: 100%;
   height: 100%;
   border: none;
-  display: block;
+  border-radius: 10px;
 }
+
 
 /* Remove sombra ou background feio em vídeos */
 .content.no-shadow {
@@ -2152,7 +2156,7 @@ object-fit: contain;
 
 .modal iframe {
   min-height: 400px;
-  max-height: 90vh;
+  max-height: 100vh;
 }
 
 .close {

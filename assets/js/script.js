@@ -210,3 +210,24 @@ function setupVideoThumbnails() {
     }
   });
 }
+
+/* === DARK/LIGHT MODE TOGGLE === */
+(function setupModeToggle() {
+  const btn = document.querySelector(".mode-toggle");
+  const prefersDark = localStorage.getItem("theme") !== "light";
+
+  // Define o modo salvo
+  if (!prefersDark) document.body.classList.add("light-mode");
+  updateToggleIcon();
+
+  btn.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
+    const isLight = document.body.classList.contains("light-mode");
+    localStorage.setItem("theme", isLight ? "light" : "dark");
+    updateToggleIcon();
+  });
+
+  function updateToggleIcon() {
+    btn.textContent = document.body.classList.contains("light-mode") ? "🌙" : "☀️";
+  }
+})();

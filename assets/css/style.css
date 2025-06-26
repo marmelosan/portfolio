@@ -2615,7 +2615,7 @@ body.light-mode .project-item span {
 .project-blurb {
   background-color: #1a1a1a;
   color: #f0f0f0;
-  border: 1px solid #c99c30; /* Dourado subtil */
+  border: 5px solid #c99c30; /* Dourado subtil */
   border-radius: 14px;
   padding: 24px 28px;
   margin-bottom: 24px;

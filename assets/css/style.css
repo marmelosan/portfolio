@@ -2329,12 +2329,12 @@ textarea::placeholder {
 /* === BLURBS === */
 .project-blurb {
   grid-column: 1 / -1;
-  background-color: #f5f5f5;
+  background-color: #1e1e1e;
   padding: 20px;
   border-radius: 12px;
   font-size: 1.05rem;
   line-height: 1.6;
-  color: #333;
+  color: #f0f0f0;
   text-align: center;
   opacity: 0;
   transform: translateY(20px);
@@ -2413,15 +2413,18 @@ body.light-mode {
   color: #111111;
 }
 
-body.light-mode .project-blurb,
+body.light-mode .project-blurb {
+  background-color: #f0f0f0 !important;
+  color: #111111 !important;
+}
+
 body.light-mode .project-item,
-body.light-mode .project-img,
 body.light-mode .blog-card,
 body.light-mode .card-text,
 body.light-mode .card-title,
 body.light-mode .card-subtitle,
 body.light-mode .blurb-content {
-  background-color: #f8f8f8 !important;
+  background-color: #ffffff !important;
   color: #111111 !important;
 }
 
@@ -2432,3 +2435,4 @@ body.light-mode .project-img {
 html {
   scroll-behavior: smooth;
 }
+

@@ -2075,6 +2075,17 @@ textarea.form-input::-webkit-resizer { display: none; }
   border-radius: 10px;
 }
 
+/* Wrapper para iframes YouTube responsivos */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #000;
+}
+
 .video-wrapper iframe {
   position: absolute;
   top: 0;
@@ -2082,8 +2093,9 @@ textarea.form-input::-webkit-resizer { display: none; }
   width: 100%;
   height: 100%;
   border: none;
-  display: block;
+  border-radius: 10px;
 }
+
 
 /* Remove sombra ou background feio em vídeos */
 .content.no-shadow {

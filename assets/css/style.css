@@ -2562,3 +2562,42 @@ body.light-mode .project-item .card-subtitle,
 body.light-mode .project-item .card-text {
   color: #cfcfcf !important;
 }
+
+/* === PROJECT CARDS TEXT COLORS - UNIFIED STYLE === */
+
+.project-item h3,
+.project-item h4,
+.project-item p,
+.project-item span,
+.project-item .card-title,
+.project-item .card-subtitle,
+.project-item .card-text {
+  color: #ffffff !important;
+}
+
+/* Subtítulos e descrições mais suaves */
+.project-item .card-subtitle,
+.project-item .card-text,
+.project-item p,
+.project-item span {
+  color: #cfcfcf !important;
+}
+
+/* Força os mesmos estilos mesmo com light-mode ativo */
+body.light-mode .project-item h3,
+body.light-mode .project-item h4,
+body.light-mode .project-item p,
+body.light-mode .project-item span,
+body.light-mode .project-item .card-title,
+body.light-mode .project-item .card-subtitle,
+body.light-mode .project-item .card-text {
+  color: #ffffff !important;
+}
+
+body.light-mode .project-item .card-subtitle,
+body.light-mode .project-item .card-text,
+body.light-mode .project-item p,
+body.light-mode .project-item span {
+  color: #cfcfcf !important;
+}
+

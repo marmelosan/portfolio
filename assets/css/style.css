@@ -2113,11 +2113,12 @@ textarea.form-input::-webkit-resizer { display: none; }
   scroll-behavior: smooth; /* <-- AQUI no final está perfeito */
 }
 
-  .modal-content {
+.modal-content {
   position: relative;
   width: 100vw;
-  max-width: 1200px;
-  max-height: 90vh;
+  max-width: 1200px; /* ajustável conforme preferires */
+  height: auto;
+  max-height: 95vh;
   background: transparent;
   display: flex;
   justify-content: center;
@@ -2133,7 +2134,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   border: none;
   border-radius: 10px;
   background-color: #000;
-  object-fit: contain;
+    object-fit: contain; /* 
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
 }
 

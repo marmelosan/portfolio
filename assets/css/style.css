@@ -934,17 +934,20 @@ main {
 
 .project-list {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 30px;
-  margin-bottom: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 16px 0;
 }
 
 
-.project-item { display: none; }
-
-.project-item.active {
-  display: block;
-  animation: scaleUp 0.25s ease forwards;
+.project-item {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #b88b00;
+  box-shadow: 0 0 8px rgba(184, 139, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 @keyframes scaleUp {
@@ -1119,17 +1122,19 @@ main {
 }
 
 .project-title {
-  font-size: var(--fs-5);
+font-size: var(--fs-5);
   font-weight: var(--fw-400);
-  color: var(--white-2);
+  color: #ffffff; /* branco para contraste */
   text-transform: capitalize;
   line-height: 1.3;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); /* leve realce */
 }
 
 .project-category {
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
-  color: var(--light-gray-70);
+  color: #cccccc; /* cinza claro */
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
 }
 
 /* Remove sombras de media que estejam com fundo transparente */
@@ -2644,56 +2649,4 @@ body.light-mode .project-item span {
   box-shadow:
     0 0 0 1px rgba(201, 156, 48, 0.5),
     0 8px 28px rgba(0, 0, 0, 0.85);
-}
-
-/* === AJUSTES DE VISUAL E PROPORÇÃO PARA OS CARDS === */
-.project-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-  padding: 16px 0;
-}
-
-/* Card em si */
-.project-item {
-  background-color: #1e1e1e;
-  color: #f0f0f0;
-  padding: 14px;
-  border-radius: 12px;
-  border: 1px solid #b88b00; /* Destaque subtil */
-  box-shadow: 0 0 8px rgba(184, 139, 0, 0.25); /* Brilho leve dourado */
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.project-item:hover {
-  transform: scale(1.015);
-  box-shadow: 0 0 12px rgba(255, 200, 0, 0.35);
-}
-
-/* Imagem ou vídeo */
-.project-img {
-  width: 100%;
-  border-radius: 8px;
-  aspect-ratio: 16 / 9;
-}
-
-/* Título e subtítulo */
-.card-title {
-  font-size: 1rem;
-  font-weight: bold;
-  margin: 10px 0 2px;
-}
-
-.card-subtitle,
-.card-text {
-  font-size: 0.85rem;
-  color: #c0c0c0;
-}
-
-/* Ajustes para modo claro forçado */
-body.light-mode .project-item {
-  background-color: #1e1e1e !important;
-  color: #f0f0f0 !important;
-  border: 1px solid #b88b00 !important;
-  box-shadow: 0 0 8px rgba(184, 139, 0, 0.25) !important;
 }

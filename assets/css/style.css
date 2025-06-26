@@ -2341,10 +2341,6 @@ textarea::placeholder {
   animation: fadeInUp 0.6s forwards ease-out;
 }
 
-body.light-mode .project-blurb {
-  background-color: #f9f9f9 !important;
-  color: #222 !important;
-}
 
 @keyframes fadeInUp {
   to {
@@ -2380,13 +2376,6 @@ body.light-mode .project-blurb {
 }
 
 /* === CARD TEXTS / CONTENTS === */
-body.light-mode .card-title,
-body.light-mode .card-subtitle,
-body.light-mode .card-text,
-body.light-mode .blurb-content {
-  color: #222 !important;
-}
-*/
 
 body.light-mode .card-title {
   color: #1a1a1a !important;
@@ -2449,11 +2438,6 @@ body.light-mode {
   color: #222;
 }
 
-body.light-mode .project-item,
-body.light-mode .blog-card {
-  background-color: #ffffff !important;
-  color: #222 !important;
-}
 
 body.light-mode .project-img {
   background-color: #e5e5e5;
@@ -2492,3 +2476,14 @@ body.light-mode .project-category {
   filter: brightness(1) contrast(1);
 }
 
+body.light-mode .project-blurb,
+body.light-mode .project-item,
+body.light-mode .card-title,
+body.light-mode .card-subtitle,
+body.light-mode .card-text,
+body.light-mode .blurb-content {
+  background-color: #1e1e1e !important;
+  color: #f0f0f0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}

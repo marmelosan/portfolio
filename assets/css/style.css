@@ -2465,3 +2465,8 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Garantir subtítulos e categorias legíveis no modo claro */
+body.light-mode .project-title,
+body.light-mode .project-category {
+  color: #333 !important;
+}

@@ -2067,15 +2067,15 @@ textarea.form-input::-webkit-resizer { display: none; }
   .column { flex: 100%; }
 }
 
-/* Wrapper para iframes YouTube responsivos */
 .video-wrapper {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* 16:9 ratio */
+  padding-bottom: 56.25%; /* Ratio 16:9 */
   height: 0;
   overflow: hidden;
   border-radius: 10px;
-  background: #000;
+  background-color: #000;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
 }
 
 .video-wrapper iframe {
@@ -2085,7 +2085,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   width: 100%;
   height: 100%;
   border: none;
-  border-radius: 10px;
+  display: block;
 }
 
 

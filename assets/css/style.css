@@ -2342,9 +2342,10 @@ textarea::placeholder {
 }
 
 body.light-mode .project-blurb {
-  background-color: #f7f7f7 !important;
-  color: #111111 !important;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  background-color: #f2f2f2 !important;
+  color: #222222 !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  border: 1px solid #dddddd;
 }
 
 @keyframes fadeInUp {
@@ -2378,6 +2379,22 @@ body.light-mode .project-blurb {
 .project-img:hover img,
 .project-img:hover video {
   transform: scale(1.03);
+}
+
+/* === CARD TEXTS / CONTENTS === */
+.card-text,
+.card-title,
+.card-subtitle,
+.blurb-content {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light-mode .card-text,
+body.light-mode .card-title,
+body.light-mode .card-subtitle,
+body.light-mode .blurb-content {
+  background-color: #f9f9f9 !important;
+  color: #222222 !important;
 }
 
 /* === HIDE CLASS === */
@@ -2424,11 +2441,7 @@ body.light-mode {
 }
 
 body.light-mode .project-item,
-body.light-mode .blog-card,
-body.light-mode .card-text,
-body.light-mode .card-title,
-body.light-mode .card-subtitle,
-body.light-mode .blurb-content {
+body.light-mode .blog-card {
   background-color: #ffffff !important;
   color: #111111 !important;
 }
@@ -2440,4 +2453,5 @@ body.light-mode .project-img {
 html {
   scroll-behavior: smooth;
 }
+
 

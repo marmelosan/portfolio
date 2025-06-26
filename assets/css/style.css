@@ -1065,14 +1065,11 @@ main {
 .video-wrapper {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 aspect ratio */
-  overflow: hidden;
-  border-radius: 10px;
-  background-color: #000;
-  display: flex; /* usar flex centra o conteúdo */
-  justify-content: center;
-  align-items: center;
-}
+  aspect-ratio: 16/9;
+  background:#000;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 0 30px rgba(0,0,0,0.9);
 
 .video-wrapper iframe,
 .video-wrapper video {
@@ -1084,14 +1081,6 @@ main {
   object-fit: cover; /* cobre todo o espaço mantendo proporção */
   border: none;
   display: block;
-}
-
-/* Video wrapper também obedece */
-.video-wrapper {
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  background-color: #000;
 }
 
 /* Ícone olho */

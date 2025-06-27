@@ -153,17 +153,15 @@ function setupMediaModal() {
       let el;
       if (type === 'video') {
         el = document.createElement('video');
-        el.src = src;
-        el.controls = true;
-        el.autoplay = true;
-      } else if (type === 'youtube') {
-        el = document.createElement('iframe');
         el.src = src + '?autoplay=1';
-        el.setAttribute('allow', 'autoplay; encrypted-media');
-        el.allowFullscreen = true;
-      } else if (type === 'image') {
-        el = document.createElement('img');
-        el.src = src;
+el.setAttribute('allow', 'autoplay; encrypted-media');
+el.allowFullscreen = true;
+el.style.width = '100%';
+el.style.aspectRatio = '16/9';
+el.style.display = 'block';
+el.style.border = 'none';
+el.style.borderRadius = '10px';
+el.style.backgroundColor = '#000';
       }
 
       if (el) {

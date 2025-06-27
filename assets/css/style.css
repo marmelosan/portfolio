@@ -2055,15 +2055,14 @@ textarea.form-input::-webkit-resizer { display: none; }
 #modal-media-container iframe,
 #modal-media-container video,
 #modal-media-container img {
-  width: 100%;
-  height: auto;
+  width: 100% !important;
+  height: auto !important;
   aspect-ratio: 16/9;
   display: block;
   object-fit: contain;
-  border: none;
+  border: none !important;
+  background: transparent !important; /* remove pano de fundo escuro */
   border-radius: 10px;
-  background: transparent; /*
-  box-sizing: border-box;
 }
 
 .project-play-overlay {

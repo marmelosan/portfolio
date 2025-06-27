@@ -2057,8 +2057,6 @@ textarea.form-input::-webkit-resizer { display: none; }
   justify-content: center;
 }
 
-}
-
 #modal-media-container iframe,
 #modal-media-container video,
 #modal-media-container img {

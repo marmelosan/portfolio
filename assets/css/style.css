@@ -2028,31 +2028,9 @@ textarea.form-input::-webkit-resizer { display: none; }
   padding: 0;
 }
 
-.video-wrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16/9;
-  background: #000;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
-}
-.video-wrapper iframe,
-.video-wrapper video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border: none;
-  display: block;
-  border-radius: 10px;
-}
-
 #mediaModal {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.85);
@@ -2067,33 +2045,28 @@ textarea.form-input::-webkit-resizer { display: none; }
 }
 
 #modal-media-container {
-  max-width: 90vw;
-  max-height: 80vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+  width: 90vw;
+  max-width: 1000px;
+  height: auto;
   background: #111;
-  border-radius: 12px;
+  padding: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
 }
 
-#mediaModal .close {
-  position: absolute;
-  top: 30px;
-  right: 40px;
-  font-size: 30px;
-  color: #fff;
-  cursor: pointer;
-  z-index: 10000;
-}
-.modal-content iframe,
-.modal-content video,
-.modal-content img {
-  width: 100% !important;
-  height: auto !important;
+#modal-media-container iframe,
+#modal-media-container video,
+#modal-media-container img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
   display: block;
-  outline: none;
+  object-fit: contain;
+  border: none;
+  border-radius: 10px;
+  background: #000;
+  box-sizing: border-box;
 }
 
 .project-play-overlay {

@@ -595,7 +595,7 @@ main {
   justify-content: center;
   align-items: center;
   overflow-y: auto;
-  overscroll-behavior: contain;
+  overscroll-behavior: cover;
   z-index: 20;
   pointer-events: none;
   visibility: hidden;

@@ -1,3 +1,4 @@
+
 /*-----------------------------------*\
   #style.css
 \*-----------------------------------*/
@@ -2055,6 +2056,8 @@ textarea.form-input::-webkit-resizer { display: none; }
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
 }
 
 #modal-media-container iframe,

@@ -1060,7 +1060,7 @@ main {
 }
 
 
-/* Estilo dourado só para blurbs */
+/* ✅ Estilo dourado apenas para blurbs */
 .project-blurb {
   border: 1px solid #ffd700;
   background: linear-gradient(to bottom right, #222, #111);
@@ -1075,7 +1075,6 @@ main {
   box-shadow: 0 0 25px rgba(255, 215, 0, 0.35);
   transform: translateY(-2px);
 }
-
 /* Títulos e categorias bem alinhados */
 .project-title,
 .project-category {

@@ -2062,7 +2062,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   height: auto;
   aspect-ratio: 16/9;
   display: block;
-  object-fit: contain;
+  object-fit: cover;
   border: none;
   border-radius: 10px;
   background: #000;

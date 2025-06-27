@@ -2046,18 +2046,14 @@ textarea.form-input::-webkit-resizer { display: none; }
 }
 
 #modal-media-container {
-  max-width: 90vw;
-  max-height: 80vh;
-  margin: auto;
+  width: 90vw;
+  max-width: 1000px;
+  height: auto;
+  background: #111;
   padding: 0;
-  border-radius: 12px;
-  background: transparent;
-  box-shadow: none; /* <== Remove o glow */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
 }
 
 #modal-media-container iframe,

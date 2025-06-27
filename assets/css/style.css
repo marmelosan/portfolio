@@ -2031,16 +2031,13 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 #mediaModal {
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
   background: rgba(0, 0, 0, 0.85);
   display: none;
   justify-content: center;
   align-items: center;
   z-index: 9999;
 }
-
 #mediaModal.active {
   display: flex;
 }
@@ -2048,12 +2045,11 @@ textarea.form-input::-webkit-resizer { display: none; }
 #modal-media-container {
   width: 90vw;
   max-width: 1000px;
-  height: auto;
-  background: #111;
+  background: transparent;
   padding: 0;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: none; /*
+  box-shadow: none; /* elimina o glow */
 }
 
 #modal-media-container iframe,

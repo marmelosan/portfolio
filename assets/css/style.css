@@ -990,8 +990,6 @@ main {
   transform: scale(1.02);
 }
 
-.project-item > a:hover img { transform: scale(1.1); }
-
 .project-title,
 .project-category,
 .project-blurb p {

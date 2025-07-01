@@ -150,7 +150,7 @@ function setupMediaModal() {
       const { type, src } = btn.dataset;
       modalContainer.innerHTML = '';
 
-      let el;
+let el;
 if (type === 'video') {
   el = document.createElement('video');
   el.src = src;
@@ -172,11 +172,13 @@ if (type === 'video') {
 }
 
 if (el) {
+  modalContainer.innerHTML = ''; // <-- limpa antes de inserir
   el.style.maxWidth = '90vw';
   el.style.maxHeight = '80vh';
   modalContainer.appendChild(el);
   mediaModal.style.display = 'flex';
 }
+
 
   modalClose.addEventListener('click', closeMediaModal);
   mediaModal.addEventListener('click', e => {

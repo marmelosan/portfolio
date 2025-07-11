@@ -1434,7 +1434,92 @@ Part expert system, part career sparring partner — this GPT was custom-built t
     <a id="modal-link" href="#" target="_blank">View Credential</a>
   </div>
 </div>
+<script>
+  const accolades = [
+    {
+      title: "Lean Six Sigma Green Belt",
+      org: "Six Sigma Global Institute",
+      img: "./assets/images/leansix-cert.png",
+      caption: "Lean Six Sigma Green Belt Certification – SSGI (2025)",
+      url: "https://skillshop.credential.net/9f8a7531-13c4-44ef-b9cc-aaa421eacbcb"
+    },
+    {
+      title: "Google Ads Search Certification",
+      org: "Skillshop",
+      img: "./assets/images/google-ads-search.png",
+      caption: "Google Ads Search Certification – Skillshop (2025)",
+      url: "https://skillshop.credential.net/09ee1bc4-5c67-48d6-a8f1-e708be7ad6a2"
+    },
+    {
+      title: "Google Ads Display Certification",
+      org: "Skillshop",
+      img: "./assets/images/google-ads-display.png",
+      caption: "Google Ads Display Certification – Skillshop (2025)",
+      url: "https://skillshop.credential.net/29ad89cb-e99d-408e-800e-0a6f59b0ab72"
+    },
+    {
+      title: "Google Ads Search (PT)",
+      org: "Skillshop",
+      img: "./assets/images/google-ads-search-pt.png",
+      caption: "Certificação em Pesquisa do Google Ads – Skillshop (2025)",
+      url: "https://skillshop.credential.net/cf4bdac6-3d49-4f5f-86cc-2b3ae9cbdb10"
+    },
+    {
+      title: "Google Analytics",
+      org: "Skillshop",
+      img: "./assets/images/google-analytics.png",
+      caption: "Google Analytics Certification – Skillshop",
+      url: "https://skillshop.credential.net/analytics/cert"
+    }
+  ];
 
+  const grid = document.getElementById('accolade-grid');
+
+  accolades.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'project-item accolade-card';
+    div.style.cursor = 'pointer';
+    div.style.padding = '1rem';
+    div.style.border = '1px solid #444';
+    div.style.borderRadius = '8px';
+    div.style.backgroundColor = '#1e1e1e';
+    div.setAttribute('data-title', item.title);
+    div.setAttribute('data-caption', item.caption);
+    div.setAttribute('data-url', item.url);
+
+    div.innerHTML = `
+      <figure class="project-img">
+        <img src="${item.img}" alt="${item.title} Badge" style="max-width: 100%; height: auto; display: block; margin: 0 auto 1rem;">
+        <figcaption class="project-hover-text" style="text-align:center; color:#aaa;">${item.caption}</figcaption>
+      </figure>
+      <h3 class="project-title" style="text-align: center; margin: 1rem 0 0.5rem;">${item.title}</h3>
+      <p class="project-category" style="text-align: center; color: #aaa;">${item.org}</p>
+    `;
+
+    div.addEventListener('click', () => {
+      document.getElementById('modal-title').textContent = item.title;
+      document.getElementById('modal-caption').textContent = item.caption;
+      document.getElementById('modal-link').href = item.url;
+      document.getElementById('accolade-modal').style.display = 'flex';
+    });
+
+    grid.appendChild(div);
+  });
+
+  document.getElementById('modal-close').addEventListener('click', () => {
+    document.getElementById('accolade-modal').style.display = 'none';
+  });
+</script>
+
+<style>
+  .accolade-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .accolade-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+  }
+</style>
 
       <!--
         - #CONTACT

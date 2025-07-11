@@ -1412,64 +1412,28 @@ Part expert system, part career sparring partner — this GPT was custom-built t
   <header>
     <h2 class="h2 article-title">Accolades</h2>
   </header>
-    <div class="project-grid" id="accolade-grid">
-      <!-- JSON-driven content will populate here -->
-    </div>
-
-    <div class="btn-wrapper">
-      <a href="https://skillshop.credential.net/profile/sandromarmelo255292/wallet" class="cta-btn" target="_blank">
-        View Full Wallet
-      </a>
-    </div>
-</article>
-
-  <script>
-    const accolades = [
-      {
-        title: "Google Ads Certified",
-        org: "Google / Skillshop",
-        img: "./assets/images/google-ads-cert.png",
-        caption: "Google Ads Search Certification – Skillshop (2024)",
-        url: "https://skillshop.credential.net/09ee1bc4-5c67-48d6-a8f1-e708be7ad6a2"
-      },
-      {
-        title: "Inbound Marketing",
-        org: "HubSpot Academy",
-        img: "./assets/images/hubspot-inbound.png",
-        caption: "Inbound Marketing Certification – HubSpot Academy",
-        url: "https://academy.hubspot.com/certification/inbound"
-      },
-      {
-        title: "Email Marketing",
-        org: "Brevo (Sendinblue)",
-        img: "./assets/images/brevo-cert.png",
-        caption: "Email Marketing Certified – Brevo (Sendinblue)",
-        url: "https://certs.brevo.com/"
-      }
-    ];
-
-    const grid = document.getElementById('accolade-grid');
-
-    accolades.forEach(item => {
-      const div = document.createElement('div');
-      div.className = 'project-item';
-      div.innerHTML = `
-        <a href="${item.url}" target="_blank">
-          <figure class="project-img">
-            <img src="${item.img}" alt="${item.title} Badge">
-            <figcaption class="project-hover-text">${item.caption}</figcaption>
-          </figure>
-          <h3 class="project-title">${item.title}</h3>
-          <p class="project-category">${item.org}</p>
-        </a>
-      `;
-      grid.appendChild(div);
-    });
-  </script>
-
+    <div class="subtitle-box">
+    <p class="section-subtitle">A curated collection of credentials that prove expertise across platforms, tools and disciplines.</p>
   </div>
 
+  <div class="project-grid" id="accolade-grid"></div>
+
+  <div class="btn-wrapper">
+    <a href="https://skillshop.credential.net/profile/sandromarmelo255292/wallet" class="cta-btn" target="_blank">
+      View Full Wallet
+    </a>
+  </div>
 </article>
+
+<!-- Modal -->
+<div id="accolade-modal">
+  <div class="modal-content">
+    <span id="modal-close">&times;</span>
+    <h3 id="modal-title"></h3>
+    <p id="modal-caption"></p>
+    <a id="modal-link" href="#" target="_blank">View Credential</a>
+  </div>
+</div>
 
 
       <!--

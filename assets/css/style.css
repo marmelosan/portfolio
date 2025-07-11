@@ -2605,81 +2605,78 @@ body.light-mode .project-item span {
   gap: 2rem;
   padding-top: 2rem;
 }
-
-.accolade-card {
-  background: #1e1e1e;
-  padding: 1rem;
-  border: 1px solid #444;
-  border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+/* SECTION TITLES */
+#accolades .section-title {
+  text-align: left;
+  margin-bottom: 0.5rem;
 }
 
-.accolade-card:hover {
+#accolades .section-subtitle {
+  max-width: 650px;
+  margin: 0 auto 2rem auto;
+  text-align: left;
+  opacity: 0.7;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* GRID CARD */
+#accolades .accolade-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#accolades .accolade-card:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
 }
 
-.accolade-card img {
-  max-width: 100%;
-  margin: 0 auto 1rem;
-}
-
-.project-title {
-  margin-top: 1rem;
-  font-size: 1.2rem;
-}
-
-.project-category {
-  color: #aaa;
-  font-size: 0.9rem;
-}
-
-.btn-wrapper {
-  margin-top: 2rem;
-}
-
-.cta-btn {
-  background: linear-gradient(to right, #ffd700, #f7c200);
-  color: #000;
-  padding: 1rem 2rem;
-  font-weight: bold;
-  border-radius: 6px;
-  text-decoration: none;
-}
-
-/* Modal */
-
+/* MODAL OVERLAY */
 #accolade-modal {
   display: none;
   position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.85);
-  z-index: 9999;
-  justify-content: center;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.85);
   align-items: center;
+  justify-content: center;
+  z-index: 9999;
 }
 
-#accolade-modal.active {
-  display: flex;
-}
-
-.modal-content {
+/* MODAL CONTENT */
+#accolade-modal .modal-content {
   background: #1e1e1e;
   padding: 2rem;
-  color: #fff;
-  border-radius: 8px;
   max-width: 500px;
   width: 90%;
+  border-radius: 8px;
+  color: #fff;
   position: relative;
-  text-align: left;
+  text-align: center;
 }
 
+/* CLOSE BUTTON */
 #modal-close {
   position: absolute;
   top: 0.5rem;
   right: 1rem;
   font-size: 1.5rem;
   cursor: pointer;
+}
+
+/* CTA BUTTON */
+#accolades .cta-btn {
+  background: linear-gradient(to right, #ffd700, #d4af37);
+  color: #000;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  border-radius: 6px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+#accolades .cta-btn:hover {
+  opacity: 0.9;
+  box-shadow: 0 0 10px #d4af37;
 }
 

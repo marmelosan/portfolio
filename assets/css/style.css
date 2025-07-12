@@ -2622,10 +2622,10 @@ body.light-mode .project-item span {
 }
 
  .accolade-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    max-width: 360px;
-    margin: 0 auto;
-  }
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 420px;
+  margin: 0 auto;
+}
   .accolade-card:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);

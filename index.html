@@ -1417,13 +1417,43 @@ Part expert system, part career sparring partner — this GPT was custom-built t
     document.getElementById('portfolio-modal').style.display = 'none';
   });
 
+<script>
+  const portfolioModal = document.getElementById('portfolio-modal');
+  const portfolioTitle = document.getElementById('portfolio-modal-title');
+  const portfolioImg = document.getElementById('portfolio-modal-img');
+  const portfolioCaption = document.getElementById('portfolio-modal-caption');
+  const portfolioLink = document.getElementById('portfolio-modal-link');
+
+  // Abre o modal com dados
+  document.querySelectorAll('.open-modal').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const imgSrc = link.dataset.src;
+      const title = link.querySelector('.project-title')?.textContent || '';
+      const caption = link.querySelector('figcaption')?.textContent || '';
+
+      portfolioImg.src = imgSrc;
+      portfolioImg.alt = title;
+      portfolioTitle.textContent = title;
+      portfolioCaption.textContent = caption;
+      portfolioLink.href = imgSrc;
+      portfolioModal.style.display = 'flex';
+    });
+  });
+
+  // Fecha ao clicar no botão
+  document.getElementById('portfolio-modal-close').addEventListener('click', () => {
+    portfolioModal.style.display = 'none';
+  });
+
+  // Fecha ao clicar fora do content
   window.addEventListener('click', function (e) {
-    const modal = document.getElementById('portfolio-modal');
-    if (e.target === modal) {
-      modal.style.display = 'none';
+    if (e.target === portfolioModal) {
+      portfolioModal.style.display = 'none';
     }
   });
 </script>
+
 
 
  <article class="contact" data-page="accolades">

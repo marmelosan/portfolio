@@ -1017,6 +1017,36 @@ main {
   font-weight: var(--fw-300);
 }
 
+#portfolio-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#portfolio-modal .modal-content {
+  background: #1e1e1e;
+  padding: 2rem;
+  max-width: 500px;
+  width: 90%;
+  border-radius: 8px; /* <- bordas suaves */
+  color: #fff;
+  position: relative;
+}
+
+#portfolio-modal img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px; /* <- igual ao dos accolades */
+  margin: 1rem 0;
+}
+
 /* === ALIGNAMENTO E ESTILO UNIFORME DOS PROJECTOS === */
 
 .project-list {

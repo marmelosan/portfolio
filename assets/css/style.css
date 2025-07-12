@@ -1159,6 +1159,13 @@ font-size: var(--fs-5);
   box-shadow: none;
 }
 
+.video-thumb {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
 /* Responsivo extra (reduz gap em mobile) */
 @media (max-width: 600px) {
   .project-list {

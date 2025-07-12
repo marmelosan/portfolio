@@ -1047,6 +1047,12 @@ main {
   margin: 1rem 0;
 }
 
+#portfolio-modal img,
+#accolade-modal img {
+  border-radius: 6px;
+}
+
+
 /* === ALIGNAMENTO E ESTILO UNIFORME DOS PROJECTOS === */
 
 .project-list {

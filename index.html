@@ -1433,6 +1433,7 @@ Part expert system, part career sparring partner — this GPT was custom-built t
     <h3 id="modal-title"></h3>
     <p id="modal-caption"></p>
     <a id="modal-link" href="#" target="_blank">View Credential</a>
+    <img id="modal-img" src="" alt="" style="max-width:100%; margin-bottom:1rem; border-radius:6px;">
   </div>
 </div>
 <script>
@@ -1502,6 +1503,8 @@ Part expert system, part career sparring partner — this GPT was custom-built t
       document.getElementById('modal-caption').textContent = item.caption;
       document.getElementById('modal-link').href = item.url;
       document.getElementById('accolade-modal').style.display = 'flex';
+document.getElementById('modal-img').src = item.img;
+document.getElementById('modal-img').alt = item.title;
     });
 
     grid.appendChild(div);

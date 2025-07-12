@@ -756,6 +756,62 @@
   </div>
 </div>
 
+<script>
+  const filterBtns = document.querySelectorAll('[data-filter-btn]');
+  const projectItems = document.querySelectorAll('[data-filter-item]');
+  const selectItems = document.querySelectorAll('[data-select-item]');
+  const selectValue = document.querySelector('[data-select-value]');
+  const selectToggle = document.querySelector('[data-select]');
+
+  // Filtro por botões
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const category = btn.dataset.filter.toLowerCase();
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterPortfolio(category);
+    });
+  });
+
+  // Filtro via dropdown
+  selectItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const category = item.textContent.trim().toLowerCase();
+      selectValue.textContent = item.textContent.trim();
+      filterPortfolio(category);
+    });
+  });
+
+  // Toggle dropdown
+  selectToggle.addEventListener('click', () => {
+    selectToggle.parentElement.classList.toggle('active');
+  });
+
+  // Lógica principal de filtro
+  function filterPortfolio(category) {
+    projectItems.forEach(item => {
+      const itemCategory = item.dataset.category.toLowerCase();
+      item.style.display = (category === 'all' || category === itemCategory) ? 'block' : 'none';
+    });
+
+    // Mostrar/esconder blurbs
+    document.querySelectorAll('[data-blurb-item]').forEach(blurb => {
+      const blurbCategory = blurb.dataset.category.toLowerCase();
+      blurb.style.display = (category === 'all' || category === blurbCategory) ? 'block' : 'none';
+    });
+  }
+
+  // Inicialização
+  filterPortfolio('all');
+</script>
+
+.filter-select-box .select-list {
+  display: none;
+}
+.filter-select-box.active .select-list {
+  display: block;
+}
+
 <!-- ▶ BLURBS (infos por categoria) -->
 <div class="blurb-container">
 

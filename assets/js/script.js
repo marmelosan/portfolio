@@ -211,3 +211,16 @@ function setupVideoThumbnails() {
     }
   });
 }
+
+<script>
+  document.getElementById('portfolio-modal-close').addEventListener('click', () => {
+    document.getElementById('portfolio-modal').style.display = 'none';
+  });
+
+  window.addEventListener('click', function (e) {
+    const modal = document.getElementById('portfolio-modal');
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+</script>

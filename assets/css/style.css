@@ -2595,22 +2595,16 @@ body.light-mode .project-item span {
 }
 
 <style>
-  .accolade-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    min-height: 360px;
-    padding: 1.5rem;
-    background-color: #1e1e1e;
-    border: 1px solid #444;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+ .accolade-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 340px;
+  margin: 0 auto;
+}
 
-  .accolade-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.15);
-  }
+.accolade-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+}
 
   .accolade-card img {
     max-width: 100%;

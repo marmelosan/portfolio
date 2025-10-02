@@ -1,142 +1,481 @@
-<!DOCTYPE html>
-<html lang="pt">
+<aside class="sidebar" data-sidebar>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>vCard – Portefólio Pessoal</title>
+  <div class="sidebar-info">
 
-  <!-- favicon -->
-  <link rel="shortcut icon" href="/portfolio/assets/images/logo.ico" type="image/x-icon">
+    <figure class="avatar-box">
+      <img src="./assets/images/sandro1.png" alt="Sandro Marmelo" width="80">
+    </figure>
 
-  <!-- css personalizado -->
-  <link rel="stylesheet" href="/portfolio/assets/css/style.css">
-
-  <!-- google font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-</head>
-
-<body>
-
-  <main>
-
-    <aside class="sidebar" data-sidebar>
-
-      <div class="sidebar-info">
-
-        <figure class="avatar-box">
-          <img src="/portfolio/assets/images/sandro1.png" alt="Sandro Marmelo" width="80">
-        </figure>
-
-        <div class="info-content">
-          <h1 class="name" title="Sandro Marmelo">Sandro Marmelo</h1>
-
-          <p class="title">Especialista em Marketing Digital & Comércio</p>
-        </div>
-
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Mostrar contactos</span>
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-
-      </div>
-
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-              <a href="mailto:smarmelo@gmail.com" class="contact-link">smarmelo@gmail.com</a>
-            </div>
-          </li>
-
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
-            <div class="contact-info">
-              <p class="contact-title">Telefone</p>
-              <a href="tel:+351918178576" class="contact-link">+351 918 178 576</a>
-            </div>
-          </li>
-
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-            <div class="contact-info">
-              <p class="contact-title">Data de nascimento</p>
-              <time datetime="1982-06-23">23 de junho de 1982</time>
-            </div>
-          </li>
-
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-            <div class="contact-info">
-              <p class="contact-title">Localização</p>
-              <address>Portugal</address>
-            </div>
-          </li>
-
-        </ul>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-          <li class="social-item">
-            <a href="https://www.linkedin.com/in/sandro-marmelo-digimkt/" class="social-link" target="_blank" rel="noopener noreferrer">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-          <li class="social-item">
-            <a href="https://x.com/Shenmuer1986" class="social-link" target="_blank" rel="noopener noreferrer">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-        </ul>
-
-      </div>
-
-    </aside>
-
-    <div class="main-content">
-
-      <nav class="navbar">
-        <ul class="navbar-list">
-          <li class="navbar-item"><button class="navbar-link active" data-nav-link>Sobre</button></li>
-          <li class="navbar-item"><button class="navbar-link" data-nav-link>Currículo</button></li>
-          <li class="navbar-item"><button class="navbar-link" data-nav-link>Portefólio</button></li>
-          <li class="navbar-item"><button class="navbar-link" data-nav-link>Reconhecimentos</button></li>
-          <li class="navbar-item"><button class="navbar-link" data-nav-link>Contacto</button></li>
-        </ul>
-      </nav>
-
-      <!-- resto do teu conteúdo igual -->
-
+    <div class="info-content">
+      <h1 class="name" title="Sandro Marmelo">Sandro Marmelo</h1>
+      <p class="title">Especialista em Marketing Digital e Comércio</p>
     </div>
 
-  </main>
+    <button class="info_more-btn" data-sidebar-btn>
+      <span>Ver contactos</span>
+      <ion-icon name="chevron-down"></ion-icon>
+    </button>
 
-  <script src="/portfolio/assets/js/script.js"></script>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  </div>
 
-</body>
-</html>
+  <div class="sidebar-info_more">
+
+    <div class="separator"></div>
+
+    <ul class="contacts-list">
+
+      <li class="contact-item">
+        <div class="icon-box">
+          <ion-icon name="mail-outline"></ion-icon>
+        </div>
+        <div class="contact-info">
+          <p class="contact-title">Email</p>
+          <a href="mailto:smarmelo@gmail.com" class="contact-link">smarmelo@gmail.com</a>
+        </div>
+      </li>
+
+      <li class="contact-item">
+        <div class="icon-box">
+          <ion-icon name="phone-portrait-outline"></ion-icon>
+        </div>
+        <div class="contact-info">
+          <p class="contact-title">Telefone</p>
+          <a href="tel:+351918178576" class="contact-link">+351 918 178 576</a>
+        </div>
+      </li>
+
+      <li class="contact-item">
+        <div class="icon-box">
+          <ion-icon name="calendar-outline"></ion-icon>
+        </div>
+        <div class="contact-info">
+          <p class="contact-title">Data de nascimento</p>
+          <time datetime="1982-06-23">23 de junho de 1982</time>
+        </div>
+      </li>
+
+      <li class="contact-item">
+        <div class="icon-box">
+          <ion-icon name="location-outline"></ion-icon>
+        </div>
+        <div class="contact-info">
+          <p class="contact-title">Localização</p>
+          <address>Portugal</address>
+        </div>
+      </li>
+
+    </ul>
+
+    <div class="separator"></div>
+
+    <ul class="social-list">
+      <li class="social-item">
+        <a href="https://www.linkedin.com/in/sandro-marmelo-digimkt/" class="social-link" target="_blank" rel="noopener noreferrer">
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </a>
+      </li>
+      <li class="social-item">
+        <a href="https://x.com/Shenmuer1986" class="social-link" target="_blank" rel="noopener noreferrer">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+      </li>
+      <li class="social-item">
+        <a href="#" class="social-link">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+      </li>
+    </ul>
+
+  </div>
+
+</aside>
+
+<div class="main-content">
+
+  <nav class="navbar">
+    <ul class="navbar-list">
+      <li class="navbar-item"><button class="navbar-link active" data-nav-link>Sobre</button></li>
+      <li class="navbar-item"><button class="navbar-link" data-nav-link>Currículo</button></li>
+      <li class="navbar-item"><button class="navbar-link" data-nav-link>Portefólio</button></li>
+      <li class="navbar-item"><button class="navbar-link" data-nav-link>Reconhecimentos</button></li>
+      <li class="navbar-item"><button class="navbar-link" data-nav-link>Contacto</button></li>
+    </ul>
+  </nav>
+
+  <article class="about active" data-page="about">
+    <header>
+      <h2 class="h2 article-title">Sobre mim</h2>
+    </header>
+
+    <section class="about-text">
+      <p><strong>Marketing digital não é fazer barulho. É fazer sentido — e gerar impacto.</strong></p>
+
+      <p>Com mais de cinco anos de experiência, ajudei marcas a encontrar a sua voz, o seu público e — acima de tudo — os seus resultados.</p>
+
+      <p>Do <strong>SEO</strong> ao <strong>Google Ads</strong>, do <strong>email marketing</strong> ao <strong>copywriting multilingue</strong>, trago estrutura e precisão ao caos digital. As minhas campanhas não se limitam a alcançar — <em>conectam, convertem e escalam</em>.</p>
+
+      <p>Na <strong>Beliani</strong>, escrevi e otimizei mais de <strong>5 000 descrições de produto</strong>, tripliquei a lista de emails para <strong>25 000 subscritores</strong> com uma taxa de abertura de <strong>30 %</strong>, e ajudei a colocar a loja portuguesa no top 5 global da empresa.</p>
+
+      <p>Antes disso?</p>
+      <p>Liderei transformações digitais em sectores tradicionais, criei plataformas de e‑commerce do zero, geri campanhas pagas com aumento de tráfego de <strong>58 %</strong> e implementei controlo de qualidade em operações de dados globais no sector da saúde — sempre com foco no detalhe e na performance.</p>
+
+      <p>Acredito que o marketing deve ser feito para pessoas — não para algoritmos.<br>
+        E que bons resultados não precisam de sacrificar nem o tom, nem o gosto ou a autenticidade.</p>
+
+      <p><strong>Procuro o próximo desafio — mas não qualquer um.</strong><br>
+        Procuro a equipa certa. A visão certa. E a oportunidade de construir algo inteligente, útil e mensurável.</p>
+
+      <p><em>Se te soa familiar, já estamos alinhados.</em></p>
+    </section>
+
+    <section class="service">
+  <h3 class="h3 service-title">O que faço</h3>
+  <ul class="service-list">
+
+    <li class="service-item">
+      <div class="service-icon-box">
+        <img src="./assets/images/copywriting.png" alt="ícone de copywriting" width="40">
+      </div>
+      <div class="service-content-box">
+        <h4 class="h4 service-item-title">Copywriting</h4>
+        <p class="service-item-text">✍️ Texto persuasivo com alma, estratégia e boas práticas de marketing.</p>
+      </div>
+    </li>
+
+    <li class="service-item">
+      <div class="service-icon-box">
+        <img src="./assets/images/contentmkt.png" alt="ícone de content marketing" width="40">
+      </div>
+      <div class="service-content-box">
+        <h4 class="h4 service-item-title">Criação de Conteúdo Multilingue</h4>
+        <p class="service-item-text">🌍 Mensagens naturais em português, inglês e espanhol — adaptadas ao tom, cultura e contexto.</p>
+      </div>
+    </li>
+
+    <li class="service-item">
+      <div class="service-icon-box">
+        <img src="./assets/images/emailmkt.png" alt="ícone de email marketing" width="40">
+      </div>
+      <div class="service-content-box">
+        <h4 class="h4 service-item-title">Email Marketing</h4>
+        <p class="service-item-text">📩 Fluxos de email envolventes que nutrem, convertem e retêm — com segmentação e automação inteligente.</p>
+      </div>
+    </li>
+
+    <li class="service-item">
+      <div class="service-icon-box">
+        <img src="./assets/images/ecommerce.png" alt="ícone de e‑commerce" width="40">
+      </div>
+      <div class="service-content-box">
+        <h4 class="h4 service-item-title">E‑commerce</h4>
+        <p class="service-item-text">🛒 Experiências de compra digitais com impacto — do UX à conversão, cada detalhe conta.</p>
+      </div>
+    </li>
+
+  </ul>
+</section>
+
+<section class="testimonials">
+  <h3 class="h3 testimonials-title">Testemunhos</h3>
+  <ul class="testimonials-list has-scrollbar">
+
+    <li class="testimonials-item">
+      <div class="content-card" data-testimonials-item>
+        <figure class="testimonials-avatar-box">
+          <img src="./assets/images/avatar-2.png" alt="Ivana V." width="60" data-testimonials-avatar>
+        </figure>
+        <h4 class="h4 testimonials-item-title" data-testimonials-title>Ivana V.</h4>
+        <div class="testimonials-text" data-testimonials-text>
+          <p>
+            O Sandro Marmelo é uma das pessoas mais dedicadas com quem já trabalhei. Cumpre prazos, supera expectativas e entrega sempre com qualidade. Destaca-se pela atenção ao detalhe, garantindo que tudo é feito com o mais alto padrão — um colega fiável e de confiança.
+          </p>
+        </div>
+      </div>
+    </li>
+
+    <li class="testimonials-item">
+      <div class="content-card" data-testimonials-item>
+        <figure class="testimonials-avatar-box">
+          <img src="./assets/images/avatar-3.png" alt="Jasmina U." width="60" data-testimonials-avatar>
+        </figure>
+        <h4 class="h4 testimonials-item-title" data-testimonials-title>Jasmina U.</h4>
+        <div class="testimonials-text" data-testimonials-text>
+          <p>
+            O Sandro trouxe uma combinação rara de rigor técnico e excelentes capacidades de escrita. Criou materiais de formação claros, envolventes e eficazes, que capacitaram a equipa para lidar com conteúdos complexos. A sua capacidade de simplificar conceitos difíceis foi inestimável — tanto na formação como na comunicação com diferentes stakeholders.
+          </p>
+        </div>
+      </div>
+    </li>
+
+    <li class="testimonials-item">
+      <div class="content-card" data-testimonials-item>
+        <figure class="testimonials-avatar-box">
+          <img src="./assets/images/avatar-4.png" alt="Armindo L." width="60" data-testimonials-avatar>
+        </figure>
+        <h4 class="h4 testimonials-item-title" data-testimonials-title>Armindo L.</h4>
+        <div class="testimonials-text" data-testimonials-text>
+          <p>
+            O Sandro tem um instinto apurado para o que resulta. Liga estratégia a execução, sobretudo em conteúdo e performance. Trabalhar com ele é sempre um processo focado, objetivo e produtivo.
+          </p>
+        </div>
+      </div>
+    </li>
+
+    <li class="testimonials-item">
+      <div class="content-card" data-testimonials-item>
+        <figure class="testimonials-avatar-box">
+          <img src="./assets/images/ana.png" alt="Ana R." width="60" data-testimonials-avatar>
+        </figure>
+        <h4 class="h4 testimonials-item-title" data-testimonials-title>Ana R.</h4>
+        <div class="testimonials-text" data-testimonials-text>
+          <p>
+            Quero agradecer ao Sandro pelo apoio, dedicação e pela forma como esteve sempre presente para os colegas. É aí que mais se destaca. Soma-se a isto o seu pensamento crítico e curiosidade — que o tornam não só um excelente profissional, mas também alguém genuinamente interessante. Parabéns!
+          </p>
+        </div>
+      </div>
+    </li>
+
+  </ul>
+</section>
+
+<article class="resume" data-page="resume">
+
+  <header>
+    <h2 class="h2 article-title">Currículo</h2>
+  </header>
+
+  <section class="timeline">
+
+    <div class="title-wrapper">
+      <div class="icon-box">
+        <ion-icon name="book-outline"></ion-icon>
+      </div>
+
+      <h3 class="h3">Formação Académica</h3>
+    </div>
+
+    <ol class="timeline-list">
+
+      <li class="timeline-item">
+        <h4 class="h4 timeline-item-title">Universidade Lusófona de Lisboa — Pós-graduação em E-commerce</h4>
+        <span>2024 — 2024</span>
+        <p class="timeline-text">
+          Formação intensiva em comércio eletrónico, com foco em estratégia de negócio online, otimização da jornada do cliente, sistemas de pagamento digitais e logística operacional — tudo adaptado à economia digital atual.
+        </p>
+      </li>
+
+      <li class="timeline-item">
+        <h4 class="h4 timeline-item-title">Edit Digital Academy — Especialização em Marketing Digital</h4>
+        <span>2019 — 2019</span>
+        <p class="timeline-text">
+          Especialização aprofundada em canais digitais, SEO, SEM, Google Ads e estratégias orientadas para performance em ambientes digitais modernos.
+        </p>
+      </li>
+
+      <li class="timeline-item">
+        <h4 class="h4 timeline-item-title">Universidade de Coimbra — Licenciatura e Mestrado em Relações Internacionais</h4>
+        <span>2004 — 2009</span>
+        <p class="timeline-text">
+          Bases sólidas em análise estratégica, comunicação intercultural e escrita persuasiva — competências que hoje aplico ao marketing de forma direta.
+        </p>
+      </li>
+
+    </ol>
+  </section>
+
+  <section class="timeline">
+
+    <div class="title-wrapper">
+      <div class="icon-box">
+        <ion-icon name="briefcase-outline"></ion-icon>
+      </div>
+
+      <h3 class="h3">Experiência Profissional</h3>
+    </div>
+
+    <ol class="timeline-list">
+
+      <li class="timeline-item">
+        <h4 class="h4 timeline-item-title">Copywriter e Tradutor — Beliani</h4>
+        <span>2022 — Presente</span>
+        <div class="timeline-text">
+          <ul>
+            <li>Escrevi e otimizei mais de 5 000 descrições de produto, aumentando a visibilidade orgânica.</li>
+            <li>Expandi a base de emails de 7 000 para 25 000 subscritores, com taxa de abertura constante de 30%.</li>
+            <li>Traduzi e adaptei jingles, conteúdos para redes sociais, newsletters e campanhas de marketing.</li>
+            <li>Assegurei consistência de tom de voz da marca, respeitando nuances culturais de cada mercado.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="timeline-item">
+        <h4 class="h4 timeline-item-title">Quality Assurance Checker — Veeva Systems</h4>
+        <span>2018 — 2024</span>
+        <div class="timeline-text">
+          <ul>
+            <li>Recolha e curadoria de dados open-source de profissionais de saúde LATAM e Europa/EMEA.</li>
+            <li>Atualização de perfis para plataformas de oncologia e multi-terapêutica.</li>
+            <li>Validação de afiliações, cargos e contactos, com foco na exatidão e consistência dos registos.</li>
+            <li>Promoção para função sénior de controlo de qualidade, com supervisão de equipas de validação.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="timeline-item">
+        <h4 class="h4 timeline-item-title">Técnico de Marketing Digital — Newgreenfil</h4>
+        <span>2020 — 2020</span>
+        <div class="timeline-text">
+          <ul>
+            <li>Liderei a transição digital da empresa, criando o primeiro website institucional.</li>
+            <li>Lancei a marca Joias Online e a respetiva loja de e-commerce.</li>
+            <li>Cataloguei, descrevi e fotografei mais de 2 000 peças, criando a base para a presença digital.</li>
+            <li>Planeei e executei calendários de conteúdos, aumentando o engagement em 70% no site e Facebook.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="timeline-item">
+        <h4 class="h4 timeline-item-title">Assistente de Marketing — Vdesk</h4>
+        <span>2016 — 2018</span>
+        <div class="timeline-text">
+          <ul>
+            <li>Aumentei o tráfego web em 58% com campanhas Google Ads para o mercado português.</li>
+            <li>Melhorei a performance do site com pesquisa estratégica de palavras-chave e SEO on-page.</li>
+            <li>Assegurei a integridade da marca ao moderar conteúdos e aplicar políticas de conformidade.</li>
+          </ul>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
+  <section class="skill">
+    <h3 class="h3 skills-title">Competências</h3>
+
+    <ul class="skills-list content-card">
+
+      <li class="skills-item">
+        <div class="title-wrapper">
+          <h5 class="h5">Copywriting & Produção de Conteúdo</h5>
+          <data value="90">90%</data>
+        </div>
+        <div class="skill-progress-bg">
+          <div class="skill-progress-fill" style="width: 90%;"></div>
+        </div>
+      </li>
+
+      <li class="skills-item">
+        <div class="title-wrapper">
+          <h5 class="h5">SEO (On-page & Estratégia de Palavras-chave)</h5>
+          <data value="80">80%</data>
+        </div>
+        <div class="skill-progress-bg">
+          <div class="skill-progress-fill" style="width: 80%;"></div>
+        </div>
+      </li>
+
+      <li class="skills-item">
+        <div class="title-wrapper">
+          <h5 class="h5">Email Marketing (Newsletters & Automações)</h5>
+          <data value="75">75%</data>
+        </div>
+        <div class="skill-progress-bg">
+          <div class="skill-progress-fill" style="width: 75%;"></div>
+        </div>
+      </li>
+
+      <li class="skills-item">
+        <div class="title-wrapper">
+          <h5 class="h5">Gestão de Produtos de E-commerce</h5>
+          <data value="75">75%</data>
+        </div>
+        <div class="skill-progress-bg">
+          <div class="skill-progress-fill" style="width: 75%;"></div>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+</article>
+
+
+<!--
+  - #PORTFOLIO
+-->
+<article class="portfolio" data-page="portfolio">
+  <header>
+    <h2 class="h2 article-title">Portefólio</h2>
+  </header>
+
+  <section class="projects">
+    <ul class="filter-list">
+      <li class="filter-item"><button class="active" data-filter-btn data-filter="All">Todos</button></li>
+      <li class="filter-item"><button data-filter-btn data-filter="copywriting">Copywriting</button></li>
+      <li class="filter-item"><button data-filter-btn data-filter="branding">Branding</button></li>
+      <li class="filter-item"><button data-filter-btn data-filter="e-commerce">E-commerce</button></li>
+      <li class="filter-item"><button data-filter-btn data-filter="data-operations">Automação e Ferramentas de IA</button></li>
+      <li class="filter-item"><button data-filter-btn data-filter="AI/Gpt's">Projetos Próprios</button></li>
+    </ul>
+
+    <div class="filter-select-box">
+      <button class="filter-select" data-select>
+        <div class="select-value" data-select-value>Selecionar categoria</div>
+        <div class="select-icon"><ion-icon name="chevron-down"></ion-icon></div>
+      </button>
+      <ul class="select-list">
+        <li class="select-item"><button data-select-item>Todos</button></li>
+        <li class="select-item"><button data-select-item>Copywriting</button></li>
+        <li class="select-item"><button data-select-item>Branding</button></li>
+        <li class="select-item"><button data-select-item>E-commerce</button></li>
+        <li class="select-item"><button data-select-item>Automação e Ferramentas de IA</button></li>
+        <li class="select-item"><button data-select-item>Projetos Próprios</button></li>
+      </ul>
+    </div>
+
+    <!-- ▶ BLURBS (infos por categoria) -->
+    <div class="blurb-container">
+
+      <div class="project-blurb" data-blurb-item data-category="all">
+        <div class="blurb-content">
+          <p>Uma montra de trabalho estratégico — onde criatividade, precisão e impacto se unem em vários formatos e setores.</p>
+        </div>
+      </div>
+
+      <div class="project-blurb" data-blurb-item data-category="copywriting">
+        <div class="blurb-content">
+          <p>Palavras que convertem — de manchetes a storytelling, crio histórias com propósito e foco em resultados.</p>
+        </div>
+      </div>
+
+      <div class="project-blurb" data-blurb-item data-category="branding">
+        <div class="blurb-content">
+          <p>Trabalho orientado pela identidade — pensado para elevar perceções, gerar confiança e destacar-se num mercado competitivo.</p>
+        </div>
+      </div>
+
+      <div class="project-blurb" data-blurb-item data-category="e-commerce">
+        <div class="blurb-content">
+          <p>Experiências de compra com impacto — da usabilidade à conversão, cada detalhe conta.</p>
+        </div>
+      </div>
+
+      <div class="project-blurb" data-blurb-item data-category="Automation and ai tools">
+        <div class="blurb-content">
+          <p>Ferramentas com IA que aceleram processos, personalizam experiências e desbloqueiam potencial criativo e comercial.</p>
+        </div>
+      </div>
+
+      <div class="project-blurb" data-blurb-item data-category="Own projects">
+        <div class="blurb-content">
+          <p>Interfaces e sites desenvolvidos por mim — onde exploro UX, sistemas de layout e ideias criativas além dos briefings de cliente.</p>
+        </div>
+      </div>
+
+      <div class="project-blurb" data-blurb-item data-category="Accolades">
+        <div class="blurb-content">
+          <p>Uma coleção curada de credenciais que comprovam competência em várias plataformas, ferramentas e disciplinas.</p>
+        </div>
+      </div>
+
+    </div>

@@ -218,3 +218,37 @@ function setupVideoThumbnails() {
     }
   });
 }
+
+// CORREÇÃO: Usamos o ID 'portfolio-modal' que está no teu CSS
+const modal = document.getElementById('portfolio-modal');
+const modalTitle = document.querySelector('#portfolio-modal .modal-title') || document.createElement('div'); // Ajusta se necessário
+const modalMedia = document.getElementById('portfolio-modal'); // Nota: Se o teu HTML for diferente, ajusta o ID aqui
+const modalCaption = document.querySelector('.modal-caption'); 
+const modalClose = document.querySelector('.modal-close-btn');
+
+// Na tua função de clique, garante que limpas e injetas as imagens corretamente:
+document.querySelectorAll('.open-modal').forEach(el => {
+  el.addEventListener('click', function (e) {
+    e.preventDefault();
+    
+    // Identifica o modal correto pelo ID do CSS
+    const modal = document.getElementById('portfolio-modal');
+    const modalMediaContainer = modal.querySelector('.modal-content'); // Onde as imagens vão entrar
+    
+    const type = el.dataset.type;
+    const images = el.dataset.images ? el.dataset.images.split(',') : [el.dataset.src];
+
+    // Limpa apenas a área das imagens (cria uma div dedicada se não tiveres)
+    // Se não tiveres uma div específica, limpa o conteúdo que não seja o botão de fechar
+    
+    if (type === 'image') {
+      images.forEach(imgSrc => {
+        const img = document.createElement('img');
+        img.src = imgSrc.trim();
+        img.className = 'modal-stack-img'; // Classe para o CSS
+        modalMediaContainer.appendChild(img);
+      });
+      modal.style.display = 'flex';
+    }
+  });
+});

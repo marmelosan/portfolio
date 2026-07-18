@@ -114,7 +114,7 @@ const projects = [
   {
     slug: 'beliani-campaign-copywriting',
     title: 'Beliani – Campaign Copywriting & Localization',
-    category: 'copywriting',
+    category: 'branding',
     blurb: 'PT copywriting and localization across 9 Beliani campaigns (video + static ads) — tone, urgency, and CTA clarity tuned for conversion.',
     slides: [
       {
@@ -246,6 +246,25 @@ const projects = [
   },
 
   {
+    slug: 'checkout-funnel-cro',
+    title: 'E-commerce Checkout Funnel — CRO & Systems Architecture',
+    category: 'e-commerce',
+    blurb: 'Mapped the full checkout funnel end-to-end: conversion decision logic (exit-intent, friction points, drop-off risk) plus the technical systems behind it (APIs, webhooks, attribution).',
+    slides: [
+      {
+        type: 'diagram',
+        src: './assets/images/flowchart-checkout-funnel-logic.svg',
+        caption: 'Checkout funnel decision logic: from add-to-cart through guest-checkout friction, exit-intent triggers, shipping-cost thresholds, dynamic discounting, payment, and post-purchase upsell — every branch built to identify and remove drop-off risk.'
+      },
+      {
+        type: 'diagram',
+        src: './assets/images/flowchart-checkout-technical.svg',
+        caption: 'The same funnel mapped as a systems architecture: GTM dataLayer events, ERP stock validation, GEO-IP auth, shipping-rate API, tokenized payment gateway (Stripe/PayPal), and webhooks feeding ERP, marketing analytics (LTV/CAC), and transactional messaging.'
+      }
+    ]
+  },
+
+  {
     slug: 'ebay-store',
     title: 'Ebay Store',
     category: 'own projects',
@@ -288,6 +307,17 @@ const projects = [
       type: 'image',
       src: './assets/images/data governance.png',
       caption: 'After 9,000+ logged hours, 14 contracts, and a pristine 100% Job Success Score, I solidified my place as a data governance expert. I specialize in multilingual validation, SOP architecture, audit-proof documentation, and high-stakes curation for enterprise across pharma, e-commerce, and financial intelligence.'
+    }]
+  },
+  {
+    slug: 'data-governance-lifecycle-logic',
+    title: 'Account Lifecycle & Archiving Logic',
+    category: 'own projects',
+    blurb: 'A governance decision tree for account/profile status: role validation, cross-entity link audits, and archiving rules — built to keep every edge case auditable.',
+    slides: [{
+      type: 'diagram',
+      src: './assets/images/flowchart-account-lifecycle.svg',
+      caption: 'Decision logic for handling profile status changes and inactive-account flags: checks for active sub-entity links, role/permission audits, distinguishing honorary or advisory roles from operational ones, and a final archiving rule based on the last known trusted baseline — designed so every outcome is traceable and defensible.'
     }]
   },
   {
@@ -423,6 +453,17 @@ const projects = [
       src: './assets/images/makeit automation.png',
       caption: 'Connected a website form to Brevo via Make.com, so every submission is instantly added to my mailing list — automating lead capture for future email campaigns.'
     }]
+  },
+  {
+    slug: 'email-lifecycle-automation',
+    title: 'Email Lifecycle & Segmentation Logic',
+    category: 'automation and ai tools',
+    blurb: 'Subscriber lifecycle logic from opt-in to segmentation to list hygiene — designed to protect deliverability while maximizing engagement.',
+    slides: [{
+      type: 'diagram',
+      src: './assets/images/flowchart-email-lifecycle.svg',
+      caption: 'Subscriber lifecycle automation: double opt-in confirmation, profile enrichment (geo/language), a 14-day engagement audit that segments high-intent vs. at-risk subscribers, a re-engagement sequence, and automated list scrubbing to protect domain/sender reputation.'
+    }]
   }
 ];
 
@@ -433,19 +474,22 @@ function renderProjects() {
 
   list.innerHTML = projects.map(project => {
     const cover = project.slides[0].cover || project.slides[0].src;
-    const isPlayable = project.slides[0].type !== 'image';
+    const firstType = project.slides[0].type;
+    const isPlayable = firstType === 'video' || firstType === 'youtube';
+    const isDiagram = firstType === 'diagram';
     const multi = project.slides.length > 1;
     const categoryLabel = project.category.replace(/\b\w/g, c => c.toUpperCase());
 
     return `
       <li class="project-item" data-filter-item data-category="${project.category}">
         <a href="#" class="open-modal" data-slug="${project.slug}">
-          <figure class="project-img">
+          <figure class="project-img${isDiagram ? ' project-img-diagram' : ''}">
             <div class="project-item-icon-box">
               <ion-icon name="eye-outline"></ion-icon>
             </div>
             <img src="${cover}" alt="${project.title}" loading="lazy">
             ${isPlayable ? '<div class="project-play-overlay">▶</div>' : ''}
+            ${isDiagram ? '<div class="project-diagram-overlay"><ion-icon name="git-network-outline"></ion-icon> Process Map</div>' : ''}
             ${multi ? `<span class="project-multi-badge"><ion-icon name="images-outline"></ion-icon> ${project.slides.length}</span>` : ''}
             <figcaption class="project-hover-text">${project.blurb || project.slides[0].caption}</figcaption>
           </figure>
@@ -464,6 +508,12 @@ function setupFiltering(savedFilter) {
   const selectValue = document.querySelector("[data-select-value]");
   const filterBtns = document.querySelectorAll("[data-filter-btn]");
   const blurbs = document.querySelectorAll("[data-blurb-item]");
+
+  // Se o filtro guardado (ex: de uma visita anterior) já não existir
+  // como aba válida — como aconteceu ao fundirmos "copywriting" em
+  // "branding" — caímos em segurança para "all" em vez de mostrar um grid vazio.
+  const validFilters = [...filterBtns].map(btn => btn.innerText.toLowerCase());
+  if (!validFilters.includes(savedFilter)) savedFilter = 'all';
 
   let lastActiveBtn = filterBtns[0];
 
@@ -570,6 +620,14 @@ function setupProjectModal() {
       el = document.createElement('img');
       el.src = slide.src;
       el.alt = currentProject.title;
+    } else if (slide.type === 'diagram') {
+      const frame = document.createElement('div');
+      frame.className = 'pmodal-diagram-frame';
+      const img = document.createElement('img');
+      img.src = slide.src;
+      img.alt = currentProject.title;
+      frame.appendChild(img);
+      el = frame;
     } else if (slide.type === 'video') {
       el = document.createElement('video');
       el.src = slide.src;

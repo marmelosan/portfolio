@@ -2798,3 +2798,181 @@ body.light-mode .project-item span {
   border-radius: 8px;
   display: block;
 }
+
+/* =====================================================================
+   MODAL ÚNICO DE PROJETOS + CARROSSEL (#project-modal)
+   Substitui o antigo #universal-modal (estilos inline) e o #mediaModal
+   morto. Usa as variáveis de tema já definidas em :root.
+===================================================================== */
+.pmodal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: hsla(0, 0%, 0%, 0.85);
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 20px;
+}
+
+.pmodal.active { display: flex; }
+
+.pmodal-box {
+  position: relative;
+  background: var(--eerie-black-2);
+  border: 1px solid var(--jet);
+  color: var(--white-1);
+  border-radius: 14px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  max-height: 92vh;
+  overflow-y: auto;
+}
+
+.pmodal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.9rem;
+  background: none;
+  border: none;
+  color: var(--white-2);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.75;
+  transition: opacity .2s, color .2s;
+}
+
+.pmodal-close:hover,
+.pmodal-close:focus { opacity: 1; color: var(--orange-yellow-crayola); }
+
+.pmodal-title {
+  margin: 0 0 4px;
+  text-align: center;
+  font-size: 1.15rem;
+}
+
+.pmodal-category {
+  margin: 0 0 1rem;
+  text-align: center;
+  color: var(--orange-yellow-crayola);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pmodal-media-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pmodal-media {
+  width: 100%;
+  max-height: 65vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pmodal-media img,
+.pmodal-media video {
+  max-width: 100%;
+  max-height: 65vh;
+  border-radius: 8px;
+  display: block;
+}
+
+.pmodal-media iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 65vh;
+  border-radius: 8px;
+}
+
+.pmodal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: hsla(0, 0%, 0%, 0.55);
+  border: 1px solid var(--jet);
+  color: var(--white-1);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.4rem;
+  z-index: 2;
+  transition: background-color .2s, color .2s;
+}
+
+.pmodal-nav:hover,
+.pmodal-nav:focus { background: var(--orange-yellow-crayola); color: var(--smoky-black); }
+
+.pmodal-nav-prev { left: -10px; }
+.pmodal-nav-next { right: -10px; }
+
+.pmodal-dots {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.pmodal-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: none;
+  background: var(--jet);
+  cursor: pointer;
+  padding: 0;
+  transition: background-color .2s, transform .2s;
+}
+
+.pmodal-dot.active {
+  background: var(--orange-yellow-crayola);
+  transform: scale(1.2);
+}
+
+.pmodal-caption {
+  margin: 14px 0 0;
+  text-align: center;
+  color: var(--light-gray);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Selo com o número de imagens/vídeos de um projeto com carrossel */
+.project-multi-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: hsla(0, 0%, 0%, 0.6);
+  color: var(--white-1);
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 20px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.project-multi-badge ion-icon { font-size: 0.9rem; }
+
+@media (max-width: 600px) {
+  .pmodal-box { padding: 1.25rem; }
+  .pmodal-nav { width: 34px; height: 34px; font-size: 1.1rem; }
+  .pmodal-nav-prev { left: 4px; }
+  .pmodal-nav-next { right: 4px; }
+}

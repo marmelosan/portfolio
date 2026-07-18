@@ -171,10 +171,7 @@ document.querySelectorAll('.open-modal').forEach(el => {
       images.forEach(imageSrc => {
         const img = document.createElement('img');
         img.src = imageSrc.trim();
-        img.style.display = 'block';
-        img.style.width = '100%';
-        img.style.marginBottom = '20px';
-        img.style.borderRadius = '6px';
+        img.classList.add('modal-image-responsive'); // Adicionamos uma classe aqui
         img.alt = title;
         modalMedia.appendChild(img);
       });

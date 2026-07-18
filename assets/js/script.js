@@ -164,38 +164,23 @@ document.querySelectorAll('.open-modal').forEach(el => {
 
     let mediaEl;
 
-    if (type === 'image') {
-      mediaEl = document.createElement('img');
-      mediaEl.src = src;
-      mediaEl.style.maxWidth = '100%';
-      mediaEl.style.maxHeight = '70vh';
-      mediaEl.style.borderRadius = '6px';
-      mediaEl.alt = title;
-    } else if (type === 'video') {
-      mediaEl = document.createElement('video');
-      mediaEl.src = src;
-      mediaEl.controls = true;
-      mediaEl.autoplay = true;
-      mediaEl.style.maxWidth = '100%';
-      mediaEl.style.maxHeight = '70vh';
-      mediaEl.style.borderRadius = '6px';
-    } else if (type === 'youtube') {
-      mediaEl = document.createElement('iframe');
-      mediaEl.src = src.includes('autoplay') ? src : `${src}?autoplay=1`;
-      mediaEl.width = "100%";
-      mediaEl.height = "400";
-      mediaEl.frameBorder = "0";
-      mediaEl.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-      mediaEl.allowFullscreen = true;
-      mediaEl.style.maxWidth = '100%';
-    }
+if (type === 'image') {
+  // Get images, default to single source if no list provided
+  const images = el.dataset.images ? el.dataset.images.split(',') : [src];
+  
+  // Clear modal and show it
+  modalMedia.innerHTML = ''; 
+  modal.style.display = 'flex';
 
-    if (mediaEl) {
-      modalMedia.appendChild(mediaEl);
-      modal.style.display = 'flex';
-    }
+  // Add each image
+  images.forEach(imageSrc => {
+    const img = document.createElement('img');
+    img.src = imageSrc.trim();
+    img.className = 'project-image-stack'; // Using the CSS class we defined
+    img.alt = title;
+    modalMedia.appendChild(img);
   });
-});
+}
 
 modalClose.addEventListener('click', () => {
   modal.style.display = 'none';

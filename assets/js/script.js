@@ -68,31 +68,30 @@ function setupTestimonials() {
 ===================================================================== */
 const projects = [
   {
-    slug: 'beliani-delivering-happiness',
-    title: 'Beliani – Delivering Happiness',
+    slug: 'beliani-brand-films',
+    title: 'Beliani – Brand Video Localization',
     category: 'branding',
-    slides: [{
-      type: 'youtube',
-      src: 'https://www.youtube.com/embed/xLzjcl9GP2M',
-      cover: 'https://img.youtube.com/vi/xLzjcl9GP2M/hqdefault.jpg',
-      caption: 'Translated the subtitles for Beliani’s emotional manifesto, “Delivering Happiness.” This was more than just language conversion — it was about carrying the brand’s promise, warmth, and emotional tone across cultures with nuance and care.'
-    }]
-  },
-  {
-    slug: 'beliani-warehouse-trip',
-    title: 'Beliani Warehouse Trip',
-    category: 'branding',
-    slides: [{
-      type: 'youtube',
-      src: 'https://www.youtube.com/embed/1XRYlaYEe7s',
-      cover: 'https://img.youtube.com/vi/1XRYlaYEe7s/hqdefault.jpg',
-      caption: 'Translated the on-screen text and voice-over for Beliani’s warehouse video — ensuring Portuguese viewers could clearly understand operational stats such as warehouse size, team count, and product volume. The goal: preserve clarity and trust while adapting key data points for local relevance.'
-    }]
+    blurb: 'PT localization of Beliani\'s brand video content — adapting tone, data points, and emotional resonance for the Portuguese market.',
+    slides: [
+      {
+        type: 'youtube',
+        src: 'https://www.youtube.com/embed/xLzjcl9GP2M',
+        cover: 'https://img.youtube.com/vi/xLzjcl9GP2M/hqdefault.jpg',
+        caption: 'Translated the subtitles for Beliani’s emotional manifesto, “Delivering Happiness.” This was more than just language conversion — it was about carrying the brand’s promise, warmth, and emotional tone across cultures with nuance and care.'
+      },
+      {
+        type: 'youtube',
+        src: 'https://www.youtube.com/embed/1XRYlaYEe7s',
+        cover: 'https://img.youtube.com/vi/1XRYlaYEe7s/hqdefault.jpg',
+        caption: 'Translated the on-screen text and voice-over for Beliani’s warehouse video — ensuring Portuguese viewers could clearly understand operational stats such as warehouse size, team count, and product volume. The goal: preserve clarity and trust while adapting key data points for local relevance.'
+      }
+    ]
   },
   {
     slug: 'vans-branding-course-clip',
     title: 'Vans – Branding Course Clip',
     category: 'branding',
+    blurb: 'Scripted, voiced, and performed a branding video for a Digital Marketing course — brand storytelling from concept to delivery.',
     slides: [{
       type: 'youtube',
       src: 'https://www.youtube.com/embed/DMoMl-zikTI',
@@ -104,6 +103,7 @@ const projects = [
     slug: 'bitsnostalgia-logo',
     title: 'Bitsnostalgia Logo',
     category: 'branding',
+    blurb: 'Brand identity for my own retro-gaming label — logo, palette, tone of voice, and guidelines built from scratch.',
     slides: [{
       type: 'image',
       src: './assets/images/bitsnostalgialogo.jpg',
@@ -112,115 +112,97 @@ const projects = [
   },
 
   {
-    slug: 'beliani-summer-campaign',
-    title: 'Beliani – Summer campaign',
+    slug: 'beliani-campaign-copywriting',
+    title: 'Beliani – Campaign Copywriting & Localization',
     category: 'copywriting',
-    slides: [{
-      type: 'video',
-      src: './videos/beliani_campanha_junho2025.mp4',
-      cover: './assets/images/thumb-beliani_summer_campaign.png',
-      caption: 'Led the Portuguese adaptation used in the campaign’s voice-over — ensuring tone, rhythm, and cultural resonance. Also created the original jingle, aligning melody and message to elevate brand recall and emotional impact.'
-    }]
-  },
-  {
-    slug: 'beliani-campaign-2025',
-    title: 'Beliani – Campaign 2025',
-    category: 'copywriting',
-    slides: [{
-      type: 'video',
-      src: './videos/Pt Campaign 2025.mp4',
-      cover: './assets/images/thumb-beliani_table_campaign.png',
-      caption: 'Translated the voice-over for a campaign video where a woman drops food on the floor during a family dinner — dramatizing the need for a proper dining table. Ensured the humor and message landed smoothly in Portuguese while staying true to brand tone.'
-    }]
-  },
-  {
-    slug: 'beliani-social-media-2024',
-    title: 'Beliani – Social Media Campaign 2024',
-    category: 'copywriting',
-    slides: [{
-      type: 'video',
-      src: './videos/beliani_socialmedia_2024.mp4',
-      cover: './assets/images/thumb-summer_campaign_2025.png',
-      caption: 'Translated subtitles for a high-energy testimonial featuring a proud homeowner celebrating his new garden. Ensured the translation preserved his joy, personality, and authenticity — without losing rhythm or cultural tone.'
-    }]
-  },
-  {
-    slug: 'beliani-summer-sale-2024',
-    title: 'Beliani Summer Sale 2024',
-    category: 'copywriting',
-    slides: [{
-      type: 'video',
-      src: './videos/beliani_082024.mp4',
-      cover: './assets/images/thumb-summer_sale_2023.png',
-      caption: 'Translated headlines, promotional videos and banners for the PT version of the Beliani Summer campaign 2024 — keeping tone and engagement sharp. Above: Meta ad for that campaign.'
-    }]
-  },
-  {
-    slug: 'beliani-summer-sale-2023',
-    title: 'Beliani Summer Sale 2023',
-    category: 'copywriting',
-    slides: [{
-      type: 'video',
-      src: './videos/Beliani2024.mp4',
-      cover: './assets/images/thumb-summer_sale_2025.png',
-      caption: 'Translated the full script for the PT version of Beliani Summer Promotion 2023 — adapting tone, rhythm, and message to match the campaign’s vibrant, seasonal energy.'
-    }]
-  },
-  {
-    slug: 'beliani-meta-ad-living-room',
-    title: 'Beliani Portugal – Meta Ad (Living Room Campaign)',
-    category: 'copywriting',
-    slides: [{
-      type: 'image',
-      src: './assets/images/beliani0524.png',
-      caption: 'Localized headline, banner text, and ad copy for the Portuguese market. Focused on warmth, comfort, and click-through clarity — all while keeping the brand tone consistent.'
-    }]
-  },
-  {
-    slug: 'beliani-meta-ad-relax',
-    title: 'Beliani Portugal – Meta Ad (Relax... Beliani has your back)',
-    category: 'copywriting',
-    slides: [{
-      type: 'image',
-      src: './assets/images/beliani0525.png',
-      caption: 'Translated headline, CTA, and body copy into smooth, inviting Portuguese. The goal? Evoke serenity and trust — while keeping the scroll-stopper energy strong and dog-approved.'
-    }]
-  },
-  {
-    slug: 'beliani-4x3-campaign',
-    title: 'Beliani Portugal – Beliani 4x3 campaign',
-    category: 'copywriting',
-    slides: [{
-      type: 'image',
-      src: './assets/images/4x3.png',
-      caption: 'Translated dynamic copy and promo logic for Portuguese market. Balanced urgency ("Aprese-se!") with clarity of tiers, while keeping tone cheerful and conversion-oriented. Visual match ensured with headline rhythm and emoji touch — to sell with a smile.'
-    }]
-  },
-  {
-    slug: 'beliani-lamp-offer',
-    title: 'Beliani Portugal – Beliani lamp offer campaign',
-    category: 'copywriting',
-    slides: [{
-      type: 'image',
-      src: './assets/images/candeeiro.png',
-      caption: 'Localized and translated ad copy for Beliani’s table lamp promo. Aligned tone with the brand’s elegant yet energetic voice, ensuring the CTA and voucher logic were crystal-clear. Kept it inviting, not pushy — because great UX starts with the right words.'
-    }]
+    blurb: 'PT copywriting and localization across 9 Beliani campaigns (video + static ads) — tone, urgency, and CTA clarity tuned for conversion.',
+    slides: [
+      {
+        type: 'video',
+        src: './videos/Beliani2024.mp4',
+        cover: './assets/images/thumb-summer_sale_2025.png',
+        caption: 'Translated the full script for the PT version of Beliani Summer Promotion 2023 — adapting tone, rhythm, and message to match the campaign’s vibrant, seasonal energy.'
+      },
+      {
+        type: 'video',
+        src: './videos/beliani_082024.mp4',
+        cover: './assets/images/thumb-summer_sale_2023.png',
+        caption: 'Translated headlines, promotional videos and banners for the PT version of the Beliani Summer campaign 2024 — keeping tone and engagement sharp. Above: Meta ad for that campaign.'
+      },
+      {
+        type: 'video',
+        src: './videos/beliani_socialmedia_2024.mp4',
+        cover: './assets/images/thumb-summer_campaign_2025.png',
+        caption: 'Translated subtitles for a high-energy testimonial featuring a proud homeowner celebrating his new garden. Ensured the translation preserved his joy, personality, and authenticity — without losing rhythm or cultural tone.'
+      },
+      {
+        type: 'video',
+        src: './videos/Pt Campaign 2025.mp4',
+        cover: './assets/images/thumb-beliani_table_campaign.png',
+        caption: 'Translated the voice-over for a campaign video where a woman drops food on the floor during a family dinner — dramatizing the need for a proper dining table. Ensured the humor and message landed smoothly in Portuguese while staying true to brand tone.'
+      },
+      {
+        type: 'video',
+        src: './videos/beliani_campanha_junho2025.mp4',
+        cover: './assets/images/thumb-beliani_summer_campaign.png',
+        caption: 'Led the Portuguese adaptation used in the campaign’s voice-over — ensuring tone, rhythm, and cultural resonance. Also created the original jingle, aligning melody and message to elevate brand recall and emotional impact.'
+      },
+      {
+        type: 'image',
+        src: './assets/images/beliani0524.png',
+        caption: 'Localized headline, banner text, and ad copy for the Portuguese market. Focused on warmth, comfort, and click-through clarity — all while keeping the brand tone consistent.'
+      },
+      {
+        type: 'image',
+        src: './assets/images/beliani0525.png',
+        caption: 'Translated headline, CTA, and body copy into smooth, inviting Portuguese. The goal? Evoke serenity and trust — while keeping the scroll-stopper energy strong and dog-approved.'
+      },
+      {
+        type: 'image',
+        src: './assets/images/4x3.png',
+        caption: 'Translated dynamic copy and promo logic for Portuguese market. Balanced urgency ("Aprese-se!") with clarity of tiers, while keeping tone cheerful and conversion-oriented. Visual match ensured with headline rhythm and emoji touch — to sell with a smile.'
+      },
+      {
+        type: 'image',
+        src: './assets/images/candeeiro.png',
+        caption: 'Localized and translated ad copy for Beliani’s table lamp promo. Aligned tone with the brand’s elegant yet energetic voice, ensuring the CTA and voucher logic were crystal-clear. Kept it inviting, not pushy — because great UX starts with the right words.'
+      }
+    ]
   },
 
   {
     slug: 'joiasonline-conversion-suite',
     title: 'JóiasOnline – Conversion Suite',
     category: 'e-commerce',
-    slides: [{
-      type: 'image',
-      src: './assets/images/joiasonline1.png',
-      caption: 'JóiasOnline: E-commerce Experience. Optimized the full user journey — from high-impact hero banners to data-driven product pages and carousels. Designed to build trust, reduce friction, and drive high-value sales.'
-    }]
+    blurb: 'End-to-end conversion copy for a premium jewelry store — hero, browsing, product detail, and checkout trust signals.',
+    slides: [
+      {
+        type: 'image',
+        src: './assets/images/joiasonline1.png',
+        caption: 'Hero banner messaging for JóiasOnline.pt promoting their gold ring collection. Focused on elegant language and urgency — blending luxury tone with a clear call-to-action to lift click-through and engagement.'
+      },
+      {
+        type: 'image',
+        src: './assets/images/joiasonline2.png',
+        caption: 'Product grid showcasing premium gold brooches with clear pricing and an elegant layout — structured for fast browsing and upscale presentation, reducing friction between discovery and decision.'
+      },
+      {
+        type: 'image',
+        src: './assets/images/joiasonline3.png',
+        caption: 'Detailed product page for a premium silver item with historical value. Combined structured technical data (material, weight, origin) with clear pricing and legal marks, reducing pre-purchase uncertainty while keeping the layout easy to scan.'
+      },
+      {
+        type: 'image',
+        src: './assets/images/joiasonline4.png',
+        caption: 'Checkout and trust-signal copy — clear shipping, return, and guarantee terms placed right where hesitation peaks, designed to reduce cart abandonment and reinforce confidence at the final step.'
+      }
+    ]
   },
   {
     slug: 'newgreenfil-investment-funnel',
     title: 'Newgreenfil – Investment Funnel',
     category: 'e-commerce',
+    blurb: 'Full-funnel copy for a gold-investment platform — hero, lead capture, and legal/trust footer built for high-value conversions.',
     slides: [
       {
         type: 'image',
@@ -243,6 +225,7 @@ const projects = [
     slug: 'beliani-ecommerce-suite',
     title: 'Beliani – E-commerce Localization',
     category: 'e-commerce',
+    blurb: 'PT localization across the Beliani storefront — homepage banner, product listings, and seasonal email, kept on-brand and conversion-ready.',
     slides: [
       {
         type: 'image',
@@ -266,6 +249,7 @@ const projects = [
     slug: 'ebay-store',
     title: 'Ebay Store',
     category: 'own projects',
+    blurb: 'Nearly 20 years and ~900 deals as an independent online seller — first-hand experience with trust, feedback, and reputation systems.',
     slides: [
       {
         type: 'image',
@@ -288,6 +272,7 @@ const projects = [
     slug: 'cv-dojo-master',
     title: 'CV Dojo Master – Upwork gig',
     category: 'own projects',
+    blurb: 'Brand identity and landing page concept for a CV-optimization service — positioning, tone, and service-tier structure.',
     slides: [{
       type: 'image',
       src: './assets/images/cv dojo master.png',
@@ -298,6 +283,7 @@ const projects = [
     slug: 'data-governance-upwork',
     title: 'Data Governance – Upwork Track Record',
     category: 'own projects',
+    blurb: '9,000+ hours, 14 contracts, 100% Job Success — multilingual validation, SOP design, and audit-proof documentation for enterprise clients.',
     slides: [{
       type: 'image',
       src: './assets/images/data governance.png',
@@ -305,42 +291,28 @@ const projects = [
     }]
   },
   {
-    slug: 'bitsnostalgia-landing',
-    title: 'Bitsnostalgia Landing',
+    slug: 'bitsnostalgia',
+    title: 'Bitsnostalgia — Retro E-commerce Project',
     category: 'own projects',
-    slides: [{
-      type: 'image',
-      src: './assets/images/bitsnostalgia landing.png',
-      caption: 'For this personal project, I designed and deployed a retro-themed landing page using HTML and CSS, hosted via E-goi. The goal? To harness nostalgia as a brand connector while collecting segmented customer insights through carefully crafted, playful questions.'
-    }]
-  },
-  {
-    slug: 'bitsnostalgia-walkthrough',
-    title: 'Bitsnostalgia Walkthrough',
-    category: 'own projects',
-    slides: [{
-      type: 'youtube',
-      src: 'https://www.youtube.com/embed/tQw-P-QU1eM',
-      cover: './assets/images/thumb-bitsnostalgia-reel.jpg',
-      caption: 'This project showcases a Shopify storefront prototype, initially designed in Figma to map the full user journey — from homepage to product exploration and the ordering process.'
-    }]
-  },
-  {
-    slug: 'bitsnostalgia-filtering',
-    title: 'Bitsnostalgia Filtering',
-    category: 'own projects',
-    slides: [{
-      type: 'youtube',
-      src: 'https://www.youtube.com/embed/mpbl7E3g1MA',
-      cover: './assets/images/thumb-bitsnostalgia-filters.jpg',
-      caption: 'Retro-themed store designed in Figma and built on WordPress. Here I focus on dynamic filters that streamline product discovery and boost user experience — fast, simple, effective.'
-    }]
-  },
-  {
-    slug: 'bitsnostalgia-homepage',
-    title: 'Bitsnostalgia Homepage',
-    category: 'own projects',
+    blurb: 'Full retro e-commerce build (Figma → Shopify/WordPress): landing, filtering, homepage, blog, and product pages — designed end-to-end for conversion and UX.',
     slides: [
+      {
+        type: 'image',
+        src: './assets/images/bitsnostalgia landing.png',
+        caption: 'For this personal project, I designed and deployed a retro-themed landing page using HTML and CSS, hosted via E-goi. The goal? To harness nostalgia as a brand connector while collecting segmented customer insights through carefully crafted, playful questions.'
+      },
+      {
+        type: 'youtube',
+        src: 'https://www.youtube.com/embed/tQw-P-QU1eM',
+        cover: './assets/images/thumb-bitsnostalgia-reel.jpg',
+        caption: 'This project showcases a Shopify storefront prototype, initially designed in Figma to map the full user journey — from homepage to product exploration and the ordering process.'
+      },
+      {
+        type: 'youtube',
+        src: 'https://www.youtube.com/embed/mpbl7E3g1MA',
+        cover: './assets/images/thumb-bitsnostalgia-filters.jpg',
+        caption: 'Retro-themed store designed in Figma and built on WordPress. Here I focus on dynamic filters that streamline product discovery and boost user experience — fast, simple, effective.'
+      },
       {
         type: 'image',
         src: './assets/images/bitsnostalgia1.png',
@@ -372,6 +344,7 @@ const projects = [
     slug: 'cellphone-store',
     title: 'Cellphone Store',
     category: 'own projects',
+    blurb: 'Shopify storefront (Figma → build): homepage, curated collections, and dynamic filters — designed to streamline the path from browsing to purchase.',
     slides: [
       {
         type: 'image',
@@ -399,6 +372,7 @@ const projects = [
     slug: 'enrique-pulido-profile',
     title: 'Curated Profile – Enrique Pulido',
     category: 'own projects',
+    blurb: 'Curated Veeva profile — multilingual data validation and governance work within an enterprise compliance system.',
     slides: [{
       type: 'image',
       src: './assets/images/Enrique_Pulido.avif',
@@ -409,6 +383,7 @@ const projects = [
     slug: 'veeva-interface',
     title: 'Veeva Interface',
     category: 'own projects',
+    blurb: 'Curated Veeva interface profile, part of the same enterprise data-governance and compliance track record.',
     slides: [{
       type: 'image',
       src: './assets/images/Paul_winner.avif',
@@ -420,6 +395,7 @@ const projects = [
     slug: 'resume-dojo-sensei',
     title: 'Resume Dojo Sensei',
     category: 'automation and ai tools',
+    blurb: 'Custom GPT built to help job seekers beat ATS filtering and human bias — from keyword matching to mindset coaching.',
     slides: [{
       type: 'image',
       src: './assets/images/resume dojo sensei.png',
@@ -430,6 +406,7 @@ const projects = [
     slug: 'career-comeback-dojo',
     title: 'Career Comeback Dojo',
     category: 'automation and ai tools',
+    blurb: 'AI-assisted career tool that optimizes resumes for both ATS systems and human readers — clarity and impact, tuned for both audiences.',
     slides: [{
       type: 'image',
       src: './assets/images/career comeback dojo.png',
@@ -440,6 +417,7 @@ const projects = [
     slug: 'makeit-automation',
     title: 'Marketing Automation with Make',
     category: 'automation and ai tools',
+    blurb: 'No-code automation (Make.com → Brevo) connecting a web form directly to a mailing list — instant lead capture, zero manual entry.',
     slides: [{
       type: 'image',
       src: './assets/images/makeit automation.png',
@@ -469,7 +447,7 @@ function renderProjects() {
             <img src="${cover}" alt="${project.title}" loading="lazy">
             ${isPlayable ? '<div class="project-play-overlay">▶</div>' : ''}
             ${multi ? `<span class="project-multi-badge"><ion-icon name="images-outline"></ion-icon> ${project.slides.length}</span>` : ''}
-            <figcaption class="project-hover-text">${project.slides[0].caption}</figcaption>
+            <figcaption class="project-hover-text">${project.blurb || project.slides[0].caption}</figcaption>
           </figure>
           <h3 class="project-title">${project.title}</h3>
           <p class="project-category">${categoryLabel}</p>
@@ -596,12 +574,11 @@ function setupProjectModal() {
       el = document.createElement('video');
       el.src = slide.src;
       el.controls = true;
-      el.autoplay = true;
     } else if (slide.type === 'youtube') {
       el = document.createElement('iframe');
-      el.src = slide.src.includes('autoplay') ? slide.src : `${slide.src}?autoplay=1`;
+      el.src = slide.src;
       el.setAttribute('frameborder', '0');
-      el.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      el.allow = 'accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
       el.allowFullscreen = true;
     }
 

@@ -2779,19 +2779,3 @@ body.light-mode .project-item span {
   font-weight: bold;
   color: #ffcc00;
 }
-
-/* The container for your stacked images */
-.project-image-stack {
-    width: 100% !important;
-    height: auto !important;
-    display: block !important;
-    margin-bottom: 20px !important; /* Space between images */
-    border-radius: 6px !important;
-    max-width: 100% !important;
-}
-
-/* Ensure the modal content allows scrolling if the images are tall */
-#universal-modal-media {
-    overflow-y: auto;
-    max-height: 80vh;
-}

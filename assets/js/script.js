@@ -164,23 +164,38 @@ document.querySelectorAll('.open-modal').forEach(el => {
 
     let mediaEl;
 
-if (type === 'image') {
-  // Get images, default to single source if no list provided
-  const images = el.dataset.images ? el.dataset.images.split(',') : [src];
-  
-  // Clear modal and show it
-  modalMedia.innerHTML = ''; 
-  modal.style.display = 'flex';
+    if (type === 'image') {
+      mediaEl = document.createElement('img');
+      mediaEl.src = src;
+      mediaEl.style.maxWidth = '100%';
+      mediaEl.style.maxHeight = '70vh';
+      mediaEl.style.borderRadius = '6px';
+      mediaEl.alt = title;
+    } else if (type === 'video') {
+      mediaEl = document.createElement('video');
+      mediaEl.src = src;
+      mediaEl.controls = true;
+      mediaEl.autoplay = true;
+      mediaEl.style.maxWidth = '100%';
+      mediaEl.style.maxHeight = '70vh';
+      mediaEl.style.borderRadius = '6px';
+    } else if (type === 'youtube') {
+      mediaEl = document.createElement('iframe');
+      mediaEl.src = src.includes('autoplay') ? src : `${src}?autoplay=1`;
+      mediaEl.width = "100%";
+      mediaEl.height = "400";
+      mediaEl.frameBorder = "0";
+      mediaEl.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      mediaEl.allowFullscreen = true;
+      mediaEl.style.maxWidth = '100%';
+    }
 
-  // Add each image
-  images.forEach(imageSrc => {
-    const img = document.createElement('img');
-    img.src = imageSrc.trim();
-    img.className = 'project-image-stack'; // Using the CSS class we defined
-    img.alt = title;
-    modalMedia.appendChild(img);
+    if (mediaEl) {
+      modalMedia.appendChild(mediaEl);
+      modal.style.display = 'flex';
+    }
   });
-}
+});
 
 modalClose.addEventListener('click', () => {
   modal.style.display = 'none';
@@ -218,37 +233,3 @@ function setupVideoThumbnails() {
     }
   });
 }
-
-// CORREÇÃO: Usamos o ID 'portfolio-modal' que está no teu CSS
-const modal = document.getElementById('portfolio-modal');
-const modalTitle = document.querySelector('#portfolio-modal .modal-title') || document.createElement('div'); // Ajusta se necessário
-const modalMedia = document.getElementById('portfolio-modal'); // Nota: Se o teu HTML for diferente, ajusta o ID aqui
-const modalCaption = document.querySelector('.modal-caption'); 
-const modalClose = document.querySelector('.modal-close-btn');
-
-// Na tua função de clique, garante que limpas e injetas as imagens corretamente:
-document.querySelectorAll('.open-modal').forEach(el => {
-  el.addEventListener('click', function (e) {
-    e.preventDefault();
-    
-    // Identifica o modal correto pelo ID do CSS
-    const modal = document.getElementById('portfolio-modal');
-    const modalMediaContainer = modal.querySelector('.modal-content'); // Onde as imagens vão entrar
-    
-    const type = el.dataset.type;
-    const images = el.dataset.images ? el.dataset.images.split(',') : [el.dataset.src];
-
-    // Limpa apenas a área das imagens (cria uma div dedicada se não tiveres)
-    // Se não tiveres uma div específica, limpa o conteúdo que não seja o botão de fechar
-    
-    if (type === 'image') {
-      images.forEach(imgSrc => {
-        const img = document.createElement('img');
-        img.src = imgSrc.trim();
-        img.className = 'modal-stack-img'; // Classe para o CSS
-        modalMediaContainer.appendChild(img);
-      });
-      modal.style.display = 'flex';
-    }
-  });
-});

@@ -2779,3 +2779,22 @@ body.light-mode .project-item span {
   font-weight: bold;
   color: #ffcc00;
 }
+
+/* Garante que o container permite scroll se forem muitas imagens */
+#portfolio-modal .modal-content {
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column; /* FORÇA A PILHA VERTICAL */
+  align-items: center;
+  gap: 20px; /* Espaço entre as imagens */
+}
+
+/* Garante que as imagens não fogem do modal */
+.modal-stack-img {
+  width: 100%;
+  max-width: 600px; /* Ajusta conforme necessário */
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}

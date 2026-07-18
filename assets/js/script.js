@@ -149,6 +149,10 @@ document.querySelectorAll('.open-modal').forEach(el => {
   el.addEventListener('click', function (e) {
     e.preventDefault();
 
+document.querySelectorAll('.open-modal').forEach(el => {
+  el.addEventListener('click', function (e) {
+    e.preventDefault();
+
     const type = el.dataset.type;
     const src = el.dataset.src;
     const title = el.querySelector('.project-title')?.innerText || '';
@@ -158,27 +162,37 @@ document.querySelectorAll('.open-modal').forEach(el => {
     modalTitle.textContent = title;
     modalCaption.textContent = caption;
     modalLink.href = link;
-    modalMedia.innerHTML = ''; // clear
-
-    let mediaEl;
+    modalMedia.innerHTML = ''; // clear previous content
 
     if (type === 'image') {
-      mediaEl = document.createElement('img');
-      mediaEl.src = src;
-      mediaEl.style.maxWidth = '100%';
-      mediaEl.style.maxHeight = '70vh';
-      mediaEl.style.borderRadius = '6px';
-      mediaEl.alt = title;
+      // Logic for single or multiple images
+      const images = el.dataset.images ? el.dataset.images.split(',') : [src];
+      
+      images.forEach(imageSrc => {
+        const img = document.createElement('img');
+        img.src = imageSrc.trim();
+        img.style.display = 'block';
+        img.style.width = '100%';
+        img.style.marginBottom = '20px';
+        img.style.borderRadius = '6px';
+        img.alt = title;
+        modalMedia.appendChild(img);
+      });
+      modal.style.display = 'flex';
+      
     } else if (type === 'video') {
-      mediaEl = document.createElement('video');
+      const mediaEl = document.createElement('video');
       mediaEl.src = src;
       mediaEl.controls = true;
       mediaEl.autoplay = true;
       mediaEl.style.maxWidth = '100%';
       mediaEl.style.maxHeight = '70vh';
       mediaEl.style.borderRadius = '6px';
+      modalMedia.appendChild(mediaEl);
+      modal.style.display = 'flex';
+      
     } else if (type === 'youtube') {
-      mediaEl = document.createElement('iframe');
+      const mediaEl = document.createElement('iframe');
       mediaEl.src = src.includes('autoplay') ? src : `${src}?autoplay=1`;
       mediaEl.width = "100%";
       mediaEl.height = "400";
@@ -186,9 +200,6 @@ document.querySelectorAll('.open-modal').forEach(el => {
       mediaEl.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
       mediaEl.allowFullscreen = true;
       mediaEl.style.maxWidth = '100%';
-    }
-
-    if (mediaEl) {
       modalMedia.appendChild(mediaEl);
       modal.style.display = 'flex';
     }

@@ -1,5 +1,3 @@
-
-
 'use strict';
 
 /* === INIT ALL === */
@@ -12,11 +10,11 @@ window.addEventListener("DOMContentLoaded", () => {
 function init(savedFilter) {
   setupSidebar();
   setupTestimonials();
+  renderProjects();       // 1) constrói o grid a partir da fonte única `projects`
   setupFiltering(savedFilter);
   setupFormValidation();
   setupNavigation();
-  setupMediaModal();
-  setupVideoThumbnails();
+  setupProjectModal();    // 2) modal único + carrossel para os projetos
 }
 
 /* === TOGGLE FUNCTION === */
@@ -60,13 +58,433 @@ function setupTestimonials() {
   overlay.addEventListener("click", toggleModal);
 }
 
+/* =====================================================================
+   PROJETOS — FONTE ÚNICA DE DADOS
+   Cada projeto tem um "slug" único e uma lista de "slides" (uma imagem/
+   vídeo/youtube por slide). Um projeto com mais do que um slide mostra
+   automaticamente as setas de navegação e os pontos no modal (carrossel).
+   Para adicionar um projeto novo: basta acrescentar um objeto a este
+   array — nada mais precisa de ser tocado.
+===================================================================== */
+const projects = [
+  {
+    slug: 'beliani-delivering-happiness',
+    title: 'Beliani – Delivering Happiness',
+    category: 'branding',
+    slides: [{
+      type: 'youtube',
+      src: 'https://www.youtube.com/embed/xLzjcl9GP2M',
+      cover: 'https://img.youtube.com/vi/xLzjcl9GP2M/hqdefault.jpg',
+      caption: 'Translated the subtitles for Beliani’s emotional manifesto, “Delivering Happiness.” This was more than just language conversion — it was about carrying the brand’s promise, warmth, and emotional tone across cultures with nuance and care.'
+    }]
+  },
+  {
+    slug: 'beliani-warehouse-trip',
+    title: 'Beliani Warehouse Trip',
+    category: 'branding',
+    slides: [{
+      type: 'youtube',
+      src: 'https://www.youtube.com/embed/1XRYlaYEe7s',
+      cover: 'https://img.youtube.com/vi/1XRYlaYEe7s/hqdefault.jpg',
+      caption: 'Translated the on-screen text and voice-over for Beliani’s warehouse video — ensuring Portuguese viewers could clearly understand operational stats such as warehouse size, team count, and product volume. The goal: preserve clarity and trust while adapting key data points for local relevance.'
+    }]
+  },
+  {
+    slug: 'vans-branding-course-clip',
+    title: 'Vans – Branding Course Clip',
+    category: 'branding',
+    slides: [{
+      type: 'youtube',
+      src: 'https://www.youtube.com/embed/DMoMl-zikTI',
+      cover: 'https://img.youtube.com/vi/DMoMl-zikTI/hqdefault.jpg',
+      caption: 'For the final project in my Digital Marketing course, I scripted, voiced, and performed a branding video inspired by Vans. More than an assignment, it was a tribute to moments that define us — because sometimes, we choose the moment… and sometimes, the moment chooses us.'
+    }]
+  },
+  {
+    slug: 'bitsnostalgia-logo',
+    title: 'Bitsnostalgia Logo',
+    category: 'branding',
+    slides: [{
+      type: 'image',
+      src: './assets/images/bitsnostalgialogo.jpg',
+      caption: 'Defined the brand identity for Bitsnostalgia, my own retro-gaming label. Developed the visual language (logo, palette, and graphic style), crafted the tone of voice, and set clear branding guidelines — all inspired by 80s gaming culture with a rebellious twist.'
+    }]
+  },
+
+  {
+    slug: 'beliani-summer-campaign',
+    title: 'Beliani – Summer campaign',
+    category: 'copywriting',
+    slides: [{
+      type: 'video',
+      src: './videos/beliani_campanha_junho2025.mp4',
+      cover: './assets/images/thumb-beliani_summer_campaign.png',
+      caption: 'Led the Portuguese adaptation used in the campaign’s voice-over — ensuring tone, rhythm, and cultural resonance. Also created the original jingle, aligning melody and message to elevate brand recall and emotional impact.'
+    }]
+  },
+  {
+    slug: 'beliani-campaign-2025',
+    title: 'Beliani – Campaign 2025',
+    category: 'copywriting',
+    slides: [{
+      type: 'video',
+      src: './videos/Pt Campaign 2025.mp4',
+      cover: './assets/images/thumb-beliani_table_campaign.png',
+      caption: 'Translated the voice-over for a campaign video where a woman drops food on the floor during a family dinner — dramatizing the need for a proper dining table. Ensured the humor and message landed smoothly in Portuguese while staying true to brand tone.'
+    }]
+  },
+  {
+    slug: 'beliani-social-media-2024',
+    title: 'Beliani – Social Media Campaign 2024',
+    category: 'copywriting',
+    slides: [{
+      type: 'video',
+      src: './videos/beliani_socialmedia_2024.mp4',
+      cover: './assets/images/thumb-summer_campaign_2025.png',
+      caption: 'Translated subtitles for a high-energy testimonial featuring a proud homeowner celebrating his new garden. Ensured the translation preserved his joy, personality, and authenticity — without losing rhythm or cultural tone.'
+    }]
+  },
+  {
+    slug: 'beliani-summer-sale-2024',
+    title: 'Beliani Summer Sale 2024',
+    category: 'copywriting',
+    slides: [{
+      type: 'video',
+      src: './videos/beliani_082024.mp4',
+      cover: './assets/images/thumb-summer_sale_2023.png',
+      caption: 'Translated headlines, promotional videos and banners for the PT version of the Beliani Summer campaign 2024 — keeping tone and engagement sharp. Above: Meta ad for that campaign.'
+    }]
+  },
+  {
+    slug: 'beliani-summer-sale-2023',
+    title: 'Beliani Summer Sale 2023',
+    category: 'copywriting',
+    slides: [{
+      type: 'video',
+      src: './videos/Beliani2024.mp4',
+      cover: './assets/images/thumb-summer_sale_2025.png',
+      caption: 'Translated the full script for the PT version of Beliani Summer Promotion 2023 — adapting tone, rhythm, and message to match the campaign’s vibrant, seasonal energy.'
+    }]
+  },
+  {
+    slug: 'beliani-meta-ad-living-room',
+    title: 'Beliani Portugal – Meta Ad (Living Room Campaign)',
+    category: 'copywriting',
+    slides: [{
+      type: 'image',
+      src: './assets/images/beliani0524.png',
+      caption: 'Localized headline, banner text, and ad copy for the Portuguese market. Focused on warmth, comfort, and click-through clarity — all while keeping the brand tone consistent.'
+    }]
+  },
+  {
+    slug: 'beliani-meta-ad-relax',
+    title: 'Beliani Portugal – Meta Ad (Relax... Beliani has your back)',
+    category: 'copywriting',
+    slides: [{
+      type: 'image',
+      src: './assets/images/beliani0525.png',
+      caption: 'Translated headline, CTA, and body copy into smooth, inviting Portuguese. The goal? Evoke serenity and trust — while keeping the scroll-stopper energy strong and dog-approved.'
+    }]
+  },
+  {
+    slug: 'beliani-4x3-campaign',
+    title: 'Beliani Portugal – Beliani 4x3 campaign',
+    category: 'copywriting',
+    slides: [{
+      type: 'image',
+      src: './assets/images/4x3.png',
+      caption: 'Translated dynamic copy and promo logic for Portuguese market. Balanced urgency ("Aprese-se!") with clarity of tiers, while keeping tone cheerful and conversion-oriented. Visual match ensured with headline rhythm and emoji touch — to sell with a smile.'
+    }]
+  },
+  {
+    slug: 'beliani-lamp-offer',
+    title: 'Beliani Portugal – Beliani lamp offer campaign',
+    category: 'copywriting',
+    slides: [{
+      type: 'image',
+      src: './assets/images/candeeiro.png',
+      caption: 'Localized and translated ad copy for Beliani’s table lamp promo. Aligned tone with the brand’s elegant yet energetic voice, ensuring the CTA and voucher logic were crystal-clear. Kept it inviting, not pushy — because great UX starts with the right words.'
+    }]
+  },
+
+  {
+    slug: 'joiasonline-conversion-suite',
+    title: 'JóiasOnline – Conversion Suite',
+    category: 'e-commerce',
+    slides: [{
+      type: 'image',
+      src: './assets/images/joiasonline1.png',
+      caption: 'JóiasOnline: E-commerce Experience. Optimized the full user journey — from high-impact hero banners to data-driven product pages and carousels. Designed to build trust, reduce friction, and drive high-value sales.'
+    }]
+  },
+  {
+    slug: 'newgreenfil-investment-funnel',
+    title: 'Newgreenfil – Investment Funnel',
+    category: 'e-commerce',
+    slides: [
+      {
+        type: 'image',
+        src: './assets/images/newgreenfil1.png',
+        caption: 'Homepage hero crafted to highlight gold bar investment, with real-time metal prices and bold CTAs. Messaging focused on credibility, urgency, and clarity for high-value transactions.'
+      },
+      {
+        type: 'image',
+        src: './assets/images/newgreenfil2.png',
+        caption: 'Lead magnet designed to capture attention, create urgency, and guide users to take action — all backed by live metal pricing to reinforce credibility.'
+      },
+      {
+        type: 'image',
+        src: './assets/images/newgreenfil3.png',
+        caption: 'Footer & legal UX: worked on the content and structure of the footer and legal sections — ensuring clarity, compliance, and ease of access to key info like terms, licenses, and contact channels.'
+      }
+    ]
+  },
+  {
+    slug: 'beliani-ecommerce-suite',
+    title: 'Beliani – E-commerce Localization',
+    category: 'e-commerce',
+    slides: [
+      {
+        type: 'image',
+        src: './assets/images/beliani1.png',
+        caption: 'Localized the homepage banner copy, crafting a clean, persuasive message with a clear CTA and urgency-driven countdown. Helped align visual appeal with functional e-commerce triggers to drive seasonal conversions.'
+      },
+      {
+        type: 'image',
+        src: './assets/images/beliani3.png',
+        caption: 'Translated and adapted product listing content to the Portuguese market, ensuring clarity, tone, and appeal stayed consistent with brand standards.'
+      },
+      {
+        type: 'image',
+        src: './assets/images/beliani6.png',
+        caption: 'Localized the seasonal newsletter copy for Beliani’s Halloween campaign, crafting culturally resonant Portuguese text that preserved the eerie elegance of the original design.'
+      }
+    ]
+  },
+
+  {
+    slug: 'ebay-store',
+    title: 'Ebay Store',
+    category: 'own projects',
+    slides: [
+      {
+        type: 'image',
+        src: './assets/images/ebay store.png',
+        caption: 'Online seller since 2007. I started selling retrogaming items in 2007 in Miau, Olx and Ebay.co.uk.'
+      },
+      {
+        type: 'image',
+        src: './assets/images/ebay store 2.png',
+        caption: 'Ebay seller since 2007. 100% positive feedback. Almost 900 deals successfully concluded.'
+      },
+      {
+        type: 'image',
+        src: './assets/images/ebay store 3.png',
+        caption: 'Perfect seller rating. Trustworthy member of the ebay community.'
+      }
+    ]
+  },
+  {
+    slug: 'cv-dojo-master',
+    title: 'CV Dojo Master – Upwork gig',
+    category: 'own projects',
+    slides: [{
+      type: 'image',
+      src: './assets/images/cv dojo master.png',
+      caption: 'Created the brand identity and visual storytelling for “CV Dojo Master” — a personal gig project blending samurai aesthetics with sharp CV strategy. Developed the logo, tagline, tone, and entire UX mockup for the landing page and service tiers.'
+    }]
+  },
+  {
+    slug: 'data-governance-upwork',
+    title: 'Data Governance – Upwork Track Record',
+    category: 'own projects',
+    slides: [{
+      type: 'image',
+      src: './assets/images/data governance.png',
+      caption: 'After 9,000+ logged hours, 14 contracts, and a pristine 100% Job Success Score, I solidified my place as a data governance expert. I specialize in multilingual validation, SOP architecture, audit-proof documentation, and high-stakes curation for enterprise across pharma, e-commerce, and financial intelligence.'
+    }]
+  },
+  {
+    slug: 'bitsnostalgia-landing',
+    title: 'Bitsnostalgia Landing',
+    category: 'own projects',
+    slides: [{
+      type: 'image',
+      src: './assets/images/bitsnostalgia landing.png',
+      caption: 'For this personal project, I designed and deployed a retro-themed landing page using HTML and CSS, hosted via E-goi. The goal? To harness nostalgia as a brand connector while collecting segmented customer insights through carefully crafted, playful questions.'
+    }]
+  },
+  {
+    slug: 'bitsnostalgia-walkthrough',
+    title: 'Bitsnostalgia Walkthrough',
+    category: 'own projects',
+    slides: [{
+      type: 'youtube',
+      src: 'https://www.youtube.com/embed/tQw-P-QU1eM',
+      cover: './assets/images/thumb-bitsnostalgia-reel.jpg',
+      caption: 'This project showcases a Shopify storefront prototype, initially designed in Figma to map the full user journey — from homepage to product exploration and the ordering process.'
+    }]
+  },
+  {
+    slug: 'bitsnostalgia-filtering',
+    title: 'Bitsnostalgia Filtering',
+    category: 'own projects',
+    slides: [{
+      type: 'youtube',
+      src: 'https://www.youtube.com/embed/mpbl7E3g1MA',
+      cover: './assets/images/thumb-bitsnostalgia-filters.jpg',
+      caption: 'Retro-themed store designed in Figma and built on WordPress. Here I focus on dynamic filters that streamline product discovery and boost user experience — fast, simple, effective.'
+    }]
+  },
+  {
+    slug: 'bitsnostalgia-homepage',
+    title: 'Bitsnostalgia Homepage',
+    category: 'own projects',
+    slides: [
+      {
+        type: 'image',
+        src: './assets/images/bitsnostalgia1.png',
+        caption: 'Homepage for Bitsnostalgia with retrogaming highlights and floating promo bubbles — built to trigger clicks and memories. Built with Figma and Shopify, deployed in WordPress.'
+      },
+      {
+        type: 'image',
+        src: './assets/images/bitsnostalgia2.png',
+        caption: 'Carousel of handpicked retrogaming products with floating sale bubbles — built to capture attention and convert with style.'
+      },
+      {
+        type: 'image',
+        src: './assets/images/bitsnostalgia4.png',
+        caption: 'Two original blog posts created to drive organic traffic and deepen user engagement through retro-culture storytelling.'
+      },
+      {
+        type: 'image',
+        src: './assets/images/bitsnostalgia5.png',
+        caption: 'Custom-built contact form designed for user-friendly communication and future CRM integration.'
+      },
+      {
+        type: 'image',
+        src: './assets/images/bitsnostalgia6.png',
+        caption: 'Focused product page featuring engaging descriptions and a “Recommended by Fans” badge — designed to drive clicks and build trust.'
+      }
+    ]
+  },
+  {
+    slug: 'cellphone-store',
+    title: 'Cellphone Store',
+    category: 'own projects',
+    slides: [
+      {
+        type: 'image',
+        src: './assets/images/telemoveis1.png',
+        caption: 'Built in Shopify from a Figma design — the homepage highlights top deals, featured products, and a smooth product carousel for an intuitive user flow.'
+      },
+      {
+        type: 'image',
+        src: './assets/images/telemoveis2.png',
+        caption: 'Curated layout emphasizing standout smartphones, designed to drive user attention and support purchase decisions.'
+      },
+      {
+        type: 'image',
+        src: './assets/images/telemoveis3.png',
+        caption: 'A product grid equipped with essential filters for category, price, and specs — designed to streamline navigation and support fast, informed transactions.'
+      },
+      {
+        type: 'image',
+        src: './assets/images/telemoveis6.png',
+        caption: 'Focused layout with clear pricing, concise specs, and call-to-action — built to drive trust and support quick decision-making.'
+      }
+    ]
+  },
+  {
+    slug: 'enrique-pulido-profile',
+    title: 'Curated Profile – Enrique Pulido',
+    category: 'own projects',
+    slides: [{
+      type: 'image',
+      src: './assets/images/Enrique_Pulido.avif',
+      caption: 'Curated Veeva profile — part of the multilingual validation and data governance work across enterprise systems.'
+    }]
+  },
+  {
+    slug: 'veeva-interface',
+    title: 'Veeva Interface',
+    category: 'own projects',
+    slides: [{
+      type: 'image',
+      src: './assets/images/Paul_winner.avif',
+      caption: 'Curated Veeva interface profile, part of the same enterprise data governance track record.'
+    }]
+  },
+
+  {
+    slug: 'resume-dojo-sensei',
+    title: 'Resume Dojo Sensei',
+    category: 'automation and ai tools',
+    slides: [{
+      type: 'image',
+      src: './assets/images/resume dojo sensei.png',
+      caption: 'Part expert system, part career sparring partner — this GPT was custom-built to help job seekers slice through the noise of Applicant Tracking Systems (ATS) and human bias, guiding users through everything from keyword matching to mindset resets.'
+    }]
+  },
+  {
+    slug: 'career-comeback-dojo',
+    title: 'Career Comeback Dojo',
+    category: 'automation and ai tools',
+    slides: [{
+      type: 'image',
+      src: './assets/images/career comeback dojo.png',
+      caption: 'A career optimization tool built to help job seekers stand out — for both ATS systems and real human readers. Designed for those who want their experience to speak louder, sharper, and with purpose.'
+    }]
+  },
+  {
+    slug: 'makeit-automation',
+    title: 'Marketing Automation with Make',
+    category: 'automation and ai tools',
+    slides: [{
+      type: 'image',
+      src: './assets/images/makeit automation.png',
+      caption: 'Connected a website form to Brevo via Make.com, so every submission is instantly added to my mailing list — automating lead capture for future email campaigns.'
+    }]
+  }
+];
+
+/* === RENDER DO GRID DE PROJETOS === */
+function renderProjects() {
+  const list = document.getElementById('project-list');
+  if (!list) return;
+
+  list.innerHTML = projects.map(project => {
+    const cover = project.slides[0].cover || project.slides[0].src;
+    const isPlayable = project.slides[0].type !== 'image';
+    const multi = project.slides.length > 1;
+    const categoryLabel = project.category.replace(/\b\w/g, c => c.toUpperCase());
+
+    return `
+      <li class="project-item" data-filter-item data-category="${project.category}">
+        <a href="#" class="open-modal" data-slug="${project.slug}">
+          <figure class="project-img">
+            <div class="project-item-icon-box">
+              <ion-icon name="eye-outline"></ion-icon>
+            </div>
+            <img src="${cover}" alt="${project.title}" loading="lazy">
+            ${isPlayable ? '<div class="project-play-overlay">▶</div>' : ''}
+            ${multi ? `<span class="project-multi-badge"><ion-icon name="images-outline"></ion-icon> ${project.slides.length}</span>` : ''}
+            <figcaption class="project-hover-text">${project.slides[0].caption}</figcaption>
+          </figure>
+          <h3 class="project-title">${project.title}</h3>
+          <p class="project-category">${categoryLabel}</p>
+        </a>
+      </li>
+    `;
+  }).join('');
+}
+
 /* === FILTERING === */
 function setupFiltering(savedFilter) {
   const select = document.querySelector("[data-select]");
   const selectItems = document.querySelectorAll("[data-select-item]");
   const selectValue = document.querySelector("[data-select-value]");
   const filterBtns = document.querySelectorAll("[data-filter-btn]");
-  const filterItems = document.querySelectorAll("[data-filter-item]");
   const blurbs = document.querySelectorAll("[data-blurb-item]");
 
   let lastActiveBtn = filterBtns[0];
@@ -74,7 +492,9 @@ function setupFiltering(savedFilter) {
   function filterFunc(selectedValue) {
     localStorage.setItem("activeFilter", selectedValue);
 
-    filterItems.forEach(item => {
+    // Os cartões são recriados sempre que o filtro muda, por isso
+    // vamos buscar os elementos atuais em vez de guardar uma referência antiga.
+    document.querySelectorAll("[data-filter-item]").forEach(item => {
       const category = item.dataset.category?.toLowerCase() ?? '';
       item.classList.toggle("hide", selectedValue !== "all" && category !== selectedValue);
     });
@@ -110,7 +530,7 @@ function setupFiltering(savedFilter) {
     });
   });
 
-  filterFunc(savedFilter); // <-- corre o filtro sem criar chamada recursiva
+  filterFunc(savedFilter); // corre o filtro sem criar chamada recursiva
 }
 
 /* === FORM VALIDATION === */
@@ -140,96 +560,129 @@ function setupNavigation() {
   });
 }
 
-const modal = document.getElementById('universal-modal');
-const modalTitle = document.getElementById('universal-modal-title');
-const modalMedia = document.getElementById('universal-modal-media');
-const modalCaption = document.getElementById('universal-modal-caption');
-const modalLink = document.getElementById('universal-modal-link');
-const modalClose = document.getElementById('universal-modal-close');
+/* =====================================================================
+   MODAL ÚNICO DE PROJETOS + CARROSSEL
+   Um só modal no HTML (#project-modal). Ao clicar numa imagem/vídeo,
+   procuramos o projeto correspondente em `projects` pelo data-slug e
+   injetamos aqui o slide atual. Se o projeto tiver mais do que um slide,
+   mostramos setas e pontos para navegar entre eles.
+===================================================================== */
+function setupProjectModal() {
+  const modal = document.getElementById('project-modal');
+  const mediaEl = document.getElementById('pmodal-media');
+  const titleEl = document.getElementById('pmodal-title');
+  const categoryEl = document.getElementById('pmodal-category');
+  const captionEl = document.getElementById('pmodal-caption');
+  const dotsEl = document.getElementById('pmodal-dots');
+  const prevBtn = document.getElementById('pmodal-prev');
+  const nextBtn = document.getElementById('pmodal-next');
+  const closeBtn = document.getElementById('pmodal-close');
 
-document.querySelectorAll('.open-modal').forEach(el => {
-  el.addEventListener('click', function (e) {
-    e.preventDefault();
+  if (!modal) return;
 
-    const type = el.dataset.type;
-    const src = el.dataset.src;
-    const title = el.querySelector('.project-title')?.innerText || '';
-    const caption = el.querySelector('.project-hover-text')?.innerText || '';
-    const link = el.getAttribute('href') || '#';
+  let currentProject = null;
+  let currentIndex = 0;
 
-    modalTitle.textContent = title;
-    modalCaption.textContent = caption;
-    modalLink.href = link;
-    modalMedia.innerHTML = ''; // clear
+  function renderSlide() {
+    const slide = currentProject.slides[currentIndex];
+    mediaEl.innerHTML = '';
 
-    let mediaEl;
-
-    if (type === 'image') {
-      mediaEl = document.createElement('img');
-      mediaEl.src = src;
-      mediaEl.style.maxWidth = '100%';
-      mediaEl.style.maxHeight = '70vh';
-      mediaEl.style.borderRadius = '6px';
-      mediaEl.alt = title;
-    } else if (type === 'video') {
-      mediaEl = document.createElement('video');
-      mediaEl.src = src;
-      mediaEl.controls = true;
-      mediaEl.autoplay = true;
-      mediaEl.style.maxWidth = '100%';
-      mediaEl.style.maxHeight = '70vh';
-      mediaEl.style.borderRadius = '6px';
-    } else if (type === 'youtube') {
-      mediaEl = document.createElement('iframe');
-      mediaEl.src = src.includes('autoplay') ? src : `${src}?autoplay=1`;
-      mediaEl.width = "100%";
-      mediaEl.height = "400";
-      mediaEl.frameBorder = "0";
-      mediaEl.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-      mediaEl.allowFullscreen = true;
-      mediaEl.style.maxWidth = '100%';
+    let el;
+    if (slide.type === 'image') {
+      el = document.createElement('img');
+      el.src = slide.src;
+      el.alt = currentProject.title;
+    } else if (slide.type === 'video') {
+      el = document.createElement('video');
+      el.src = slide.src;
+      el.controls = true;
+      el.autoplay = true;
+    } else if (slide.type === 'youtube') {
+      el = document.createElement('iframe');
+      el.src = slide.src.includes('autoplay') ? slide.src : `${slide.src}?autoplay=1`;
+      el.setAttribute('frameborder', '0');
+      el.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      el.allowFullscreen = true;
     }
 
-    if (mediaEl) {
-      modalMedia.appendChild(mediaEl);
-      modal.style.display = 'flex';
-    }
-  });
-});
+    if (el) mediaEl.appendChild(el);
 
-modalClose.addEventListener('click', () => {
-  modal.style.display = 'none';
-  modalMedia.innerHTML = '';
-});
+    captionEl.textContent = slide.caption || '';
 
-window.addEventListener('click', function (e) {
-  if (e.target === modal) {
-    modal.style.display = 'none';
-    modalMedia.innerHTML = '';
+    // pontos do carrossel
+    [...dotsEl.children].forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentIndex);
+    });
   }
-});
 
-/* === VIDEO THUMBNAILS === */
-function setupVideoThumbnails() {
-  document.querySelectorAll('.open-modal').forEach(link => {
-    if (link.dataset.type === 'video') {
-      const videoSrc = link.dataset.src;
-      const img = link.querySelector('.video-thumb');
+  function openModal(project) {
+    currentProject = project;
+    currentIndex = 0;
 
-      const video = document.createElement('video');
-      video.src = videoSrc;
-      video.crossOrigin = 'anonymous';
-      video.muted = true;
-      video.preload = 'auto';
+    titleEl.textContent = project.title;
+    categoryEl.textContent = project.category.replace(/\b\w/g, c => c.toUpperCase());
 
-      video.addEventListener('loadeddata', () => video.currentTime = 0.1);
-      video.addEventListener('seeked', () => {
-        const canvas = document.createElement('canvas');
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-        canvas.getContext('2d').drawImage(video, 0, 0);
-        img.src = canvas.toDataURL('image/jpeg');
+    const multi = project.slides.length > 1;
+    prevBtn.style.display = multi ? '' : 'none';
+    nextBtn.style.display = multi ? '' : 'none';
+
+    dotsEl.innerHTML = '';
+    if (multi) {
+      project.slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'pmodal-dot';
+        dot.setAttribute('aria-label', `Imagem ${i + 1}`);
+        dot.addEventListener('click', () => { currentIndex = i; renderSlide(); });
+        dotsEl.appendChild(dot);
       });
     }
+
+    renderSlide();
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('active');
+    mediaEl.innerHTML = ''; // pára vídeos/iframes em reprodução
+    document.body.style.overflow = '';
+  }
+
+  function showPrev() {
+    if (!currentProject) return;
+    currentIndex = (currentIndex - 1 + currentProject.slides.length) % currentProject.slides.length;
+    renderSlide();
+  }
+
+  function showNext() {
+    if (!currentProject) return;
+    currentIndex = (currentIndex + 1) % currentProject.slides.length;
+    renderSlide();
+  }
+
+  // delegação de eventos: funciona mesmo depois de o grid ser re-renderizado
+  document.getElementById('project-list')?.addEventListener('click', e => {
+    const link = e.target.closest('.open-modal');
+    if (!link) return;
+    e.preventDefault();
+
+    const project = projects.find(p => p.slug === link.dataset.slug);
+    if (project) openModal(project);
+  });
+
+  prevBtn.addEventListener('click', showPrev);
+  nextBtn.addEventListener('click', showNext);
+  closeBtn.addEventListener('click', closeModal);
+
+  modal.addEventListener('click', e => {
+    if (e.target === modal) closeModal(); // clique fora da caixa
+  });
+
+  document.addEventListener('keydown', e => {
+    if (!modal.classList.contains('active')) return;
+    if (e.key === 'Escape') closeModal();
+    if (e.key === 'ArrowLeft') showPrev();
+    if (e.key === 'ArrowRight') showNext();
   });
 }

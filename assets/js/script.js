@@ -248,7 +248,7 @@ const projects = [
   {
     slug: 'checkout-funnel-cro',
     title: 'E-commerce Checkout Funnel — CRO & Systems Architecture',
-    category: 'e-commerce',
+    category: 'automation and ai tools',
     blurb: 'Mapped the full checkout funnel end-to-end: conversion decision logic (exit-intent, friction points, drop-off risk) plus the technical systems behind it (APIs, webhooks, attribution).',
     slides: [
       {
@@ -312,7 +312,7 @@ const projects = [
   {
     slug: 'data-governance-lifecycle-logic',
     title: 'Account Lifecycle & Archiving Logic',
-    category: 'own projects',
+    category: 'automation and ai tools',
     blurb: 'A governance decision tree for account/profile status: role validation, cross-entity link audits, and archiving rules — built to keep every edge case auditable.',
     slides: [{
       type: 'diagram',
@@ -467,6 +467,18 @@ const projects = [
   }
 ];
 
+/* Rótulos de categoria corretos (o regex de title-case ingénuo transformava
+   "automation and ai tools" em "Automation And Ai Tools" — errado) */
+const CATEGORY_LABELS = {
+  'branding': 'Branding',
+  'e-commerce': 'E-commerce',
+  'automation and ai tools': 'Automation & AI Tools',
+  'own projects': 'Own Projects'
+};
+function categoryLabelFor(category) {
+  return CATEGORY_LABELS[category] || category.replace(/\b\w/g, c => c.toUpperCase());
+}
+
 /* === RENDER DO GRID DE PROJETOS === */
 function renderProjects() {
   const list = document.getElementById('project-list');
@@ -478,7 +490,7 @@ function renderProjects() {
     const isPlayable = firstType === 'video' || firstType === 'youtube';
     const isDiagram = firstType === 'diagram';
     const multi = project.slides.length > 1;
-    const categoryLabel = project.category.replace(/\b\w/g, c => c.toUpperCase());
+    const categoryLabel = categoryLabelFor(project.category);
 
     return `
       <li class="project-item" data-filter-item data-category="${project.category}">
@@ -642,6 +654,10 @@ function setupProjectModal() {
 
     if (el) mediaEl.appendChild(el);
 
+    // Diagramas ganham uma caixa mais larga — há mais texto para caber
+    // antes de ter de reduzir a escala e perder legibilidade.
+    document.querySelector('.pmodal-box')?.classList.toggle('pmodal-box-wide', slide.type === 'diagram');
+
     captionEl.textContent = slide.caption || '';
 
     // pontos do carrossel
@@ -655,7 +671,7 @@ function setupProjectModal() {
     currentIndex = 0;
 
     titleEl.textContent = project.title;
-    categoryEl.textContent = project.category.replace(/\b\w/g, c => c.toUpperCase());
+    categoryEl.textContent = categoryLabelFor(project.category);
 
     const multi = project.slides.length > 1;
     prevBtn.style.display = multi ? '' : 'none';

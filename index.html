@@ -76,7 +76,7 @@
             <div class="contact-info">
               <p class="contact-title">Email</p>
 
-              <a href="smarmelo@gmail.com" class="contact-link">smarmelo@gmail.com</a>
+              <a href="mailto:smarmelo@gmail.com" class="contact-link">smarmelo@gmail.com</a>
             </div>
 
           </li>
@@ -392,7 +392,7 @@
 
             <div class="modal-img-wrapper">
               <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
+                <img src="./assets/images/avatar-2.png" alt="Ivana V." width="80" data-modal-img>
               </figure>
 
               <img src="./assets/images/icon-quote.svg" alt="quote icon">
@@ -400,15 +400,11 @@
 
             <div class="modal-content">
 
-              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
+              <h4 class="h3 modal-title" data-modal-title>Ivana V.</h4>
 
               <div data-modal-text>
                 <p>
-                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                  lot of experience
-                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                  consectetur adipiscing
-                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                  Sandro Marmelo is one of the most hardworking individuals I have had the privilege of working with. His unwavering dedication to meeting deadlines, exceeding expectations, and delivering quality work has been remarkable.
                 </p>
               </div>
 
@@ -430,27 +426,27 @@
           <ul class="clients-list has-scrollbar">
 
             <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/beliani.png" alt="client logo">
+              <a href="https://www.beliani.pt/" target="_blank" rel="noopener">
+                <img src="./assets/images/beliani.png" alt="Beliani logo">
               </a>
             </li>
 
             <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/greenfil.png" alt="client logo">
+              <a href="https://www.newgreenfil.com/" target="_blank" rel="noopener">
+                <img src="./assets/images/greenfil.png" alt="Newgreenfil logo">
               </a>
             </li>
 
 
             <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/veeva.png" alt="client logo">
+              <a href="https://www.veeva.com/products/veeva-link/overview/" target="_blank" rel="noopener">
+                <img src="./assets/images/veeva.png" alt="Veeva logo">
               </a>
             </li>
 
             <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/vdesk.png" alt="client logo">
+              <a href="https://www.vdesk.com/" target="_blank" rel="noopener">
+                <img src="./assets/images/vdesk.png" alt="Vdesk logo">
               </a>
             </li>
 
@@ -909,7 +905,7 @@ div.addEventListener('click', () => {
   <section class="mapbox" data-mapbox>
     <figure>
       <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28432.123456789012!2d-8.688396407814447!3d39.23333312345678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1946d5123456789%3A0xabcd1234567890ef!2sSantar%C3%A9m%2C%20Portugal!5e0!3m2!1sen!2spt!4v1234567890123"
+      src="https://www.google.com/maps?q=Lisboa,Portugal&output=embed"
       width="100%" height="300" style="border:0;"
       allowfullscreen="" loading="lazy">
     </iframe>
@@ -919,7 +915,7 @@ div.addEventListener('click', () => {
   <section class="contact-form">
     <h3 class="h3 form-title">Contact Form</h3>
 
-    <form action="https://formsubmit.co/smarmelo@gmail.com" method="POST" class="form" autocomplete="off" style="display: flex; flex-direction: column; gap: 1rem; max-width: 600px; margin: auto;">
+    <form id="contact-form" action="https://formsubmit.co/ajax/smarmelo@gmail.com" method="POST" class="form" autocomplete="off" style="display: flex; flex-direction: column; gap: 1rem; max-width: 600px; margin: auto;">
 
       <!-- Nome -->
       <input type="text" name="name" placeholder="Your Name" required style="padding: 10px; font-size: 1rem;">
@@ -936,13 +932,12 @@ div.addEventListener('click', () => {
       <!-- Desativa CAPTCHA do FormSubmit -->
       <input type="hidden" name="_captcha" value="false">
 
-      <!-- Redireciona para página de sucesso após envio -->
-      <input type="hidden" name="_next" value="https://teusite.com/thankyou.html">
-
       <!-- Botão -->
-      <button type="submit" style="padding: 12px; font-size: 1rem; background-color: #4CAF50; color: white; border: none; cursor: pointer;">
+      <button type="submit" id="contact-form-btn" style="padding: 12px; font-size: 1rem; background-color: #4CAF50; color: white; border: none; cursor: pointer;">
         Send Message
       </button>
+
+      <p id="contact-form-status" style="text-align:center; margin:0; min-height:1.2em;"></p>
 
     </form>
   </section>

@@ -13,6 +13,7 @@ function init(savedFilter) {
   renderProjects();       // 1) constrói o grid a partir da fonte única `projects`
   setupFiltering(savedFilter);
   setupFormValidation();
+  setupContactForm();
   setupNavigation();
   setupProjectModal();    // 2) modal único + carrossel para os projetos
 }
@@ -560,6 +561,47 @@ function setupFormValidation() {
     input.addEventListener("input", () => {
       btn.disabled = !form.checkValidity();
     });
+  });
+}
+
+/* === CONTACT FORM (envio via FormSubmit, sem sair da página) === */
+function setupContactForm() {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+
+  const btn = document.getElementById('contact-form-btn');
+  const status = document.getElementById('contact-form-status');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    btn.disabled = true;
+    const originalLabel = btn.textContent;
+    btn.textContent = 'Sending...';
+    status.textContent = '';
+    status.style.color = '';
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+
+      if (response.ok) {
+        status.textContent = "Message sent — I'll get back to you soon.";
+        status.style.color = '#4CAF50';
+        form.reset();
+      } else {
+        throw new Error('Request failed');
+      }
+    } catch (err) {
+      status.textContent = 'Something went wrong. Please email me directly at smarmelo@gmail.com.';
+      status.style.color = '#e05353';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = originalLabel;
+    }
   });
 }
 

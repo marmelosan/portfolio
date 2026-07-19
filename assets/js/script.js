@@ -253,12 +253,12 @@ const projects = [
     slides: [
       {
         type: 'diagram',
-        src: './assets/images/flowchart-checkout-funnel-logic.svg',
+        src: './assets/images/flowchart-checkout-funnel-logic.png',
         caption: 'Checkout funnel decision logic: from add-to-cart through guest-checkout friction, exit-intent triggers, shipping-cost thresholds, dynamic discounting, payment, and post-purchase upsell — every branch built to identify and remove drop-off risk.'
       },
       {
         type: 'diagram',
-        src: './assets/images/flowchart-checkout-technical.svg',
+        src: './assets/images/flowchart-checkout-technical.png',
         caption: 'The same funnel mapped as a systems architecture: GTM dataLayer events, ERP stock validation, GEO-IP auth, shipping-rate API, tokenized payment gateway (Stripe/PayPal), and webhooks feeding ERP, marketing analytics (LTV/CAC), and transactional messaging.'
       }
     ]
@@ -316,7 +316,7 @@ const projects = [
     blurb: 'A governance decision tree for account/profile status: role validation, cross-entity link audits, and archiving rules — built to keep every edge case auditable.',
     slides: [{
       type: 'diagram',
-      src: './assets/images/flowchart-account-lifecycle.svg',
+      src: './assets/images/flowchart-account-lifecycle.png',
       caption: 'Decision logic for handling profile status changes and inactive-account flags: checks for active sub-entity links, role/permission audits, distinguishing honorary or advisory roles from operational ones, and a final archiving rule based on the last known trusted baseline — designed so every outcome is traceable and defensible.'
     }]
   },
@@ -461,7 +461,7 @@ const projects = [
     blurb: 'Subscriber lifecycle logic from opt-in to segmentation to list hygiene — designed to protect deliverability while maximizing engagement.',
     slides: [{
       type: 'diagram',
-      src: './assets/images/flowchart-email-lifecycle.svg',
+      src: './assets/images/flowchart-email-lifecycle.png',
       caption: 'Subscriber lifecycle automation: double opt-in confirmation, profile enrichment (geo/language), a 14-day engagement audit that segments high-intent vs. at-risk subscribers, a re-engagement sequence, and automated list scrubbing to protect domain/sender reputation.'
     }]
   }

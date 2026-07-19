@@ -398,28 +398,6 @@ const projects = [
       }
     ]
   },
-  {
-    slug: 'enrique-pulido-profile',
-    title: 'Curated Profile – Enrique Pulido',
-    category: 'own projects',
-    blurb: 'Curated Veeva profile — multilingual data validation and governance work within an enterprise compliance system.',
-    slides: [{
-      type: 'image',
-      src: './assets/images/Enrique_Pulido.avif',
-      caption: 'Curated Veeva profile — part of the multilingual validation and data governance work across enterprise systems.'
-    }]
-  },
-  {
-    slug: 'veeva-interface',
-    title: 'Veeva Interface',
-    category: 'own projects',
-    blurb: 'Curated Veeva interface profile, part of the same enterprise data-governance and compliance track record.',
-    slides: [{
-      type: 'image',
-      src: './assets/images/Paul_winner.avif',
-      caption: 'Curated Veeva interface profile, part of the same enterprise data governance track record.'
-    }]
-  },
 
   {
     slug: 'resume-dojo-sensei',

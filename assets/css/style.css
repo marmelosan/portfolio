@@ -2878,7 +2878,6 @@ body.light-mode .project-item span {
 
 .pmodal-media {
   width: 100%;
-  max-height: 65vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3015,7 +3014,8 @@ body.light-mode .project-item span {
 .project-diagram-overlay ion-icon { font-size: 0.9rem; }
 
 /* Moldura clara dentro do modal: o diagrama inteiro é sempre visível
-   (escalado para caber), nada fica cortado fora da vista */
+   (escalado para caber). Orçamento de altura reduzido face ao inicial —
+   título + categoria + legenda também precisam de espaço na mesma caixa. */
 .pmodal-diagram-frame {
   background: #fff;
   border-radius: 10px;
@@ -3025,8 +3025,8 @@ body.light-mode .project-item span {
   justify-content: center;
   width: 100%;
   max-width: 100%;
-  max-height: 78vh;
-  overflow: auto;
+  max-height: 52vh;
+  overflow: visible;
 }
 
 .pmodal-diagram-frame img {
@@ -3034,14 +3034,14 @@ body.light-mode .project-item span {
   width: auto;
   height: auto;
   max-width: 100%;
-  max-height: 74vh;
+  max-height: 48vh;
   object-fit: contain;
   border-radius: 0;
 }
 
 @media (max-width: 600px) {
-  .pmodal-diagram-frame { padding: 12px; max-height: 60vh; }
-  .pmodal-diagram-frame img { max-height: 56vh; }
+  .pmodal-diagram-frame { padding: 12px; max-height: 40vh; }
+  .pmodal-diagram-frame img { max-height: 36vh; }
 }
 
 /* Variante larga da caixa do modal, usada para os slides de diagrama

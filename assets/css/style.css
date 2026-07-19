@@ -2728,6 +2728,13 @@ body.light-mode .project-item span {
   position: relative;
 }
 
+#accolade-modal img {
+  background: #fff;
+  padding: 12px;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
 #modal-close {
   position: absolute;
   top: 0.5rem;

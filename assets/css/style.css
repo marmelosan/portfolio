@@ -1075,10 +1075,13 @@ main {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.75);
-  color: #fff;
-  padding: 0.75rem;
-  font-size: 0.75rem;
+  background: rgba(0, 0, 0, 0.82);
+  color: #fdfdfd;
+  padding: 0.9rem 0.85rem;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  font-weight: 400;
+  letter-spacing: 0.1px;
   text-align: center;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -2946,9 +2949,10 @@ body.light-mode .project-item span {
 .pmodal-caption {
   margin: 14px 0 0;
   text-align: center;
-  color: var(--light-gray);
-  font-size: 0.9rem;
-  line-height: 1.6;
+  color: var(--white-2, #e0e0e0);
+  font-size: 1.02rem;
+  line-height: 1.65;
+  max-width: 640px;
 }
 
 /* Selo com o número de imagens/vídeos de um projeto com carrossel */
@@ -2975,4 +2979,73 @@ body.light-mode .project-item span {
   .pmodal-nav { width: 34px; height: 34px; font-size: 1.1rem; }
   .pmodal-nav-prev { left: 4px; }
   .pmodal-nav-next { right: 4px; }
+}
+
+/* =====================================================================
+   DIAGRAMAS DE PROCESSO (fluxogramas Mermaid exportados como SVG)
+===================================================================== */
+
+/* Capa no grid: mostrar o SVG inteiro (contain), não cortado (cover) */
+.project-img-diagram img {
+  object-fit: contain;
+  background: #fff;
+  padding: 10px;
+}
+
+/* Selo "Process Map" na capa, equivalente ao play overlay dos vídeos */
+.project-diagram-overlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: hsla(0, 0%, 0%, 0.65);
+  color: var(--orange-yellow-crayola);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  padding: 4px 9px;
+  border-radius: 20px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.project-diagram-overlay ion-icon { font-size: 0.9rem; }
+
+/* Moldura clara dentro do modal: o diagrama inteiro é sempre visível
+   (escalado para caber), nada fica cortado fora da vista */
+.pmodal-diagram-frame {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  max-height: 78vh;
+  overflow: auto;
+}
+
+.pmodal-diagram-frame img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 74vh;
+  object-fit: contain;
+  border-radius: 0;
+}
+
+@media (max-width: 600px) {
+  .pmodal-diagram-frame { padding: 12px; max-height: 60vh; }
+  .pmodal-diagram-frame img { max-height: 56vh; }
+}
+
+/* Variante larga da caixa do modal, usada para os slides de diagrama
+   (dão mais espaço horizontal antes de ter de reduzir a escala) */
+.pmodal-box-wide {
+  max-width: 1400px;
 }

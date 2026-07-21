@@ -3122,10 +3122,26 @@ body.light-mode .project-item span {
   background: var(--jet);
   border: 1px solid transparent;
   transition: var(--transition-1);
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.lang-switch a:visited {
+  color: var(--light-gray-70);
 }
 
 .lang-switch a:hover {
   color: var(--orange-yellow-crayola);
+}
+
+.lang-switch a:active {
+  background: var(--onyx);
+  color: var(--orange-yellow-crayola);
+}
+
+.lang-switch a:focus-visible {
+  outline: 2px solid var(--orange-yellow-crayola);
+  outline-offset: 2px;
 }
 
 .lang-switch a.active {
@@ -3133,6 +3149,10 @@ body.light-mode .project-item span {
   color: var(--smoky-black);
   font-weight: 600;
   pointer-events: none;
+}
+
+.lang-switch a.active:visited {
+  color: var(--smoky-black);
 }
 
 .lang-switch .flag-icon {

@@ -3099,3 +3099,38 @@ body.light-mode .project-item span {
 .btn-download-cv:hover::before {
   background: var(--bg-gradient-yellow-2);
 }
+
+/* === LANGUAGE SWITCHER === */
+.lang-switch {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.lang-switch a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: var(--fs-7);
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--light-gray-70);
+  background: var(--jet);
+  border: 1px solid transparent;
+  transition: var(--transition-1);
+}
+
+.lang-switch a:hover {
+  color: var(--orange-yellow-crayola);
+}
+
+.lang-switch a.active {
+  background: var(--bg-gradient-yellow-1);
+  color: var(--smoky-black);
+  font-weight: 600;
+  pointer-events: none;
+}

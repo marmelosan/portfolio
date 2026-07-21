@@ -3057,21 +3057,45 @@ body.light-mode .project-item span {
   max-width: 1400px;
 }
 
-.btn-download {
+.btn-download-cv {
+  position: relative;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  padding: 10px 20px;
-  background-color: #24292e; /* Tom escuro idêntico ao padrão do GitHub */
-  color: #ffffff;
+  width: 100%;
+  margin-top: 12px;
+  padding: 11px 16px;
+  background: var(--border-gradient-onyx);
+  color: var(--orange-yellow-crayola);
   text-decoration: none;
-  border-radius: 6px;
+  font-size: var(--fs-7);
   font-weight: 500;
-  border: 1px solid rgba(27, 31, 35, 0.15);
-  transition: background-color 0.2s ease;
+  border-radius: 14px;
+  box-shadow: var(--shadow-3);
+  z-index: 1;
+  transition: var(--transition-1);
 }
 
-.btn-download:hover {
-  background-color: #2f363d; /* Efeito de destaque ao passar o rato */
-  color: #ffffff;
+.btn-download-cv::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--bg-gradient-jet);
+  border-radius: inherit;
+  z-index: -1;
+  transition: var(--transition-1);
+}
+
+.btn-download-cv ion-icon {
+  font-size: 16px;
+}
+
+.btn-download-cv:hover {
+  background: var(--bg-gradient-yellow-1);
+  color: var(--smoky-black);
+}
+
+.btn-download-cv:hover::before {
+  background: var(--bg-gradient-yellow-2);
 }

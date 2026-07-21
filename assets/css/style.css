@@ -3134,3 +3134,8 @@ body.light-mode .project-item span {
   font-weight: 600;
   pointer-events: none;
 }
+
+.lang-switch .flag-icon {
+  border-radius: 2px;
+  flex-shrink: 0;
+}

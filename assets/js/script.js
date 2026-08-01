@@ -266,6 +266,40 @@ const projects = [
   },
 
   {
+    slug: 'gtm-ga4-funnel-tracking',
+    title: 'E-commerce Funnel Tracking — GTM & GA4 Implementation',
+    category: 'automation and ai tools',
+    blurb: 'Full-funnel event tracking built in Google Tag Manager and GA4 — from store entry to purchase — plus Meta Pixel, validated in preview mode before publishing.',
+    slides: [
+      {
+        type: 'image',
+        src: './assets/images/gtm-01-triggers.png',
+        caption: 'The complete trigger set built in Google Tag Manager: link clicks, page-path matches, and click-text conditions — each mapped to a specific stage of the purchase journey. Using a variable for the GA4 measurement ID ({{GA4 id medição}}) instead of hard-coding it keeps the container portable across environments.'
+      },
+      {
+        type: 'image',
+        src: './assets/images/gtm-02-preview-loja.png',
+        caption: 'Store entry event firing correctly in GTM preview mode. Every tag was validated in preview before publishing — catching a misconfigured trigger in preview costs minutes; catching it after two weeks of collecting broken data costs a reporting cycle.'
+      },
+      {
+        type: 'image',
+        src: './assets/images/gtm-03-preview-carrinho.png',
+        caption: 'Add-to-cart event, triggered on click text rather than a fixed URL — more resilient to layout changes than path-based matching. Fired alongside the Meta Pixel, implemented as a custom HTML tag on all pages.'
+      },
+      {
+        type: 'image',
+        src: './assets/images/gtm-04-debug-produto.png',
+        caption: 'Product view event validated in debug mode, triggered on any page path containing /produto/. This is the top of the intent funnel — the denominator against which every later drop-off is measured.'
+      },
+      {
+        type: 'image',
+        src: './assets/images/gtm-05-preview-checkout.png',
+        caption: 'Checkout and completed-purchase events firing in sequence. With view → cart → checkout → purchase all instrumented, drop-off between any two steps becomes visible and measurable, which is where conversion work actually starts.'
+      }
+    ]
+  },
+
+  {
     slug: 'ebay-store',
     title: 'Ebay Store',
     category: 'own projects',

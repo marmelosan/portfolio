@@ -266,6 +266,40 @@ const projects = [
   },
 
   {
+    slug: 'gtm-ga4-funnel-tracking',
+    title: 'Tracking de Funil E-commerce — Implementação GTM & GA4',
+    category: 'automation and ai tools',
+    blurb: 'Tracking de eventos de funil completo em Google Tag Manager e GA4 — da entrada na loja até à compra — mais Meta Pixel, validado em modo de pré-visualização antes de publicar.',
+    slides: [
+      {
+        type: 'image',
+        src: '../assets/images/gtm-01-triggers.png',
+        caption: 'O conjunto completo de acionadores construído no Google Tag Manager: cliques em links, correspondência de page path e condições de click text — cada um mapeado a uma etapa específica da jornada de compra. Usar uma variável para o ID de medição do GA4 ({{GA4 id medição}}) em vez de o fixar no código mantém o contentor portável entre ambientes.'
+      },
+      {
+        type: 'image',
+        src: '../assets/images/gtm-02-preview-loja.png',
+        caption: 'Evento de entrada na loja a disparar corretamente em modo de pré-visualização do GTM. Todas as tags foram validadas antes de publicar — apanhar um acionador mal configurado em preview custa minutos; apanhá-lo depois de duas semanas a recolher dados errados custa um ciclo de reporting.'
+      },
+      {
+        type: 'image',
+        src: '../assets/images/gtm-03-preview-carrinho.png',
+        caption: 'Evento de adição ao carrinho, acionado por click text em vez de URL fixo — mais resistente a alterações de layout do que a correspondência por path. Dispara em paralelo com o Meta Pixel, implementado como tag HTML personalizada em todas as páginas.'
+      },
+      {
+        type: 'image',
+        src: '../assets/images/gtm-04-debug-produto.png',
+        caption: 'Evento de visualização de produto validado em modo debug, acionado em qualquer page path que contenha /produto/. É o topo do funil de intenção — o denominador contra o qual se mede todo o abandono posterior.'
+      },
+      {
+        type: 'image',
+        src: '../assets/images/gtm-05-preview-checkout.png',
+        caption: 'Eventos de checkout e compra finalizada a disparar em sequência. Com ver produto → carrinho → checkout → compra todos instrumentados, o abandono entre quaisquer duas etapas torna-se visível e mensurável — que é onde o trabalho de conversão realmente começa.'
+      }
+    ]
+  },
+
+  {
     slug: 'ebay-store',
     title: 'Loja Ebay',
     category: 'own projects',

@@ -23,7 +23,7 @@
   -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <script data-goatcounter="https://marmelosan.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 
@@ -131,7 +131,7 @@
             <div class="contact-info">
               <p class="contact-title">Birthday</p>
 
-              <time datetime="1982-06-23">February 20</time>
+              <time datetime="1986-02-20">February 20</time>
             </div>
 
           </li>
@@ -165,12 +165,6 @@
           <li class="social-item">
           <a href="https://x.com/Shenmuer1986" class="social-link" target="_blank" rel="noopener noreferrer">
               <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
             </a>
           </li>
 
@@ -326,11 +320,9 @@
           <ul class="testimonials-list has-scrollbar">
 
             <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
+              <div class="content-card" data-testimonials-item data-badge-text="IV" data-badge-color="gold">
 
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-2.png" alt="Ivana V." width="60" data-testimonials-avatar>
-                </figure>
+                <div class="testimonials-avatar-box" aria-hidden="true">IV</div>
 
                 <h4 class="h4 testimonials-item-title" data-testimonials-title>Ivana V.</h4>
 
@@ -344,11 +336,9 @@
             </li>
 
             <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
+              <div class="content-card" data-testimonials-item data-badge-text="JU" data-badge-color="steel">
 
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-3.png" alt="Jasmina U." width="60" data-testimonials-avatar>
-                </figure>
+                <div class="testimonials-avatar-box" aria-hidden="true">JU</div>
 
                 <h4 class="h4 testimonials-item-title" data-testimonials-title>Jasmina U.</h4>
 
@@ -363,11 +353,9 @@
             </li>
 
             <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
+              <div class="content-card" data-testimonials-item data-badge-text="AL" data-badge-color="sage">
 
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-4.png" alt="Armindo L." width="60" data-testimonials-avatar>
-                </figure>
+                <div class="testimonials-avatar-box" aria-hidden="true">AL</div>
 
                 <h4 class="h4 testimonials-item-title" data-testimonials-title>Armindo L.</h4>
 
@@ -381,11 +369,9 @@
             </li>
 
             <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
+              <div class="content-card" data-testimonials-item data-badge-text="AR" data-badge-color="gold">
 
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/ana.png" alt="Ana R." width="60" data-testimonials-avatar>
-                </figure>
+                <div class="testimonials-avatar-box" aria-hidden="true">AR</div>
 
                 <h4 class="h4 testimonials-item-title" data-testimonials-title>Ana R.</h4>
 
@@ -418,9 +404,7 @@
             </button>
 
             <div class="modal-img-wrapper">
-              <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-2.png" alt="Ivana V." width="80" data-modal-img>
-              </figure>
+              <div class="modal-avatar-box" data-modal-badge aria-hidden="true">IV</div>
 
               <img src="./assets/images/icon-quote.svg" alt="quote icon">
             </div>
@@ -810,12 +794,12 @@
     <p class="section-subtitle">A curated collection of credentials that prove expertise across platforms, tools and disciplines.</p>
   </div>
 
-<div class="project-grid" id="accolade-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+<div class="accolade-grid" id="accolade-grid">
     <!-- JSON-driven content will populate here -->
   </div>
 
-  <div class="btn-wrapper" style="text-align:center; margin-top:2rem;">
-    <a href="https://skillshop.credential.net/profile/sandromarmelo255292/wallet" class="cta-btn" target="_blank" style="background: linear-gradient(to right, #ffd700, #d4af37); color: #000; padding: 1rem 2rem; font-weight: bold; border-radius: 6px; display: inline-block;">View Full Wallet</a>
+  <div class="btn-wrapper">
+    <a href="https://skillshop.credential.net/profile/sandromarmelo255292/wallet" class="cta-btn" target="_blank" rel="noopener">View Full Wallet</a>
   </div>
 
 
@@ -825,8 +809,8 @@
     <span id="modal-close">&times;</span>
     <h3 id="modal-title"></h3>
     <p id="modal-caption"></p>
-    <a id="modal-link" href="#" target="_blank">View Credential</a>
-<img id="modal-img" src="" alt="" style="max-width: 100%; height: auto; margin: 1rem 0; border-radius: 4px;">
+    <a id="modal-link" href="#" target="_blank" rel="noopener">View Credential</a>
+    <img id="modal-img" src="" alt="">
   </div>
 </div>
 <script>
@@ -873,53 +857,35 @@
 
   accolades.forEach(item => {
     const div = document.createElement('div');
-    div.className = 'project-item accolade-card';
-    div.style.cursor = 'pointer';
-    div.style.padding = '1rem';
-    div.style.border = '1px solid #444';
-    div.style.borderRadius = '8px';
-    div.style.backgroundColor = '#1e1e1e';
+    div.className = 'accolade-card';
     div.setAttribute('data-title', item.title);
     div.setAttribute('data-caption', item.caption);
     div.setAttribute('data-url', item.url);
 
     div.innerHTML = `
-      <figure class="project-img">
-        <div style="background:#fff; border-radius:6px; height:220px; display:flex; align-items:center; justify-content:center; padding:12px; margin-bottom:1rem;">
-          <img src="${item.img}" alt="${item.title} Badge" style="max-width: 100%; max-height: 100%; width:auto; height:auto; object-fit: contain; display: block;">
-        </div>
-        <figcaption class="project-hover-text" style="text-align:center; color:#aaa;">${item.caption}</figcaption>
-      </figure>
-      <h3 class="project-title" style="text-align: center; margin: 1rem 0 0.5rem;">${item.title}</h3>
-      <p class="project-category" style="text-align: center; color: #aaa;">${item.org}</p>
+      <div class="accolade-thumb">
+        <img src="${item.img}" alt="${item.title} badge">
+      </div>
+      <h3 class="accolade-card-title">${item.title}</h3>
+      <p class="accolade-card-org">${item.org}</p>
     `;
 
-div.addEventListener('click', () => {
-  document.getElementById('modal-title').textContent = item.title;
-  document.getElementById('modal-caption').textContent = item.caption;
-  document.getElementById('modal-link').href = item.url;
-  document.getElementById('modal-img').src = item.img;
-  document.getElementById('modal-img').alt = item.title;
-  document.getElementById('accolade-modal').style.display = 'flex';
-});
+    div.addEventListener('click', () => {
+      document.getElementById('modal-title').textContent = item.title;
+      document.getElementById('modal-caption').textContent = item.caption;
+      document.getElementById('modal-link').href = item.url;
+      document.getElementById('modal-img').src = item.img;
+      document.getElementById('modal-img').alt = item.title;
+      document.getElementById('accolade-modal').classList.add('active');
+    });
 
     grid.appendChild(div);
   });
 
   document.getElementById('modal-close').addEventListener('click', () => {
-    document.getElementById('accolade-modal').style.display = 'none';
+    document.getElementById('accolade-modal').classList.remove('active');
   });
 </script>
-
-<style>
-  .accolade-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .accolade-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
-  }
-</style>
 
       </article>
 
@@ -993,11 +959,5 @@ div.addEventListener('click', () => {
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-
 </body>
-</html>
-
-
-</body>
-
 </html>

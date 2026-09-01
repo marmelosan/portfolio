@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://marmelosan.github.io/portfolio/sitemap.xml

@@ -70,12 +70,20 @@
   --light-gray-70: hsla(0, 0%, 84%, 0.7);
   --bittersweet-shimmer: hsl(0, 43%, 51%);
 
+  /* secondary accents (data/e-commerce and automation), used sparingly
+     alongside the gold accent for category color-coding and testimonials */
+  --steel: hsl(200, 45%, 62%);
+  --steel-soft: hsl(200, 55%, 76%);
+  --sage: hsl(150, 28%, 52%);
+  --sage-soft: hsl(150, 35%, 68%);
+
   /**
    * typography
    */
 
   /* font-family */
   --ff-poppins: 'Poppins', sans-serif;
+  --ff-mono: 'JetBrains Mono', ui-monospace, monospace;
 
   /* font-size */
   --fs-1: 24px;
@@ -84,8 +92,8 @@
   --fs-4: 16px;
   --fs-5: 15px;
   --fs-6: 14px;
-  --fs-7: 13px;
-  --fs-8: 11px;
+  --fs-7: 14px;
+  --fs-8: 12px;
 
   /* font-weight */
   --fw-300: 300;
@@ -561,10 +569,30 @@ main {
   position: absolute;
   top: 0;
   left: 0;
-  transform: translate(15px, -25px);
-  background: var(--bg-gradient-onyx);
-  border-radius: 14px;
+  transform: translate(15px, -18px);
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 13px;
+  background: var(--text-gradient-yellow);
+  color: var(--smoky-black);
+  font-family: var(--ff-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   box-shadow: var(--shadow-1);
+}
+
+[data-badge-color="steel"] .testimonials-avatar-box,
+.modal-avatar-box[data-badge-color="steel"] {
+  background: linear-gradient(to right, var(--steel), var(--steel-soft));
+}
+
+[data-badge-color="sage"] .testimonials-avatar-box,
+.modal-avatar-box[data-badge-color="sage"] {
+  background: linear-gradient(to right, var(--sage), var(--sage-soft));
 }
 
 .testimonials-item-title { margin-bottom: 7px; }
@@ -670,10 +698,18 @@ main {
 .modal-close-btn ion-icon { --ionicon-stroke-width: 50px; }
 
 .modal-avatar-box {
-  background: var(--bg-gradient-onyx);
-  width: max-content;
-  border-radius: 14px;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
   margin-bottom: 15px;
+  background: var(--text-gradient-yellow);
+  color: var(--smoky-black);
+  font-family: var(--ff-mono);
+  font-size: 20px;
+  font-weight: 600;
   box-shadow: var(--shadow-2);
 }
 
@@ -771,6 +807,8 @@ main {
 
 .timeline-list span {
   color: var(--vegas-gold);
+  font-family: var(--ff-mono);
+  font-size: 0.9em;
   font-weight: var(--fw-400);
   line-height: 1.6;
 }
@@ -824,6 +862,7 @@ main {
 
 .skill .title-wrapper data {
   color: var(--light-gray);
+  font-family: var(--ff-mono);
   font-size: var(--fs-7);
   font-weight: var(--fw-300);
 }
@@ -1017,41 +1056,6 @@ main {
   font-weight: var(--fw-300);
 }
 
-#portfolio-modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.85);
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-#portfolio-modal .modal-content {
-  background: #1e1e1e;
-  padding: 2rem;
-  max-width: 500px;
-  width: 90%;
-  border-radius: 8px; /* <- bordas suaves */
-  color: #fff;
-  position: relative;
-}
-
-#portfolio-modal img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 6px; /* <- igual ao dos accolades */
-  margin: 1rem 0;
-}
-
-#portfolio-modal img,
-#accolade-modal img {
-  border-radius: 6px;
-}
-
 
 /* === ALIGNAMENTO E ESTILO UNIFORME DOS PROJECTOS === */
 
@@ -1153,6 +1157,36 @@ font-size: var(--fs-5);
   font-weight: var(--fw-300);
   color: #cccccc; /* cinza claro */
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+/* Category color-coding via ::before dots — a pseudo-element sidesteps
+   the many "!important" text-color overrides fighting real elements
+   below in this file, so it's the one reliable way to color-code here. */
+.project-item[data-category] .project-category {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.project-item[data-category] .project-category::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex: none;
+  background: var(--text-gradient-yellow);
+}
+
+.project-item[data-category="e-commerce"] .project-category::before {
+  background: linear-gradient(to right, var(--steel), var(--steel-soft));
+}
+
+.project-item[data-category="automation and ai tools"] .project-category::before {
+  background: linear-gradient(to right, var(--sage), var(--sage-soft));
+}
+
+.project-item[data-category="own projects"] .project-category::before {
+  background: var(--bittersweet-shimmer);
 }
 
 /* Remove sombras de media que estejam com fundo transparente */
@@ -1572,15 +1606,16 @@ textarea.form-input::-webkit-resizer { display: none; }
   }
 
   .testimonials-avatar-box {
-    transform: translate(30px, -30px);
-    border-radius: 20px;
+    transform: translate(30px, -26px);
+    width: 58px;
+    height: 58px;
+    border-radius: 18px;
+    font-size: 17px;
   }
-
-  .testimonials-avatar-box img { width: 80px; }
 
   .testimonials-item-title {
     margin-bottom: 10px;
-    margin-left: 95px;
+    margin-left: 80px;
   }
 
   .testimonials-text {
@@ -1608,11 +1643,12 @@ textarea.form-input::-webkit-resizer { display: none; }
   }
 
   .modal-avatar-box {
+    width: 68px;
+    height: 68px;
     border-radius: 18px;
+    font-size: 21px;
     margin-bottom: 0;
   }
-
-  .modal-avatar-box img { width: 65px; }
 
   .modal-img-wrapper > img {
     display: block;
@@ -1740,7 +1776,7 @@ textarea.form-input::-webkit-resizer { display: none; }
     max-width: 680px;
   }
 
-  .modal-avatar-box img { width: 80px; }
+  .modal-avatar-box { width: 80px; height: 80px; font-size: 24px; }
 
 
 
@@ -2046,96 +2082,6 @@ textarea.form-input::-webkit-resizer { display: none; }
   color: var(--white-2) !important;
 }
 
-/* Buttons */
-#myBtnContainer {
-  text-align: center;
-  margin-bottom: 20px;
-}
-.btn {
-  border: none;
-  padding: 10px 20px;
-  background: #ddd;
-  cursor: pointer;
-  margin: 0 5px;
-}
-.btn:hover {
-  background: #ccc;
-}
-.btn.active {
-  background: #4CAF50;
-  color: white;
-}
-
-/* Layout responsivo */
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -10px;
-}
-.column {
-  flex: 33.33%;
-  padding: 0 10px;
-  margin-bottom: 20px;
-}
-.content {
-  background: white;
-  padding: 10px;
-  border-radius: 4px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-}
-
-/* Adaptar colunas em mobile */
-@media screen and (max-width: 768px) {
-  .column { flex: 50%; }
-}
-@media screen and (max-width: 480px) {
-  .column { flex: 100%; }
-}
-
-
-/* Remove sombra ou background feio em vídeos */
-.content.no-shadow {
-  background: transparent !important;
-  box-shadow: none !important;
-  padding: 0;
-}
-
-#mediaModal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.85);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-#mediaModal.active {
-  display: flex;
-}
-
-#modal-media-container {
-  width: 90vw;
-  max-width: 1000px;
-  background: transparent;
-  padding: 0;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: none; /* elimina o glow */
-}
-
-#modal-media-container iframe,
-#modal-media-container video,
-#modal-media-container img {
-  width: 100% !important;
-  height: auto !important;
-  aspect-ratio: 16/9;
-  display: block;
-  object-fit: contain;
-  border: none !important;
-  background: transparent !important; /* remove pano de fundo escuro */
-  border-radius: 10px;
-}
-
 .project-play-overlay {
   content: "▶";
  position: absolute;
@@ -2298,7 +2244,6 @@ textarea::placeholder {
   width:100%; padding:10px;
 }
 
-}
 .project-item, .project-blurb {
  background-color: #1e1e1e;
   border: 2px solid #c99c30; /* dourado subtil */
@@ -2380,26 +2325,6 @@ textarea::placeholder {
   transform:translate(-50%,-50%) scale(1);
 }
 
-/* === CARD TEXTS / CONTENTS === */
-
-body.light-mode .card-title {
-  color: #1a1a1a !important;
-  font-weight: 700;
-}
-
-body.light-mode .card-subtitle {
-  color: #555 !important;
-  font-weight: 500;
-}
-body.light-mode .card-text,
-body.light-mode .blurb-content {
-  color: #2a2a2a !important;
-}
-
-body.light-mode .project-blurb * {
-  color: inherit !important;
-}
-
 /* === HIDE CLASS === */
 .hide {
   display: none !important;
@@ -2417,60 +2342,18 @@ body.light-mode .project-blurb * {
   }
 }
 
-/* === DARK/LIGHT MODE BUTTON === */
-.mode-toggle {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  background-color: #facc15;
-  color: #000;
-  border: none;
-  padding: 8px 12px;
-  font-weight: bold;
-  border-radius: 6px;
-  cursor: pointer;
-  z-index: 999;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* === DARK MODE === */
-body {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-body.light-mode {
-  background-color: #fefefe;
-  color: #222;
-}
-
-
-body.light-mode .project-img {
-  background-color: #e5e5e5;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
-/* Garantir subtítulos e categorias legíveis no modo claro */
-body.light-mode .project-title,
-body.light-mode .project-category {
-  color: #333 !important;
-}
-
-/* === PORTFOLIO FIXO EM TEMA ESCURO === */
 .project-blurb,
 .project-item,
-.card-title,
-.card-subtitle,
-.card-text,
 .blurb-content {
   background-color: #1e1e1e !important;
   color: #f0f0f0 !important;
   border: none !important;
   box-shadow: none !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6) !important;
-
 }
 
 .project-img {
@@ -2481,45 +2364,6 @@ body.light-mode .project-category {
 .project-img video,
 .project-img iframe {
   filter: brightness(1) contrast(1);
-}
-
-body.light-mode .project-blurb,
-body.light-mode .project-item,
-body.light-mode .card-title,
-body.light-mode .card-subtitle,
-body.light-mode .card-text,
-body.light-mode .blurb-content {
-  background-color: #1e1e1e !important;
-  color: #f0f0f0 !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-
-/* === AJUSTES GERAIS NO MODO CLARO === */
-
-body.light-mode {
-  background-color: #f5f5f5; /* Fundo lateral mais suave */
-}
-
-/* Tabs de categoria (nav) */
-body.light-mode .filter-btn {
-  color: #b88b00 !important; /* Amarelo menos saturado */
-  opacity: 0.85;
-}
-
-/* Textos dos cards (subtítulos e categorias) */
-body.light-mode .card-text,
-body.light-mode .card-subtitle {
-  color: #333 !important;
-}
-
-/* Botão de modo claro/escuro no topo */
-body.light-mode .mode-toggle {
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e0e0e0;
-  background-color: #facc15;
-  color: #111;
 }
 
 /* === BLURBS COM CAIXA DE TEXTO VISUAL === */
@@ -2537,70 +2381,21 @@ body.light-mode .mode-toggle {
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Mesmo no modo claro, manter visual escuro nas blurbs */
-body.light-mode .project-blurb {
-  background-color: #1e1e1e !important;
-  color: #f0f0f0 !important;
-  border: 1px solid rgba(255, 255, 255, 0.05) !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
-}
-
-/* FORÇAR COR DOS TÍTULOS E SUBTÍTULOS DOS PROJECTOS */
-.project-item .card-title,
-.project-item .card-subtitle,
-.project-item .card-text {
-  color: #ffffff !important; /* branco para títulos */
-}
-
-/* Subtítulo mais suave */
-.project-item .card-subtitle,
-.project-item .card-text {
-  color: #cfcfcf !important; /* cinza claro para subtítulo/categoria */
-}
-
-/* MESMO EM MODO CLARO */
-body.light-mode .project-item .card-title,
-body.light-mode .project-item .card-subtitle,
-body.light-mode .project-item .card-text {
-  color: #ffffff !important;
-}
-
-body.light-mode .project-item .card-subtitle,
-body.light-mode .project-item .card-text {
-  color: #cfcfcf !important;
-}
-
 /* === PROJECT CARDS TEXT COLORS - UNIFIED STYLE === */
 
 .project-item h3,
 .project-item h4,
 .project-item p,
-.project-item span,
-.project-item .card-title,
-.project-item .card-subtitle,
-.project-item .card-text {
+.project-item span {
   color: #ffffff !important;
 }
 
 /* Subtítulos e descrições mais suaves */
-.project-item .card-subtitle,
-.project-item .card-text,
 .project-item p,
 .project-item span {
   color: #cfcfcf !important;
 }
 
-/* Força os mesmos estilos mesmo com light-mode ativo */
-body.light-mode .project-item h3,
-body.light-mode .project-item h4,
-body.light-mode .project-item p,
-body.light-mode .project-item span,
-body.light-mode .project-item .card-title,
-body.light-mode .project-item .card-subtitle,
-body.light-mode .project-item .card-text {
-  color: #ffffff !important;
-
-/* MAIS DESTAQUE NAS BLURBS EM MODO ESCURO */
 .project-blurb {
   background-color: #1e1e1e;
   color: #f0f0f0;
@@ -2609,14 +2404,6 @@ body.light-mode .project-item .card-text {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* sombra mais pronunciada */
   border: 1px solid rgba(255, 255, 255, 0.05); /* borda subtil */
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-}
-
-body.light-mode .project-item .card-subtitle,
-body.light-mode .project-item .card-text,
-body.light-mode .project-item p,
-body.light-mode .project-item span {
-  color: #cfcfcf !important;
 }
 
 .project-blurb {
@@ -2640,174 +2427,185 @@ body.light-mode .project-item span {
     0 8px 28px rgba(0, 0, 0, 0.85);
 }
 
-#accolades {
-  padding: 4rem 2rem 2rem;
-}
+/*-----------------------------------*\
+  #ACCOLADES
+  Kept independent of .project-item (used by the Portfolio grid) so it
+  never collides with the "!important" text-color overrides above.
+\*-----------------------------------*/
 
-#accolades .section-title {
-  text-align: left;
-  margin-bottom: 0.5rem;
-}
+#accolades { padding: 4rem 2rem 2rem; }
 
-#accolades .subtitle-box {
-  background: #2a2a2a;
-  padding: 1rem;
-  border-left: 4px solid #d4af37;
+.subtitle-box {
+  background: var(--onyx);
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--orange-yellow-crayola);
+  border-radius: 0 10px 10px 0;
   margin-bottom: 2rem;
 }
 
-#accolades .section-subtitle {
+.section-subtitle {
   margin: 0;
-  color: #ccc;
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-300);
 }
 
-#accolade-grid {
+.accolade-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
 }
 
- .accolade-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  max-width: 420px;
-  margin: 0 auto;
-}
-  .accolade-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
-  }
-
-.accolade-card .project-img img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto 1rem;
-}
-
-.accolade-card h3,
-.accolade-card p,
-.accolade-card figcaption {
+.accolade-card {
+  position: relative;
+  background: var(--border-gradient-onyx);
+  border-radius: 14px;
+  padding: 18px;
   text-align: center;
-  color: #aaa;
+  cursor: pointer;
+  box-shadow: var(--shadow-2);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  z-index: 1;
+}
+
+.accolade-card::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--bg-gradient-jet);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.accolade-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px hsla(45, 70%, 55%, 0.18);
+}
+
+.accolade-thumb {
+  background: var(--white-1);
+  border-radius: 10px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  margin-bottom: 16px;
+}
+
+.accolade-thumb img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.accolade-card-title {
+  font-size: var(--fs-5);
+  font-weight: var(--fw-500);
+  color: var(--white-2);
+  margin-bottom: 4px;
+}
+
+.accolade-card-org {
+  font-size: var(--fs-6);
+  font-weight: var(--fw-300);
+  color: var(--light-gray-70);
 }
 
 .cta-btn {
-  background: linear-gradient(to right, #ffd700, #d4af37);
-  color: #000;
-  padding: 1rem 2rem;
-  font-weight: bold;
-  border-radius: 6px;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--text-gradient-yellow);
+  color: var(--smoky-black);
+  font-weight: var(--fw-600);
+  font-size: var(--fs-6);
+  padding: 13px 26px;
+  border-radius: 100px;
+  box-shadow: var(--shadow-2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-3);
 }
 
 .btn-wrapper {
-  text-align: left;
+  text-align: center;
   margin-top: 2rem;
 }
 
-/* Modal */
+/* accolade modal */
 #accolade-modal {
   display: none;
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.85);
+  inset: 0;
+  background: hsla(0, 0%, 4%, 0.85);
   align-items: center;
   justify-content: center;
   z-index: 9999;
+  padding: 20px;
 }
 
-.modal-content {
-  background: #1e1e1e;
+#accolade-modal.active { display: flex; }
+
+#accolade-modal .modal-content {
+  background: var(--eerie-black-2);
+  border: 1px solid var(--jet);
   padding: 2rem;
-  max-width: 500px;
-  width: 90%;
-  border-radius: 8px;
-  color: #fff;
+  max-width: 460px;
+  width: 100%;
+  border-radius: 16px;
+  color: var(--white-2);
   position: relative;
+  box-shadow: var(--shadow-5);
 }
 
 #accolade-modal img {
-  background: #fff;
+  background: var(--white-1);
+  width: 100%;
+  height: auto;
   padding: 12px;
-  border-radius: 6px;
+  border-radius: 10px;
+  margin: 1rem 0;
   box-sizing: border-box;
 }
 
 #modal-close {
   position: absolute;
-  top: 0.5rem;
+  top: 0.75rem;
   right: 1rem;
   font-size: 1.5rem;
+  line-height: 1;
+  color: var(--light-gray-70);
   cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+#modal-close:hover { color: var(--white-2); }
+
+#modal-title {
+  font-size: var(--fs-3);
+  margin-bottom: 6px;
+}
+
+#modal-caption {
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-300);
 }
 
 #modal-link {
-  color: #ffd700;
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--orange-yellow-crayola);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
 }
 
-<style>
-  .accolade-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    padding: 1.2rem;
-    border: 1px solid #444;
-    border-radius: 10px;
-    background-color: #1e1e1e;
-  }
+#modal-link:hover { text-decoration: underline; }
 
-  .accolade-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 18px rgba(255, 215, 0, 0.2);
-  }
-
-  .accolade-card .project-title {
-    text-align: center;
-    font-size: 1rem;
-    margin: 1rem 0 0.25rem;
-  }
-
-  .accolade-card .project-category {
-    text-align: center;
-    color: #aaa;
-    font-size: 0.9rem;
-  }
-
-  .project-hover-text {
-    text-align: center;
-    color: #aaa;
-    font-size: 0.9rem;
-  }
-</style>
-
-
-.language-switch {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  text-decoration: none;
-  font-weight: bold;
-  color: #ffcc00;
-}
-
-/* Garante que o container permite scroll se forem muitas imagens */
-#portfolio-modal .modal-content {
-  max-height: 90vh;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column; /* FORÇA A PILHA VERTICAL */
-  align-items: center;
-  gap: 20px; /* Espaço entre as imagens */
-}
-
-/* Garante que as imagens não fogem do modal */
-.modal-stack-img {
-  width: 100%;
-  max-width: 600px; /* Ajusta conforme necessário */
-  height: auto;
-  border-radius: 8px;
-  display: block;
-}
 
 /* =====================================================================
    MODAL ÚNICO DE PROJETOS + CARROSSEL (#project-modal)

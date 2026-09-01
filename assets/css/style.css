@@ -2943,7 +2943,10 @@ html {
 }
 
 .lang-switch a.active {
-  background: var(--bg-gradient-yellow-1);
+  /* text-gradient-yellow is opaque at both stops — bg-gradient-yellow-1
+     fades to transparent partway through and let the dark page show
+     behind the button, making it look half-blacked-out */
+  background: var(--text-gradient-yellow);
   color: var(--smoky-black);
   font-weight: 600;
   pointer-events: none;

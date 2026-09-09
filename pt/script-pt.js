@@ -149,6 +149,12 @@ const projects = [
         caption: 'Liderança da adaptação portuguesa usada na voz off da campanha — garantindo tom, ritmo e ressonância cultural. Criação também do jingle original, alinhando melodia e mensagem para elevar a recordação de marca e o impacto emocional.'
       },
       {
+        type: 'video',
+        src: '../videos/beliani_mundial2026.mp4',
+        cover: '../assets/images/thumb-beliani_mundial2026.jpg',
+        caption: 'Escrevi e produzi este anúncio do Mundial 2026 do zero — conceito, guião e voz off gerada por IA — combinando o humor "jogo grande, sofá ainda maior" com uma âncora de preço clara para gerar urgência.'
+      },
+      {
         type: 'image',
         src: '../assets/images/beliani0524.png',
         caption: 'Localização do título, texto de banner e copy de anúncio para o mercado português. Foco na calidez, conforto e clareza de clique — mantendo o tom da marca consistente.'
@@ -242,6 +248,21 @@ const projects = [
         type: 'image',
         src: '../assets/images/beliani6.png',
         caption: 'Localização da copy da newsletter sazonal para a campanha de Halloween da Beliani, criando um texto em português culturalmente ressonante que preservou a elegância sombria do design original.'
+      },
+      {
+        type: 'image',
+        src: '../assets/images/beliani_aniversario50.png',
+        caption: 'Anúncio em formato story para a oferta de aniversário — título e enquadramento do desconto pensados para uma leitura rápida, a parar o scroll.'
+      },
+      {
+        type: 'image',
+        src: '../assets/images/beliani_ainda_espera.png',
+        caption: 'Anúncio de reativação para audiências mornas: um sofá a meio carregar e a pergunta "ainda está à espera?" a empurrar o utilizador de volta para o checkout.'
+      },
+      {
+        type: 'image',
+        src: '../assets/images/beliani_tapete_exterior.png',
+        caption: 'Promoção de oferta com compra (tapete exterior grátis) — copy e mecânica da oferta (compra mínima, código de voucher) localizadas para o mercado português.'
       }
     ]
   },

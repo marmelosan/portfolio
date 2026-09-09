@@ -149,6 +149,12 @@ const projects = [
         caption: 'Led the Portuguese adaptation used in the campaign’s voice-over — ensuring tone, rhythm, and cultural resonance. Also created the original jingle, aligning melody and message to elevate brand recall and emotional impact.'
       },
       {
+        type: 'video',
+        src: './videos/beliani_mundial2026.mp4',
+        cover: './assets/images/thumb-beliani_mundial2026.jpg',
+        caption: 'Wrote and produced this World Cup 2026 ad end-to-end — concept, script, and an AI-generated voice-over — pairing "big game, bigger sofa" humor with a clear price anchor to drive urgency.'
+      },
+      {
         type: 'image',
         src: './assets/images/beliani0524.png',
         caption: 'Localized headline, banner text, and ad copy for the Portuguese market. Focused on warmth, comfort, and click-through clarity — all while keeping the brand tone consistent.'
@@ -242,6 +248,21 @@ const projects = [
         type: 'image',
         src: './assets/images/beliani6.png',
         caption: 'Localized the seasonal newsletter copy for Beliani’s Halloween campaign, crafting culturally resonant Portuguese text that preserved the eerie elegance of the original design.'
+      },
+      {
+        type: 'image',
+        src: './assets/images/beliani_aniversario50.png',
+        caption: 'Birthday-sale story ad for the Portuguese market — headline and discount framing built for a quick, scroll-stopping read.'
+      },
+      {
+        type: 'image',
+        src: './assets/images/beliani_ainda_espera.png',
+        caption: 'Re-engagement ad targeting warm audiences: a half-loaded sofa and a "still waiting?" headline nudge browsers back toward checkout.'
+      },
+      {
+        type: 'image',
+        src: './assets/images/beliani_tapete_exterior.png',
+        caption: 'Gift-with-purchase promo for a free outdoor rug — copy and offer mechanics (minimum spend, voucher code) localized for the PT market.'
       }
     ]
   },

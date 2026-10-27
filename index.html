@@ -4,24 +4,53 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!--
+    - Consent Mode v2 defaults: deny analytics/ad storage until the
+      cookie banner (assets/js/consent.js) records a real choice. Must
+      run before the GTM snippet below so GTM/GA4 pick up "denied" on
+      first paint instead of an unset default.
+  -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied'
+    });
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KC25MTC5');</script>
+  <!-- End Google Tag Manager -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Sandro Marmelo — Data Operations & E-commerce Specialist. 6+ years in data governance, SEO, CRO and content operations across international markets.">
-  <title>Sandro Marmelo — Data Operations & E-commerce Specialist</title>
+<meta name="description" content="CRO, landing pages, GA4/GTM tracking, technical SEO/GEO and AI-assisted catalogue tools. 6+ years of data rigor applied to online stores.">
+  <title>Sandro Marmelo — E-commerce & Digital Operations Specialist</title>
+  <!-- canonical: single line, swap for the custom domain once it's live -->
   <link rel="canonical" href="https://marmelosan.github.io/portfolio/">
+  <link rel="alternate" hreflang="en" href="https://marmelosan.github.io/portfolio/">
+  <link rel="alternate" hreflang="pt-PT" href="https://marmelosan.github.io/portfolio/pt/">
+  <link rel="alternate" hreflang="x-default" href="https://marmelosan.github.io/portfolio/">
 
   <!--
     - social share preview (Open Graph / Twitter Card)
   -->
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://marmelosan.github.io/portfolio/">
-  <meta property="og:title" content="Sandro Marmelo — Data Operations & E-commerce Specialist">
-  <meta property="og:description" content="6+ years in data governance, SEO, CRO and content operations across international markets.">
+  <meta property="og:title" content="Sandro Marmelo — E-commerce & Digital Operations Specialist">
+  <meta property="og:description" content="CRO, landing pages, GA4/GTM tracking, technical SEO/GEO and AI-assisted catalogue tools. 6+ years of data rigor applied to online stores.">
   <meta property="og:image" content="https://marmelosan.github.io/portfolio/assets/images/sandro1.png">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="pt_PT">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Sandro Marmelo — Data Operations & E-commerce Specialist">
-  <meta name="twitter:description" content="6+ years in data governance, SEO, CRO and content operations across international markets.">
+  <meta name="twitter:title" content="Sandro Marmelo — E-commerce & Digital Operations Specialist">
+  <meta name="twitter:description" content="CRO, landing pages, GA4/GTM tracking, technical SEO/GEO and AI-assisted catalogue tools. 6+ years of data rigor applied to online stores.">
   <meta name="twitter:image" content="https://marmelosan.github.io/portfolio/assets/images/sandro1.png">
 
   <!--
@@ -40,10 +69,99 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <script data-goatcounter="https://marmelosan.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <!-- GoatCounter removed: superseded by GTM + GA4 below, no need to run two analytics tools -->
+  <!-- <script data-goatcounter="https://marmelosan.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script> -->
+
+  <!--
+    - structured data (Person)
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sandro Marmelo",
+    "url": "https://marmelosan.github.io/portfolio/",
+    "image": "https://marmelosan.github.io/portfolio/assets/images/sandro1.png",
+    "jobTitle": "E-commerce & Digital Operations Specialist",
+    "description": "CRO, landing pages, GA4/GTM tracking, technical SEO/GEO and AI-assisted catalogue tools. 6+ years of data rigor applied to online stores.",
+    "worksFor": { "@type": "Organization", "name": "Beliani" },
+    "knowsLanguage": ["pt", "en", "es", "fr"]
+  }
+  </script>
+
+  <!--
+    - structured data (ProfilePage)
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "dateModified": "2026-10-26",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Sandro Marmelo",
+      "jobTitle": "E-commerce & Digital Operations Specialist"
+    }
+  }
+  </script>
+
+  <!--
+    - structured data (FAQPage)
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What do you do?",
+        "acceptedAnswer": { "@type": "Answer", "text": "I audit and optimize e-commerce operations: landing pages, CRO, GA4/GTM tracking, technical SEO and AI-assisted catalogue tools. I do this daily in-house and on retainer for smaller stores." }
+      },
+      {
+        "@type": "Question",
+        "name": "Which platforms do you work on?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Shopify and WordPress for my own projects, plus whatever CMS a client already runs — in my day-to-day work that is an in-house CMS for landing pages and product content." }
+      },
+      {
+        "@type": "Question",
+        "name": "How does a catalogue audit work?",
+        "acceptedAnswer": { "@type": "Answer", "text": "I run product data through rule-based checks for missing fields, inconsistent attributes and broken links, then rank issues by commercial impact. My own Catalogue Health Checker tool runs entirely in the browser and has been tested with sample catalogues of up to 20,000 products." }
+      },
+      {
+        "@type": "Question",
+        "name": "What does a landing-page check cover?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Content and translation, metadata, links and UTMs, GTM/GA4 tracking, desktop and mobile rendering, and a live check after publishing — the same checklist I use in my own work." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you work remotely?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Async-first: I communicate in writing, document decisions and join calls when they add more than a message would. All my current client work is already fully remote." }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I hire you?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Use the contact form or email for a free catalogue audit, or download my CV for full-time or contract roles." }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KC25MTC5"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div id="consent-banner" class="consent-banner" hidden>
+    <p class="consent-banner__text">This site uses analytics cookies to understand traffic. Nothing is set until you choose.</p>
+    <div class="consent-banner__actions">
+      <button id="consent-reject" class="consent-banner__btn consent-banner__btn--ghost" type="button">Reject</button>
+      <button id="consent-accept" class="consent-banner__btn consent-banner__btn--primary" type="button">Accept</button>
+    </div>
+  </div>
 
   <!--
     - #MAIN
@@ -67,13 +185,20 @@
         <div class="info-content">
           <h1 class="name" title="Sandro Marmelo">Sandro Marmelo</h1>
 
-          <p class="title">Data Operations and E-commerce Specialist</p>
+          <p class="title">E-commerce & Digital Operations Specialist</p>
+
+          <span class="availability-chip">Open to remote roles in Portugal/EU and selected retainers</span>
 
           <button class="info_more-btn" data-sidebar-btn>
             <span>Show Contacts</span>
 
             <ion-icon name="chevron-down"></ion-icon>
           </button>
+
+          <a href="https://shiny-waterfall-3db4.trapizombashodai.workers.dev/" target="_blank" rel="noopener" class="btn-cta-primary">
+            <ion-icon name="search-outline"></ion-icon>
+            <span>Get a free catalogue audit</span>
+          </a>
 
           <a href="Sandro_Marmelo_resume_eng.pdf" download="Sandro_Marmelo_resume_eng" class="btn-download-cv">
             <ion-icon name="download-outline"></ion-icon>
@@ -141,20 +266,6 @@
           <li class="contact-item">
 
             <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Birthday</p>
-
-              <time datetime="1986-02-20">February 20</time>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
               <ion-icon name="location-outline"></ion-icon>
             </div>
 
@@ -178,11 +289,13 @@
   </a>
 </li>
 
+          <!-- X link removed from positioning review; re-enable if wanted:
           <li class="social-item">
           <a href="https://x.com/Shenmuer1986" class="social-link" target="_blank" rel="noopener noreferrer">
               <ion-icon name="logo-twitter"></ion-icon>
             </a>
           </li>
+          -->
 
         </ul>
 
@@ -248,18 +361,39 @@
 
         <section class="about-text">
 
-<p><strong>I believe that business success hides in the details.</strong></p>
+<p>I started in International Relations, learning to take complex systems apart.</p>
 
-<p><strong>My career rests on a single premise:</strong> complex problems demand precise logic.</p>
+<p>Six years in regulated data quality at <strong>Veeva Systems</strong> (98% accuracy; SOPs that cut recurring errors by 30%) taught me rigor.</p>
 
-<p>I began my path in International Relations, where I learned to deconstruct global systems and geopolitical patterns. I spent the next six years at <strong>Veeva Systems</strong>, where that analytical mindset evolved into technical expertise. As a <strong>Data Governance specialist</strong>, I safeguarded the integrity of mass-scale databases and authored the SOPs that underpinned global operations.</p>
+<p>Today I apply it to <strong>e-commerce</strong>: I create campaigns and landing pages every day, audited 8,000+ products (data discrepancies down 43%), test shops end to end from the customer's side, set up GTM and GA4 tracking, and build my own AI-assisted tools, like the Catalogue Health Checker.</p>
 
-<p>Today, I apply that same rigor to the <strong>e-commerce sector</strong>. I view every online store as a data ecosystem. I audit checkout funnels, isolate points of friction, and implement solutions that drive conversion.</p>
+<p><strong>I don't guess. I audit, test and fix.</strong></p>
 
-<p><strong>I do not guess. I audit. I test. I optimize.</strong></p>
+        </section>
 
-<p>I bridge the gap between creative business strategy and the cold, hard data that dictates <strong>profitability</strong>.</p>
+        <!--
+          - metrics strip
+        -->
 
+        <section class="metrics-strip" aria-label="Key numbers">
+          <ul class="metrics-list">
+            <li class="metric-item">
+              <data class="metric-number" value="8000">8,000+</data>
+              <p class="metric-label">SKUs audited</p>
+            </li>
+            <li class="metric-item">
+              <data class="metric-number" value="-43">−43%</data>
+              <p class="metric-label">data discrepancies</p>
+            </li>
+            <li class="metric-item">
+              <data class="metric-number" value="25000">7K → 25K</data>
+              <p class="metric-label">email list (contributed)</p>
+            </li>
+            <li class="metric-item">
+              <data class="metric-number" value="98">98%</data>
+              <p class="metric-label">data-quality accuracy, 6+ years</p>
+            </li>
+          </ul>
         </section>
 
         <!--
@@ -268,59 +402,111 @@
 
         <section class="service">
 
-          <h3 class="h3 service-title">What i'm doing</h3>
+          <h3 class="h3 service-title">In Practice</h3>
 
           <ul class="service-list">
 
-            <li class="service-item">
-  <div class="service-icon-box">
-    <img src="./assets/images/copywriting.png" alt="data governance icon" width="40">
-  </div>
-  <div class="service-content-box">
-    <h4 class="h4 service-item-title">Data Governance</h4>
-    <p class="service-item-text">
-      Enforcing data integrity through rigorous SOP documentation and quality audits. 
-    </p>
-  </div>
-</li>
+            <li class="service-item case-card">
+              <div class="service-icon-box"><ion-icon name="search-outline"></ion-icon></div>
+              <div class="case-card-body">
+                <h4 class="h4 case-card-title">Catalogue Health Checker</h4>
+                <p class="case-card-hook">Browser-only tool that audits a product catalogue and ranks issues by commercial impact — tested with sample catalogues of up to 20,000 products.</p>
+                <p class="case-card-stack">JavaScript · client-side · no backend</p>
+                <div class="case-card-actions">
+                  <a class="case-card-link" href="https://marmelosan.github.io/CatalogueHealthChecker/" target="_blank" rel="noopener">
+                    <ion-icon name="open-outline"></ion-icon>
+                    <span>Try the tool</span>
+                  </a>
+                  <details class="case-card-more" data-case-id="catalogue-health-checker">
+                    <summary>See the full case</summary>
+                    <p class="case-card-row"><strong>Problem:</strong> e-commerce catalogues quietly accumulate data issues — missing fields, inconsistent attributes, broken links — that cost revenue before anyone notices.</p>
+                    <p class="case-card-row"><strong>What I did:</strong> built a browser-only tool that audits a product catalogue and ranks issues by commercial impact. The file never leaves the user's machine.</p>
+                    <p class="case-card-row"><strong>Result:</strong> tested with sample catalogues of up to 20,000 products.</p>
+                  </details>
+                </div>
+              </div>
+            </li>
 
-<li class="service-item">
-  <div class="service-icon-box">
-    <img src="./assets/images/contentmkt.png" alt="cro icon" width="40">
-  </div>
-  <div class="service-content-box">
-    <h4 class="h4 service-item-title">CRO Strategy</h4>
-    <p class="service-item-text">
-      Auditing checkout funnels to isolate friction points and systematically drive conversion.
-    </p>
-  </div>
-</li>
+            <li class="service-item case-card">
+              <div class="service-icon-box"><ion-icon name="newspaper-outline"></ion-icon></div>
+              <div class="case-card-body">
+                <h4 class="h4 case-card-title">Landing Page Optimization</h4>
+                <p class="case-card-hook">CMS setup, translation review, UTMs and GTM/GA4 tags, desktop and mobile checks — every landing page I publish, end to end.</p>
+                <p class="case-card-stack">CMS · GTM · GA4 · technical SEO</p>
+                <div class="case-card-actions">
+                  <details class="case-card-more" data-case-id="landing-page-optimization">
+                    <summary>See the full case</summary>
+                    <p class="case-card-row"><strong>Problem:</strong> a new landing page needs to rank, convert and track correctly in every market before it goes live.</p>
+                    <p class="case-card-row"><strong>What I did:</strong> configure menu title, HTML, URL alias, title tag, description and keywords in the CMS; review code and translation; check desktop and mobile and test every link; add UTMs and GTM/GA4 tags; publish and verify the live page.</p>
+                    <p class="case-card-row"><strong>Result:</strong> a repeatable publish checklist, applied to every landing page I ship.</p>
+                  </details>
+                </div>
+              </div>
+            </li>
 
-<li class="service-item">
-  <div class="service-icon-box">
-    <img src="./assets/images/emailmkt.png" alt="analytics icon" width="40">
-  </div>
-  <div class="service-content-box">
-    <h4 class="h4 service-item-title">E-commerce Analytics</h4>
-    <p class="service-item-text">
-      Translating raw data into business intelligence to track growth and maximize profitability.
-    </p>
-  </div>
-</li>
+            <li class="service-item case-card">
+              <div class="service-icon-box"><ion-icon name="storefront-outline"></ion-icon></div>
+              <div class="case-card-body">
+                <h4 class="h4 case-card-title">Own Shopify &amp; WordPress Stores</h4>
+                <p class="case-card-hook">Cellphone Store and Bitsnostalgia, built from Figma to live store, with the same GTM/GA4 funnel tracking I set up for clients.</p>
+                <p class="case-card-stack">Shopify · WordPress · Figma · GTM · GA4</p>
+                <div class="case-card-actions">
+                  <details class="case-card-more" data-case-id="own-stores">
+                    <summary>See the full case</summary>
+                    <p class="case-card-row"><strong>Problem:</strong> prove the same build-and-track skillset outside client work, where I control every decision end to end.</p>
+                    <p class="case-card-row"><strong>What I did:</strong> designed and built Cellphone Store (Shopify) and Bitsnostalgia (Shopify/WordPress) from Figma to live store, plus a separate GTM/GA4 funnel-tracking implementation, set up the same way I do it for clients.</p>
+                    <p class="case-card-row"><strong>Result:</strong> both stores and the tracking build are in the Portfolio gallery below, under Own Projects and Tracking &amp; Analytics.</p>
+                  </details>
+                </div>
+              </div>
+            </li>
 
-<li class="service-item">
-  <div class="service-icon-box">
-    <img src="./assets/images/ecommerce.png" alt="seo icon" width="40">
-  </div>
-  <div class="service-content-box">
-    <h4 class="h4 service-item-title">Technical SEO & GEO</h4>
-    <p class="service-item-text">
-      Optimizing search architecture for both human intent and AI-driven engine discovery.
-    </p>
-  </div>
-</li>
+            <li class="service-item case-card">
+              <div class="service-icon-box"><ion-icon name="shield-checkmark-outline"></ion-icon></div>
+              <div class="case-card-body">
+                <h4 class="h4 case-card-title">Multi-Market Shop QA</h4>
+                <p class="case-card-hook">Recurring quality checks across markets and devices — homepage, navigation, content, account flows and checkout — catching breakages before customers do.</p>
+                <p class="case-card-stack">Cross-browser · cross-market · desktop &amp; mobile</p>
+                <div class="case-card-actions">
+                  <details class="case-card-more" data-case-id="shop-qa">
+                    <summary>See the full case</summary>
+                    <p class="case-card-row"><strong>Problem:</strong> a live store breaks in small, easy-to-miss ways — a carousel that stops loading, a filter that drops results, a voucher that silently fails at checkout — and those misses cost sales and trust.</p>
+                    <p class="case-card-row"><strong>What I did:</strong> run structured QA passes across markets and devices: homepage banners and widgets, navigation and search, content pages and product carousels, account and cart flows, and full end-to-end test orders covering active vouchers and multiple payment methods.</p>
+                    <p class="case-card-row"><strong>Result:</strong> issues caught and logged before they reach customers, across every market I cover.</p>
+                  </details>
+                </div>
+              </div>
+            </li>
+
+            <li class="service-item case-card">
+              <div class="service-icon-box"><ion-icon name="document-outline"></ion-icon></div>
+              <div class="case-card-body">
+                <h4 class="h4 case-card-title">Catalogue Cleaner for Shopify</h4>
+                <p class="case-card-hook">Free browser-only tool that turns a messy supplier CSV into a Shopify-ready import — nothing is ever flagged and silently dropped, only flagged for review.</p>
+                <p class="case-card-stack">JavaScript · PapaParse · no backend · MIT licensed</p>
+                <div class="case-card-actions">
+                  <a class="case-card-link" href="https://marmelosan.github.io/portfolio/catalogue-cleaner-shopify/" target="_blank" rel="noopener">
+                    <ion-icon name="open-outline"></ion-icon>
+                    <span>Try the tool</span>
+                  </a>
+                  <details class="case-card-more" data-case-id="catalogue-cleaner-shopify">
+                    <summary>See the full case</summary>
+                    <p class="case-card-row"><strong>Problem:</strong> supplier product feeds rarely match Shopify's import format, and a bad import can silently drop or mis-price products.</p>
+                    <p class="case-card-row"><strong>What I did:</strong> built a free, open-source tool that auto-maps common supplier columns, cleans whitespace and prices, generates valid handles, and flags (never drops) rows missing a title, image or valid price, or sharing a duplicate title or handle.</p>
+                    <p class="case-card-row"><strong>Result:</strong> a sample messy catalogue and its cleaned output are in the tool's repo, alongside the source and an MIT licence.</p>
+                  </details>
+                </div>
+              </div>
+            </li>
 
           </ul>
+
+          <div class="cta-footer-wrap">
+            <a class="btn-cta-primary" href="https://shiny-waterfall-3db4.trapizombashodai.workers.dev/" target="_blank" rel="noopener">
+              <ion-icon name="search-outline"></ion-icon>
+              <span>Get a free catalogue audit</span>
+            </a>
+          </div>
 
         </section>
 
@@ -481,6 +667,40 @@
 
         </section>
 
+        <!--
+          - faq
+        -->
+
+        <section class="faq" aria-label="Frequently asked questions">
+          <h3 class="h3">FAQ</h3>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>What do you do?</summary>
+              <p>I audit and optimize e-commerce operations: landing pages, CRO, GA4/GTM tracking, technical SEO and AI-assisted catalogue tools. I do this daily in-house and on retainer for smaller stores.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Which platforms do you work on?</summary>
+              <p>Shopify and WordPress for my own projects, plus whatever CMS a client already runs — in my day-to-day work that is an in-house CMS for landing pages and product content.</p>
+            </details>
+            <details class="faq-item">
+              <summary>How does a catalogue audit work?</summary>
+              <p>I run product data through rule-based checks for missing fields, inconsistent attributes and broken links, then rank issues by commercial impact. My own Catalogue Health Checker tool runs entirely in the browser and has been tested with sample catalogues of up to 20,000 products.</p>
+            </details>
+            <details class="faq-item">
+              <summary>What does a landing-page check cover?</summary>
+              <p>Content and translation, metadata, links and UTMs, GTM/GA4 tracking, desktop and mobile rendering, and a live check after publishing — the same checklist I use in my own work.</p>
+            </details>
+            <details class="faq-item">
+              <summary>How do you work remotely?</summary>
+              <p>Async-first: I communicate in writing, document decisions and join calls when they add more than a message would. All my current client work is already fully remote.</p>
+            </details>
+            <details class="faq-item">
+              <summary>How can I hire you?</summary>
+              <p>Use the contact form or email for a free catalogue audit, or download my CV for full-time or contract roles.</p>
+            </details>
+          </div>
+        </section>
+
       </article>
 
 
@@ -516,7 +736,35 @@
         <span>2004 — 2009</span>
         <p class="timeline-text">Strong foundation in strategic analysis and global systems.</p>
       </li>
+      <li class="timeline-item">
+        <h4 class="h4 timeline-item-title">Digital Marketing & Strategy, EDIT.</h4>
+        <span>2019 — 200h — 18/20</span>
+      </li>
     </ol>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section class="timeline">
+    <div class="title-wrapper">
+      <div class="icon-box"><ion-icon name="ribbon-outline"></ion-icon></div>
+      <h3 class="h3">Certifications</h3>
+    </div>
+    <ol class="timeline-list">
+      <li class="timeline-item">
+        <h4 class="h4 timeline-item-title">Google Ads — Search, Display, Measurement, AI-Powered Shopping Ads</h4>
+      </li>
+      <li class="timeline-item">
+        <h4 class="h4 timeline-item-title">Lean Six Sigma Green Belt</h4>
+      </li>
+      <li class="timeline-item">
+        <h4 class="h4 timeline-item-title">Alteryx Designer Core</h4>
+      </li>
+      <li class="timeline-item">
+        <h4 class="h4 timeline-item-title">TestGorilla verified: Communication (89th percentile), Time Management (83rd percentile)</h4>
+        <span>Valid to Mar 2027</span>
+      </li>
+    </ol>
+    <p class="timeline-text" style="margin-top: 10px;">Full credentials and badge links are in the Accolades tab.</p>
   </section>
 
  <!-- EXPERIENCE -->
@@ -534,76 +782,39 @@
         <p class="timeline-text">
           <ul>
             <li>Verified 8,000+ SKUs via systematic audits; reduced data discrepancies by 43%.</li>
-            <li>Drove the Portuguese market to a Top 5 Global Revenue position through strategic metadata positioning.</li>
-            <li>Scaled email list from 7K to 25K subscribers through automated lifecycle workflows.</li>
+            <li>Contributed to the Portuguese market reaching a Top 5 Global Revenue position through strategic metadata positioning.</li>
+            <li>Grew the email list from 7K to 25K subscribers by adapting content and validating data; list management and sending are handled by a separate team.</li>
             <li>Ensured strict consistency in terminology, attributes, and metadata across international product listings.</li>
           </ul>
         </p>
       </li>
 
-      <!-- Veeva -->
+      <!-- Background: Veeva + Indeed + Six Sigma, condensed -->
       <li class="timeline-item">
-        <h4 class="h4 timeline-item-title">Quality Reviewer & Compliance Data Analyst | Veeva Systems</h4>
-        <span>Aug 2018 — Nov 2024</span>
-        <p class="timeline-text">
-          <ul>
-            <li>Led a global team of 25+ specialists across EU, LATAM, and EEMEA markets.</li>
-            <li>Conducted large-scale identity, credential, and affiliation verification with 98% accuracy using OSINT techniques.</li>
-            <li>Slashed operational error rates by 40% and boosted accuracy by 30% via process reinforcement.</li>
-            <li>Authored SOPs and QA frameworks that standardized high-volume validation workflows.</li>
-          </ul>
-        </p>
-      </li>
-
-      <!-- Indeed -->
-      <li class="timeline-item">
-        <h4 class="h4 timeline-item-title">Data Scout & Fraud Reviewer | Indeed Inc</h4>
-        <span>Aug 2018 — Jan 2020</span>
-        <p class="timeline-text">
-          <ul>
-            <li>Identified non-compliant entries and fraud indicators with 96% accuracy.</li>
-            <li>Applied structured risk-based assessment frameworks to identify fraudulent activity.</li>
-            <li>Standardized taxonomies; reduced indexing errors by 20% and improved automation reliability.</li>
-          </ul>
-        </p>
+        <h4 class="h4 timeline-item-title">Background: Data Quality, OSINT & Compliance</h4>
+        <span>2016 — 2024</span>
+        <p class="timeline-text">Six years at Veeva Systems as Senior Quality Checker (Aug 2018–Nov 2024), leading a global team of 25 across EU, LATAM and EEMEA with 98% accuracy on identity and credential verification, plus freelance fraud review at Indeed Inc (concurrent, Aug 2018–Jan 2020) and a Lean Six Sigma Green Belt — the rigor behind every audit I run today.</p>
       </li>
 
       <!-- Newgreenfil -->
       <li class="timeline-item">
         <h4 class="h4 timeline-item-title">Digital Support Assistant / E-commerce Infrastructure | Newgreenfil</h4>
         <span>Feb 2020 — Jul 2020</span>
-        <p class="timeline-text">
-          <ul>
-            <li>Built the digital foundation for "Jóias Online" from scratch.</li>
-            <li>Engineered B2B lead generation workflows; delivered a 30% increase in high-value in-office visits.</li>
-            <li>Audited 2,000+ products to ensure technical SEO and data consistency.</li>
-          </ul>
-        </p>
+        <p class="timeline-text">Built the "Jóias Online" digital foundation and audited 2,000+ products for technical SEO and data consistency.</p>
       </li>
 
       <!-- Vdesk -->
       <li class="timeline-item">
         <h4 class="h4 timeline-item-title">Content Moderator / Marketing Assistant | Vdesk</h4>
         <span>Sep 2016 — Aug 2018</span>
-        <p class="timeline-text">
-          <ul>
-            <li>Mitigated high-risk content threats across 5+ global platforms; maintained 90%+ satisfaction rate.</li>
-            <li>Increased web traffic by 70% through data-driven content strategy and performance monitoring.</li>
-            <li>Created helpdesk guides and supported multilingual interaction workflows.</li>
-          </ul>
-        </p>
+        <p class="timeline-text">Moderated content across 5+ global platforms and grew web traffic 70% through data-driven content strategy.</p>
       </li>
 
       <!-- Public Sector -->
       <li class="timeline-item">
         <h4 class="h4 timeline-item-title">Research Analyst & Trainer | Public Sector</h4>
         <span>Jun 2010 — Jul 2016</span>
-        <p class="timeline-text">
-          <ul>
-            <li>Produced high-stakes data analyses and research papers for the Observatory of Trafficking Human Beings (OTSH).</li>
-            <li>Delivered specialized training on THB to public servants, emphasizing procedural and legal frameworks.</li>
-          </ul>
-        </p>
+        <p class="timeline-text">Produced research and delivered training for the Observatory of Trafficking in Human Beings (OTSH).</p>
       </li>
     </ol>
   </section>
@@ -614,76 +825,62 @@
 <section class="skill">
   <h3 class="h3 skills-title">Technical Arsenal</h3>
   <ul class="skills-list content-card">
-    
-    <!-- DATA & ANALYTICS -->
-    <li class="skills-item">
-      <div class="title-wrapper">
-        <h5 class="h5">Excel Mastery (Macros, VBA, Advanced Analytics)</h5>
-        <data value="90">Expert</data>
-      </div>
-      <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 100%;"></div></div>
-    </li>
-    <li class="skills-item">
-      <div class="title-wrapper">
-        <h5 class="h5">Master Data Management & SQL Basics</h5>
-        <data value="85">Advanced</data>
-      </div>
-      <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 85%;"></div></div>
-    </li>
 
-    <!-- INTELLIGENCE & COMPLIANCE -->
     <li class="skills-item">
       <div class="title-wrapper">
-        <h5 class="h5">OSINT & Forensic Data Investigation</h5>
-        <data value="95">Expert</data>
-      </div>
-      <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 95%;"></div></div>
-    </li>
-    <li class="skills-item">
-      <div class="title-wrapper">
-        <h5 class="h5">Metadata Auditing & Fraud Detection</h5>
-        <data value="95">Expert</data>
-      </div>
-      <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 95%;"></div></div>
-    </li>
-
-    <!-- OPERATIONAL EXCELLENCE -->
-    <li class="skills-item">
-      <div class="title-wrapper">
-        <h5 class="h5">Lean Six Sigma (Green Belt) & Process Optimization</h5>
-        <data value="90">Advanced</data>
+        <h5 class="h5">CMS & Landing Pages</h5>
+        <data value="90">Daily use</data>
       </div>
       <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 90%;"></div></div>
     </li>
     <li class="skills-item">
       <div class="title-wrapper">
-        <h5 class="h5">KPI Design & Monitoring</h5>
-        <data value="90">Advanced</data>
+        <h5 class="h5">GA4 & GTM Tracking</h5>
+        <data value="75">Working proficiency</data>
       </div>
-      <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 90%;"></div></div>
+      <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 75%;"></div></div>
     </li>
-
-    <!-- BUSINESS ARCHITECTURE -->
     <li class="skills-item">
       <div class="title-wrapper">
-        <h5 class="h5">CRM Architecture (Salesforce/HubSpot)</h5>
-        <data value="85">Advanced</data>
+        <h5 class="h5">Technical SEO & GEO</h5>
+        <data value="75">Working proficiency</data>
       </div>
-      <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 85%;"></div></div>
+      <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 75%;"></div></div>
+    </li>
+    <li class="skills-item">
+      <div class="title-wrapper">
+        <h5 class="h5">CRO & QA Testing</h5>
+        <data value="80">Working proficiency</data>
+      </div>
+      <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 80%;"></div></div>
+    </li>
+    <li class="skills-item">
+      <div class="title-wrapper">
+        <h5 class="h5">Shopify & WordPress</h5>
+        <data value="70">Working proficiency</data>
+      </div>
+      <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 70%;"></div></div>
+    </li>
+    <li class="skills-item">
+      <div class="title-wrapper">
+        <h5 class="h5">Excel (Macros, VBA, Analytics)</h5>
+        <data value="90">Power user</data>
+      </div>
+      <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 90%;"></div></div>
     </li>
     <li class="skills-item">
       <div class="title-wrapper">
         <h5 class="h5">AI & Prompt Engineering</h5>
-        <data value="85">Advanced</data>
+        <data value="80">Working proficiency</data>
       </div>
-      <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 85%;"></div></div>
+      <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 80%;"></div></div>
     </li>
     <li class="skills-item">
       <div class="title-wrapper">
-        <h5 class="h5">Multilingual Translation (PT, ES, ENG, FR)</h5>
-        <data value="95">Native/Fluent</data>
+        <h5 class="h5">Data Governance (SOPs, QA frameworks, SQL basics)</h5>
+        <data value="90">6+ years</data>
       </div>
-      <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 95%;"></div></div>
+      <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 90%;"></div></div>
     </li>
   </ul>
 </section>
@@ -702,11 +899,12 @@
 
   <section class="projects">
     <ul class="filter-list">
-      <li class="filter-item"><button class="active" data-filter-btn data-filter="All">All</button></li>
-      <li class="filter-item"><button data-filter-btn data-filter="branding">Branding</button></li>
-      <li class="filter-item"><button data-filter-btn data-filter="e-commerce">E-commerce</button></li>
-      <li class="filter-item"><button data-filter-btn data-filter="data-operations">Automation and ai tools</button></li>
-      <li class="filter-item"><button data-filter-btn data-filter="AI/Gpt's">Own projects</button></li>
+      <li class="filter-item"><button class="active" data-filter-btn>All</button></li>
+      <li class="filter-item"><button data-filter-btn>E-commerce &amp; CRO</button></li>
+      <li class="filter-item"><button data-filter-btn>Tracking &amp; Analytics</button></li>
+      <li class="filter-item"><button data-filter-btn>AI tools</button></li>
+      <li class="filter-item"><button data-filter-btn>Content &amp; Brand</button></li>
+      <li class="filter-item"><button data-filter-btn>Own projects</button></li>
 
     </ul>
 
@@ -717,9 +915,10 @@
       </button>
       <ul class="select-list">
         <li class="select-item"><button data-select-item>All</button></li>
-        <li class="select-item"><button data-select-item>Branding</button></li>
-        <li class="select-item"><button data-select-item>E-commerce</button></li>
-        <li class="select-item"><button data-select-item>Automation and ai tools</button></li>
+        <li class="select-item"><button data-select-item>E-commerce &amp; CRO</button></li>
+        <li class="select-item"><button data-select-item>Tracking &amp; Analytics</button></li>
+        <li class="select-item"><button data-select-item>AI tools</button></li>
+        <li class="select-item"><button data-select-item>Content &amp; Brand</button></li>
 	<li class="select-item"><button data-select-item>Own projects</button></li>
 
       </ul>
@@ -735,25 +934,31 @@
     </div>
   </div>
 
-  <div class="project-blurb" data-blurb-item data-category="branding">
+  <div class="project-blurb" data-blurb-item data-category="e-commerce & cro">
+    <div class="blurb-content">
+      <p>Commerce experiences built for impact — CRO, checkout audits, and conversion systems where every pixel earns its keep.</p>
+    </div>
+  </div>
+
+  <div class="project-blurb" data-blurb-item data-category="tracking & analytics">
+    <div class="blurb-content">
+      <p>GTM and GA4 implementations that turn funnel behavior into decisions — tracking built to be trusted, not just installed.</p>
+    </div>
+  </div>
+
+  <div class="project-blurb" data-blurb-item data-category="ai tools">
+    <div class="blurb-content">
+      <p>AI‑powered tools and automations that accelerate workflows, boost personalization, and unlock creative and commercial potential.</p>
+    </div>
+  </div>
+
+  <div class="project-blurb" data-blurb-item data-category="content & brand">
     <div class="blurb-content">
       <p>Identity‑driven work and campaign copywriting — from logo and tone of voice to headlines and localization, built to elevate perception and convert.</p>
     </div>
   </div>
 
-  <div class="project-blurb" data-blurb-item data-category="e-commerce">
-    <div class="blurb-content">
-      <p>Commerce experiences built for impact — from UX to conversion optimization, every pixel earns its keep.</p>
-    </div>
-  </div>
-
-  <div class="project-blurb" data-blurb-item data-category="Automation and ai tools">
-    <div class="blurb-content">
-      <p>AI‑powered tools that accelerate workflows, boost personalization, and unlock creative and commercial potential.</p>
-    </div>
-  </div>
-
-  <div class="project-blurb" data-blurb-item data-category="Own projects">
+  <div class="project-blurb" data-blurb-item data-category="own projects">
     <div class="blurb-content">
       <p>Personally crafted interfaces and websites—where I explore UX, layout systems, and creative interaction ideas beyond client briefs.</p>
     </div>
@@ -962,6 +1167,16 @@
 
     </form>
   </section>
+
+  <div class="cta-footer-wrap">
+    <a class="btn-cta-primary" href="https://shiny-waterfall-3db4.trapizombashodai.workers.dev/" target="_blank" rel="noopener">
+      <ion-icon name="search-outline"></ion-icon>
+      <span>Get a free catalogue audit</span>
+    </a>
+  </div>
+
+  <p class="last-updated">Last updated: October 2026</p>
+  <p class="last-updated">Built with Google Tag Manager + GA4, Consent Mode v2 (no analytics cookies before you accept the banner), and static HTML/CSS/JS — no framework, no backend.</p>
 
 </article>
 

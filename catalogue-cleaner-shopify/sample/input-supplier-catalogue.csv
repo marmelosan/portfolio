@@ -1,0 +1,6 @@
+product name,price,stock,image,sku
+  Oak Dining Chair  ,129.90,15,https://example.com/img/chair.jpg,CH-001
+Velvet Sofa 3-Seater,1299.00,4,https://example.com/img/sofa.jpg,SF-014
+Velvet Sofa 3-Seater,1299.00,0,https://example.com/img/sofa2.jpg,SF-014B
+Glass Coffee Table,,8,https://example.com/img/table.jpg,TB-220
+Bedside Lamp,45.50,22,,LP-009

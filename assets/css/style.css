@@ -265,6 +265,44 @@ article.active {
   z-index: 1;
 }
 
+.metrics-strip { margin: 20px 0 25px; }
+
+.metrics-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.metric-item {
+  background: var(--bg-gradient-jet);
+  border: 1px solid hsla(0, 0%, 100%, 0.07);
+  border-radius: 14px;
+  padding: 15px 10px;
+  text-align: center;
+}
+
+.metric-number {
+  display: block;
+  font-family: var(--ff-mono);
+  font-size: 20px;
+  font-weight: var(--fw-600);
+  background: var(--text-gradient-yellow);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.metric-label {
+  margin-top: 4px;
+  font-size: var(--fs-8);
+  color: var(--light-gray-70);
+}
+
+@media (min-width: 580px) {
+  .metrics-list { grid-template-columns: repeat(4, 1fr); }
+  .metric-number { font-size: 24px; }
+}
+
 .content-card::before {
   content: "";
   position: absolute;
@@ -313,6 +351,21 @@ main {
   gap: 15px;
 }
 
+.info-content {
+  /* flex items default to min-width:auto, which lets long content
+     (the title, the new CTA/chip) force this item wider than the
+     sidebar and get clipped by its overflow:hidden; this lets it
+     shrink to the available column instead */
+  min-width: 0;
+  /* .sidebar-info is a column flex with align-items:center, so
+     without an explicit width this shrink-wraps to its widest
+     max-content child (the title) instead of respecting the
+     sidebar's actual width — same overflow, just at a wider
+     breakpoint. Stretching it to the full column lets max-width:100%
+     on children below actually mean something. */
+  width: 100%;
+}
+
 .avatar-box {
   background: var(--bg-gradient-onyx);
   border-radius: 20px;
@@ -332,6 +385,7 @@ main {
   font-size: var(--fs-8);
   font-weight: var(--fw-300);
   width: max-content;
+  max-width: 100%;
   padding: 3px 12px;
   border-radius: 8px;
 }
@@ -536,6 +590,92 @@ main {
   font-weight: var(--fw-3);
   line-height: 1.6;
 }
+
+.case-card { text-align: left; }
+
+/* when the case cards grid is 2-up (see the 1024px breakpoint) and the
+   count is odd, let the last card span both columns instead of sitting
+   alone next to empty space */
+.service-list > .case-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+
+/* at the breakpoint where .service-item becomes a row flexbox (icon +
+   one content child), case cards must keep exactly that two-child
+   shape (icon-box, then this single wrapper) or every row/link below
+   gets flexed into its own narrow column instead of stacking */
+.case-card-body { flex: 1; min-width: 0; }
+
+.case-card-title { font-size: var(--fs-4); margin-bottom: 12px; }
+
+.case-card-row {
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.case-card-row strong { color: var(--white-2); }
+
+.case-card-stack {
+  margin: 10px 0 14px;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-8);
+  color: var(--light-gray-70);
+}
+
+.case-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--orange-yellow-crayola);
+  font-size: var(--fs-7);
+  font-weight: var(--fw-500);
+  text-decoration: none;
+}
+
+.case-card-link:hover { text-decoration: underline; }
+
+.case-card-link ion-icon { font-size: 14px; }
+
+.case-card-hook {
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.case-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 16px;
+  row-gap: 8px;
+  margin-top: 4px;
+}
+
+.case-card-more {
+  flex-basis: 100%;
+}
+
+.case-card-more summary {
+  cursor: pointer;
+  color: var(--light-gray-70);
+  font-size: var(--fs-7);
+  list-style: none;
+}
+
+.case-card-more summary::-webkit-details-marker { display: none; }
+
+.case-card-more summary::before {
+  content: "+";
+  display: inline-block;
+  width: 14px;
+  color: var(--orange-yellow-crayola);
+  font-weight: var(--fw-600);
+}
+
+.case-card-more[open] summary::before { content: "−"; }
+
+.case-card-more .case-card-row { margin-top: 10px; }
 
 
 /**
@@ -2898,6 +3038,204 @@ html {
 
 .btn-download-cv:hover::before {
   background: var(--bg-gradient-yellow-2);
+}
+
+.btn-cta-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 10px;
+  padding: 11px 16px;
+  background: var(--text-gradient-yellow);
+  color: var(--smoky-black);
+  text-decoration: none;
+  font-size: var(--fs-7);
+  font-weight: var(--fw-600);
+  border-radius: 14px;
+  box-shadow: var(--shadow-3);
+  transition: var(--transition-1);
+}
+
+.btn-cta-primary ion-icon { font-size: 16px; }
+
+.btn-cta-primary:hover { filter: brightness(1.08); }
+
+.availability-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 5px 12px;
+  font-size: var(--fs-8);
+  color: var(--sage-soft);
+  background: hsla(150, 28%, 52%, 0.12);
+  border: 1px solid hsla(150, 28%, 52%, 0.35);
+  border-radius: 20px;
+}
+
+.availability-chip::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--sage);
+}
+
+/* In the sidebar, the chip and primary CTA sit in the same collapsed
+   112px box as name/title (see .sidebar.active above) — below 1250px
+   they'd otherwise get clipped mid-line, so hide them until expanded. */
+.sidebar .availability-chip,
+.sidebar .btn-cta-primary {
+  display: none;
+}
+
+.sidebar.active .availability-chip,
+.sidebar.active .btn-cta-primary {
+  display: inline-flex;
+}
+
+@media (min-width: 1250px) {
+  .sidebar .availability-chip,
+  .sidebar .btn-cta-primary {
+    display: inline-flex;
+  }
+}
+
+.faq-list { margin-top: 15px; display: flex; flex-direction: column; gap: 10px; }
+
+.faq-item {
+  background: var(--eerie-black-2);
+  border: 1px solid hsla(0, 0%, 100%, 0.07);
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  font-weight: var(--fw-500);
+  color: var(--white-2);
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-item summary::before {
+  content: "+";
+  display: inline-block;
+  width: 16px;
+  color: var(--orange-yellow-crayola);
+  font-weight: var(--fw-600);
+}
+
+.faq-item[open] summary::before { content: "−"; }
+
+.faq-item p {
+  margin-top: 10px;
+  color: var(--light-gray-70);
+  font-size: var(--fs-6);
+  line-height: 1.6;
+}
+
+.checklist-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 15px;
+  padding: 10px 16px;
+  background: var(--bg-gradient-jet);
+  border: 1px solid hsla(0, 0%, 100%, 0.1);
+  border-radius: 14px;
+  color: var(--orange-yellow-crayola);
+  text-decoration: none;
+  font-size: var(--fs-7);
+  font-weight: var(--fw-500);
+  transition: var(--transition-1);
+}
+
+.checklist-cta:hover { background: var(--bg-gradient-onyx); }
+
+.checklist-cta ion-icon { font-size: 16px; }
+
+.consent-banner {
+  /* top, not bottom: the site's mobile nav is a fixed bottom bar
+     (z-index: 5); anchoring the banner there too would sit on top of
+     it and block its clicks at every breakpoint that uses it. */
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 20px;
+  background: var(--smoky-black);
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
+  box-shadow: var(--shadow-4);
+}
+
+.consent-banner[hidden] { display: none; }
+
+.consent-banner__text {
+  flex: 1 1 260px;
+  margin: 0;
+  color: var(--light-gray);
+  font-size: var(--fs-7);
+  line-height: 1.5;
+}
+
+.consent-banner__actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.consent-banner__btn {
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: none;
+  font-size: var(--fs-7);
+  font-weight: var(--fw-500);
+  cursor: pointer;
+  transition: var(--transition-1);
+}
+
+.consent-banner__btn--ghost {
+  background: transparent;
+  color: var(--light-gray);
+  border: 1px solid hsla(0, 0%, 100%, 0.2);
+}
+
+.consent-banner__btn--ghost:hover { background: hsla(0, 0%, 100%, 0.06); }
+
+.consent-banner__btn--primary {
+  background: var(--text-gradient-yellow);
+  color: var(--smoky-black);
+}
+
+.consent-banner__btn--primary:hover { filter: brightness(1.08); }
+
+.last-updated {
+  margin-top: 20px;
+  font-size: var(--fs-8);
+  color: var(--light-gray-70);
+  text-align: center;
+}
+
+.cta-footer-wrap {
+  text-align: center;
+}
+
+.cta-footer-wrap .btn-cta-primary {
+  max-width: 320px;
+  width: auto;
+  margin: 10px auto 0;
 }
 
 /* === LANGUAGE SWITCHER === */

@@ -16,6 +16,81 @@ function init(savedFilter) {
   setupContactForm();
   setupNavigation();
   setupProjectModal();    // 2) modal único + carrossel para os projetos
+  setupAnalyticsEvents();
+  setupConsentBanner();
+}
+
+/* === ANALYTICS EVENTS (pushed to the GTM dataLayer; actual GA4 tags/
+   triggers for these are configured in the GTM workspace, not here) === */
+function setupAnalyticsEvents() {
+  window.dataLayer = window.dataLayer || [];
+
+  const cvBtn = document.querySelector('.btn-download-cv');
+  if (cvBtn) {
+    cvBtn.addEventListener('click', () => {
+      window.dataLayer.push({ event: 'cv_download' });
+    });
+  }
+
+  document.querySelectorAll('.case-card-more').forEach(details => {
+    details.addEventListener('toggle', () => {
+      if (!details.open) return;
+      // a stable, language-neutral id (not the visible title, which
+      // differs EN/PT and would otherwise split one card's opens into
+      // two separate values in GA4)
+      const caseId = details.dataset.caseId || '';
+      window.dataLayer.push({ event: 'case_card_open', case_card_id: caseId });
+    });
+  });
+
+  document.querySelectorAll('a[href*="CatalogueHealthChecker"]').forEach(link => {
+    link.addEventListener('click', () => {
+      window.dataLayer.push({ event: 'health_checker_click' });
+    });
+  });
+}
+
+/* === CONSENT MODE v2 + COOKIE BANNER ===
+   Default is "denied" (set inline in <head>, before GTM loads). This
+   only ever moves it to "granted"; it never re-reads a denied choice
+   back to granted on its own. */
+function setupConsentBanner() {
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { window.dataLayer.push(arguments); }
+
+  const banner = document.getElementById('consent-banner');
+  if (!banner) return;
+
+  const stored = localStorage.getItem('cookieConsent');
+
+  if (stored === 'granted') {
+    gtag('consent', 'update', {
+      ad_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted',
+      analytics_storage: 'granted'
+    });
+    return;
+  }
+  if (stored === 'denied') return;
+
+  banner.hidden = false;
+
+  document.getElementById('consent-accept').addEventListener('click', () => {
+    gtag('consent', 'update', {
+      ad_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted',
+      analytics_storage: 'granted'
+    });
+    localStorage.setItem('cookieConsent', 'granted');
+    banner.hidden = true;
+  });
+
+  document.getElementById('consent-reject').addEventListener('click', () => {
+    localStorage.setItem('cookieConsent', 'denied');
+    banner.hidden = true;
+  });
 }
 
 /* === TOGGLE FUNCTION === */
@@ -71,7 +146,7 @@ const projects = [
   {
     slug: 'beliani-brand-films',
     title: 'Beliani – Localização de Vídeo de Marca',
-    category: 'branding',
+    category: 'content & brand',
     blurb: 'Localização em PT do conteúdo de vídeo de marca da Beliani — adaptando o tom, os dados e a ressonância emocional para o mercado português.',
     slides: [
       {
@@ -91,7 +166,7 @@ const projects = [
   {
     slug: 'vans-branding-course-clip',
     title: 'Vans – Clip de Curso de Branding',
-    category: 'branding',
+    category: 'content & brand',
     blurb: 'Guionismo, narração e interpretação de um vídeo de branding para um curso de Marketing Digital — storytelling de marca do conceito à entrega.',
     slides: [{
       type: 'youtube',
@@ -103,7 +178,7 @@ const projects = [
   {
     slug: 'bitsnostalgia-logo',
     title: 'Logótipo Bitsnostalgia',
-    category: 'branding',
+    category: 'content & brand',
     blurb: 'Identidade de marca para o meu próprio projeto de retrogaming — logótipo, paleta, tom de voz e diretrizes construídas do zero.',
     slides: [{
       type: 'image',
@@ -115,7 +190,7 @@ const projects = [
   {
     slug: 'beliani-campaign-copywriting',
     title: 'Beliani – Copywriting & Localização de Campanhas',
-    category: 'branding',
+    category: 'content & brand',
     blurb: 'Copywriting e localização em PT em 9 campanhas da Beliani (vídeo + anúncios estáticos) — tom, urgência e clareza de CTA ajustados para conversão.',
     slides: [
       {
@@ -180,7 +255,7 @@ const projects = [
   {
     slug: 'joiasonline-conversion-suite',
     title: 'JóiasOnline – Suite de Conversão',
-    category: 'e-commerce',
+    category: 'e-commerce & cro',
     blurb: 'Copy de conversão de ponta a ponta para uma joalharia premium — hero, navegação, ficha de produto e sinais de confiança no checkout.',
     slides: [
       {
@@ -208,7 +283,7 @@ const projects = [
   {
     slug: 'newgreenfil-investment-funnel',
     title: 'Newgreenfil – Funil de Investimento',
-    category: 'e-commerce',
+    category: 'e-commerce & cro',
     blurb: 'Copy de funil completo para uma plataforma de investimento em ouro — hero, captação de leads e rodapé legal/de confiança construídos para conversões de alto valor.',
     slides: [
       {
@@ -231,7 +306,7 @@ const projects = [
   {
     slug: 'beliani-ecommerce-suite',
     title: 'Beliani – Localização de E-commerce',
-    category: 'e-commerce',
+    category: 'e-commerce & cro',
     blurb: 'Localização em PT em toda a loja online da Beliani — banner da homepage, listagens de produtos e email sazonal, mantendo a consistência de marca e o foco na conversão.',
     slides: [
       {
@@ -270,7 +345,7 @@ const projects = [
   {
     slug: 'checkout-funnel-cro',
     title: 'Funil de Checkout E-commerce — CRO & Arquitetura de Sistemas',
-    category: 'automation and ai tools',
+    category: 'e-commerce & cro',
     blurb: 'Mapeamento do funil de checkout completo, de ponta a ponta: lógica de decisão de conversão (exit-intent, pontos de fricção, risco de abandono) mais os sistemas técnicos por trás (APIs, webhooks, atribuição).',
     slides: [
       {
@@ -289,7 +364,7 @@ const projects = [
   {
     slug: 'gtm-ga4-funnel-tracking',
     title: 'Tracking de Funil E-commerce — Implementação GTM & GA4',
-    category: 'automation and ai tools',
+    category: 'tracking & analytics',
     blurb: 'Tracking de eventos de funil completo em Google Tag Manager e GA4 — da entrada na loja até à compra — mais Meta Pixel, validado em modo de pré-visualização antes de publicar.',
     slides: [
       {
@@ -368,7 +443,7 @@ const projects = [
   {
     slug: 'data-governance-lifecycle-logic',
     title: 'Lógica de Ciclo de Vida & Arquivo de Contas',
-    category: 'automation and ai tools',
+    category: 'ai tools',
     blurb: 'Uma árvore de decisão de governação para o estado de contas/perfis: validação de funções, auditorias de ligações entre entidades e regras de arquivo — construída para manter cada caso limite auditável.',
     slides: [{
       type: 'diagram',
@@ -458,7 +533,7 @@ const projects = [
   {
     slug: 'resume-dojo-sensei',
     title: 'Resume Dojo Sensei',
-    category: 'automation and ai tools',
+    category: 'ai tools',
     blurb: 'GPT personalizado construído para ajudar candidatos a superar a filtragem de ATS e o enviesamento humano — desde a correspondência de palavras-chave ao coaching de mentalidade.',
     slides: [{
       type: 'image',
@@ -469,7 +544,7 @@ const projects = [
   {
     slug: 'career-comeback-dojo',
     title: 'Career Comeback Dojo',
-    category: 'automation and ai tools',
+    category: 'ai tools',
     blurb: 'Ferramenta de carreira assistida por IA que otimiza currículos tanto para sistemas ATS como para leitores humanos — clareza e impacto, ajustados para ambos os públicos.',
     slides: [{
       type: 'image',
@@ -480,7 +555,7 @@ const projects = [
   {
     slug: 'makeit-automation',
     title: 'Automação de Marketing com Make',
-    category: 'automation and ai tools',
+    category: 'ai tools',
     blurb: 'Automação no-code (Make.com → Brevo) que liga um formulário web diretamente a uma lista de email — captação instantânea de leads, zero introdução manual.',
     slides: [{
       type: 'image',
@@ -491,7 +566,7 @@ const projects = [
   {
     slug: 'email-lifecycle-automation',
     title: 'Lógica de Ciclo de Vida & Segmentação de Email',
-    category: 'automation and ai tools',
+    category: 'ai tools',
     blurb: 'Lógica de ciclo de vida de subscritores, desde o opt-in até à segmentação e higiene da lista — concebida para proteger a entregabilidade e maximizar o envolvimento.',
     slides: [{
       type: 'diagram',
@@ -647,6 +722,8 @@ function setupContactForm() {
         status.textContent = "Mensagem enviada — entrarei em contacto brevemente.";
         status.style.color = '#4CAF50';
         form.reset();
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'contact_submit' });
       } else {
         throw new Error('Request failed');
       }

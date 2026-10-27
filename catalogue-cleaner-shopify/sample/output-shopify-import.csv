@@ -1,0 +1,6 @@
+Handle,Title,Body (HTML),Vendor,Type,Tags,Published,Option1 Name,Option1 Value,Variant SKU,Variant Price,Variant Inventory Tracker,Variant Inventory Qty,Variant Inventory Policy,Image Src,Needs Review,Review Notes
+oak-dining-chair,Oak Dining Chair,,,,,TRUE,Title,Default Title,CH-001,129.90,shopify,15,deny,https://example.com/img/chair.jpg,FALSE,
+velvet-sofa-3-seater,Velvet Sofa 3-Seater,,,,,TRUE,Title,Default Title,SF-014,1299.00,shopify,4,deny,https://example.com/img/sofa.jpg,TRUE,Title is used by more than one row
+velvet-sofa-3-seater-2,Velvet Sofa 3-Seater,,,,,TRUE,Title,Default Title,SF-014B,1299.00,shopify,0,deny,https://example.com/img/sofa2.jpg,TRUE,Title is used by more than one row
+glass-coffee-table,Glass Coffee Table,,,,,TRUE,Title,Default Title,TB-220,,shopify,8,deny,https://example.com/img/table.jpg,TRUE,Price could not be read as a valid number
+bedside-lamp,Bedside Lamp,,,,,TRUE,Title,Default Title,LP-009,45.50,shopify,22,deny,,TRUE,Image is missing

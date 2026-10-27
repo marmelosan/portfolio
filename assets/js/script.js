@@ -16,6 +16,81 @@ function init(savedFilter) {
   setupContactForm();
   setupNavigation();
   setupProjectModal();    // 2) modal único + carrossel para os projetos
+  setupAnalyticsEvents();
+  setupConsentBanner();
+}
+
+/* === ANALYTICS EVENTS (pushed to the GTM dataLayer; actual GA4 tags/
+   triggers for these are configured in the GTM workspace, not here) === */
+function setupAnalyticsEvents() {
+  window.dataLayer = window.dataLayer || [];
+
+  const cvBtn = document.querySelector('.btn-download-cv');
+  if (cvBtn) {
+    cvBtn.addEventListener('click', () => {
+      window.dataLayer.push({ event: 'cv_download' });
+    });
+  }
+
+  document.querySelectorAll('.case-card-more').forEach(details => {
+    details.addEventListener('toggle', () => {
+      if (!details.open) return;
+      // a stable, language-neutral id (not the visible title, which
+      // differs EN/PT and would otherwise split one card's opens into
+      // two separate values in GA4)
+      const caseId = details.dataset.caseId || '';
+      window.dataLayer.push({ event: 'case_card_open', case_card_id: caseId });
+    });
+  });
+
+  document.querySelectorAll('a[href*="CatalogueHealthChecker"]').forEach(link => {
+    link.addEventListener('click', () => {
+      window.dataLayer.push({ event: 'health_checker_click' });
+    });
+  });
+}
+
+/* === CONSENT MODE v2 + COOKIE BANNER ===
+   Default is "denied" (set inline in <head>, before GTM loads). This
+   only ever moves it to "granted"; it never re-reads a denied choice
+   back to granted on its own. */
+function setupConsentBanner() {
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { window.dataLayer.push(arguments); }
+
+  const banner = document.getElementById('consent-banner');
+  if (!banner) return;
+
+  const stored = localStorage.getItem('cookieConsent');
+
+  if (stored === 'granted') {
+    gtag('consent', 'update', {
+      ad_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted',
+      analytics_storage: 'granted'
+    });
+    return;
+  }
+  if (stored === 'denied') return;
+
+  banner.hidden = false;
+
+  document.getElementById('consent-accept').addEventListener('click', () => {
+    gtag('consent', 'update', {
+      ad_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted',
+      analytics_storage: 'granted'
+    });
+    localStorage.setItem('cookieConsent', 'granted');
+    banner.hidden = true;
+  });
+
+  document.getElementById('consent-reject').addEventListener('click', () => {
+    localStorage.setItem('cookieConsent', 'denied');
+    banner.hidden = true;
+  });
 }
 
 /* === TOGGLE FUNCTION === */
@@ -71,7 +146,7 @@ const projects = [
   {
     slug: 'beliani-brand-films',
     title: 'Beliani – Brand Video Localization',
-    category: 'branding',
+    category: 'content & brand',
     blurb: 'PT localization of Beliani\'s brand video content — adapting tone, data points, and emotional resonance for the Portuguese market.',
     slides: [
       {
@@ -91,7 +166,7 @@ const projects = [
   {
     slug: 'vans-branding-course-clip',
     title: 'Vans – Branding Course Clip',
-    category: 'branding',
+    category: 'content & brand',
     blurb: 'Scripted, voiced, and performed a branding video for a Digital Marketing course — brand storytelling from concept to delivery.',
     slides: [{
       type: 'youtube',
@@ -103,7 +178,7 @@ const projects = [
   {
     slug: 'bitsnostalgia-logo',
     title: 'Bitsnostalgia Logo',
-    category: 'branding',
+    category: 'content & brand',
     blurb: 'Brand identity for my own retro-gaming label — logo, palette, tone of voice, and guidelines built from scratch.',
     slides: [{
       type: 'image',
@@ -115,7 +190,7 @@ const projects = [
   {
     slug: 'beliani-campaign-copywriting',
     title: 'Beliani – Campaign Copywriting & Localization',
-    category: 'branding',
+    category: 'content & brand',
     blurb: 'PT copywriting and localization across 9 Beliani campaigns (video + static ads) — tone, urgency, and CTA clarity tuned for conversion.',
     slides: [
       {
@@ -180,7 +255,7 @@ const projects = [
   {
     slug: 'joiasonline-conversion-suite',
     title: 'JóiasOnline – Conversion Suite',
-    category: 'e-commerce',
+    category: 'e-commerce & cro',
     blurb: 'End-to-end conversion copy for a premium jewelry store — hero, browsing, product detail, and checkout trust signals.',
     slides: [
       {
@@ -208,7 +283,7 @@ const projects = [
   {
     slug: 'newgreenfil-investment-funnel',
     title: 'Newgreenfil – Investment Funnel',
-    category: 'e-commerce',
+    category: 'e-commerce & cro',
     blurb: 'Full-funnel copy for a gold-investment platform — hero, lead capture, and legal/trust footer built for high-value conversions.',
     slides: [
       {
@@ -231,7 +306,7 @@ const projects = [
   {
     slug: 'beliani-ecommerce-suite',
     title: 'Beliani – E-commerce Localization',
-    category: 'e-commerce',
+    category: 'e-commerce & cro',
     blurb: 'PT localization across the Beliani storefront — homepage banner, product listings, and seasonal email, kept on-brand and conversion-ready.',
     slides: [
       {
@@ -270,7 +345,7 @@ const projects = [
   {
     slug: 'checkout-funnel-cro',
     title: 'E-commerce Checkout Funnel — CRO & Systems Architecture',
-    category: 'automation and ai tools',
+    category: 'e-commerce & cro',
     blurb: 'Mapped the full checkout funnel end-to-end: conversion decision logic (exit-intent, friction points, drop-off risk) plus the technical systems behind it (APIs, webhooks, attribution).',
     slides: [
       {
@@ -289,7 +364,7 @@ const projects = [
   {
     slug: 'gtm-ga4-funnel-tracking',
     title: 'E-commerce Funnel Tracking — GTM & GA4 Implementation',
-    category: 'automation and ai tools',
+    category: 'tracking & analytics',
     blurb: 'Full-funnel event tracking built in Google Tag Manager and GA4 — from store entry to purchase — plus Meta Pixel, validated in preview mode before publishing.',
     slides: [
       {
@@ -368,7 +443,7 @@ const projects = [
   {
     slug: 'data-governance-lifecycle-logic',
     title: 'Account Lifecycle & Archiving Logic',
-    category: 'automation and ai tools',
+    category: 'ai tools',
     blurb: 'A governance decision tree for account/profile status: role validation, cross-entity link audits, and archiving rules — built to keep every edge case auditable.',
     slides: [{
       type: 'diagram',
@@ -458,7 +533,7 @@ const projects = [
   {
     slug: 'resume-dojo-sensei',
     title: 'Resume Dojo Sensei',
-    category: 'automation and ai tools',
+    category: 'ai tools',
     blurb: 'Custom GPT built to help job seekers beat ATS filtering and human bias — from keyword matching to mindset coaching.',
     slides: [{
       type: 'image',
@@ -469,7 +544,7 @@ const projects = [
   {
     slug: 'career-comeback-dojo',
     title: 'Career Comeback Dojo',
-    category: 'automation and ai tools',
+    category: 'ai tools',
     blurb: 'AI-assisted career tool that optimizes resumes for both ATS systems and human readers — clarity and impact, tuned for both audiences.',
     slides: [{
       type: 'image',
@@ -480,7 +555,7 @@ const projects = [
   {
     slug: 'makeit-automation',
     title: 'Marketing Automation with Make',
-    category: 'automation and ai tools',
+    category: 'ai tools',
     blurb: 'No-code automation (Make.com → Brevo) connecting a web form directly to a mailing list — instant lead capture, zero manual entry.',
     slides: [{
       type: 'image',
@@ -491,7 +566,7 @@ const projects = [
   {
     slug: 'email-lifecycle-automation',
     title: 'Email Lifecycle & Segmentation Logic',
-    category: 'automation and ai tools',
+    category: 'ai tools',
     blurb: 'Subscriber lifecycle logic from opt-in to segmentation to list hygiene — designed to protect deliverability while maximizing engagement.',
     slides: [{
       type: 'diagram',
@@ -647,6 +722,8 @@ function setupContactForm() {
         status.textContent = "Message sent — I'll get back to you soon.";
         status.style.color = '#4CAF50';
         form.reset();
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'contact_submit' });
       } else {
         throw new Error('Request failed');
       }

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalogue Cleaner for Shopify</title>
+  <meta name="description" content="Upload a supplier product CSV and download it cleaned and ready to import into Shopify. Runs entirely in your browser — nothing is uploaded.">
+  <link rel="stylesheet" href="./css/app.css">
+</head>
+<body>
+
+  <div class="privacy-banner">
+    <svg class="privacy-banner__icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <rect x="4" y="11" width="16" height="9" rx="2"></rect>
+      <path d="M8 11V7a4 4 0 0 1 8 0v4"></path>
+    </svg>
+    <span>Everything happens on your computer. Your file is never uploaded, stored, or sent anywhere.</span>
+  </div>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <span class="site-header__title">Catalogue Cleaner for Shopify</span>
+      <span class="site-header__subtitle">A free tool by Sandro Marmelo</span>
+    </div>
+  </header>
+
+  <main class="page">
+
+    <!-- STEP 1: intro + upload -->
+    <section id="step-upload" class="step">
+      <div class="intro">
+        <h1>Turn a messy supplier CSV into a ready-to-import Shopify file</h1>
+        <p class="intro__lead">
+          Upload the product list your supplier sent you and get back a cleaned CSV in Shopify's
+          import format — whitespace stripped, prices normalised, valid handles generated, and
+          anything that needs a second look clearly flagged, never silently dropped.
+        </p>
+        <ul class="intro__points">
+          <li>Free, no sign-up, no account, no limit on file size</li>
+          <li>Built for Shopify's product import format</li>
+          <li>Nothing leaves your browser — no upload, no tracking</li>
+        </ul>
+      </div>
+
+      <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Upload CSV file">
+        <input type="file" id="file-input" accept=".csv,text/csv" hidden>
+        <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M12 16V4M12 4l-4 4M12 4l4 4"></path>
+          <path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"></path>
+        </svg>
+        <p class="dropzone__title">Drag and drop your supplier CSV here</p>
+        <p class="dropzone__sub">or click to browse — .csv files only</p>
+      </div>
+
+      <div id="upload-error" class="alert alert--error" hidden></div>
+    </section>
+
+    <!-- STEP 2: column mapping -->
+    <section id="step-mapping" class="step" hidden>
+      <h2>Map your columns</h2>
+      <p class="step__lead">We've matched what we could recognise automatically. Check each one and correct anything that's wrong before cleaning.</p>
+
+      <div id="price-warning" class="alert alert--warning" hidden></div>
+
+      <div id="mapping-table" class="mapping-table"></div>
+
+      <div id="mapping-error" class="alert alert--error" hidden></div>
+
+      <div class="info-box">
+        <p>The exported file also fills in a few columns Shopify needs but your supplier's file
+        won't have: <strong>Option1 Name / Value</strong> (set to "Title" / "Default Title" for
+        simple, single-variant products) and <strong>Variant Inventory Tracker / Policy</strong>
+        (set so the stock quantities you map actually get applied). A <strong>Needs Review</strong>
+        column is added at the end to flag rows worth a manual look — Shopify ignores columns it
+        doesn't recognise, so it won't affect the import.</p>
+      </div>
+
+      <div class="step__actions">
+        <button id="back-to-upload" class="btn btn--ghost" type="button">Back</button>
+        <button id="clean-btn" class="btn btn--primary" type="button">Clean catalogue</button>
+      </div>
+    </section>
+
+    <!-- STEP 3: progress -->
+    <section id="step-progress" class="step" hidden>
+      <div class="progress-panel">
+        <p id="progress-label">Reading file…</p>
+        <div class="progress-bar"><div id="progress-fill" class="progress-bar__fill"></div></div>
+      </div>
+    </section>
+
+    <!-- STEP 4: results -->
+    <section id="step-results" class="step" hidden>
+
+      <div id="results-summary" class="results-summary"></div>
+
+      <div class="report-section">
+        <div class="report-section__header">
+          <h2>Flagged for manual review</h2>
+        </div>
+        <p class="step__lead">These rows are included in the export, marked in the "Needs Review" and "Review Notes" columns — nothing is ever silently dropped.</p>
+        <div id="flag-list" class="flag-list"></div>
+      </div>
+
+      <div class="download-panel">
+        <button id="download-btn" class="btn btn--primary" type="button">Download cleaned CSV</button>
+        <p style="margin-top:10px;font-size:13px;color:var(--text-muted)">Ready to import: in your Shopify admin, go to Products → Import.</p>
+        <!-- Ko-fi/Buy Me a Coffee link removed before publishing (was a REPLACE_ME
+             placeholder); add a real one back here if/when there is one. -->
+      </div>
+
+      <div class="step__actions">
+        <button id="start-over-btn" class="btn btn--ghost" type="button">Clean another file</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Built by Sandro Marmelo — no data ever leaves your browser.</p>
+  </footer>
+
+  <script src="./js/vendor/papaparse.min.js"></script>
+  <script src="./js/shopify-fields.js"></script>
+  <script src="./js/duplicates.js"></script>
+  <script src="./js/price.js"></script>
+  <script src="./js/cleaner.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>

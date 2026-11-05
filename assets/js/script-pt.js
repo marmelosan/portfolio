@@ -573,6 +573,17 @@ const projects = [
       src: '../assets/images/flowchart-email-lifecycle.png',
       caption: 'Automação do ciclo de vida de subscritores: confirmação de duplo opt-in, enriquecimento de perfil (geo/idioma), uma auditoria de envolvimento de 14 dias que segmenta subscritores de alta intenção vs. em risco, uma sequência de reengajamento e limpeza automática da lista para proteger a reputação do domínio/remetente.'
     }]
+  },
+  {
+    slug: 'foi-abaixo',
+    title: 'Foi Abaixo — Mapa de Cortes de Água/Luz em Tempo Real',
+    category: 'ai tools',
+    blurb: 'Mapa de cortes de água e eletricidade em todo o país, dirigido por IA de ponta a ponta — sincronização oficial com a E-Redes, camada de confiança da comunidade, e um bug do Consent Mode v2 do GA4/GTM corrigido até ao formato exato do push no dataLayer.',
+    slides: [{
+      type: 'image',
+      src: '../assets/images/foiabaixo-home.png',
+      caption: 'Vista ao vivo: contador de falhas, cortes programados oficiais da E-Redes, e um painel de reportes recentes com selos de proveniência (Confirmado / Oficial E-REDES / Por confirmar) — a camada de confiança que permite aos reportes da comunidade coexistirem com os dados oficiais sem se confundirem. Construído com Next.js e Supabase, dirigido de ponta a ponta com apoio de IA; diagnostiquei e corrigi pessoalmente um bug de perda de dados no GA4 Realtime (array vs. objeto arguments no dataLayer) que nenhuma checklist genérica de analytics apanharia.'
+    }]
   }
 ];
 

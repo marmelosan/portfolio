@@ -341,7 +341,11 @@ main {
   transition: var(--transition-2);
 }
 
-.sidebar.active { max-height: 405px; }
+/* 700px, not 405px: the CTA button + availability chip now live inside
+   this collapsed box too, so content can run past 650px tall (longer PT
+   copy, wrapped chip text) — too little headroom here clips the contact
+   list, email included, at the bottom. */
+.sidebar.active { max-height: 700px; }
 
 .sidebar-info {
   position: relative;
@@ -1658,7 +1662,7 @@ textarea.form-input::-webkit-resizer { display: none; }
     margin-bottom: 30px;
   }
 
-  .sidebar.active { max-height: 584px; }
+  .sidebar.active { max-height: 760px; }
 
   .sidebar-info { gap: 25px; }
 

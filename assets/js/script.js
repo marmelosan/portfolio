@@ -573,6 +573,17 @@ const projects = [
       src: './assets/images/flowchart-email-lifecycle.png',
       caption: 'Subscriber lifecycle automation: double opt-in confirmation, profile enrichment (geo/language), a 14-day engagement audit that segments high-intent vs. at-risk subscribers, a re-engagement sequence, and automated list scrubbing to protect domain/sender reputation.'
     }]
+  },
+  {
+    slug: 'foi-abaixo',
+    title: 'Foi Abaixo — Real-Time Utility Outage Tracker',
+    category: 'ai tools',
+    blurb: 'Portugal-wide water/power outage map, AI-directed end to end — official E-REDES sync, a community trust layer, and a GA4/GTM Consent Mode v2 bug fixed down to the exact dataLayer push format.',
+    slides: [{
+      type: 'image',
+      src: './assets/images/foiabaixo-home.png',
+      caption: 'Live view: outage counter, official E-Redes scheduled cuts, and a recent-reports panel showing provenance badges (Confirmed / Official E-REDES / Pending confirmation) — the trust layer that lets community reports stand next to official data without confusing the two. Built with Next.js and Supabase, directed end to end with AI assistance; I personally diagnosed and fixed a GA4 Realtime data-loss bug (dataLayer array vs. arguments object) that no analytics setup checklist would have caught.'
+    }]
   }
 ];
 

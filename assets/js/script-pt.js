@@ -567,7 +567,7 @@ const projects = [
   {
     slug: 'email-lifecycle-automation',
     title: 'Lógica de Ciclo de Vida & Segmentação de Email',
-    category: 'ai tools',
+    category: 'tracking & analytics',
     blurb: 'Lógica de ciclo de vida de subscritores, desde o opt-in até à segmentação e higiene da lista — concebida para proteger a entregabilidade e maximizar o envolvimento.',
     slides: [{
       type: 'diagram',
@@ -578,7 +578,7 @@ const projects = [
   {
     slug: 'foi-abaixo',
     title: 'Foi Abaixo — Mapa de Cortes de Água/Luz em Tempo Real',
-    category: 'ai tools',
+    category: 'tracking & analytics',
     blurb: 'Mapa de cortes de água e eletricidade em todo o país, dirigido por IA de ponta a ponta — sincronização oficial com a E-Redes, camada de confiança da comunidade, e um bug do Consent Mode v2 do GA4/GTM corrigido até ao formato exato do push no dataLayer.',
     slides: [
       {

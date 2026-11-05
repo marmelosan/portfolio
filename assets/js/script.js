@@ -567,7 +567,7 @@ const projects = [
   {
     slug: 'email-lifecycle-automation',
     title: 'Email Lifecycle & Segmentation Logic',
-    category: 'ai tools',
+    category: 'tracking & analytics',
     blurb: 'Subscriber lifecycle logic from opt-in to segmentation to list hygiene — designed to protect deliverability while maximizing engagement.',
     slides: [{
       type: 'diagram',
@@ -578,7 +578,7 @@ const projects = [
   {
     slug: 'foi-abaixo',
     title: 'Foi Abaixo — Real-Time Utility Outage Tracker',
-    category: 'ai tools',
+    category: 'tracking & analytics',
     blurb: 'Portugal-wide water/power outage map, AI-directed end to end — official E-REDES sync, a community trust layer, and a GA4/GTM Consent Mode v2 bug fixed down to the exact dataLayer push format.',
     slides: [
       {

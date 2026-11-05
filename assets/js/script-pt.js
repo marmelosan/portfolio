@@ -369,6 +369,7 @@ const projects = [
     slides: [
       {
         type: 'image',
+        cover: '../assets/images/gtm-01-triggers-thumb.png',
         src: '../assets/images/gtm-01-triggers.png',
         caption: 'O conjunto completo de acionadores construído no Google Tag Manager: cliques em links, correspondência de page path e condições de click text — cada um mapeado a uma etapa específica da jornada de compra. Usar uma variável para o ID de medição do GA4 ({{GA4 id medição}}) em vez de o fixar no código mantém o contentor portável entre ambientes.'
       },
@@ -579,11 +580,18 @@ const projects = [
     title: 'Foi Abaixo — Mapa de Cortes de Água/Luz em Tempo Real',
     category: 'ai tools',
     blurb: 'Mapa de cortes de água e eletricidade em todo o país, dirigido por IA de ponta a ponta — sincronização oficial com a E-Redes, camada de confiança da comunidade, e um bug do Consent Mode v2 do GA4/GTM corrigido até ao formato exato do push no dataLayer.',
-    slides: [{
-      type: 'image',
-      src: '../assets/images/foiabaixo-home.png',
-      caption: 'Vista ao vivo: contador de falhas, cortes programados oficiais da E-Redes, e um painel de reportes recentes com selos de proveniência (Confirmado / Oficial E-REDES / Por confirmar) — a camada de confiança que permite aos reportes da comunidade coexistirem com os dados oficiais sem se confundirem. Construído com Next.js e Supabase, dirigido de ponta a ponta com apoio de IA; diagnostiquei e corrigi pessoalmente um bug de perda de dados no GA4 Realtime (array vs. objeto arguments no dataLayer) que nenhuma checklist genérica de analytics apanharia.'
-    }]
+    slides: [
+      {
+        type: 'image',
+        src: '../assets/images/foiabaixo-home.png',
+        caption: 'Vista da home: contador de falhas ao vivo e o aviso de cortes programados oficiais da E-Redes, atualizados por uma sincronização agendada. Construído com Next.js e Supabase, dirigido de ponta a ponta com apoio de IA; diagnostiquei e corrigi pessoalmente um bug de perda de dados no GA4 Realtime (array vs. objeto arguments no dataLayer) que nenhuma checklist genérica de analytics apanharia.'
+      },
+      {
+        type: 'image',
+        src: '../assets/images/foiabaixo-reportes.png',
+        caption: 'A camada de confiança em detalhe: ícone de escudo para dados oficiais da E-REDES, selo "Confirmado" assim que um reporte da comunidade recebe uma 2ª confirmação independente, e "Por confirmar" enquanto só tem uma — para os reportes da comunidade coexistirem com os dados oficiais sem nunca se confundirem.'
+      }
+    ]
   }
 ];
 

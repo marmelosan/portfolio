@@ -369,6 +369,7 @@ const projects = [
     slides: [
       {
         type: 'image',
+        cover: './assets/images/gtm-01-triggers-thumb.png',
         src: './assets/images/gtm-01-triggers.png',
         caption: 'The complete trigger set built in Google Tag Manager: link clicks, page-path matches, and click-text conditions — each mapped to a specific stage of the purchase journey. Using a variable for the GA4 measurement ID ({{GA4 id medição}}) instead of hard-coding it keeps the container portable across environments.'
       },
@@ -579,11 +580,18 @@ const projects = [
     title: 'Foi Abaixo — Real-Time Utility Outage Tracker',
     category: 'ai tools',
     blurb: 'Portugal-wide water/power outage map, AI-directed end to end — official E-REDES sync, a community trust layer, and a GA4/GTM Consent Mode v2 bug fixed down to the exact dataLayer push format.',
-    slides: [{
-      type: 'image',
-      src: './assets/images/foiabaixo-home.png',
-      caption: 'Live view: outage counter, official E-Redes scheduled cuts, and a recent-reports panel showing provenance badges (Confirmed / Official E-REDES / Pending confirmation) — the trust layer that lets community reports stand next to official data without confusing the two. Built with Next.js and Supabase, directed end to end with AI assistance; I personally diagnosed and fixed a GA4 Realtime data-loss bug (dataLayer array vs. arguments object) that no analytics setup checklist would have caught.'
-    }]
+    slides: [
+      {
+        type: 'image',
+        src: './assets/images/foiabaixo-home.png',
+        caption: 'Home view: live outage counter and official E-Redes scheduled-cut banner, updated by a scheduled sync job. Built with Next.js and Supabase, directed end to end with AI assistance; I personally diagnosed and fixed a GA4 Realtime data-loss bug (dataLayer array vs. arguments object) that no analytics setup checklist would have caught.'
+      },
+      {
+        type: 'image',
+        src: './assets/images/foiabaixo-reportes.png',
+        caption: 'The trust layer close up: a shield icon for official E-REDES data, "Confirmed" badges once a community report gets a 2nd independent confirmation, and "Pending confirmation" while it only has one — so community reports can sit next to official data without the two ever being confused.'
+      }
+    ]
   }
 ];
 
